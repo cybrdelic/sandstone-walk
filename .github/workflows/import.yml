@@ -1,0 +1,127 @@
+name: Import and verify recovery publication
+on:
+  push:
+    branches: [master]
+    paths: ['.github/workflows/import.yml']
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the two checksum-pinned publication archives
+        env:
+          CODE_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-a164-81f5-b68c-a74ae601b3d0/raw?se=2026-09-17T05%3A01%3A33Z&sp=r&sv=2026-02-06&sr=b&scid=4f59a92b-9962-5d23-82a9-96256a3cb719&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-16T19%3A59%3A22Z&ske=2026-09-17T19%3A59%3A22Z&sks=b&skv=2026-02-06&sig=u8wN0icFvo9g3L/DKnai7ogBUwiG8iIQq7wQ0jg/eDY%3D'
+          ASSET_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-dc7c-81f5-b460-c8ba0c35bd27/raw?se=2026-09-17T05%3A01%3A51Z&sp=r&sv=2026-02-06&sr=b&scid=87d890be-f42a-52c8-b144-df948a6cb841&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T02%3A35%3A59Z&ske=2026-09-18T02%3A35%3A59Z&sks=b&skv=2026-02-06&sig=dpRNqu1AfHhjiDHDPuLcN1XdqnC/e/5jzZ/S12OhpMc%3D'
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 2 --silent --show-error "$CODE_URL" -o "$RUNNER_TEMP/code.zip"
+          curl --fail --location --retry 2 --silent --show-error "$ASSET_URL" -o "$RUNNER_TEMP/assets.zip"
+          echo "04c730df0f1bef97cd94465bd83652088526e0338f1933eb57e289a859231315  $RUNNER_TEMP/code.zip" | sha256sum --check
+          echo "1f842eced57c6ea8c9e8723993e8dc8aa157db4f59e2e711a5864a7d942e982e  $RUNNER_TEMP/assets.zip" | sha256sum --check
+      - name: Extract safely and verify every publication file
+        run: |
+          python - <<'PY'
+          import os,stat,zipfile,hashlib,json
+          from pathlib import Path
+          root=Path.cwd().resolve()
+          for name in ['code.zip','assets.zip']:
+              with zipfile.ZipFile(Path(os.environ['RUNNER_TEMP'])/name) as archive:
+                  for item in archive.infolist():
+                      p=Path(item.filename)
+                      if p.is_absolute() or '..' in p.parts or '.git' in p.parts:
+                          raise SystemExit('Unsafe archive path')
+                      if stat.S_ISLNK(item.external_attr>>16):
+                          raise SystemExit('Archive symlinks are not allowed')
+                      target=(root/p).resolve()
+                      if not target.is_relative_to(root):raise SystemExit('Path escapes repository')
+                  archive.extractall(root)
+          manifest=json.loads((root/'SHA256SUMS.json').read_text())
+          for name,expected in manifest.items():
+              p=(root/name).resolve()
+              if not p.is_relative_to(root):raise SystemExit('Unsafe manifest path')
+              if hashlib.sha256(p.read_bytes()).hexdigest()!=expected:
+                  raise SystemExit('Hash mismatch: '+name)
+          print('Verified',len(manifest),'publication files')
+          PY
+          git diff --exit-code -- .github/workflows/verify.yml .github/workflows/release.yml
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install verification dependencies
+        run: |
+          python -m pip install -r tools/requirements-test.txt
+          python -m playwright install --with-deps chromium
+      - name: Verify the source geometry, shader identity and offline reconstruction
+        run: |
+          python tools/verify.py
+          node --check web/app.js
+          node --check web/bootstrap.js
+          python tools/make_standalone.py
+      - name: Execute the real Three.js viewer in Chromium
+        id: browser
+        continue-on-error: true
+        run: python tools/browser_smoke.py
+      - name: Preserve native and browser verification distinctly
+        run: |
+          mkdir -p evidence/browser_ci
+          cp build/browser/* evidence/browser_ci/
+          cp build/validation.json evidence/ci_geometry_validation.json
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          report=json.loads(Path('build/browser/report.json').read_text())
+          Path('evidence/publication_ci.json').write_text(json.dumps({
+              'source':'GitHub Actions clean runner',
+              'run_id':os.environ['GITHUB_RUN_ID'],
+              'geometry_validation':'PASS',
+              'standalone_reconstruction':'byte-identical to supplied recovery',
+              'browser':report,
+              'media':'Native GLES moving-camera render; not a browser recording'
+          },indent=2)+'\n')
+          PY
+      - name: Commit the full source, baked buffers, README, GIF and evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          names=list(json.loads(Path('SHA256SUMS.json').read_text()))+['SHA256SUMS.json']
+          for name in names:
+              subprocess.run(['git','add','-f','--',name],check=True)
+          subprocess.run(['git','add','-f','--','evidence/browser_ci','evidence/ci_geometry_validation.json','evidence/publication_ci.json'],check=True)
+          PY
+          git diff --cached --exit-code -- .github/workflows/verify.yml .github/workflows/release.yml
+          git commit -m 'Publish Sandstone Walk: exact canyon, native spectral bake, source and genuine camera-loop GIF'
+          git push origin HEAD:master
+          echo "PUBLISHED_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Package public downloads
+        run: |
+          git archive --format=zip HEAD -- . ':!.github/workflows/import.yml' > dist/Sandstone_Walk_Project.zip
+          sha256sum dist/* > dist/SHA256SUMS.txt
+      - name: Publish v0.1.0 downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v0.1.0 --target "$PUBLISHED_COMMIT" --title 'Sandstone Walk 0.1.0' --notes-file docs/RELEASE_NOTES.md
+          gh release upload v0.1.0 dist/Sandstone_Walk_Standalone.html dist/Sandstone_Walk_Project.zip dist/SHA256SUMS.txt
+      - name: Preserve CI report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sandstone-walk-publication-verification
+          path: |
+            build/validation.json
+            build/browser/
+          if-no-files-found: warn
+      - name: Require browser verification for publication qualification
+        if: steps.browser.outcome != 'success'
+        run: |
+          echo 'Source and recovery artifacts are preserved, but browser verification failed; inspect the report before claiming browser qualification.'
+          exit 1
