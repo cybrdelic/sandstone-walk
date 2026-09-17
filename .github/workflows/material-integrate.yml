@@ -5,10 +5,11 @@ on:
     paths: [.github/workflows/material-integrate.yml]
 permissions:
   contents: write
+  actions: read
 jobs:
   material:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '4'
@@ -16,10 +17,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch checksum-pinned material source
         env:
-          SOURCE_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-1aac-81f5-96ca-eab7e7a823ec/raw?se=2026-09-17T17%3A19%3A29Z&sp=r&sv=2026-02-06&sr=b&scid=bea56749-2e7c-5ef3-a7f2-07aac654d590&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T14%3A22%3A16Z&ske=2026-09-18T14%3A22%3A16Z&sks=b&skv=2026-02-06&sig=XJCXF3VYaQPkgIBdLYtja5uleVYSF9jMKGb4oqVH/qI%3D'
+          SOURCE_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-fdc8-81f5-b5a9-8d06934055e1/raw?se=2026-09-17T17%3A31%3A37Z&sp=r&sv=2026-02-06&sr=b&scid=acc5fb9b-0ba3-54b5-b19c-39e4a867d12f&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-16T20%3A19%3A04Z&ske=2026-09-17T20%3A19%3A04Z&sks=b&skv=2026-02-06&sig=8kyEFSoLm3bwuhbW1saPg%2Bz4roav3bavQBfs0X0oyAI%3D'
         run: |
           curl --fail --location --retry 2 --silent --show-error "$SOURCE_URL" -o "$RUNNER_TEMP/material-source.zip"
-          echo "aa79cc9978172c69e482f831354b710ccfac01c05f604082fb95fdd2e294eef5  $RUNNER_TEMP/material-source.zip" | sha256sum --check
+          echo "f16ceb5ee5209666321b3d1c70a9a9c26724426b307f7c5d4de486d93253ed39  $RUNNER_TEMP/material-source.zip" | sha256sum --check
           python - <<'PY'
           import hashlib,json,os,stat,zipfile
           from pathlib import Path
@@ -40,6 +41,30 @@ jobs:
               assert (not p.exists()) if digest is None else sha(p)==digest,name
           print('Source and baseline fingerprints match')
           PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: material-mapping-verification
+          path: build/prior_attempt
+          run-id: 35251677406
+          github-token: ${{ github.token }}
+      - name: Verify and retain the already executed before-material browser captures
+        run: |
+          python - <<'PY'
+          import hashlib,json,shutil
+          from pathlib import Path
+          source=Path('build/prior_attempt/evidence/materials/before_browser')
+          r=json.loads((source/'report.json').read_text())
+          assert r['result']=='PASS' and r['browser_runtime_verified'] and not r['errors']
+          assert len(r['captures'])==10 and r['source_mesh_sha256']=='7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79'
+          for name,sha in r['active_shader_sha256'].items():assert hashlib.sha256((Path('web')/name).read_bytes()).hexdigest()==sha
+          for name,data in r['captures'].items():
+              assert hashlib.sha256((source/(name+'.png')).read_bytes()).hexdigest()==data['sha256']
+              assert data['gl_error']==0 and data['triangles_drawn']==5029800
+          shutil.copytree(source,'evidence/materials/before_browser')
+          Path('evidence/materials/before_capture_provenance.json').write_text(json.dumps({'run_id':35251677406,'artifact_id':10511165592,
+              'note':'Before-material captures executed in the prior run, reused after image and baseline shader hash checks. That run later failed a new test; its baseline rendering itself passed.'},indent=2)+'\n')
+          shutil.copyfile('build/prior_attempt/build/material-field/report.json','evidence/materials/initial_subpixel_test_failure.json')
+          PY
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -50,10 +75,6 @@ jobs:
         run: |
           python -m pip install -r source/requirements-solid.txt -r tools/requirements-test.txt
           python -m playwright install --with-deps chromium
-      - name: Capture the old material before modifying the app or its assets
-        run: |
-          cp "$RUNNER_TEMP/material-stage/tools/test_solid_browser.py" tools/test_solid_browser.py
-          python tools/test_solid_browser.py --materials-baseline --out evidence/materials/before_browser
       - name: Apply only the verified material source
         run: |
           python - <<'PY'
@@ -81,6 +102,23 @@ jobs:
           node --check web/controls.js
           python tools/make_standalone.py
           python tools/make_standalone.py --legacy --out build/Legacy_Recovery.html
+      - name: Preserve completed geometry-verified bake checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: material-generated-checkpoint
+          retention-days: 2
+          path: |
+            web/assets/material-*
+            web/scene.json
+            web/surface.vert.glsl
+            web/surface.frag.glsl
+            web/bootstrap.js
+            verification.json
+            evidence/materials/
+            build/validation.json
+            build/material-field/report.json
+            dist/Sandstone_Walk_Standalone.html
+            dist/Sandstone_Walk_Standalone.json
       - name: Preserve existing desktop and mobile behavior
         run: |
           python tools/browser_smoke.py
@@ -115,7 +153,8 @@ jobs:
               'input_commit':os.environ['GITHUB_SHA'],'source_mesh_sha256':after['source_mesh_sha256'],
               'material_field_sha256':mat['material_field_sha256'],
               'native_spectral_bake_executed_in_this_run':True,'browser_runtime_verified':True,
-              'physical_phone_benchmark':False,'before_after_camera_poses_preserved':True},indent=2)+'\n')
+              'physical_phone_benchmark':False,'before_after_camera_poses_preserved':True,
+              'before_capture_run_id':35251677406},indent=2)+'\n')
           v=json.loads(Path('verification.json').read_text());v['browser_runtime_verified']=True
           Path('verification.json').write_text(json.dumps(v,indent=2)+'\n')
           stage=Path(os.environ['RUNNER_TEMP'])/'material-stage';data=json.loads((stage/'MATERIAL_SOURCE_MANIFEST.json').read_text())
