@@ -152,7 +152,7 @@ jobs:
           Path('SHA256SUMS.json').write_text(json.dumps(result,indent=2)+'\n');subprocess.run(['git','add','SHA256SUMS.json'],check=True)
           PY
           python tools/check_manifest.py
-          git diff --cached --exit-code -- web/assets source/cybr-geo source/solid_geometry.py source/material_field.glsl web/vendor web/controls.js web/controls.css 'web/*.glsl' media/sandstone-walk.gif media/sandstone-walk.mp4 .github
+          git diff --cached --exit-code -- web/assets source/cybr-geo source/solid_geometry.py source/material_field.glsl web/vendor web/controls.js web/controls.css web/surface.vert.glsl web/surface.frag.glsl web/sky.vert.glsl web/sky.frag.glsl media/sandstone-walk.gif media/sandstone-walk.mp4 .github
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Publish verified 4K photographic surfaces, native screen pixels, HDR antialiasing and geometric sun shadows'
