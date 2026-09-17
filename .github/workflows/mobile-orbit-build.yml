@@ -1,0 +1,96 @@
+name: Integrate mobile and orbit navigation
+on:
+  push:
+    branches: [feat/mobile-orbit-controls]
+permissions:
+  contents: write
+jobs:
+  navigation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check controller source fingerprints and integrate
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          expected={'web/controls.js':'2a19b8d408ad24e2e28e56fec6eb56d8d7b7cb25b105de653af552c5e63212ce','web/controls.css':'256d533e2f2eed3b1aec23be17f920fb2fe38b9ae6a393b222f8b2cea1416291','tools/apply_mobile_orbit.py':'1b8e2741acd390a09039e6cc0f1327a1b2e63e1c8ce8985ed6952d8268c16367','tools/mobile_controls_smoke.py':'dd56cdc63a31b5c75ed9b60607772ab179b17d8b02313a7712156f15ecf0e11b'}
+          for p,sha in expected.items():
+              actual=hashlib.sha256(Path(p).read_bytes()).hexdigest()
+              assert actual==sha,(p,actual,sha)
+          PY
+          python tools/apply_mobile_orbit.py
+      - name: Install test dependencies
+        run: |
+          python -m pip install -r tools/requirements-test.txt
+          python -m playwright install --with-deps chromium
+      - name: Check immutable scene and shader buffers
+        run: |
+          git diff --exit-code -- source web/assets web/scene.json web/vendor 'web/*.glsl' media .github
+          python tools/verify.py
+          node --check web/app.js
+          node --check web/controls.js
+          node --check web/bootstrap.js
+          python tools/make_standalone.py
+          python tools/make_standalone.py --legacy --out build/Legacy_Recovery.html
+      - name: Existing full-scene Chromium regression
+        run: python tools/browser_smoke.py
+      - name: Real multi-touch, orbit and landscape regression
+        run: python tools/mobile_controls_smoke.py
+      - name: Commit only the tested integration and evidence
+        env:
+          TESTED_COMMIT: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,shutil,subprocess
+          from pathlib import Path
+          report=json.loads(Path('build/mobile/report.json').read_text())
+          assert report['result']=='PASS' and report['scene_rendering_verified'] and not report['controls_only']
+          assert not report['errors'] and len(report['captures'])==3
+          old=json.loads(Path('build/browser/report.json').read_text())
+          assert old['result']=='PASS' and old['browser_runtime_verified']
+          target=Path('evidence/mobile_controls_ci');target.mkdir(exist_ok=True)
+          for p in Path('build/mobile').iterdir():
+              if p.is_file():shutil.copyfile(p,target/p.name)
+          shutil.copyfile('build/validation.json',target/'geometry.json')
+          shutil.copyfile('build/browser/report.json',target/'desktop_report.json')
+          shutil.copyfile('dist/Sandstone_Walk_Standalone.json',target/'standalone.json')
+          (target/'execution.json').write_text(json.dumps({'tested_source_commit':os.environ['TESTED_COMMIT'],
+              'run_id':os.environ['GITHUB_RUN_ID'],'all_scene_and_lighting_assets_unchanged':True,
+              'verification':'Actual Chromium WebGL2 on a Linux software-GPU runner; touch device emulation, not a physical phone.'},indent=2)+'\n')
+          p=Path('README.md');text=p.read_text()
+          marker='### Mobile and orbit controls\n'
+          assert marker in text
+          text=text.replace(marker,marker+'\n[Mobile controls test](evidence/mobile_controls_ci/report.json) · [Portrait screenshot](evidence/mobile_controls_ci/mobile_walk.png) · [Orbit screenshot](evidence/mobile_controls_ci/mobile_orbit.png) · [Landscape screenshot](evidence/mobile_controls_ci/landscape_orbit.png)\n',1)
+          p.write_text(text)
+          paths=['web/app.js','index.html','tools/make_standalone.py','README.md','package.json','docs/RELEASE_NOTES.md','evidence/mobile_controls_ci']
+          subprocess.run(['git','add','-f','--',*paths],check=True)
+          names=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          checks={name:hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in sorted(names) if name and name not in ['SHA256SUMS.json','.github/workflows/mobile-orbit-build.yml'] and Path(name).is_file()}
+          Path('SHA256SUMS.json').write_text(json.dumps(checks,indent=2)+'\n')
+          subprocess.run(['git','add','SHA256SUMS.json'],check=True)
+          PY
+          python tools/check_manifest.py
+          git diff --cached --exit-code -- source web/assets web/scene.json web/vendor 'web/*.glsl' media .github
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Add verified mobile thumbstick, independent look and full-canyon orbit; preserve geometry and bake'
+          git push origin HEAD:feat/mobile-orbit-controls
+      - name: Upload navigation screenshots and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-orbit-verification
+          path: |
+            build/mobile/
+            build/browser/
+            build/validation.json
+            dist/Sandstone_Walk_Standalone.json
+          if-no-files-found: warn
