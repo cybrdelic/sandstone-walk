@@ -9,7 +9,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,23 +25,28 @@ jobs:
       - name: Check immutable scene buffers and shader identity
         run: |
           python tools/check_manifest.py
+          python tools/build_material_shaders.py
+          git diff --exit-code -- web/bootstrap.js web/surface.vert.glsl web/surface.frag.glsl
           python tools/verify.py
           node --check web/app.js
           node --check web/bootstrap.js
           node --check web/controls.js
           python tools/make_standalone.py
+      - name: Validate shared CPU and GLSL material sampling
+        run: python tools/test_material_field.py
       - name: Run real Three.js browser test
         run: python tools/browser_smoke.py
       - name: Test mobile multi-touch and orbit controls
         run: python tools/mobile_controls_smoke.py
-      - name: Test regenerated geometry from multiple browser cameras
-        run: python tools/test_solid_browser.py --out build/solid_browser
+      - name: Test scene and material from multiple browser cameras
+        run: python tools/test_solid_browser.py --materials --out build/solid_browser
       - name: Preserve validation and browser evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sandstone-walk-verification
           path: |
+            build/material-field/report.json
             build/validation.json
             build/browser/
             build/mobile/
