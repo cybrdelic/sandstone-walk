@@ -1,6 +1,6 @@
 {
   "name": "sandstone-walk",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "An exact-geometry Three.js canyon with native spectral surface-baked lighting.",
   "license": "GPL-2.0-only",

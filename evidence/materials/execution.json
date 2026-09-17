@@ -1,0 +1,59 @@
+{
+  "schema": "sandstone-material-execution/1",
+  "result": "PASS",
+  "commands": [
+    {
+      "stage": "restore_geometry",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/restore_material_geometry.py",
+        "--work",
+        "/home/runner/work/sandstone-walk/sandstone-walk/build/material-work"
+      ],
+      "seconds": 1.6951309580000071
+    },
+    {
+      "stage": "compile_material_bake",
+      "command": [
+        "g++",
+        "-O3",
+        "-std=c++17",
+        "-fopenmp",
+        "-I/home/runner/work/sandstone-walk/sandstone-walk/source/cybr-geo/native",
+        "-DSOLID_TRIANGLE_COUNT=5029800",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/material_bake.cpp",
+        "-o",
+        "/home/runner/work/sandstone-walk/sandstone-walk/build/material-work/material_bake"
+      ],
+      "seconds": 5.941843874
+    },
+    {
+      "stage": "material_bake",
+      "command": [
+        "/home/runner/work/sandstone-walk/sandstone-walk/build/material-work/material_bake",
+        "/home/runner/work/sandstone-walk/sandstone-walk/build/material-work/native_scene/canyon/scene.meshbin",
+        "/home/runner/work/sandstone-walk/sandstone-walk/build/material-work/data/sites.bin",
+        "/home/runner/work/sandstone-walk/sandstone-walk/build/material-work/data/vertices.bin",
+        "/home/runner/work/sandstone-walk/sandstone-walk/build/material-work/material_baked",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/cybr-geo/examples/desert_hot_springs/assets",
+        "256",
+        "4",
+        "10"
+      ],
+      "seconds": 230.25797638
+    },
+    {
+      "stage": "resolve_materials",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/resolve_materials.py",
+        "--work",
+        "/home/runner/work/sandstone-walk/sandstone-walk/build/material-work"
+      ],
+      "seconds": 10.022593428999983
+    }
+  ],
+  "wall_seconds": 248.87355476099998,
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "all_input_hashes_unchanged": true
+}

@@ -11,12 +11,12 @@
     "hemisphere_samples_per_site": 256,
     "maximum_path_depth": 10,
     "sun_samples_per_lit_vertex": 16,
-    "sun_visibility_rays": 23979632,
+    "sun_visibility_rays": 24799936,
     "vertex_count": 2526592,
     "invalid_samples": 0,
     "clamped_contributions": 0,
-    "indirect_seconds_including_bvh": 193.752599,
-    "wall_seconds": 201.6698871,
+    "indirect_seconds_including_bvh": 218.579402,
+    "wall_seconds": 228.27304,
     "solar_rgb": [
       9.370616913,
       7.763448238,
@@ -1777,14 +1777,56 @@
       -0.33,
       0.913
     ],
-    "lighting": "Fresh native 16-band spectral surface bake for this regenerated mesh",
+    "lighting": "Fresh 16-band native bake with the shared material; signed anchor response per vertex, receiving material per fragment",
     "image_projection": false,
     "hand_authored_probes": false,
     "runtime_ambient_lights": 0,
     "static_bake": true,
     "view_dependent_indirect_gloss": false,
     "browser_runtime_verified": false,
-    "terrain_watertight": true
+    "terrain_watertight": true,
+    "material_schema": "world-space-spectral-transfer/1",
+    "material_revision": "Per-fragment isotropic 3D rock and sediment",
+    "receiver_albedo_baked": false,
+    "receiver_micro_normal_baked": false,
+    "geometry_modified_in_material_revision": false,
+    "material_field_sha256": "35a79a60933519d97cf9d148162d2924eeb3a6038f3fce741483a37d54499c8c",
+    "rgb_to_anchors": [
+      [
+        1.204458475112915,
+        -0.3919057846069336,
+        0.18744692206382751
+      ],
+      [
+        -0.027152784168720245,
+        1.1815844774246216,
+        -0.15443164110183716
+      ],
+      [
+        0.020024683326482773,
+        0.06152716279029846,
+        0.9184479713439941
+      ]
+    ],
+    "solar_anchor_response": [
+      [
+        2.4421920776367188,
+        0.03696085885167122,
+        -0.05409049242734909
+      ],
+      [
+        0.873134195804596,
+        2.0769073963165283,
+        -0.1716863214969635
+      ],
+      [
+        -0.33256638050079346,
+        0.3573140501976013,
+        2.154221296310425
+      ]
+    ],
+    "shader_source": "source/material_field.glsl shared by C++ and GLSL",
+    "specular_indirect": "Not represented; retained diffuse incident irradiance approximation"
   },
   "meshes": [
     {
@@ -1802,28 +1844,35 @@
         "sha256": "a6a8347c2ca670b77ce48256f18fe0de49bbea2f29c49cbbb62d1486ef7902c4"
       },
       "normal": {
-        "url": "web/assets/solid-West_outcrop_and_rim.normal.deflate",
-        "bytes": 793055,
+        "url": "web/assets/material-West_outcrop_and_rim.normal.deflate",
+        "bytes": 790179,
         "decodedBytes": 797202,
-        "sha256": "9feb85b95ddadd76f4013bc39bce9e3515c9e0449cdb032b3954ecfdfca91541"
-      },
-      "direct": {
-        "url": "web/assets/solid-West_outcrop_and_rim.direct.deflate",
-        "bytes": 644796,
-        "decodedBytes": 797202,
-        "sha256": "ffa1479fe3e6a4a3a2f9a57c15b664142c233865f3cb94e47aecaf686937fb09"
-      },
-      "indirect": {
-        "url": "web/assets/solid-West_outcrop_and_rim.indirect.deflate",
-        "bytes": 655734,
-        "decodedBytes": 797202,
-        "sha256": "d8df3e92a564c6a2373cc8427bf12b9f1ce3d8c3010435b825c05581344ab006"
+        "sha256": "b71862366ec9935bee5e39a600cdd2666ada9a8f733bc576e9b21a14d69a53d6"
       },
       "surface": {
-        "url": "web/assets/solid-West_outcrop_and_rim.surface.deflate",
-        "bytes": 187252,
+        "url": "web/assets/material-West_outcrop_and_rim.surface.deflate",
+        "bytes": 120919,
         "decodedBytes": 531468,
-        "sha256": "b5413438bab4b46a5acc55d33a773b2fe5a6f3c00ad98c5dd2647a8f9b3b4275"
+        "sha256": "14fac00d87e9a47c521b8ede2702d4ed58439c6a6edd1fe182a646cd1fe4b14f"
+      },
+      "material": 1,
+      "giR": {
+        "url": "web/assets/material-West_outcrop_and_rim.giR.deflate",
+        "bytes": 619840,
+        "decodedBytes": 797202,
+        "sha256": "36c40e3824a046c2d81cbf23c137c2897d0c6c534affceeae06dc3ffb088cacd"
+      },
+      "giG": {
+        "url": "web/assets/material-West_outcrop_and_rim.giG.deflate",
+        "bytes": 605735,
+        "decodedBytes": 797202,
+        "sha256": "b8cfb388be4a6465f14c0adcbf3acc32b2b7dbc874e1bc209d096aff9bdf9dad"
+      },
+      "giB": {
+        "url": "web/assets/material-West_outcrop_and_rim.giB.deflate",
+        "bytes": 565350,
+        "decodedBytes": 797202,
+        "sha256": "cfb4863269a4b4f4d980529ef48876ca2e0737966ca69f58210d553b27fa6001"
       }
     },
     {
@@ -1841,28 +1890,35 @@
         "sha256": "376bc7159b551c3198e88829735fce81643b847ef58fb06890247ec524b6a720"
       },
       "normal": {
-        "url": "web/assets/solid-West_jointed_wall.normal.deflate",
-        "bytes": 3176348,
+        "url": "web/assets/material-West_jointed_wall.normal.deflate",
+        "bytes": 3115554,
         "decodedBytes": 3310902,
-        "sha256": "246a7f88bc83d8217be7a6db3d3c318605196c5ce0d5715b24ffc71908816ff4"
-      },
-      "direct": {
-        "url": "web/assets/solid-West_jointed_wall.direct.deflate",
-        "bytes": 2678374,
-        "decodedBytes": 3310902,
-        "sha256": "5dfbf2b5b588e053890184c7f05f4a0570952b5492143b2377e32a6df268a074"
-      },
-      "indirect": {
-        "url": "web/assets/solid-West_jointed_wall.indirect.deflate",
-        "bytes": 2829034,
-        "decodedBytes": 3310902,
-        "sha256": "65b78ba08c6bec076e2f951ded48f96d8c2e2f083ddfe96e843d69297587d846"
+        "sha256": "98538205f76e0683cbaf3aa7cea774006f8669516b622992582dd3f18cf698cf"
       },
       "surface": {
-        "url": "web/assets/solid-West_jointed_wall.surface.deflate",
-        "bytes": 469191,
+        "url": "web/assets/material-West_jointed_wall.surface.deflate",
+        "bytes": 40495,
         "decodedBytes": 2207268,
-        "sha256": "2278d16d74e55c919754f3703f76e164f199c5fadd9cf53900b6896ef353068d"
+        "sha256": "5ab1631c65a169b43479024315152b550ed6e7dd928094b7a8196ae398cba5fb"
+      },
+      "material": 1,
+      "giR": {
+        "url": "web/assets/material-West_jointed_wall.giR.deflate",
+        "bytes": 2411758,
+        "decodedBytes": 3310902,
+        "sha256": "f30e6d8038cb06f8f6ff664703b48559c6b04fa11ce4c4a34a4ef3523f7b640c"
+      },
+      "giG": {
+        "url": "web/assets/material-West_jointed_wall.giG.deflate",
+        "bytes": 2242947,
+        "decodedBytes": 3310902,
+        "sha256": "f79c82c2504ad51bdd31085a2444390cf15653ef8738ac0a24bf2ae29e5d33af"
+      },
+      "giB": {
+        "url": "web/assets/material-West_jointed_wall.giB.deflate",
+        "bytes": 2256332,
+        "decodedBytes": 3310902,
+        "sha256": "c7c542a35d9a870f35308bdab0543b0f60b33146f548ce38e6421292c7b4a234"
       }
     },
     {
@@ -1880,28 +1936,35 @@
         "sha256": "fa8d12a95271e75ca6181a3b5b561e277cf7acdda4594a9bbcc5c5b85dbdea44"
       },
       "normal": {
-        "url": "web/assets/solid-Connected_alluvial_channel.normal.deflate",
-        "bytes": 1014509,
+        "url": "web/assets/material-Connected_alluvial_channel.normal.deflate",
+        "bytes": 999240,
         "decodedBytes": 1098846,
-        "sha256": "cc0adb3ed6925a7eeb99d70153a96d33000715103d328d031ac9ed9edb18e399"
-      },
-      "direct": {
-        "url": "web/assets/solid-Connected_alluvial_channel.direct.deflate",
-        "bytes": 741655,
-        "decodedBytes": 1098846,
-        "sha256": "2afa5aeae9681555f24b2f84571502c068ebe7a9357cf5ce15273f05b5d85792"
-      },
-      "indirect": {
-        "url": "web/assets/solid-Connected_alluvial_channel.indirect.deflate",
-        "bytes": 896911,
-        "decodedBytes": 1098846,
-        "sha256": "c0d0d7fe2ab4d2af9f1017c9b13b313d6dc0ce86510b72dc00fecc8856935cd1"
+        "sha256": "9bc3c6f0a87667147bf7409145745580f37203c3d8e17d7585e465e614b0995d"
       },
       "surface": {
-        "url": "web/assets/solid-Connected_alluvial_channel.surface.deflate",
-        "bytes": 35634,
+        "url": "web/assets/material-Connected_alluvial_channel.surface.deflate",
+        "bytes": 34737,
         "decodedBytes": 732564,
-        "sha256": "d9b139f39f3cbe76531315148a8b59cf980470c7f124532db2cc3a81ebae2c56"
+        "sha256": "4325ca6499cd97a02e34d39c6666be0d6d7d6bc4d117b078fac9a4262d82727d"
+      },
+      "material": 0,
+      "giR": {
+        "url": "web/assets/material-Connected_alluvial_channel.giR.deflate",
+        "bytes": 845020,
+        "decodedBytes": 1098846,
+        "sha256": "1ae7225537d62e92ddcca3364a3614ddad5b26429b9a169fc49a3d0dd5cefc9b"
+      },
+      "giG": {
+        "url": "web/assets/material-Connected_alluvial_channel.giG.deflate",
+        "bytes": 795747,
+        "decodedBytes": 1098846,
+        "sha256": "7291b9ffc53c660b9c45b916b528e5bc529b0037e427e1087cd87bed906ef39d"
+      },
+      "giB": {
+        "url": "web/assets/material-Connected_alluvial_channel.giB.deflate",
+        "bytes": 785274,
+        "decodedBytes": 1098846,
+        "sha256": "84ed4a31ef56b46462aeb6714b175ef25a50f94e96339ea93afe7015ac4be077"
       }
     },
     {
@@ -1919,28 +1982,35 @@
         "sha256": "93c77947a5f465981fbc0e9bb2ddc3489624d15aeb0e64e39f1b54358a61199d"
       },
       "normal": {
-        "url": "web/assets/solid-East_jointed_wall.normal.deflate",
-        "bytes": 3175160,
+        "url": "web/assets/material-East_jointed_wall.normal.deflate",
+        "bytes": 3118367,
         "decodedBytes": 3310902,
-        "sha256": "b5d8e2cd0fbbae22da155d4faab8fe6bfbf994f4f6f4033d9e34185b4f53e114"
-      },
-      "direct": {
-        "url": "web/assets/solid-East_jointed_wall.direct.deflate",
-        "bytes": 2669274,
-        "decodedBytes": 3310902,
-        "sha256": "133e9c9aba9c9c9f6d73fda3d1a309f3e687e8afdfce3255498513f2c2bbd4b6"
-      },
-      "indirect": {
-        "url": "web/assets/solid-East_jointed_wall.indirect.deflate",
-        "bytes": 2844589,
-        "decodedBytes": 3310902,
-        "sha256": "86b21ae59bb3d0545a24123e43a7ffd166f2f97836aa3e68f0fe35c32ec1e21c"
+        "sha256": "e10ec08c82c7d68324632deb7ca1e68829af4002631500b8a3766b9f8b62ff51"
       },
       "surface": {
-        "url": "web/assets/solid-East_jointed_wall.surface.deflate",
-        "bytes": 627691,
+        "url": "web/assets/material-East_jointed_wall.surface.deflate",
+        "bytes": 119534,
         "decodedBytes": 2207268,
-        "sha256": "f13ded6df0aa36574e1309ce0eaa76f07b7a3e66b9d32ef923defbf979f9cd47"
+        "sha256": "5a683a27616952ffff57409c7cef65aa49de0d6bf2c40c01d87771d0620ac37e"
+      },
+      "material": 1,
+      "giR": {
+        "url": "web/assets/material-East_jointed_wall.giR.deflate",
+        "bytes": 2625253,
+        "decodedBytes": 3310902,
+        "sha256": "a88726e14a21bfcd889a8658d68b8891b6ea3679c044796e8ef28320f8e07754"
+      },
+      "giG": {
+        "url": "web/assets/material-East_jointed_wall.giG.deflate",
+        "bytes": 2508417,
+        "decodedBytes": 3310902,
+        "sha256": "97bccf965f5bc7db11c11e9139ab1e4f7fa4d9bb2ee79e83d4ae4fcddf5b125d"
+      },
+      "giB": {
+        "url": "web/assets/material-East_jointed_wall.giB.deflate",
+        "bytes": 2507440,
+        "decodedBytes": 3310902,
+        "sha256": "2978d6a87abe9ec8b10b8647ff64e81ce01b460a458043d4b7357f87f3533414"
       }
     },
     {
@@ -1958,28 +2028,35 @@
         "sha256": "86b5868f7f0f09b9187f81553cf32d09dd0648a0cbbbb0a822f0270bf030e89d"
       },
       "normal": {
-        "url": "web/assets/solid-East_outcrop_and_rim.normal.deflate",
-        "bytes": 792509,
+        "url": "web/assets/material-East_outcrop_and_rim.normal.deflate",
+        "bytes": 789413,
         "decodedBytes": 797202,
-        "sha256": "f416d4b9b417e2e26e5637e16ffad353d6f8743881185c1ff168794bfad837f0"
-      },
-      "direct": {
-        "url": "web/assets/solid-East_outcrop_and_rim.direct.deflate",
-        "bytes": 646347,
-        "decodedBytes": 797202,
-        "sha256": "1d6e477e65371e90eeaf2c4e55539f56fa2ec2f53b2e374934bead71ca5a9e75"
-      },
-      "indirect": {
-        "url": "web/assets/solid-East_outcrop_and_rim.indirect.deflate",
-        "bytes": 658766,
-        "decodedBytes": 797202,
-        "sha256": "fedf0dc6fc1512203dd72bc018cdfde2e8ba7fe8f116f044631634111de02afc"
+        "sha256": "4a184dbc9a2cad43b3860c1343e6a6c964ff7ba08bccd7651f740df30cba5700"
       },
       "surface": {
-        "url": "web/assets/solid-East_outcrop_and_rim.surface.deflate",
-        "bytes": 189596,
+        "url": "web/assets/material-East_outcrop_and_rim.surface.deflate",
+        "bytes": 116834,
         "decodedBytes": 531468,
-        "sha256": "893f9f9a291a9d5e22d62101f31ef6228d4d5c52739916405738e8a2c44f4f45"
+        "sha256": "35a91f25139276d6c18baf4a82fd3c796a07b1dbad3e095f33fdce839c276c17"
+      },
+      "material": 1,
+      "giR": {
+        "url": "web/assets/material-East_outcrop_and_rim.giR.deflate",
+        "bytes": 629308,
+        "decodedBytes": 797202,
+        "sha256": "2c0baa67c8425f8f49f31b08bfb94df3b46fe803c687af1bd0d4ce1734098ea0"
+      },
+      "giG": {
+        "url": "web/assets/material-East_outcrop_and_rim.giG.deflate",
+        "bytes": 617661,
+        "decodedBytes": 797202,
+        "sha256": "99784458ad4dbe37491bbc8dad69c458e85bab1c7c07eccbd0e32711ae1ae1ea"
+      },
+      "giB": {
+        "url": "web/assets/material-East_outcrop_and_rim.giB.deflate",
+        "bytes": 586840,
+        "decodedBytes": 797202,
+        "sha256": "128ce030fedc5501c31b181870f293322559b4db45884ea7ccb60b396d027788"
       }
     },
     {
@@ -2000,28 +2077,35 @@
         "sha256": "3b47b75469141f0e3197063ca300373ac35979a5bbdd29bcee120c9ba820ed0b"
       },
       "normal": {
-        "url": "web/assets/solid-Closed_terrain_base.normal.deflate",
-        "bytes": 42174,
+        "url": "web/assets/material-Closed_terrain_base.normal.deflate",
+        "bytes": 24184,
         "decodedBytes": 44220,
-        "sha256": "a3c3ba58597d2014671ca3bb08baf69742725e9ae051e3b028de7e8d15525ca3"
-      },
-      "direct": {
-        "url": "web/assets/solid-Closed_terrain_base.direct.deflate",
-        "bytes": 33742,
-        "decodedBytes": 44220,
-        "sha256": "46bdcf325da274c6b4b9707ff63edc0855bf86673278f5ab0b2f901bc22ff477"
-      },
-      "indirect": {
-        "url": "web/assets/solid-Closed_terrain_base.indirect.deflate",
-        "bytes": 35905,
-        "decodedBytes": 44220,
-        "sha256": "bff0669e94636463e5f1165925b3a08f8ead01b621b88b339ec786b7410939d2"
+        "sha256": "19bf506a0403c0e7e61d5ec074c9a8c4477990d19dba9b8d8906e8d005d3c081"
       },
       "surface": {
-        "url": "web/assets/solid-Closed_terrain_base.surface.deflate",
-        "bytes": 1914,
+        "url": "web/assets/material-Closed_terrain_base.surface.deflate",
+        "bytes": 2013,
         "decodedBytes": 29480,
-        "sha256": "ea92646c5757428540e554faeda2a63a38d0f9bc9dbef2a81bffeba05e6638d1"
+        "sha256": "43c038dc0fb9306bd118522a1ca09e49b2f79f28b2eaf00108ece3886e2c22af"
+      },
+      "material": 16,
+      "giR": {
+        "url": "web/assets/material-Closed_terrain_base.giR.deflate",
+        "bytes": 29449,
+        "decodedBytes": 44220,
+        "sha256": "44879c47c17e29591b250e59dfe62f106606707b49f7b2d0e188667543466abc"
+      },
+      "giG": {
+        "url": "web/assets/material-Closed_terrain_base.giG.deflate",
+        "bytes": 28040,
+        "decodedBytes": 44220,
+        "sha256": "6a6abedfa4567ed7f9cb6bc448e6b38e4bc10ad3836fc9630dcdf2c684f3b888"
+      },
+      "giB": {
+        "url": "web/assets/material-Closed_terrain_base.giB.deflate",
+        "bytes": 26988,
+        "decodedBytes": 44220,
+        "sha256": "52abddad1cce22f7a1eb1004d65a2548de74c4a11fa7420c829fa752875a5b6b"
       }
     },
     {
@@ -2042,28 +2126,35 @@
         "sha256": "8c888233dcde63e1c47e3ac98bc9ff0ee00c1f4bdc56a7fac371a070e607ae37"
       },
       "normal": {
-        "url": "web/assets/solid-Joint_cut_talus.normal.deflate",
-        "bytes": 4733952,
+        "url": "web/assets/material-Joint_cut_talus.normal.deflate",
+        "bytes": 4731503,
         "decodedBytes": 4733994,
-        "sha256": "b2d5da3064ea29e55d2cc01d532f5bf288f3da780c6e39df1cb9a81093d18e97"
-      },
-      "direct": {
-        "url": "web/assets/solid-Joint_cut_talus.direct.deflate",
-        "bytes": 3460792,
-        "decodedBytes": 4733994,
-        "sha256": "79e92879dc758dbf59bec3551ea3c3b62e1a156565f69a82053f68a186c16a60"
-      },
-      "indirect": {
-        "url": "web/assets/solid-Joint_cut_talus.indirect.deflate",
-        "bytes": 3396341,
-        "decodedBytes": 4733994,
-        "sha256": "bc598cdd47de53fd00af09745ca61f4f75a7b8b3d441af486f1271b078cb9684"
+        "sha256": "4ba678af24c85a3f2abd3051fdd5213a65580af4d3bad50deb07c328948d1ec2"
       },
       "surface": {
-        "url": "web/assets/solid-Joint_cut_talus.surface.deflate",
-        "bytes": 103175,
+        "url": "web/assets/material-Joint_cut_talus.surface.deflate",
+        "bytes": 104545,
         "decodedBytes": 3155996,
-        "sha256": "994f09ee2fb74ac76c8a308f128d7469381dab11c703bd2bd7090269755dc75e"
+        "sha256": "f2833f04be2c593f01e034093b40dde063e12fcada9ceeba8399b2435306184b"
+      },
+      "material": 2,
+      "giR": {
+        "url": "web/assets/material-Joint_cut_talus.giR.deflate",
+        "bytes": 3461046,
+        "decodedBytes": 4733994,
+        "sha256": "59db025fc950cbe28f3bfc1b155ae96d508dc46174c64f4d51f45ddd4634b7ee"
+      },
+      "giG": {
+        "url": "web/assets/material-Joint_cut_talus.giG.deflate",
+        "bytes": 3496533,
+        "decodedBytes": 4733994,
+        "sha256": "889c89023870082634261094a6f4098134fcebf5f61a3989cf0108f8c371a2b0"
+      },
+      "giB": {
+        "url": "web/assets/material-Joint_cut_talus.giB.deflate",
+        "bytes": 3479195,
+        "decodedBytes": 4733994,
+        "sha256": "3e345e07f101a14d0054494d250795f1940896f7e371a35ee16f6ef20f40a466"
       }
     },
     {
@@ -2084,28 +2175,35 @@
         "sha256": "d87c05bb5bb76bdfd9149f752e0be531c121ab0110be2f1ccdf1b1afbbcd713a"
       },
       "normal": {
-        "url": "web/assets/solid-Channel_lag_gravel.normal.deflate",
+        "url": "web/assets/material-Channel_lag_gravel.normal.deflate",
         "bytes": 857863,
         "decodedBytes": 857592,
-        "sha256": "eeb820cd6110fb6367b78620084b2af2298ec0ab8d572dc3787179fd180fd9a3"
-      },
-      "direct": {
-        "url": "web/assets/solid-Channel_lag_gravel.direct.deflate",
-        "bytes": 640576,
-        "decodedBytes": 857592,
-        "sha256": "bc612351fdf8463efcb35a97eb6a0daa2cf49562d1ae2d2e36bef009b8a4da53"
-      },
-      "indirect": {
-        "url": "web/assets/solid-Channel_lag_gravel.indirect.deflate",
-        "bytes": 740804,
-        "decodedBytes": 857592,
-        "sha256": "66f7d6dd2a8d4a96bf0829d6afda9bb6afeaf2d03f1681f79e2c87a36b260a45"
+        "sha256": "badcb1bdd8e1f67779e06d3b84b7db75e44bfb0d21a9d9ed570dcf2e4536e7f8"
       },
       "surface": {
-        "url": "web/assets/solid-Channel_lag_gravel.surface.deflate",
-        "bytes": 29681,
+        "url": "web/assets/material-Channel_lag_gravel.surface.deflate",
+        "bytes": 29942,
         "decodedBytes": 571728,
-        "sha256": "b338997de8519b709de23c44d603afdb5cd21bd63ff05017f84e7ccddb740f6d"
+        "sha256": "6e3d7eaac33aa2aea9a18088c7034ac3e6b866ed944d03a80b3305a78d0ccea2"
+      },
+      "material": 2,
+      "giR": {
+        "url": "web/assets/material-Channel_lag_gravel.giR.deflate",
+        "bytes": 764145,
+        "decodedBytes": 857592,
+        "sha256": "20ba66610a38c51d8fec4d6dffbfee0cff203d33a411c99d78b8c9c0f01c6870"
+      },
+      "giG": {
+        "url": "web/assets/material-Channel_lag_gravel.giG.deflate",
+        "bytes": 754690,
+        "decodedBytes": 857592,
+        "sha256": "dfdbdcf038d3a8ba0fd575aea4739e240b4b1b576fb6e401192faa412fe05776"
+      },
+      "giB": {
+        "url": "web/assets/material-Channel_lag_gravel.giB.deflate",
+        "bytes": 756894,
+        "decodedBytes": 857592,
+        "sha256": "71fd069fe61c821c098e23dc1601e5eeac8c6427f7df265afc2c2fdf22d7293c"
       }
     },
     {
@@ -2126,28 +2224,35 @@
         "sha256": "a5a7ab17b9054841ca0395bdb8f97eef1bfe905afe44bb0add5409bfc5276d43"
       },
       "normal": {
-        "url": "web/assets/solid-Detached_joint_blocks.normal.deflate",
-        "bytes": 208397,
+        "url": "web/assets/material-Detached_joint_blocks.normal.deflate",
+        "bytes": 208166,
         "decodedBytes": 208692,
-        "sha256": "ec3d92c17721201c34a0238819429b98ae2a185a5cf0c6c057de48a24f3b4d79"
-      },
-      "direct": {
-        "url": "web/assets/solid-Detached_joint_blocks.direct.deflate",
-        "bytes": 155918,
-        "decodedBytes": 208692,
-        "sha256": "c34f98d7815d7ad9e3bc07ec6c662fde0365c5c0ffc206a92a347fac4d38f253"
-      },
-      "indirect": {
-        "url": "web/assets/solid-Detached_joint_blocks.indirect.deflate",
-        "bytes": 165630,
-        "decodedBytes": 208692,
-        "sha256": "6929be6d099c142071eb11d750f8217b0cccb5ffeb24580bbd833e7c4673cb9b"
+        "sha256": "481346f0df663d902b41e514f0c91a6cbee6c5838aab0f0ce380886ab740d1a6"
       },
       "surface": {
-        "url": "web/assets/solid-Detached_joint_blocks.surface.deflate",
-        "bytes": 13448,
+        "url": "web/assets/material-Detached_joint_blocks.surface.deflate",
+        "bytes": 8811,
         "decodedBytes": 139128,
-        "sha256": "ee49f57f4f374e4970c00208431dbf9bc04e5b05fc7cefad0ce68d97409de4d5"
+        "sha256": "97ede72a673357ef7b9ff33eb1c8cae68ed073f8e19c35bacbb5b80e6bcc8de4"
+      },
+      "material": 16,
+      "giR": {
+        "url": "web/assets/material-Detached_joint_blocks.giR.deflate",
+        "bytes": 169076,
+        "decodedBytes": 208692,
+        "sha256": "75f709f0eaafb15858babcb751f89424764bb62655637ef433dc93098e50477b"
+      },
+      "giG": {
+        "url": "web/assets/material-Detached_joint_blocks.giG.deflate",
+        "bytes": 165521,
+        "decodedBytes": 208692,
+        "sha256": "d14d16abce72dadf9a8257581770befafe9151b6311f89031323475d43bf5de7"
+      },
+      "giB": {
+        "url": "web/assets/material-Detached_joint_blocks.giB.deflate",
+        "bytes": 164821,
+        "decodedBytes": 208692,
+        "sha256": "0701f740de7abe251643b66b6921a23086b883530f58426002bcfb3ddc48524b"
       }
     }
   ],

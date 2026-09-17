@@ -1,0 +1,67 @@
+{
+  "browser_runtime_verified": true,
+  "errors": [],
+  "source": "actual Chromium / Three.js WebGL2 execution",
+  "capture_method": "canvas PNG immediately after actual draw; no native-render substitution",
+  "started": 1789666939.9467006,
+  "captures": {
+    "hero": {
+      "sha256": "8c2edd52a6995fe7a1a2776ecd39768094ace1ddd1686e8d2c58e288116c591e",
+      "bytes": 1380012,
+      "size": [
+        1200,
+        800
+      ],
+      "luminance_stddev": 52.164401194143274,
+      "gl_error": 0,
+      "drawn_triangles": 5029800
+    },
+    "forward": {
+      "sha256": "60ad7267544e967abe4c940de9938f659c7b5686c3f52570bd3612e9d6ef7b94",
+      "bytes": 1390964,
+      "size": [
+        1200,
+        800
+      ],
+      "luminance_stddev": 53.923887226601266,
+      "gl_error": 0,
+      "drawn_triangles": 5029800
+    },
+    "indirect": {
+      "sha256": "e86f53b93a38131e82336f3ed12dca5a0a595f16abb3a709f285265eb7db9951",
+      "bytes": 1156164,
+      "size": [
+        1200,
+        800
+      ],
+      "luminance_stddev": 16.161742284687296,
+      "gl_error": 0,
+      "drawn_triangles": 5029800
+    }
+  },
+  "geometry": {
+    "triangles": 5029800,
+    "vertices": 2526592,
+    "programs": 2
+  },
+  "controls": {
+    "keyboard_movement": true,
+    "lighting_mode": true,
+    "reference_reset": true,
+    "pose_change": true
+  },
+  "keyboard_positions": {
+    "before": [
+      -0.42,
+      -5.8,
+      1.56
+    ],
+    "after": [
+      -0.4160470352933679,
+      -5.6918135975026996,
+      1.56
+    ]
+  },
+  "result": "PASS",
+  "wall_seconds": 217.12119388580322
+}

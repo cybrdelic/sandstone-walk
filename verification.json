@@ -85,12 +85,12 @@
     "hemisphere_samples_per_site": 256,
     "maximum_path_depth": 10,
     "sun_samples_per_lit_vertex": 16,
-    "sun_visibility_rays": 23979632,
+    "sun_visibility_rays": 24799936,
     "vertex_count": 2526592,
     "invalid_samples": 0,
     "clamped_contributions": 0,
-    "indirect_seconds_including_bvh": 193.752599,
-    "wall_seconds": 201.6698871,
+    "indirect_seconds_including_bvh": 218.579402,
+    "wall_seconds": 228.27304,
     "solar_rgb": [
       9.370616913,
       7.763448238,
@@ -1851,14 +1851,56 @@
       -0.33,
       0.913
     ],
-    "lighting": "Fresh native 16-band spectral surface bake for this regenerated mesh",
+    "lighting": "Fresh 16-band native bake with the shared material; signed anchor response per vertex, receiving material per fragment",
     "image_projection": false,
     "hand_authored_probes": false,
     "runtime_ambient_lights": 0,
     "static_bake": true,
     "view_dependent_indirect_gloss": false,
     "browser_runtime_verified": false,
-    "terrain_watertight": true
+    "terrain_watertight": true,
+    "material_schema": "world-space-spectral-transfer/1",
+    "material_revision": "Per-fragment isotropic 3D rock and sediment",
+    "receiver_albedo_baked": false,
+    "receiver_micro_normal_baked": false,
+    "geometry_modified_in_material_revision": false,
+    "material_field_sha256": "35a79a60933519d97cf9d148162d2924eeb3a6038f3fce741483a37d54499c8c",
+    "rgb_to_anchors": [
+      [
+        1.204458475112915,
+        -0.3919057846069336,
+        0.18744692206382751
+      ],
+      [
+        -0.027152784168720245,
+        1.1815844774246216,
+        -0.15443164110183716
+      ],
+      [
+        0.020024683326482773,
+        0.06152716279029846,
+        0.9184479713439941
+      ]
+    ],
+    "solar_anchor_response": [
+      [
+        2.4421920776367188,
+        0.03696085885167122,
+        -0.05409049242734909
+      ],
+      [
+        0.873134195804596,
+        2.0769073963165283,
+        -0.1716863214969635
+      ],
+      [
+        -0.33256638050079346,
+        0.3573140501976013,
+        2.154221296310425
+      ]
+    ],
+    "shader_source": "source/material_field.glsl shared by C++ and GLSL",
+    "specular_indirect": "Not represented; retained diffuse incident irradiance approximation"
   },
   "terrain_topology": {
     "vertices": 1550115,
@@ -1869,10 +1911,9 @@
     "connected_components": 1
   },
   "controls_sha256": "5fe57ff35a14ee4361ef6d4d52285d3244fba6f3dee69a241ed3f13f42779f9f",
-  "standalone_sha256": "281fb87a2bd3fed30d55b8d6cd16ad3dedcf16b2b5ef93e07d0538eb99fd443d",
-  "standalone_bytes": 92237559,
   "browser_runtime_verified": true,
   "browser_verification": "evidence/browser/report.json",
   "shipped_geometry_validation": "evidence/solid_validation.json",
-  "legacy_assets_preserved": true
+  "legacy_assets_preserved": true,
+  "material_revision": "world-space-spectral-transfer/1"
 }

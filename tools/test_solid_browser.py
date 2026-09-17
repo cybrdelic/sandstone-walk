@@ -8,17 +8,17 @@ from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 HOOK=r'''(()=>{
 const raf=requestAnimationFrame.bind(window);const s={paused:false,pending:null,arm:0,ready:0,png:null,error:null};window.__cap=s;
-window.requestAnimationFrame=cb=>{if(cb.name!=='frame')return raf(cb);return raf(t=>{if(s.paused){s.pending=cb;return;}cb(t);if(s.arm){try{s.png=document.querySelector('canvas').toDataURL('image/png')}catch(e){s.error=String(e)}s.ready=s.arm;s.arm=0;s.paused=true;}})};
+window.requestAnimationFrame=cb=>{if(cb.name!=='frame')return raf(cb);return setTimeout(()=>raf(t=>{if(s.paused){s.pending=cb;return;}cb(t);window.CYBR_RECOVERY?.renderer.getContext().finish();if(s.arm){try{s.png=document.querySelector('canvas').toDataURL('image/png')}catch(e){s.error=String(e)}s.ready=s.arm;s.arm=0;s.paused=true;}}),120)};
 window.__resume=()=>{s.paused=false;if(s.pending){const cb=s.pending;s.pending=null;requestAnimationFrame(cb)}};
 })();'''
 
 def dist(a,b):return math.sqrt(sum((x-y)**2 for x,y in zip(a,b)))
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--standalone',action='store_true',help='Execute the offline document via set_content without URL navigation');ap.add_argument('--out',type=Path,default=ROOT/'evidence/browser');args=ap.parse_args();args.out.mkdir(parents=True,exist_ok=True)
+    ap=argparse.ArgumentParser();ap.add_argument('--materials-baseline',action='store_true',help='Capture the old material before changing the application');ap.add_argument('--materials',action='store_true',help='Add surface material close-ups and mapping diagnostics');ap.add_argument('--standalone',action='store_true',help='Execute the offline document via set_content without URL navigation');ap.add_argument('--out',type=Path,default=ROOT/'evidence/browser');args=ap.parse_args();args.out.mkdir(parents=True,exist_ok=True)
     expected=json.loads((ROOT/'verification.json').read_text())['scene']
     handler=functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(ROOT));httpd=http.server.ThreadingHTTPServer(('127.0.0.1',0),handler)
     threading.Thread(target=httpd.serve_forever,daemon=True).start()
-    report={'result':'FAIL','browser_runtime_verified':False,'errors':[],'checks':[],'captures':{},'source_mesh_sha256':expected['source_mesh_sha256']}
+    report={'software_gpu_frame_sync':'Test-only gl.finish after actual frame plus 120ms pacing; scene, input and shaders unchanged. Not a frame-rate benchmark.','result':'FAIL','browser_runtime_verified':False,'errors':[],'checks':[],'captures':{},'source_mesh_sha256':expected['source_mesh_sha256']}
     start=time.monotonic()
     try:
       with sync_playwright() as p:
@@ -54,12 +54,31 @@ def main():
             page.evaluate('__resume()')
         totals=page.evaluate('({triangles:CYBR_RECOVERY.geometry.reduce((a,g)=>a+g.index.count/3,0),vertices:CYBR_RECOVERY.geometry.reduce((a,g)=>a+g.attributes.position.count,0),programs:CYBR_RECOVERY.renderer.info.programs.length,hash:CYBR_RECOVERY.meta.source_mesh_sha256})')
         report['geometry']=totals
+        report['active_shader_sha256']={name:hashlib.sha256((ROOT/'web'/name).read_bytes()).hexdigest() for name in ['surface.vert.glsl','surface.frag.glsl']}
         check('Every regenerated triangle and vertex loaded',totals['triangles']==expected['triangles'] and totals['vertices']==expected['vertex_count'])
         check('Correct fresh bake identity',totals['hash']==expected['source_mesh_sha256'])
         check('Surface and sky shader programs linked',totals['programs']==2)
         capture('hero')
         page.evaluate('CYBR_RECOVERY.setPose([.25,4.8,1.6],[1.2,16,2.6])');capture('forward')
         page.evaluate('CYBR_RECOVERY.setPose([.6,9,1.75],[-.3,-4,2.6])');capture('reverse')
+        if args.materials or args.materials_baseline:
+            meta=page.evaluate('CYBR_RECOVERY.meta')
+            report['material_baseline']=args.materials_baseline
+            if not args.materials_baseline:
+                check('Correct world material schema',meta['material_schema']=='world-space-spectral-transfer/1')
+                check('Fresh bake of the delivered material',meta['material_field_sha256']==hashlib.sha256((ROOT/'source/material_field.glsl').read_bytes()).hexdigest())
+                check('Receiver color and bump not baked',not meta['receiver_albedo_baked'] and not meta['receiver_micro_normal_baked'])
+                report['material_field_sha256']=meta['material_field_sha256']
+            for name,eye,target in [
+                ('left_close',[-.70,-2.8,1.9],[-2.65,-1.,2.10]),
+                ('right_close',[.70,5.0,1.8],[3.15,6.8,2.15]),
+                ('ground',[.1,-2,1.20],[.3,-.55,-.1]),
+                ('talus',[-.75,-2.4,.95],[-2.,-1.0,.24])]:
+                page.evaluate('p=>CYBR_RECOVERY.setPose(p[0],p[1])',[eye,target])
+                for mode,label in ([(0,'beauty')] if args.materials_baseline else [(0,'beauty'),(5,'albedo'),(6,'world_checker')]):
+                    page.evaluate('CYBR_RECOVERY.setMode('+str(mode)+')');capture(name+'_'+label)
+            page.evaluate('CYBR_RECOVERY.setMode(0)')
+
         page.evaluate('CYBR_RECOVERY.setNavigationMode("orbit")');capture('orbit')
         check('Orbit is a different actual camera',dist(report['captures']['hero']['camera']['eye'],snap()['eye'])>10)
         check('No image projection',not page.evaluate('CYBR_RECOVERY.meta.image_projection'))

@@ -1,0 +1,126 @@
+{
+  "schema": "sandstone-material-bake-inputs/1",
+  "capture_phase": "before_native_bake",
+  "files": {
+    "scene.meshbin": {
+      "sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+      "bytes": 402384004
+    },
+    "sites.bin": {
+      "sha256": "1aa5964e713c0cb619163d552ef9473a0502e59d39240c2d25a67fe4da67d1a1",
+      "bytes": 6387816
+    },
+    "vertices.bin": {
+      "sha256": "378222af21bf2e5c8ad5bda03a272edf1a3904251236876b8dbb74e097484b65",
+      "bytes": 70744584
+    },
+    "material_bake": {
+      "sha256": "4195ee81c9e75acdfb939911df06dba141ab17be66df0eb41e896cda2ef40cea",
+      "bytes": 289384
+    },
+    "material_field.glsl": {
+      "sha256": "35a79a60933519d97cf9d148162d2924eeb3a6038f3fce741483a37d54499c8c",
+      "bytes": 4661
+    },
+    "material_native.h": {
+      "sha256": "350a85cc395ad623adde69beb5befed284d67a9bddcd1d75fb4146923e2b744f",
+      "bytes": 612
+    },
+    "material_bake.cpp": {
+      "sha256": "30dc9442efc308e4b8181ed641a9b6bf2b2757c150189a54fedf8099c58f777a",
+      "bytes": 8639
+    },
+    "transport_bake.cpp": {
+      "sha256": "73767379359740b8b90b44b8840fd043ba9eafd6c45afdae364db28fc016b54c",
+      "bytes": 48570
+    },
+    "native/broadband_ripples.h": {
+      "sha256": "a2e6ff74d86465dd0c8ec4383837ed386048b10cae60e4ae1212b0379a80b3e9",
+      "bytes": 12642
+    },
+    "native/cloud_volume_v9.h": {
+      "sha256": "902a13e50bb3568b9d341c465da8120a6090904eb57ce9076d4926b3dfe0d41d",
+      "bytes": 5962
+    },
+    "native/specular_reflection_connection.h": {
+      "sha256": "81fb854b71034eae75341bd4181f81c29af444ccd834fd3936d467499aa8843a",
+      "bytes": 3080
+    },
+    "native/scene_haze.h": {
+      "sha256": "688951c023d19b769d6b582fdd24b6ecbbda202a3f535729467ef5355114d293",
+      "bytes": 1873
+    },
+    "native/granular_relief_v11.h": {
+      "sha256": "fea473b22dd5f757ebdace0dd4ee11c9df81baabcca7f843e5b3e5c4f863cdff",
+      "bytes": 2254
+    },
+    "native/photographic_grain.h": {
+      "sha256": "028a4c1838b69bacba30b231304f951a33b3e0489b811e1aa52237533c16cb26",
+      "bytes": 2300
+    },
+    "native/scene_ripples.h": {
+      "sha256": "0a7f40c4d0c89ae9e950db9df093e6dc4322ff64f5109fdef99391cda795ab80",
+      "bytes": 23237
+    },
+    "native/steam_volume_v11.h": {
+      "sha256": "3bf883ab0f914c2bffcf9fb1ea7e80bee3966be32a423d72ae0e4556e6d9019e",
+      "bytes": 2057
+    },
+    "native/single_scatter_sky.h": {
+      "sha256": "fc5ed71d2256edd45eed9ceb6c54519808cbddce16d2df74bfb794c023f3f781",
+      "bytes": 3388
+    },
+    "native/landscape_materials_v11.h": {
+      "sha256": "f6f4249369d2ef92892f0e0e28c3af6204342fff7a208dd0dcf4247eeaa65374",
+      "bytes": 6105
+    },
+    "native/formation_materials_r4.h": {
+      "sha256": "7b00dd1bbb19db55f4695883c958a88f67e1b587ff81319cdb8bfd192a7c1891",
+      "bytes": 8255
+    },
+    "native/scale_aware_landscape.h": {
+      "sha256": "2b2c5731cf3af28722a579eb5adb13f998e5bc3c3cd4c102858dd175107748cd",
+      "bytes": 5276
+    },
+    "native/scene_reflection_connection.h": {
+      "sha256": "1cad036ece13c18ece0b69947c93f1aef4dd822b34341f3ae2a6a5416a1e23a4",
+      "bytes": 3888
+    },
+    "native/scale_aware_landscape_v10.h": {
+      "sha256": "7d8a4052bd63751cba17674ac42061ad5905086304d6316714bfb6b950583e7f",
+      "bytes": 7215
+    },
+    "native/ground_occlusion_r4.h": {
+      "sha256": "993123d6b0c3664778aeee5c0a128fa3313e940ba787394cac8f01c91c1133ae",
+      "bytes": 4684
+    },
+    "native/scale_aware_landscape_v9.h": {
+      "sha256": "b55dbfc75b05133c9cdbb036cd74c76d54479412ff8f511dbcdace668f503929",
+      "bytes": 6828
+    },
+    "native/spectral_geometry.h": {
+      "sha256": "9cd2391f75d4c645bd8aa0c5f66c98f99a6295c4a47483bdbc75e8d6a2a4a9a9",
+      "bytes": 6281
+    },
+    "native/thin_leaf_r4.h": {
+      "sha256": "e3333c4ffd31b8a9a935b67dca20325e523b1a1df86e920659218235c4259c90",
+      "bytes": 2820
+    },
+    "native/formation_materials_r2.h": {
+      "sha256": "466aca00e0bd95679699f70df4631a0c062a5d71e8e2763c08c5d15c9fb391c8",
+      "bytes": 8453
+    },
+    "native/bvh8_recovery.h": {
+      "sha256": "e5ab520642bb859059a9ceed783f9b833b35431b4851890874f3d04c7d19f4f9",
+      "bytes": 3796
+    },
+    "native/three_scene_materials.h": {
+      "sha256": "8fc646c16c44c52d87ff2905d14d21604c3bee5ecf0ae1bccf86225ad26f2de5",
+      "bytes": 4513
+    },
+    "native/exponential_haze_v10.h": {
+      "sha256": "24ff02f86ef488faaacc7b1e0648c5c320f7349c5c4e07c9d3efa340af3e08c4",
+      "bytes": 1712
+    }
+  }
+}

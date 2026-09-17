@@ -297,7 +297,19 @@ float smooth(float a,float b,float x){float t=clamp((x-a)/(b-a));return t*t*(3-2
 // All coordinates are metres; tiny grains are footprint filtered.
 // Correlated position/elevation driven mixtures. The retained CC0 grayscale
 // photograph is only a weak albedo modulation, never a backdrop or a render.
+#ifdef CYBR_MATERIAL_FIELD_V1
+#define shade cybrLegacyFormationShade
 #include "formation_materials_r4.h"
+#undef shade
+#include "material_native.h"
+Surface shade(V p,V &n,int id,float footprint){
+ if(sceneStyle!=0)return cybrLegacyFormationShade(p,n,id,footprint);
+ auto field=sw::swMaterial(p,n,id,footprint);
+ Surface s;s.kind=id;s.color=field.color;s.rough=field.rough;s.ior=1.49f;n=field.normal;return s;
+}
+#else
+#include "formation_materials_r4.h"
+#endif
 
 // A numerical Snell-law connection to the displaced water heightfield.
 // The finite-difference solid-angle Jacobian includes local wave focusing.

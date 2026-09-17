@@ -1,7 +1,7 @@
-# Sandstone Walk 0.3.0 — Closed landform
+# Sandstone Walk 0.4.0 — World-space materials
 
-Replaces the thin wall/backdrop stage with a joined, closed terrain volume, irregular rims, exterior outcrops, a real canyon bend and rough joint-cut rocks. The changed scene is freshly baked through the native 16-band spectral pipeline. The active mesh contains 5,029,800 triangles and 2,526,592 vertices.
+Fix elongated per-vertex color/bump interpolation and anisotropic weathering coordinates. Replace them with a shared, per-fragment metre-scaled 3D material field, analytic micro-normal gradients and footprint filtering. The native 16-band surface bake is recomputed with that same material; receiver reflectance is applied after interpolating signed spectral-anchor light response.
 
-Mobile thumbstick, independent look, orbit/pinch/pan and settings remain; the automatic walk follows the new centerline. The previous scene and bake remain in release v0.2.0 and the preserved legacy manifest/assets.
+All v0.3 positions and triangle indices, mobile controls and orbit navigation are preserved. New albedo, 25 cm world-checker, roughness and geometric-normal diagnostics are included. CPU/GLSL material and tessellation-parity tests supplement the existing mesh, desktop, mobile and multi-view checks.
 
-Genuine regenerated camera-loop GIF/MP4, native bake receipts, topology checks and browser/mobile evidence are included. This is authored geometry, not a scanned location, physical erosion simulation or a claimed AAA-quality certification. Lighting remains a static surface bake.
+This is authored procedural sandstone, not scanned rock or an AAA certification. The lighting remains a static diffuse bake. Previous releases and the legacy recovery remain available.

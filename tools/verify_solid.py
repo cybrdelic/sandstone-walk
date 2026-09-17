@@ -50,6 +50,8 @@ def main():
     assert not meta['image_projection'] and not meta['hand_authored_probes']
     assert meta['invalid_samples']==0 and meta['clamped_contributions']==0
     assert meta['spectral_bands']==16 and meta['hemisphere_samples_per_site']==256 and meta['maximum_path_depth']==10
+    assert meta['material_schema']=='world-space-spectral-transfer/1' and meta['receiver_albedo_baked'] is False
+    assert sha((root/'source/material_field.glsl').read_bytes())==meta['material_field_sha256']
     rows=[];terrain_v=[];terrain_f=[];nv=0;tris=0;vertices=0;stone_components=0;grid_edges=[]
     for i,m in enumerate(scene['meshes']):
         name=m['name'];pos=asset(root,m['position'],'<f4',3)
@@ -57,9 +59,10 @@ def main():
         assert len(pos)==m['vertices'] and idx.shape==(m['triangles'],3) and idx.min()>=0 and idx.max()<len(pos),name
         check=expect[name];assert sha(pos.tobytes())==check.get('position_sha256',check.get('positions_sha256')),name
         assert sha(idx.tobytes())==check['topology_sha256'],name
-        for key,dtype,nc in [('normal','<i2',3),('direct','<f2',3),('indirect','<f2',3),('surface','<u2',2)]:
+        for key,dtype,nc in [('normal','<i2',3),('giR','<f2',3),('giG','<f2',3),('giB','<f2',3),('surface','<u2',2)]:
             value=asset(root,m[key],dtype,nc);assert len(value)==len(pos),(name,key)
-            if key in ['direct','indirect']:assert value.min()>=0,(name,key)
+            if key in ['giR','giG','giB']:assert np.max(np.abs(value))<60000,(name,key) # Signed spectral basis: do not clamp components.
+            if key=='surface':assert np.all(value[:,1]==m['material']*257),(name,'constant material family')
             if key=='normal':assert np.max(np.abs(np.linalg.norm(value.astype('f8')/32767,axis=1)-1))<.002,name
         item={'name':name,'vertices':len(pos),'triangles':len(idx),'positions_sha256':sha(pos.tobytes()),'topology_sha256':sha(idx.tobytes()),'all_attributes_finite':True}
         if i<6:
@@ -86,14 +89,18 @@ def main():
     sky=asset(root,scene['sky']['data'],'<f2',4);assert len(sky)==scene['sky']['width']*scene['sky']['height']
     shaders={}
     for f in sorted((root/'web').glob('*.glsl')):
-        assert f.read_bytes()==(root/'source'/f.name).read_bytes(),f.name
+        if f.name=='surface.frag.glsl':
+            expected_shader=(root/'source/surface_material.frag.glsl').read_text().replace('__MATERIAL_FIELD__',(root/'source/material_field.glsl').read_text())
+            assert f.read_text()==expected_shader,f.name
+        elif f.name=='surface.vert.glsl':assert f.read_bytes()==(root/'source/surface_material.vert.glsl').read_bytes(),f.name
+        else:assert f.read_bytes()==(root/'source'/f.name).read_bytes(),f.name
         shaders[f.name]=sha(f.read_bytes())
     app=(root/'web/app.js').read_text()
     for term in ['cybrRefTex','initProbeVolume','HemisphereLight','DirectionalLight','AmbientLight']:assert term not in app,term
     assert 'new SandstoneControls' in app
     output={'schema':'sandstone-walk-solid-validation/1','result':'PASS','triangles':tris,'vertices':vertices,
-        'parts':rows,'source_mesh_sha256':meta['source_mesh_sha256'],'old_geometry_deliberately_replaced':True,
-        'all_assets_sha256_valid':True,'all_attributes_finite':True,'unchanged_shader_sha256':shaders,
+        'parts':rows,'source_mesh_sha256':meta['source_mesh_sha256'],'geometry_origin':'closed-landform-v0.3','geometry_changed_in_material_fix':False,
+        'all_assets_sha256_valid':True,'all_attributes_finite':True,'active_shader_sha256':shaders,
         'terrain':{'watertight':True,'winding_consistent':True,'components':1,'vertices_after_exact_seam_weld':len(terrain.vertices),
                    'triangles':len(terrain.faces),'volume_m3':float(terrain.volume),'minimum_face_area_m2':float(terrain.area_faces.min()),'open_boundary_edges':0,'chart_seam_gap_m':0},
         'closed_rock_components':stone_components,'no_reference_projection':True,'no_hand_authored_light_probes':True,
