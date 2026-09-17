@@ -1,0 +1,275 @@
+name: Qualify photographic detail and native resolution
+on:
+  push:
+    branches: [feat/scanned-surface-detail]
+    paths: [.github/workflows/detail-qualify.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: detail-source-intake
+          path: ${{ runner.temp }}/intake
+          run-id: 35278285973
+          github-token: ${{ github.token }}
+      - name: Require exact source and baseline fingerprints
+        run: |
+          echo "5dc7934b01b4c2945134ac70101fdeaf81f3c0caf8ff4281755483079b26e9cf  $RUNNER_TEMP/intake/detail-source.zip" | sha256sum --check
+          python - <<'PY'
+          import hashlib,json,os,shutil,stat,zipfile
+          from pathlib import Path
+          stage=Path(os.environ['RUNNER_TEMP'])/'source';stage.mkdir()
+          with zipfile.ZipFile(stage.parent/'intake/detail-source.zip') as z:
+              entries=z.infolist();assert len({e.filename for e in entries})==len(entries)
+              for e in entries:
+                  p=Path(e.filename);assert not p.is_absolute() and not {'..','.git','.github'}&set(p.parts)
+                  assert not stat.S_ISLNK(e.external_attr>>16)
+              z.extractall(stage)
+          m=json.loads((stage/'DETAIL_SOURCE_MANIFEST.json').read_text());sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+          assert m['baseline_commit']=='6e0bb40991610db06d2a0cf1d674d436176ec010'
+          for name,digest in m['base_files'].items():assert (not Path(name).exists()) if digest is None else sha(Path(name))==digest,name
+          for name,digest in m['files'].items():assert sha(stage/name)==digest,name
+          for name in m['files']:
+              p=Path(name);p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(stage/name,p)
+          out=Path('evidence/detail');out.mkdir(exist_ok=True)
+          shutil.copyfile(stage/'DETAIL_SOURCE_MANIFEST.json',out/'source_intake.json')
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reproduce photographic map packing from original hash-pinned CC0 maps
+        run: |
+          python -m pip install -r tools/requirements-test.txt
+          python tools/fetch_detail_sources.py
+          python tools/prepare_detail_textures.py
+          python tools/build_detail.py
+          echo '1a89cb7fb0fcc78f86aa37dd807d82df26b7478e0fbbad0e0c267e484ce25db7  web/detail/manifest.json' | sha256sum --check
+      - name: Check unchanged full topology and macro lighting, and both offline builders
+        run: |
+          python tools/verify.py
+          python tools/verify_detail.py
+          node --check web/app.js
+          node --check web/detail/runtime.js
+          node --check web/detail/quality.js
+          node --check web/bootstrap.js
+          python tools/make_standalone.py
+          python tools/make_standalone.py --texture-size 2048 --out dist/Sandstone_Walk_Compact.html
+          python tools/make_standalone.py --legacy --out build/Legacy_Recovery.html
+          git diff --exit-code -- web/assets source/cybr-geo source/solid_geometry.py source/material_field.glsl web/vendor web/controls.js web/controls.css 'web/*.glsl' media .github
+      - name: Archive exact candidate for independent render workers
+        run: |
+          cp build/detail/integrity.json evidence/detail/integrity.json
+          cp dist/Sandstone_Walk_Standalone.json evidence/detail/standalone_full.json
+          cp dist/Sandstone_Walk_Compact.json evidence/detail/standalone_compact.json
+          python - <<'PY'
+          import hashlib,os,zipfile
+          from pathlib import Path
+          out=Path(os.environ['RUNNER_TEMP'])/'candidate.zip'
+          with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=1) as z:
+              for p in Path('.').rglob('*'):
+                  parts=p.parts
+                  if not p.is_file() or p.is_symlink() or parts[0] in ['.git','build','dist','detail_sources'] or '__pycache__' in parts:continue
+                  z.write(p,p.as_posix())
+          out.with_suffix('.sha256').write_text(hashlib.sha256(out.read_bytes()).hexdigest()+'  candidate.zip\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: detail-review-candidate
+          compression-level: 0
+          retention-days: 3
+          path: |
+            ${{ runner.temp }}/candidate.zip
+            ${{ runner.temp }}/candidate.sha256
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: detail-integrity-evidence
+          path: |
+            build/detail/
+            evidence/solid_validation.json
+            evidence/detail/
+            dist/*.json
+          if-no-files-found: warn
+  browser:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [detail, regressions, standalone]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      SW_HEADLESS: '0'
+      SW_ANGLE: gl
+      ANGLE_BACKEND: gl
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: detail-review-candidate
+          path: ${{ runner.temp }}/candidate
+      - name: Restore the checksum-verified candidate
+        run: |
+          cd "$RUNNER_TEMP/candidate" && sha256sum --check candidate.sha256
+          python -m zipfile -e "$RUNNER_TEMP/candidate/candidate.zip" "$GITHUB_WORKSPACE"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install actual browser and software OpenGL display
+        run: |
+          python -m pip install -r tools/requirements-test.txt
+          python -m playwright install --with-deps chromium
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri libegl1 mesa-utils ffmpeg
+      - name: Render the current scene, preserve input assertions, and test actual offline files
+        env:
+          TEST: ${{ matrix.test }}
+        run: |
+          set -euo pipefail
+          if [ "$TEST" = detail ]; then
+            xvfb-run -a -s '-screen 0 1920x1080x24' python tools/test_detail_browser.py --in-memory --baseline --out build/before
+            xvfb-run -a -s '-screen 0 1920x1080x24' python tools/test_detail_browser.py --film --out build/current
+            python tools/package_detail_evidence.py --after build/current --before build/before
+          elif [ "$TEST" = regressions ]; then
+            python tools/test_material_field.py
+            xvfb-run -a -s '-screen 0 1920x1080x24' python tools/browser_smoke.py
+            xvfb-run -a -s '-screen 0 1920x1080x24' python tools/mobile_controls_smoke.py
+            xvfb-run -a -s '-screen 0 1920x1080x24' python tools/test_solid_browser.py --materials --out build/solid_browser
+          else
+            python tools/make_standalone.py
+            python tools/make_standalone.py --texture-size 2048 --out dist/Sandstone_Walk_Compact.html
+            xvfb-run -a -s '-screen 0 1920x1080x24' python tools/test_detail_standalone.py
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: detail-${{ matrix.test }}-verification
+          retention-days: 3
+          path: |
+            build/before/
+            build/current/
+            build/browser/
+            build/mobile/
+            build/solid_browser/
+            build/material-field/report.json
+            build/detail-standalone/
+            evidence/detail/
+            media/sandstone-detail.gif
+            media/sandstone-detail.mp4
+          if-no-files-found: warn
+  publish:
+    needs: [prepare, browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: detail-review-candidate
+          path: ${{ runner.temp }}/candidate
+      - name: Restore the identical tested source
+        run: |
+          cd "$RUNNER_TEMP/candidate" && sha256sum --check candidate.sha256
+          python -m zipfile -e "$RUNNER_TEMP/candidate/candidate.zip" "$GITHUB_WORKSPACE"
+      - uses: actions/download-artifact@v4
+        with:
+          name: detail-detail-verification
+          path: build/qualified/detail
+      - uses: actions/download-artifact@v4
+        with:
+          name: detail-regressions-verification
+          path: build/qualified/regressions
+      - uses: actions/download-artifact@v4
+        with:
+          name: detail-standalone-verification
+          path: build/qualified/standalone
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify reports and their images before committing
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,shutil
+          from pathlib import Path
+          root=Path('build/qualified');out=Path('evidence/detail')
+          detail=json.loads((root/'detail/evidence/detail/report.json').read_text())
+          assert detail['result']=='PASS' and not detail['errors'] and detail['entrypoint']=='localhost HTTP'
+          assert detail['geometry']=={'triangles':5029800,'vertices':2526592} and detail['detail']['resolution']==4096
+          assert len(detail['checks'])>=63 and len(detail['captures'])==16
+          assert detail['captures']['native_dpr3']['size']==[1170,2532]
+          assert detail['export4k']['report']['width']==3840 and detail['export4k']['report']['height']==2560 and not detail['export4k']['report']['upscaled']
+          assert detail['actual_fragment_sha256']=='b496f4df5699889455eadbde456a145a93847809b825c102ad2ebbdac6c97ddb'
+          for name,entry in detail['captures'].items():assert hashlib.sha256((root/'detail/evidence/detail'/(name+'.png')).read_bytes()).hexdigest()==entry['sha256'],name
+          shutil.copytree(root/'detail/evidence/detail',out,dirs_exist_ok=True)
+          for p in (root/'detail/media').iterdir():shutil.copyfile(p,Path('media')/p.name)
+          media=json.loads((out/'media.json').read_text());assert media['result']=='PASS' and media['gif_distinct_frames']==48
+          for name,digest in media['files'].items():assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==digest,name
+          reg=root/'regressions/build'
+          for folder in ['browser','mobile','solid_browser','material-field']:
+              report=json.loads((reg/folder/'report.json').read_text());assert report['result']=='PASS' and not report.get('errors'),folder
+              if folder=='mobile':assert report['scene_rendering_verified'] and not report['controls_only']
+              dest=out/'regression'/folder;dest.mkdir(parents=True,exist_ok=True);shutil.copyfile(reg/folder/'report.json',dest/'report.json')
+          sr=root/'standalone/build/detail-standalone';report=json.loads((sr/'report.json').read_text())
+          assert report['result']=='PASS' and not report['errors'] and len(report['deliveries'])==2
+          for entry in report['deliveries']:
+              assert not entry['external_requests'] and not entry['asset_requests'] and entry['state']['glError']==0
+          shutil.copytree(sr,out/'offline',dirs_exist_ok=True)
+          (out/'qualified_ci.json').write_text(json.dumps({'result':'PASS','run_id':os.environ['GITHUB_RUN_ID'],'input_commit':os.environ['GITHUB_SHA'],
+              'source_mesh_sha256':detail['source_mesh_sha256'],'renderer':detail['renderer'],'browser_http_entrypoint_verified':True,
+              'full_and_compact_standalone_verified':True,'original_geometry_bake_and_controls_unchanged':True,
+              'photographic_materials':'Original CC0 maps, not image generation','fresh_spectral_bake':False,
+              'physical_phone_benchmark':False,'source_intake_run_id':35278285973},indent=2)+'\n')
+          PY
+      - name: Commit only qualified runtime, maps, documentation and current media
+        run: |
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          names=list(json.loads(Path('evidence/detail/source_intake.json').read_text())['files'])
+          names+=['web/detail','web/scene.json','web/bootstrap.js','evidence/detail','evidence/solid_validation.json','media/sandstone-detail.gif','media/sandstone-detail.mp4']
+          subprocess.run(['git','add','-f','--',*names],check=True)
+          paths=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          omit={'SHA256SUMS.json','.github/workflows/detail-workspace.yml','.github/workflows/detail-intake.yml','.github/workflows/detail-qualify.yml'}
+          result={name:hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in sorted(paths) if name and name not in omit and Path(name).is_file()}
+          Path('SHA256SUMS.json').write_text(json.dumps(result,indent=2)+'\n');subprocess.run(['git','add','SHA256SUMS.json'],check=True)
+          PY
+          python tools/check_manifest.py
+          git diff --cached --exit-code -- web/assets source/cybr-geo source/solid_geometry.py source/material_field.glsl web/vendor web/controls.js web/controls.css 'web/*.glsl' media/sandstone-walk.gif media/sandstone-walk.mp4 .github
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Upgrade canyon with 4K photographic detail, native screen pixels, stable HDR AA and geometric sun shadows'
+          git push origin HEAD:feat/scanned-surface-detail
+          echo "QUALIFIED_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Build the exact qualified release files
+        run: |
+          python tools/make_standalone.py
+          python tools/make_standalone.py --texture-size 2048 --out dist/Sandstone_Walk_Compact.html
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          for e in json.loads(Path('evidence/detail/offline/report.json').read_text())['deliveries']:
+              p=Path('dist')/e['filename'];assert p.stat().st_size==e['bytes'] and hashlib.sha256(p.read_bytes()).hexdigest()==e['sha256']
+          PY
+          git archive --format=zip HEAD -- . ':!.github/workflows/detail-workspace.yml' ':!.github/workflows/detail-intake.yml' ':!.github/workflows/detail-qualify.yml' > dist/Sandstone_Walk_Project.zip
+          sha256sum dist/*.html dist/Sandstone_Walk_Project.zip > dist/SHA256SUMS.txt
+      - name: Publish v0.5.0 full and compact standalone downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v0.5.0 --target "$QUALIFIED_COMMIT" --title 'Sandstone Walk 0.5.0 — Photographic detail and native resolution' --notes-file docs/RELEASE_NOTES.md --latest
+          gh release upload v0.5.0 dist/Sandstone_Walk_Standalone.html dist/Sandstone_Walk_Compact.html dist/Sandstone_Walk_Project.zip dist/SHA256SUMS.txt
