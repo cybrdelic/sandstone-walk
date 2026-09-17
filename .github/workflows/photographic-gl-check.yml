@@ -1,0 +1,50 @@
+name: Photographic Chromium OpenGL checks
+on:
+  push:
+    branches: [feat/photographic-surfaces]
+    paths: [.github/workflows/photographic-gl-check.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [desktop, mobile, photographic]
+    env:
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: photographic-publication-inputs
+          run-id: 35266889060
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/inputs
+      - run: python tools/restore_photographic_candidate.py "$RUNNER_TEMP/inputs"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install actual Chromium and Mesa OpenGL
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libegl1 libgles2 libgl1-mesa-dri libglx-mesa0 xvfb
+          python -m pip install -r tools/requirements-test.txt
+          python -m playwright install --with-deps chromium
+      - name: Run the same scene, image and control assertions
+        env:
+          SUITE: ${{ matrix.suite }}
+        run: xvfb-run -a python tools/run_browser_backend.py "$SUITE" --out build/result
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: photographic-gl-${{ matrix.suite }}-verification
+          path: build/result/
+          if-no-files-found: warn
