@@ -1,0 +1,23 @@
+name: Acquire photographic material sources
+on:
+  push:
+    branches: [feat/photographic-surfaces]
+    paths: [.github/workflows/photographic-intake.yml]
+permissions:
+  contents: read
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python tools/fetch_photographic_sources.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: photographic-material-sources
+          path: build/photographic_sources/
+          compression-level: 0
+          retention-days: 3
