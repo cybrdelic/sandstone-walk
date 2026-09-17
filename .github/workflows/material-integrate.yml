@@ -15,12 +15,12 @@ jobs:
       OMP_NUM_THREADS: '4'
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch checksum-pinned material source
+      - name: Fetch checksum-pinned material source and geometric normals
         env:
-          SOURCE_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-fdc8-81f5-b5a9-8d06934055e1/raw?se=2026-09-17T17%3A31%3A37Z&sp=r&sv=2026-02-06&sr=b&scid=acc5fb9b-0ba3-54b5-b19c-39e4a867d12f&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-16T20%3A19%3A04Z&ske=2026-09-17T20%3A19%3A04Z&sks=b&skv=2026-02-06&sig=8kyEFSoLm3bwuhbW1saPg%2Bz4roav3bavQBfs0X0oyAI%3D'
+          SOURCE_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-7034-81f5-b693-21c8edd49691/raw?se=2026-09-17T17%3A40%3A59Z&sp=r&sv=2026-02-06&sr=b&scid=5f8db05a-5318-531d-af9b-be1202fc7a91&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T04%3A32%3A12Z&ske=2026-09-18T04%3A32%3A12Z&sks=b&skv=2026-02-06&sig=uzZdV1Cpu/l2JiVT7bxvyOahdX%2BPdPYG2yvd/uIm/EI%3D'
         run: |
           curl --fail --location --retry 2 --silent --show-error "$SOURCE_URL" -o "$RUNNER_TEMP/material-source.zip"
-          echo "f16ceb5ee5209666321b3d1c70a9a9c26724426b307f7c5d4de486d93253ed39  $RUNNER_TEMP/material-source.zip" | sha256sum --check
+          echo "db26633060c02283cc2ae24dbda778d4b31ec45e4c3e01e0cd4dd96382e4339f  $RUNNER_TEMP/material-source.zip" | sha256sum --check
           python - <<'PY'
           import hashlib,json,os,stat,zipfile
           from pathlib import Path
@@ -89,7 +89,7 @@ jobs:
           git diff --exit-code -- source/solid_geometry.py source/cybr-geo web/controls.js web/controls.css web/vendor media .github
       - name: Require native and WebGL material parity before rebaking
         run: python tools/test_material_field.py
-      - name: Rebuild identical geometry and execute fresh native spectral bake
+      - name: Restore identical native input streams and execute a fresh spectral bake
         run: |
           python source/rebuild_materials.py --work build/material-work --spp 256 --depth 10 --threads 4
           python source/package_materials.py --work build/material-work
@@ -144,6 +144,8 @@ jobs:
           assert after['material_field_sha256']==mat['material_field_sha256']
           assert len(after['captures'])==18 and len(before['captures'])==10
           for entry in after['captures'].values():assert entry['gl_error']==0 and entry['triangles_drawn']==5029800
+          restored=json.loads(Path('build/material-work/geometry_restoration.json').read_text())
+          assert restored['result']=='PASS' and restored['native_mesh_bytes_identical'] and restored['sample_sites_bytes_identical'] and restored['vertex_sites_bytes_identical']
           out=Path('evidence/materials')
           shutil.copyfile('build/material-field/report.json',out/'material_field_webgl.json')
           shutil.copyfile('build/browser/report.json',out/'desktop_report.json')
@@ -154,7 +156,7 @@ jobs:
               'material_field_sha256':mat['material_field_sha256'],
               'native_spectral_bake_executed_in_this_run':True,'browser_runtime_verified':True,
               'physical_phone_benchmark':False,'before_after_camera_poses_preserved':True,
-              'before_capture_run_id':35251677406},indent=2)+'\n')
+              'before_capture_run_id':35251677406,'frozen_geometry_restoration_verified':True},indent=2)+'\n')
           v=json.loads(Path('verification.json').read_text());v['browser_runtime_verified']=True
           Path('verification.json').write_text(json.dumps(v,indent=2)+'\n')
           stage=Path(os.environ['RUNNER_TEMP'])/'material-stage';data=json.loads((stage/'MATERIAL_SOURCE_MANIFEST.json').read_text())
