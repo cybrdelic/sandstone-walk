@@ -18,16 +18,24 @@ jobs:
           from pathlib import Path
           root=Path('detail_sources');root.mkdir()
           receipt={'license':'CC0-1.0','provider':'Poly Haven','license_url':'https://polyhaven.com/license','assets':{}}
+          def urls(obj):
+              if isinstance(obj,dict):
+                  for k,v in obj.items():
+                      if k=='url' and isinstance(v,str):yield v
+                      else:yield from urls(v)
+              elif isinstance(obj,list):
+                  for v in obj:yield from urls(v)
           for asset in ['rock_face_03','sandy_gravel']:
               folder=root/asset;folder.mkdir()
               req=urllib.request.Request('https://api.polyhaven.com/files/'+asset,headers={'User-Agent':'SandstoneWalk/0.5 asset acquisition'})
               with urllib.request.urlopen(req,timeout=60) as r:files=json.load(r)
               (folder/'files.json').write_text(json.dumps(files,indent=2))
-              maps={}
+              candidates=set(urls(files));maps={}
               for role in ['diff','nor_gl','rough','disp','ao']:
-                  options=files[role]['4k'];ext='png' if role=='disp' and 'png' in options else 'jpg'
-                  record=options[ext];url=record['url']
-                  assert url.startswith(('https://dl.polyhaven.org/','https://dl.polyhaven.com/'))
+                  ext='png' if role=='disp' else 'jpg'
+                  found=[u for u in candidates if u.endswith('/'+asset+'_'+role+'_4k.'+ext)]
+                  assert len(found)==1,(asset,role,sorted(files))
+                  url=found[0];assert url.startswith(('https://dl.polyhaven.org/','https://dl.polyhaven.com/'))
                   p=folder/(role+'.'+ext)
                   for attempt in range(3):
                       try:
