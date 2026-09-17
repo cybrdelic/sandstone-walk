@@ -40,6 +40,27 @@ def main():
  p=ROOT/'package.json'
  if p.exists():
   d=json.loads(p.read_text());d['version']='0.3.0';p.write_text(json.dumps(d,indent=2)+'\n')
+ # Support placement samples actual floor triangles, including their fine relief.
+ patch('source/formation_volume.py','from rebuild_scenes import fracture_block','from rebuild_scenes import fracture_block\nfrom support_surface import SupportSurface')
+ patch('source/formation_volume.py','def __init__(self,b):\n        self.b=b;','def __init__(self,b,support):\n        self.support=support\n        self.b=b;')
+ patch('source/formation_volume.py','support=floor(x+v[:,0],y+v[:,1]);','support=self.support.height(np.c_[x+v[:,0],y+v[:,1]]);')
+ patch('source/formation_volume.py','gap=v[:,2]-floor(v[:,0],v[:,1])','gap=v[:,2]-self.support.height(v[:,:2])')
+ patch('source/formation_volume.py',"self.records.append({'x':float(x)","self.records.append({'group':label,'x':float(x)")
+ patch('source/formation_volume.py',"b.add(name,v,f,mat=mat);design[name]=hints","b.add(name,v,f,mat=mat);design[name]=hints\n        if mat==0:support=SupportSurface(v,hints['rows'],hints['cols'])")
+ patch('source/formation_volume.py','deposits=Deposits(b)','deposits=Deposits(b,support)')
+ patch('source/rebuild_volume.py',"SOURCE/'formation_volume.py',SOURCE/'prepare_volume.py'","SOURCE/'formation_volume.py',SOURCE/'support_surface.py',SOURCE/'prepare_volume.py'")
+ patch('tools/verify_volume.py'," assert all(x['minimum_vertex_floor_gap_m']<0 and x['maximum_vertex_floor_gap_m']>0 for x in design['deposits'])"," assert all(x['minimum_vertex_floor_gap_m']<0 and x['maximum_vertex_floor_gap_m']>0 for x in design['deposits'])\n from verify_support import check_support\n contact=check_support(b,design)\n (ROOT/'evidence/formation/support_surface.json').write_text(json.dumps(contact,indent=2)+'\\n')")
+ # Retire stale load-screen text and distinguish archived reconstruction from current assets.
+ p=ROOT/'index.html'
+ if p.exists():
+  import re
+  text=p.read_text();text=re.sub(r'<div id="stats">.*?</div>','<div id="stats">Loading closed geometry…</div>',text,count=1)
+  text=text.replace('Exact geometry. Native ray-traced surface lighting.','Closed formation. Native ray-traced surface lighting.')
+  p.write_text(text)
+ p=ROOT/'tools/document_volume.py'
+ old='The 0.2.0 release and the explicit `--legacy` builder preserve the earlier recovery separately; neither should be confused with this rebuilt formation.'
+ new='The earlier scene remains in the [v0.2.0 release](../../releases/tag/v0.2.0). The `--legacy` reconstruction command belongs to that checkout; it must not be run against these replacement assets.'
+ if old in p.read_text():p.write_text(p.read_text().replace(old,new))
  print('Volume support integrated. Mobile controller, CSS and GLSL unchanged.')
 
 if __name__=='__main__':main()
