@@ -1,4 +1,4 @@
-name: Check photographic transfer
+name: Stage photographic transfer
 on:
   push:
     branches: [feat/photographic-surfaces]
@@ -6,14 +6,35 @@ on:
 permissions:
   contents: read
 jobs:
-  check:
+  stage:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - run: |
-          curl -L -sS 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-0ec0-81f5-96f8-a75d1d62b2e3/raw?se=2026-09-17T19%3A41%3A54Z&sp=r&sv=2026-02-06&sr=b&scid=e69aa6ad-1682-5127-ac9a-3322e5faad0c&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A01%3A53Z&ske=2026-09-18T18%3A01%3A53Z&sks=b&skv=2026-02-06&sig=xpIovU5xN4DwGd5PaVd9M4I%2BDG%2BoTpUysQBSXkFzGFI%3D' -o /tmp/transfer
+      - name: Download and verify the five publication inputs
+        run: |
+          mkdir -p /tmp/photographic-inputs
           python - <<'PY'
+          import concurrent.futures,hashlib,subprocess
           from pathlib import Path
-          import hashlib
-          p=Path('/tmp/transfer');print('bytes',p.stat().st_size);print('sha256',hashlib.sha256(p.read_bytes()).hexdigest())
-          if p.read_bytes()[:2]!=b'PK':print(p.read_text(errors='replace')[:2048])
+          entries=[
+          ('SOURCE','ec936167d15f81d9aa60f5a468db22b36ec0f8178535a7eb55c5521c10accacc','https://sdmntprcentralus.oaiusercontent.com/files/00000000-c7b8-81f5-8834-c07ea9e9ed6f/raw?se=2026-09-17T19%3A50%3A01Z&sp=r&sv=2026-02-06&sr=b&scid=32f5993c-1a53-5c67-bfbd-089a04b78db0&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A14%3A59Z&ske=2026-09-18T18%3A14%3A59Z&sks=b&skv=2026-02-06&sig=RYXsLxGDwT0xke8VIdKUchwaaqN2g3iVEnwi7n8SvYA%3D'),
+          ('DATA1','5795b2bb48b6bfd5018e8213912574eb277c3a319258a0e81394d24e79edd827','https://sdmntprcentralus.oaiusercontent.com/files/00000000-31c8-81f5-985b-c1f67ebf8958/raw?se=2026-09-17T19%3A50%3A20Z&sp=r&sv=2026-02-06&sr=b&scid=8622ac82-ebf3-5fe6-8aca-38eb03f30562&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A17%3A11Z&ske=2026-09-18T18%3A17%3A11Z&sks=b&skv=2026-02-06&sig=%2BL2P4n3BgJ3W65YKrvFwaxIrNyjhveNew1LTep5%2BDO0%3D'),
+          ('DATA2','be7ca86bca9a477737d3aa7e1bca69a4f67258cd22082d3d1c8d5ab042115994','https://sdmntprcentralus.oaiusercontent.com/files/00000000-bc98-81f5-97e7-bc658c3dad91/raw?se=2026-09-17T19%3A50%3A35Z&sp=r&sv=2026-02-06&sr=b&scid=112b3988-f7ff-514f-8953-5cd68a9eb301&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A01%3A45Z&ske=2026-09-18T18%3A01%3A45Z&sks=b&skv=2026-02-06&sig=DTjT/XfDyLkqgiIGTjFAssnvVVs9ls/qXckshzc8Cf8%3D'),
+          ('DATA3','b2889d3cc5ef8b49774dc6bcf2e016ec8852df380bc01c6daba2080a9387f265','https://sdmntprcentralus.oaiusercontent.com/files/00000000-9238-81f5-8f67-4d419a327c26/raw?se=2026-09-17T19%3A50%3A48Z&sp=r&sv=2026-02-06&sr=b&scid=9599aa18-dafb-505a-91f2-2428c9a8aa8d&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A06%3A05Z&ske=2026-09-18T18%3A06%3A05Z&sks=b&skv=2026-02-06&sig=Fypw5wrPzRb4c4Tzb4BaavmWFgRy3cK3ePD1H7fB5mA%3D'),
+          ('DATA4','3119a07b0e95596ef2fcd06165e70e5610eabdec517e991213eb149232d2d4c0','https://sdmntprcentralus.oaiusercontent.com/files/00000000-2274-81f5-a3d7-b4e1465f026c/raw?se=2026-09-17T19%3A51%3A10Z&sp=r&sv=2026-02-06&sr=b&scid=a1058cab-53d8-5fb4-a35c-4f1204b25f6a&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T04%3A47%3A02Z&ske=2026-09-18T04%3A47%3A02Z&sks=b&skv=2026-02-06&sig=CdVFhBjNMtZRlgsbxxm8ZGqF0brb/MWtpNlb7yTI5Ts%3D')]
+          def fetch(entry):
+              name,wanted,url=entry;p=Path('/tmp/photographic-inputs')/(name+'.zip')
+              subprocess.run(['curl','--location','--silent','--show-error','--retry','2','--max-time','120',url,'-o',str(p)],check=True)
+              actual=hashlib.sha256(p.read_bytes()).hexdigest()
+              if actual!=wanted:
+                  if p.stat().st_size<4096:print(name,p.read_text(errors='replace'),flush=True)
+                  raise ValueError((name,actual,wanted))
+              print('PASS',name,p.stat().st_size,actual,flush=True)
+          with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:list(pool.map(fetch,entries))
           PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: photographic-publication-inputs
+          path: /tmp/photographic-inputs/
+          compression-level: 0
+          retention-days: 3
