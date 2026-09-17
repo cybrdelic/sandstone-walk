@@ -9,7 +9,14 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [numeric, desktop, mobile, photographic]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '4'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -18,38 +25,44 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install test dependencies
-        run: |
-          python -m pip install -r tools/requirements-test.txt
-          python -m playwright install --with-deps chromium
-      - name: Check immutable scene buffers and shader identity
+      - run: python -m pip install -r tools/requirements-test.txt
+      - name: Check manifest and shader generation
         run: |
           python tools/check_manifest.py
-          python tools/build_material_shaders.py
+          python tools/build_photographic_shaders.py
           git diff --exit-code -- web/bootstrap.js web/surface.vert.glsl web/surface.frag.glsl
-          python tools/verify.py
           node --check web/app.js
-          node --check web/bootstrap.js
+          node --check web/photographic.js
           node --check web/controls.js
+      - name: Numeric and optical input verification
+        if: matrix.suite == 'numeric'
+        run: |
+          python tools/verify.py
+          python tools/verify_photographic.py
+          python tools/prepare_native_photographic.py
+          python tools/test_photographic_field.py
           python tools/make_standalone.py
-      - name: Validate shared CPU and GLSL material sampling
-        run: python tools/test_material_field.py
-      - name: Run real Three.js browser test
-        run: python tools/browser_smoke.py
-      - name: Test mobile multi-touch and orbit controls
-        run: python tools/mobile_controls_smoke.py
-      - name: Test scene and material from multiple browser cameras
-        run: python tools/test_solid_browser.py --materials --out build/solid_browser
-      - name: Preserve validation and browser evidence
+          python tools/make_standalone.py --compact --out dist/Sandstone_Walk_Compact.html
+          python tools/make_standalone.py --legacy --out build/Legacy_Recovery.html
+      - name: Install browser
+        if: matrix.suite != 'numeric'
+        run: python -m playwright install --with-deps chromium
+      - name: Actual renderer and controls
+        if: matrix.suite != 'numeric'
+        env:
+          SUITE: ${{ matrix.suite }}
+        run: |
+          if [ "$SUITE" = desktop ]; then python tools/browser_smoke.py --out build/result;
+          elif [ "$SUITE" = mobile ]; then python tools/mobile_controls_smoke.py --out build/result;
+          else python tools/test_photographic_browser.py --out build/result; fi
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: sandstone-walk-verification
+          name: sandstone-${{ matrix.suite }}-verification
           path: |
-            build/material-field/report.json
+            build/result/
             build/validation.json
-            build/browser/
-            build/mobile/
-            build/solid_browser/
-            dist/Sandstone_Walk_Standalone.json
-          if-no-files-found: error
+            build/photographic_field/report.json
+            evidence/photographic/texture_integrity.json
+            dist/*.json
+          if-no-files-found: warn
