@@ -1,0 +1,28 @@
+{
+  "source": "144 actual GLES draws using the new geometry, new native bake and unchanged Three.js surface shaders",
+  "interpolation": false,
+  "reference_image_used": false,
+  "shots": [
+    "walking camera",
+    "orbit camera"
+  ],
+  "native_unique_frames": 144,
+  "mp4": {
+    "width": 960,
+    "height": 640,
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "144"
+  },
+  "gif": {
+    "frames": 72,
+    "width": 720,
+    "height": 480,
+    "unique_decoded_frames": 72
+  },
+  "sha256": {
+    "sandstone-walk.gif": "98b4ea0299d57f7b36637ea0e48390335cf2247bd1ca4c87f7b2394912e0aae6",
+    "sandstone-walk.mp4": "3e8e10012d8209af119a14b1f88979b1a9e6afacf4036434d47cfaf3a201cd86",
+    "hero.png": "c8cda1362be0e829c23dfe50fc04e7656cdc4b4396159618eb047e3751f49f2b",
+    "orbit.png": "6590fb567706c090dc61ce43f4c00237e02b2ae89551df532eb973a04c6c2eec"
+  }
+}

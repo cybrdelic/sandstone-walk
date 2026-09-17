@@ -1,5 +1,7 @@
-# Sandstone Walk 0.2.0
+# Sandstone Walk 0.3.0 — Closed canyon formation
 
-Mobile controls and orbit navigation. Analog thumbstick + simultaneous drag-to-look, height controls, speed toggle, two-finger orbit pan, pinch zoom, bounds-based framing, separate remembered camera poses and safe-area-aware portrait/landscape UI.
+Replaces open wall/floor sheets and the far-end backdrop with closed sandstone masses, weathered rims, incised exterior slopes and a closed alluvial base. Reworks actual bedding/spalls and settles 1,150 fracture products into the floor. The new geometry has 4,611,262 triangles and 2,307,937 vertices.
 
-Geometry, spectral bake, shaders and existing preview media are unchanged. The current standalone builder now packages the current web UI instead of the archived original. The original recovery remains reproducible with --legacy. Free camera; no collision controller. All 8.1M triangles are still loaded; hardware memory and performance requirements are unchanged.
+Fresh native 16-band transport bake at 145,287 surface sites × 256 hemisphere samples, depth 10. No old bake or projected reference is used. Mobile controls and orbit navigation are retained. Updated actual walk/orbit GIF and MP4, source, topology validation and render receipts.
+
+Finite authored terrain study, not scanned terrain or geophysical simulation. Free camera; no collision controller. Static baked illumination. Historical releases remain available.

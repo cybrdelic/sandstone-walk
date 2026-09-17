@@ -1,0 +1,50 @@
+{
+  "integrator": "recovered CYBR GEO spectral trace, surface irradiance adapter",
+  "spectral_bands": 16,
+  "wavelength_nm": [
+    380,
+    780
+  ],
+  "triangles": 4611262,
+  "sites": 145287,
+  "hemisphere_samples_per_site": 256,
+  "maximum_path_depth": 10,
+  "sun_samples_per_lit_vertex": 16,
+  "sun_visibility_rays": 26659904,
+  "vertex_count": 2307937,
+  "invalid_samples": 0,
+  "clamped_contributions": 0,
+  "indirect_seconds_including_bvh": 132.3070088,
+  "wall_seconds": 142.2567139,
+  "solar_rgb": [
+    9.370616913,
+    7.763448238,
+    6.058386803
+  ],
+  "display_white_rgb": [
+    1.099015594,
+    0.9783981442,
+    0.9230282903
+  ],
+  "exposure": 2.5,
+  "reference_image_used": false,
+  "hero_camera_used_by_bake": false,
+  "source_mesh_sha256": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+  "input_sha256": {
+    "native_scene/canyon/scene.meshbin": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+    "data/sites.bin": "47b14d2ebd64d4ca80a95f696c7ebda8219242df6e48094843500c00d5412433",
+    "data/vertices.bin": "e6e8966a30f97441bf3bcedb837ec8b1d61bcac85503dd84b42af3cda6585bac"
+  },
+  "source_sha256": {
+    "bake.cpp": "e50ff9523e794ecbad604ddedb25d80c70439528c446a186b1608c4628b360a8",
+    "transport_bake.cpp": "bd6c2f8c9e0c02ef1cb35581fd589d180e43a712649419cf4bdcb2011ebff771",
+    "material_volume.h": "1021a9f91a7e13829ac207464f1d821e67a4e0b51a336f41e4cc43c469d90c40",
+    "formation_volume.py": "07a1ab8c96530846a89ff2b5035266c8fec91f8b23691ea9edae7a4608765dc6",
+    "support_surface.py": "728d64e51da1dfcc12b9c491fc199d1f86cba7bf6ebfc0f1bda42040e5ff976a",
+    "prepare_volume.py": "518b08036b15a4602ca3337b349a16b4768fa6e70076f26484002f74fd43d895",
+    "resolve_volume.py": "89a0dcff32130565e1657868ca4d8e1a2a03cecb855d29d6e682448001783017",
+    "pack_volume.py": "8fdc79b3b6b9d331f12259cef30d0639b5859c8af008898e5bec074e40f1c6de",
+    "rebuild_volume.py": "2fe59ca1b81e021231aeb3eaf64e17575ce1517b274b6dd6ab5946ae91f91243"
+  },
+  "baker_binary_sha256": "ebf8ee2efbca1c7b6e8251bf861a4f5b406c9b609dca9507a7793cf250719f3d"
+}

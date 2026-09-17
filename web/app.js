@@ -23,7 +23,7 @@
   renderer.debug.onShaderError=(gl,program,vertex,fragment)=>{
    fail(new Error('Shader compilation/linking failed:\n'+gl.getProgramInfoLog(program)+'\n'+gl.getShaderInfoLog(vertex)+'\n'+gl.getShaderInfoLog(fragment)));
   };
-  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();fail(new Error('The graphics context was lost. Reload the viewer; exact geometry uses substantial GPU memory.'));});
+  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();fail(new Error('The graphics context was lost. Reload the viewer; the full formation uses substantial GPU memory.'));});
   const sun=new THREE.Vector3(...B.meta.sun).normalize();
   const uniforms={uVP:{value:new THREE.Matrix4()},uEye:{value:camera.position},uSun:{value:sun},uSolar:{value:new THREE.Vector3(...B.meta.solar_rgb)},uWhite:{value:new THREE.Vector3(...B.meta.display_white_rgb)},uExposure:{value:B.meta.exposure},uMode:{value:0}};
   const material=new THREE.RawShaderMaterial({glslVersion:THREE.GLSL3,vertexShader:SURFACE_VERTEX,fragmentShader:SURFACE_FRAGMENT,uniforms,side:THREE.DoubleSide,toneMapped:false});
@@ -82,7 +82,7 @@
    g.setIndex(new THREE.BufferAttribute(indices,1));g.computeBoundingSphere();
    const mesh=new THREE.Mesh(g,material);mesh.name=d.name;scene.add(mesh);geometry.push(g);triangles+=d.triangles;vertices+=d.vertices;
   }
-  if(triangles!==8108728||vertices!==4072674)throw new Error('Geometry integrity totals do not match the preserved canyon.');
+  if(triangles!==B.meta.triangles||vertices!==B.meta.vertex_count)throw new Error('Geometry integrity totals do not match the current native formation.');
   const skyData=new Uint16Array(await inflate(B.sky.data));
   if(skyData.length!==B.sky.width*B.sky.height*4)throw new Error('Invalid native sky data.');
   const skyTexture=new THREE.DataTexture(skyData,B.sky.width,B.sky.height,THREE.RGBAFormat,THREE.HalfFloatType);

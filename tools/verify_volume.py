@@ -41,6 +41,9 @@ def main():
  assert nv==b['meta']['vertex_count']==ref['vertices']==bake['vertex_count']
  assert nt==b['meta']['triangles']==ref['triangles']==bake['triangles']
  assert all(x['minimum_vertex_floor_gap_m']<0 and x['maximum_vertex_floor_gap_m']>0 for x in design['deposits'])
+ from verify_support import check_support
+ contact=check_support(b,design)
+ (ROOT/'evidence/formation/support_surface.json').write_text(json.dumps(contact,indent=2)+'\n')
  sky=raw(b['sky']['data'],'<f2',4);assert np.isfinite(sky).all()
  for p in (ROOT/'web').glob('*.glsl'):assert p.read_bytes()==(ROOT/'source'/p.name).read_bytes()
  app=(ROOT/'web/app.js').read_text()

@@ -1,0 +1,7 @@
+Closed_alluvial_terrain vertices 482713 sites 16463
+West_closed_sandstone_mass vertices 873762 sites 25562
+East_closed_sandstone_mass vertices 873762 sites 25562
+Jointed_talus_blocks vertices 3210 sites 3210
+Bedded_rockfall_fragments vertices 45804 sites 45804
+Wash_gravel vertices 28686 sites 28686
+{"vertices": 2307937, "sites": 145287, "triangles": 4611262, "irradiance_stride": 6, "geometry_decimated": false}

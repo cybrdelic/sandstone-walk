@@ -1,0 +1,6911 @@
+{
+  "method": "Vertical barycentric projection at every fragment vertex onto actual serialized floor triangles",
+  "pieces": 1150,
+  "floating_pieces": 0,
+  "fully_buried_pieces": 0,
+  "contact_tolerance_m": 1e-06,
+  "maximum_minimum_gap_m": -0.0026096568557484046,
+  "records": [
+    {
+      "piece": 0,
+      "group": "Jointed_talus_blocks",
+      "min_gap_m": -0.11229249432003124,
+      "max_gap_m": 0.46046835145435816
+    },
+    {
+      "piece": 1,
+      "group": "Jointed_talus_blocks",
+      "min_gap_m": -0.1021121130990023,
+      "max_gap_m": 0.34300152626542774
+    },
+    {
+      "piece": 2,
+      "group": "Jointed_talus_blocks",
+      "min_gap_m": -0.16998521930650176,
+      "max_gap_m": 0.6869767736388741
+    },
+    {
+      "piece": 3,
+      "group": "Jointed_talus_blocks",
+      "min_gap_m": -0.09228756519788128,
+      "max_gap_m": 0.4268313173986248
+    },
+    {
+      "piece": 4,
+      "group": "Jointed_talus_blocks",
+      "min_gap_m": -0.15107499118793832,
+      "max_gap_m": 0.6515513365658115
+    },
+    {
+      "piece": 5,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015247791724819333,
+      "max_gap_m": 0.05000718404208197
+    },
+    {
+      "piece": 6,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010403015052239457,
+      "max_gap_m": 0.025062623610808604
+    },
+    {
+      "piece": 7,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008496580141889021,
+      "max_gap_m": 0.031389236347287255
+    },
+    {
+      "piece": 8,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.028074994910460574,
+      "max_gap_m": 0.08438941029071496
+    },
+    {
+      "piece": 9,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0361046590961077,
+      "max_gap_m": 0.12150984133910503
+    },
+    {
+      "piece": 10,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01852891227555159,
+      "max_gap_m": 0.07423835099760903
+    },
+    {
+      "piece": 11,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.027743892979803765,
+      "max_gap_m": 0.06348367268547817
+    },
+    {
+      "piece": 12,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0032819601725700698,
+      "max_gap_m": 0.015017529324404782
+    },
+    {
+      "piece": 13,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01658686003866756,
+      "max_gap_m": 0.06027641055427208
+    },
+    {
+      "piece": 14,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021914730609716188,
+      "max_gap_m": 0.06286103987689175
+    },
+    {
+      "piece": 15,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01011588233513322,
+      "max_gap_m": 0.04222373337380625
+    },
+    {
+      "piece": 16,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004705216488386593,
+      "max_gap_m": 0.026665608361842813
+    },
+    {
+      "piece": 17,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015644903088805784,
+      "max_gap_m": 0.0558585962845243
+    },
+    {
+      "piece": 18,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004855021777553134,
+      "max_gap_m": 0.025145211929557126
+    },
+    {
+      "piece": 19,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01928614702870371,
+      "max_gap_m": 0.08493201700108116
+    },
+    {
+      "piece": 20,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.026994297098570375,
+      "max_gap_m": 0.10079145704955578
+    },
+    {
+      "piece": 21,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010368273759554257,
+      "max_gap_m": 0.0465102949869793
+    },
+    {
+      "piece": 22,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007562856093685538,
+      "max_gap_m": 0.022809605873485933
+    },
+    {
+      "piece": 23,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005202457566243518,
+      "max_gap_m": 0.03818841930922487
+    },
+    {
+      "piece": 24,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005273214075535382,
+      "max_gap_m": 0.0317678087713964
+    },
+    {
+      "piece": 25,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01032803385220827,
+      "max_gap_m": 0.02336154766073186
+    },
+    {
+      "piece": 26,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.019871655754864048,
+      "max_gap_m": 0.05916876697965193
+    },
+    {
+      "piece": 27,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014014859351591,
+      "max_gap_m": 0.06577170152185206
+    },
+    {
+      "piece": 28,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014640701557581265,
+      "max_gap_m": 0.0499479714253403
+    },
+    {
+      "piece": 29,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03691554418932014,
+      "max_gap_m": 0.1700390471558509
+    },
+    {
+      "piece": 30,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009663041067010589,
+      "max_gap_m": 0.03260553625333499
+    },
+    {
+      "piece": 31,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.022098362722265896,
+      "max_gap_m": 0.11243588171998178
+    },
+    {
+      "piece": 32,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.020328296501040247,
+      "max_gap_m": 0.09291915363767865
+    },
+    {
+      "piece": 33,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015425336570360028,
+      "max_gap_m": 0.10224125008673626
+    },
+    {
+      "piece": 34,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008797547803092304,
+      "max_gap_m": 0.06981351683900656
+    },
+    {
+      "piece": 35,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007732219032164034,
+      "max_gap_m": 0.03468411988819503
+    },
+    {
+      "piece": 36,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012545387344930966,
+      "max_gap_m": 0.08498847319630602
+    },
+    {
+      "piece": 37,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.017549113415409587,
+      "max_gap_m": 0.09084713964372608
+    },
+    {
+      "piece": 38,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021570015471097485,
+      "max_gap_m": 0.11899184588896534
+    },
+    {
+      "piece": 39,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.020638979425531348,
+      "max_gap_m": 0.10686447151557912
+    },
+    {
+      "piece": 40,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.003156829506894842,
+      "max_gap_m": 0.02512269968780231
+    },
+    {
+      "piece": 41,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005563276370070452,
+      "max_gap_m": 0.03196791443696237
+    },
+    {
+      "piece": 42,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01846253423929213,
+      "max_gap_m": 0.06439282025310868
+    },
+    {
+      "piece": 43,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.039152821944933164,
+      "max_gap_m": 0.15378491301414254
+    },
+    {
+      "piece": 44,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.052007134501806995,
+      "max_gap_m": 0.2046472152148007
+    },
+    {
+      "piece": 45,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009678152728784889,
+      "max_gap_m": 0.027441252203953714
+    },
+    {
+      "piece": 46,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009746520687231697,
+      "max_gap_m": 0.06686627598384297
+    },
+    {
+      "piece": 47,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012185313879725504,
+      "max_gap_m": 0.02997896709652397
+    },
+    {
+      "piece": 48,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00694362430515447,
+      "max_gap_m": 0.03724139452446303
+    },
+    {
+      "piece": 49,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.05510446094070397,
+      "max_gap_m": 0.13008208387910142
+    },
+    {
+      "piece": 50,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03203833064518263,
+      "max_gap_m": 0.10848154425914167
+    },
+    {
+      "piece": 51,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009481561208870531,
+      "max_gap_m": 0.02839119731601336
+    },
+    {
+      "piece": 52,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02730295393124345,
+      "max_gap_m": 0.10477814848926956
+    },
+    {
+      "piece": 53,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011300797730745896,
+      "max_gap_m": 0.0794226797990195
+    },
+    {
+      "piece": 54,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014428759109839848,
+      "max_gap_m": 0.052222322125971776
+    },
+    {
+      "piece": 55,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.030356697756349527,
+      "max_gap_m": 0.11334731587287547
+    },
+    {
+      "piece": 56,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006400081895003976,
+      "max_gap_m": 0.021180077382254844
+    },
+    {
+      "piece": 57,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010582339505906022,
+      "max_gap_m": 0.05690770205359004
+    },
+    {
+      "piece": 58,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0049177899448687445,
+      "max_gap_m": 0.03355037267776401
+    },
+    {
+      "piece": 59,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008091929803124231,
+      "max_gap_m": 0.053083729474741215
+    },
+    {
+      "piece": 60,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008516618980024676,
+      "max_gap_m": 0.030087438192491503
+    },
+    {
+      "piece": 61,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.032842970345070444,
+      "max_gap_m": 0.08724937991817575
+    },
+    {
+      "piece": 62,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005921469335974303,
+      "max_gap_m": 0.024229347382488775
+    },
+    {
+      "piece": 63,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00809213530937554,
+      "max_gap_m": 0.05820657065838321
+    },
+    {
+      "piece": 64,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015602273850279264,
+      "max_gap_m": 0.06895403720661636
+    },
+    {
+      "piece": 65,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007772880473167043,
+      "max_gap_m": 0.05021030449536869
+    },
+    {
+      "piece": 66,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02565053628806699,
+      "max_gap_m": 0.10797869276741356
+    },
+    {
+      "piece": 67,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004035294960296962,
+      "max_gap_m": 0.026084049911617876
+    },
+    {
+      "piece": 68,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004543959788296803,
+      "max_gap_m": 0.03402915942050204
+    },
+    {
+      "piece": 69,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03832710502813866,
+      "max_gap_m": 0.1135056974144818
+    },
+    {
+      "piece": 70,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013631272444096051,
+      "max_gap_m": 0.06514263858949845
+    },
+    {
+      "piece": 71,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008232129618585209,
+      "max_gap_m": 0.060342703278612644
+    },
+    {
+      "piece": 72,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005824651074654262,
+      "max_gap_m": 0.016846492351094873
+    },
+    {
+      "piece": 73,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0263191896721707,
+      "max_gap_m": 0.11174107988625548
+    },
+    {
+      "piece": 74,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012497646453899836,
+      "max_gap_m": 0.04744209022862067
+    },
+    {
+      "piece": 75,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009339782527819779,
+      "max_gap_m": 0.035607045408313054
+    },
+    {
+      "piece": 76,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010534461700518773,
+      "max_gap_m": 0.03616655644514758
+    },
+    {
+      "piece": 77,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006336926881135234,
+      "max_gap_m": 0.02910408919886285
+    },
+    {
+      "piece": 78,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008781692015025239,
+      "max_gap_m": 0.03857358065620922
+    },
+    {
+      "piece": 79,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0027710844149686498,
+      "max_gap_m": 0.022073881749328186
+    },
+    {
+      "piece": 80,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005874228205572124,
+      "max_gap_m": 0.027481417818245563
+    },
+    {
+      "piece": 81,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004702925808265826,
+      "max_gap_m": 0.037883250693801385
+    },
+    {
+      "piece": 82,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.056744742183320096,
+      "max_gap_m": 0.2308504368324257
+    },
+    {
+      "piece": 83,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04893101026163959,
+      "max_gap_m": 0.19282587002071794
+    },
+    {
+      "piece": 84,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00898332932900775,
+      "max_gap_m": 0.03126852548503821
+    },
+    {
+      "piece": 85,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007618415491528668,
+      "max_gap_m": 0.02330647581408042
+    },
+    {
+      "piece": 86,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010130236837993717,
+      "max_gap_m": 0.03472333137422977
+    },
+    {
+      "piece": 87,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012539621722993333,
+      "max_gap_m": 0.09699325116480273
+    },
+    {
+      "piece": 88,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0036295293931500362,
+      "max_gap_m": 0.03581278889578204
+    },
+    {
+      "piece": 89,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005709383790543254,
+      "max_gap_m": 0.02828928998317337
+    },
+    {
+      "piece": 90,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03044500414683051,
+      "max_gap_m": 0.0883513195830753
+    },
+    {
+      "piece": 91,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.047669509531219095,
+      "max_gap_m": 0.2369562949155412
+    },
+    {
+      "piece": 92,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.018338822293357787,
+      "max_gap_m": 0.04825390019303956
+    },
+    {
+      "piece": 93,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03409415455646346,
+      "max_gap_m": 0.11053466559014499
+    },
+    {
+      "piece": 94,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0077366552107687205,
+      "max_gap_m": 0.04061883097578438
+    },
+    {
+      "piece": 95,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010425287355954646,
+      "max_gap_m": 0.04126095866323075
+    },
+    {
+      "piece": 96,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009444771633569785,
+      "max_gap_m": 0.02763537420691794
+    },
+    {
+      "piece": 97,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009122786278830161,
+      "max_gap_m": 0.04010752018190858
+    },
+    {
+      "piece": 98,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.022156440334032405,
+      "max_gap_m": 0.08758595579184228
+    },
+    {
+      "piece": 99,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007806999044392346,
+      "max_gap_m": 0.020369158165130935
+    },
+    {
+      "piece": 100,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00593229426575963,
+      "max_gap_m": 0.04942539046658595
+    },
+    {
+      "piece": 101,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005805565635316423,
+      "max_gap_m": 0.01127994739836722
+    },
+    {
+      "piece": 102,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006975841421704848,
+      "max_gap_m": 0.03780440806578618
+    },
+    {
+      "piece": 103,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.018726969766059396,
+      "max_gap_m": 0.08681923170832001
+    },
+    {
+      "piece": 104,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0256381699914348,
+      "max_gap_m": 0.09258320953208307
+    },
+    {
+      "piece": 105,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009535330528157901,
+      "max_gap_m": 0.041407104038835935
+    },
+    {
+      "piece": 106,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011928963947753682,
+      "max_gap_m": 0.06523675139643932
+    },
+    {
+      "piece": 107,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.018389872227286094,
+      "max_gap_m": 0.06216239852286204
+    },
+    {
+      "piece": 108,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004253078324663151,
+      "max_gap_m": 0.027603558230844885
+    },
+    {
+      "piece": 109,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.018630420826569894,
+      "max_gap_m": 0.05920327978823908
+    },
+    {
+      "piece": 110,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.026665358821974378,
+      "max_gap_m": 0.0732962952432479
+    },
+    {
+      "piece": 111,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013242324054006868,
+      "max_gap_m": 0.07732005621446819
+    },
+    {
+      "piece": 112,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006192129394336117,
+      "max_gap_m": 0.0419406995520296
+    },
+    {
+      "piece": 113,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.038296048919214815,
+      "max_gap_m": 0.25280810638755336
+    },
+    {
+      "piece": 114,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006083958957960208,
+      "max_gap_m": 0.036228531613809206
+    },
+    {
+      "piece": 115,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.032322870280726085,
+      "max_gap_m": 0.11477120901986873
+    },
+    {
+      "piece": 116,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02110277417562635,
+      "max_gap_m": 0.06284957024807714
+    },
+    {
+      "piece": 117,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.031826883595248726,
+      "max_gap_m": 0.17348906529459857
+    },
+    {
+      "piece": 118,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004184621368783559,
+      "max_gap_m": 0.024874913268887314
+    },
+    {
+      "piece": 119,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007825988264717032,
+      "max_gap_m": 0.018062737716691896
+    },
+    {
+      "piece": 120,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004118524214592842,
+      "max_gap_m": 0.015904323351609045
+    },
+    {
+      "piece": 121,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009880185255835394,
+      "max_gap_m": 0.029589434408915177
+    },
+    {
+      "piece": 122,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007352218540219502,
+      "max_gap_m": 0.03429571224387086
+    },
+    {
+      "piece": 123,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.043267667233520955,
+      "max_gap_m": 0.18519583691416278
+    },
+    {
+      "piece": 124,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.016745468446875453,
+      "max_gap_m": 0.03771568199219595
+    },
+    {
+      "piece": 125,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011295176551321437,
+      "max_gap_m": 0.03888436560028018
+    },
+    {
+      "piece": 126,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.003327397647164748,
+      "max_gap_m": 0.018601546950731684
+    },
+    {
+      "piece": 127,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008347231446365289,
+      "max_gap_m": 0.03100438298272034
+    },
+    {
+      "piece": 128,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011229203619193544,
+      "max_gap_m": 0.046303015483638583
+    },
+    {
+      "piece": 129,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007514887923878055,
+      "max_gap_m": 0.042398799384745306
+    },
+    {
+      "piece": 130,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008602460745379709,
+      "max_gap_m": 0.032911935096943096
+    },
+    {
+      "piece": 131,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006649092336309864,
+      "max_gap_m": 0.02174683543499159
+    },
+    {
+      "piece": 132,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009528918419146479,
+      "max_gap_m": 0.031440019115079154
+    },
+    {
+      "piece": 133,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0037353809002777655,
+      "max_gap_m": 0.024852211788766385
+    },
+    {
+      "piece": 134,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0085357571075129,
+      "max_gap_m": 0.03356675517258827
+    },
+    {
+      "piece": 135,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013979945219154452,
+      "max_gap_m": 0.04129180153846145
+    },
+    {
+      "piece": 136,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.019141844840043054,
+      "max_gap_m": 0.109105185024929
+    },
+    {
+      "piece": 137,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010174860396149371,
+      "max_gap_m": 0.029044494156402548
+    },
+    {
+      "piece": 138,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.020530178356583273,
+      "max_gap_m": 0.0757785278061577
+    },
+    {
+      "piece": 139,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.024871940796064824,
+      "max_gap_m": 0.08368099921878255
+    },
+    {
+      "piece": 140,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007420873810311746,
+      "max_gap_m": 0.026378425128663646
+    },
+    {
+      "piece": 141,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01651944307752677,
+      "max_gap_m": 0.05977089145281399
+    },
+    {
+      "piece": 142,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008966033173603685,
+      "max_gap_m": 0.02994159434927672
+    },
+    {
+      "piece": 143,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012485125989403517,
+      "max_gap_m": 0.06088160230549691
+    },
+    {
+      "piece": 144,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01109260195011981,
+      "max_gap_m": 0.051604871611034
+    },
+    {
+      "piece": 145,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009592947855624291,
+      "max_gap_m": 0.038640738775648414
+    },
+    {
+      "piece": 146,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0029248738206156324,
+      "max_gap_m": 0.026207873554402704
+    },
+    {
+      "piece": 147,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004631816876225589,
+      "max_gap_m": 0.017200065935321557
+    },
+    {
+      "piece": 148,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014303585594139814,
+      "max_gap_m": 0.05259517610436498
+    },
+    {
+      "piece": 149,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00521430985896381,
+      "max_gap_m": 0.020785837745067072
+    },
+    {
+      "piece": 150,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04505351184512006,
+      "max_gap_m": 0.1589727947506978
+    },
+    {
+      "piece": 151,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004808506013650626,
+      "max_gap_m": 0.019754510970233355
+    },
+    {
+      "piece": 152,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007751972641684397,
+      "max_gap_m": 0.03256542787779182
+    },
+    {
+      "piece": 153,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005599238724900681,
+      "max_gap_m": 0.03642580157387989
+    },
+    {
+      "piece": 154,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.028894565571596947,
+      "max_gap_m": 0.17367685006802988
+    },
+    {
+      "piece": 155,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012892403856072309,
+      "max_gap_m": 0.04801900425058371
+    },
+    {
+      "piece": 156,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004258128718661991,
+      "max_gap_m": 0.02165650881860782
+    },
+    {
+      "piece": 157,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007376404674275042,
+      "max_gap_m": 0.04145338062307876
+    },
+    {
+      "piece": 158,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008911292769004164,
+      "max_gap_m": 0.0366878751627243
+    },
+    {
+      "piece": 159,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005524256114994824,
+      "max_gap_m": 0.03874840138290128
+    },
+    {
+      "piece": 160,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.019217742466718257,
+      "max_gap_m": 0.12357601257104536
+    },
+    {
+      "piece": 161,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005254398301807765,
+      "max_gap_m": 0.01770876681513644
+    },
+    {
+      "piece": 162,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004729882390782772,
+      "max_gap_m": 0.02350541796634685
+    },
+    {
+      "piece": 163,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02232131411309254,
+      "max_gap_m": 0.0355556646317318
+    },
+    {
+      "piece": 164,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.05975651220923839,
+      "max_gap_m": 0.18527323658215777
+    },
+    {
+      "piece": 165,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.05475438722124198,
+      "max_gap_m": 0.15383194188634325
+    },
+    {
+      "piece": 166,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008953589631162884,
+      "max_gap_m": 0.0349643914625833
+    },
+    {
+      "piece": 167,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.018110924291829963,
+      "max_gap_m": 0.055427587292920966
+    },
+    {
+      "piece": 168,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.036847469489771315,
+      "max_gap_m": 0.14543496840983913
+    },
+    {
+      "piece": 169,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.022149979498650295,
+      "max_gap_m": 0.08229997131387425
+    },
+    {
+      "piece": 170,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03965153359775504,
+      "max_gap_m": 0.18206918981137782
+    },
+    {
+      "piece": 171,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005996150241637927,
+      "max_gap_m": 0.023052524544617405
+    },
+    {
+      "piece": 172,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02930930883507179,
+      "max_gap_m": 0.17028558108062194
+    },
+    {
+      "piece": 173,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.028439422990153874,
+      "max_gap_m": 0.08217370446482533
+    },
+    {
+      "piece": 174,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004384625332881767,
+      "max_gap_m": 0.02051602053124503
+    },
+    {
+      "piece": 175,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010609510717343784,
+      "max_gap_m": 0.053561217422163944
+    },
+    {
+      "piece": 176,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0093666909024612,
+      "max_gap_m": 0.05662637196931307
+    },
+    {
+      "piece": 177,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.003638340079170174,
+      "max_gap_m": 0.02078848066119375
+    },
+    {
+      "piece": 178,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.020346127319082592,
+      "max_gap_m": 0.07236944121590519
+    },
+    {
+      "piece": 179,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01804155741993458,
+      "max_gap_m": 0.07881000769534138
+    },
+    {
+      "piece": 180,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011628420376210813,
+      "max_gap_m": 0.04009093963874081
+    },
+    {
+      "piece": 181,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010681677411424173,
+      "max_gap_m": 0.04885772087971754
+    },
+    {
+      "piece": 182,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.030691165662431782,
+      "max_gap_m": 0.10098214143589239
+    },
+    {
+      "piece": 183,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0273499055961633,
+      "max_gap_m": 0.1402723505707696
+    },
+    {
+      "piece": 184,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.023135656442800537,
+      "max_gap_m": 0.09687627023437548
+    },
+    {
+      "piece": 185,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005589833086069341,
+      "max_gap_m": 0.03620755151754582
+    },
+    {
+      "piece": 186,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008923615848158761,
+      "max_gap_m": 0.04629860567389985
+    },
+    {
+      "piece": 187,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.024534760628158063,
+      "max_gap_m": 0.10507748566321021
+    },
+    {
+      "piece": 188,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.046269256980332185,
+      "max_gap_m": 0.1474319738786413
+    },
+    {
+      "piece": 189,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005149049948266399,
+      "max_gap_m": 0.03697567634166252
+    },
+    {
+      "piece": 190,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006739101481572328,
+      "max_gap_m": 0.048433794274551946
+    },
+    {
+      "piece": 191,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.024585307045254953,
+      "max_gap_m": 0.14398871211487058
+    },
+    {
+      "piece": 192,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007434917786793838,
+      "max_gap_m": 0.017295325550555365
+    },
+    {
+      "piece": 193,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009520473031157592,
+      "max_gap_m": 0.032443596177026246
+    },
+    {
+      "piece": 194,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007697162350548077,
+      "max_gap_m": 0.05108208577305724
+    },
+    {
+      "piece": 195,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.024638332444163608,
+      "max_gap_m": 0.09494852374491133
+    },
+    {
+      "piece": 196,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014300681249120902,
+      "max_gap_m": 0.09423039960197278
+    },
+    {
+      "piece": 197,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02234753357712016,
+      "max_gap_m": 0.07707670737497686
+    },
+    {
+      "piece": 198,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008296370590464269,
+      "max_gap_m": 0.05033911470497096
+    },
+    {
+      "piece": 199,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.07065490145373812,
+      "max_gap_m": 0.17473599355733258
+    },
+    {
+      "piece": 200,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010891752584886616,
+      "max_gap_m": 0.06150060481139664
+    },
+    {
+      "piece": 201,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.016466041497541113,
+      "max_gap_m": 0.07379991685874977
+    },
+    {
+      "piece": 202,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.027596723751063118,
+      "max_gap_m": 0.11056762138898352
+    },
+    {
+      "piece": 203,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.022936820976701622,
+      "max_gap_m": 0.06424959943110628
+    },
+    {
+      "piece": 204,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004540888120616135,
+      "max_gap_m": 0.02992401314513972
+    },
+    {
+      "piece": 205,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02735247368893263,
+      "max_gap_m": 0.0828622912621966
+    },
+    {
+      "piece": 206,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009417224631095004,
+      "max_gap_m": 0.02742414760455078
+    },
+    {
+      "piece": 207,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013057748771514575,
+      "max_gap_m": 0.04062502454733759
+    },
+    {
+      "piece": 208,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004947357236050526,
+      "max_gap_m": 0.026152717648135003
+    },
+    {
+      "piece": 209,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00935292681885018,
+      "max_gap_m": 0.039352572662878886
+    },
+    {
+      "piece": 210,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00714238967697094,
+      "max_gap_m": 0.04076774060133834
+    },
+    {
+      "piece": 211,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02639652330868194,
+      "max_gap_m": 0.15806596633183692
+    },
+    {
+      "piece": 212,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04513413993790457,
+      "max_gap_m": 0.1396440554970343
+    },
+    {
+      "piece": 213,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005900603971537244,
+      "max_gap_m": 0.04083714037365524
+    },
+    {
+      "piece": 214,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004201518840375874,
+      "max_gap_m": 0.02950563272092447
+    },
+    {
+      "piece": 215,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007080538274805288,
+      "max_gap_m": 0.02407208204589958
+    },
+    {
+      "piece": 216,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004101155485464671,
+      "max_gap_m": 0.01946492299090618
+    },
+    {
+      "piece": 217,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.025443791598524612,
+      "max_gap_m": 0.05425770186353035
+    },
+    {
+      "piece": 218,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00629821237596756,
+      "max_gap_m": 0.03130595424443193
+    },
+    {
+      "piece": 219,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011508358875539339,
+      "max_gap_m": 0.03880889692439134
+    },
+    {
+      "piece": 220,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011032050567581622,
+      "max_gap_m": 0.09912930001771326
+    },
+    {
+      "piece": 221,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006646807384148745,
+      "max_gap_m": 0.020709174273955584
+    },
+    {
+      "piece": 222,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0048062947873234035,
+      "max_gap_m": 0.044010612426976306
+    },
+    {
+      "piece": 223,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013117153039945782,
+      "max_gap_m": 0.058355615936105706
+    },
+    {
+      "piece": 224,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006744070558232368,
+      "max_gap_m": 0.025168642158670027
+    },
+    {
+      "piece": 225,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01154872100698665,
+      "max_gap_m": 0.03970504253376072
+    },
+    {
+      "piece": 226,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.024229329203302716,
+      "max_gap_m": 0.07247135120087668
+    },
+    {
+      "piece": 227,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00937869460316064,
+      "max_gap_m": 0.050008938959317656
+    },
+    {
+      "piece": 228,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009821844101370273,
+      "max_gap_m": 0.02343632993380424
+    },
+    {
+      "piece": 229,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021797961506826124,
+      "max_gap_m": 0.07136123376900547
+    },
+    {
+      "piece": 230,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04213000810898205,
+      "max_gap_m": 0.12305640673510776
+    },
+    {
+      "piece": 231,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00272862144965607,
+      "max_gap_m": 0.019051869179684103
+    },
+    {
+      "piece": 232,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.003754857597685096,
+      "max_gap_m": 0.023983758782592332
+    },
+    {
+      "piece": 233,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02190019718468443,
+      "max_gap_m": 0.06472018747406799
+    },
+    {
+      "piece": 234,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02858783030186085,
+      "max_gap_m": 0.09404293592246005
+    },
+    {
+      "piece": 235,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014366437480801245,
+      "max_gap_m": 0.03735368589911827
+    },
+    {
+      "piece": 236,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02191663698262214,
+      "max_gap_m": 0.10782052087805938
+    },
+    {
+      "piece": 237,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008531622357715832,
+      "max_gap_m": 0.0378128115283423
+    },
+    {
+      "piece": 238,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02414382878997491,
+      "max_gap_m": 0.08362376898466482
+    },
+    {
+      "piece": 239,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013009090179308555,
+      "max_gap_m": 0.07253383706451022
+    },
+    {
+      "piece": 240,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011429436391978576,
+      "max_gap_m": 0.06413162320427405
+    },
+    {
+      "piece": 241,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0331046193216685,
+      "max_gap_m": 0.1605794368826003
+    },
+    {
+      "piece": 242,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0047288367800355086,
+      "max_gap_m": 0.05450811342846572
+    },
+    {
+      "piece": 243,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013549502748147861,
+      "max_gap_m": 0.10298549210030461
+    },
+    {
+      "piece": 244,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04180139553746526,
+      "max_gap_m": 0.30948232748350735
+    },
+    {
+      "piece": 245,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.017801577620519676,
+      "max_gap_m": 0.09304994571754761
+    },
+    {
+      "piece": 246,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.003203878207778982,
+      "max_gap_m": 0.01997940595070999
+    },
+    {
+      "piece": 247,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.020154017656967366,
+      "max_gap_m": 0.12403865701398878
+    },
+    {
+      "piece": 248,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03614855194605959,
+      "max_gap_m": 0.15525326391153393
+    },
+    {
+      "piece": 249,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04602916904683366,
+      "max_gap_m": 0.1702617967701202
+    },
+    {
+      "piece": 250,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007450346339323441,
+      "max_gap_m": 0.03118524062003685
+    },
+    {
+      "piece": 251,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013150258966418082,
+      "max_gap_m": 0.09070419722449857
+    },
+    {
+      "piece": 252,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015925366054580142,
+      "max_gap_m": 0.05797407946611258
+    },
+    {
+      "piece": 253,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010044250506024907,
+      "max_gap_m": 0.06222013349959492
+    },
+    {
+      "piece": 254,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.022461954466123618,
+      "max_gap_m": 0.07771114992073952
+    },
+    {
+      "piece": 255,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010432499485107938,
+      "max_gap_m": 0.05489697400388255
+    },
+    {
+      "piece": 256,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01045590817717372,
+      "max_gap_m": 0.051699926659914464
+    },
+    {
+      "piece": 257,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03937692789767555,
+      "max_gap_m": 0.1283779829046076
+    },
+    {
+      "piece": 258,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021352478849228633,
+      "max_gap_m": 0.11016633353464261
+    },
+    {
+      "piece": 259,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006475217426119603,
+      "max_gap_m": 0.04154834949544323
+    },
+    {
+      "piece": 260,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.022004090625906712,
+      "max_gap_m": 0.10795870230844712
+    },
+    {
+      "piece": 261,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021162807906052933,
+      "max_gap_m": 0.10343069762464799
+    },
+    {
+      "piece": 262,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02252528091158401,
+      "max_gap_m": 0.10862149159391637
+    },
+    {
+      "piece": 263,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03375947577840177,
+      "max_gap_m": 0.23869885784257644
+    },
+    {
+      "piece": 264,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008370376420870296,
+      "max_gap_m": 0.04484574109501532
+    },
+    {
+      "piece": 265,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008542369553890442,
+      "max_gap_m": 0.04138697810210609
+    },
+    {
+      "piece": 266,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011661923294771781,
+      "max_gap_m": 0.07320828745086083
+    },
+    {
+      "piece": 267,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021060638730527173,
+      "max_gap_m": 0.06534043247958878
+    },
+    {
+      "piece": 268,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01877786763297501,
+      "max_gap_m": 0.07298621775906744
+    },
+    {
+      "piece": 269,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0035872157674029376,
+      "max_gap_m": 0.023714081629577707
+    },
+    {
+      "piece": 270,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007155246145333749,
+      "max_gap_m": 0.03658460027995339
+    },
+    {
+      "piece": 271,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.033599442016641265,
+      "max_gap_m": 0.10534624442682386
+    },
+    {
+      "piece": 272,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03465188473816236,
+      "max_gap_m": 0.09179962320035924
+    },
+    {
+      "piece": 273,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00870473916023115,
+      "max_gap_m": 0.05233377189284094
+    },
+    {
+      "piece": 274,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014743010669961048,
+      "max_gap_m": 0.06983486928538264
+    },
+    {
+      "piece": 275,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006038126337702676,
+      "max_gap_m": 0.02934290634162523
+    },
+    {
+      "piece": 276,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009900111043724263,
+      "max_gap_m": 0.08225735975311127
+    },
+    {
+      "piece": 277,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.016342299342181593,
+      "max_gap_m": 0.058066924679219104
+    },
+    {
+      "piece": 278,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006488277662215006,
+      "max_gap_m": 0.03352185323287066
+    },
+    {
+      "piece": 279,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0047490297852332,
+      "max_gap_m": 0.02474490755849898
+    },
+    {
+      "piece": 280,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005785810989631393,
+      "max_gap_m": 0.0207262877272254
+    },
+    {
+      "piece": 281,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012683521010734541,
+      "max_gap_m": 0.06034311468025959
+    },
+    {
+      "piece": 282,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01267299685444341,
+      "max_gap_m": 0.0825253253370653
+    },
+    {
+      "piece": 283,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007505084606780205,
+      "max_gap_m": 0.026365177255008476
+    },
+    {
+      "piece": 284,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004274089278248194,
+      "max_gap_m": 0.024931556522537715
+    },
+    {
+      "piece": 285,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006313484693297677,
+      "max_gap_m": 0.045889212092477615
+    },
+    {
+      "piece": 286,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005631789597745296,
+      "max_gap_m": 0.022614704409934586
+    },
+    {
+      "piece": 287,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.025988403101769114,
+      "max_gap_m": 0.16381939644623644
+    },
+    {
+      "piece": 288,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02119642102089528,
+      "max_gap_m": 0.0697746822200186
+    },
+    {
+      "piece": 289,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015448785341970202,
+      "max_gap_m": 0.08974670307732642
+    },
+    {
+      "piece": 290,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0268290551186073,
+      "max_gap_m": 0.1337001475658246
+    },
+    {
+      "piece": 291,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.020393382714730818,
+      "max_gap_m": 0.11047815272301811
+    },
+    {
+      "piece": 292,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004321357285008515,
+      "max_gap_m": 0.024588846127042888
+    },
+    {
+      "piece": 293,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006987751106140208,
+      "max_gap_m": 0.0379734114236092
+    },
+    {
+      "piece": 294,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006376625938917066,
+      "max_gap_m": 0.04250003470034003
+    },
+    {
+      "piece": 295,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015474367865455696,
+      "max_gap_m": 0.11130011209167055
+    },
+    {
+      "piece": 296,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.019056683978918507,
+      "max_gap_m": 0.09043567478678542
+    },
+    {
+      "piece": 297,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.044450043456019994,
+      "max_gap_m": 0.20611387290733849
+    },
+    {
+      "piece": 298,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00518797088169394,
+      "max_gap_m": 0.028230366768376355
+    },
+    {
+      "piece": 299,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01029168063364929,
+      "max_gap_m": 0.0728765838612833
+    },
+    {
+      "piece": 300,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010869965799549304,
+      "max_gap_m": 0.04887311546388494
+    },
+    {
+      "piece": 301,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.045784093623462245,
+      "max_gap_m": 0.13224412766525037
+    },
+    {
+      "piece": 302,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012031561532021395,
+      "max_gap_m": 0.07158329096281829
+    },
+    {
+      "piece": 303,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006834472833058422,
+      "max_gap_m": 0.026597633929891187
+    },
+    {
+      "piece": 304,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00963426217302947,
+      "max_gap_m": 0.033737222925908764
+    },
+    {
+      "piece": 305,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006563187963474812,
+      "max_gap_m": 0.02895074476419937
+    },
+    {
+      "piece": 306,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008402080199161721,
+      "max_gap_m": 0.03353990190810152
+    },
+    {
+      "piece": 307,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021607820353703594,
+      "max_gap_m": 0.08183174387067799
+    },
+    {
+      "piece": 308,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.046119726759912855,
+      "max_gap_m": 0.19125423315124956
+    },
+    {
+      "piece": 309,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03235611085386811,
+      "max_gap_m": 0.19479894585020366
+    },
+    {
+      "piece": 310,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.003929567065819484,
+      "max_gap_m": 0.019047345406415034
+    },
+    {
+      "piece": 311,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010521242364934152,
+      "max_gap_m": 0.03423396973022169
+    },
+    {
+      "piece": 312,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.07290663865639063,
+      "max_gap_m": 0.2421843595760797
+    },
+    {
+      "piece": 313,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.018884064744271664,
+      "max_gap_m": 0.0969573657653985
+    },
+    {
+      "piece": 314,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01034807158000177,
+      "max_gap_m": 0.02582810851650459
+    },
+    {
+      "piece": 315,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007928610818966952,
+      "max_gap_m": 0.045012492605754295
+    },
+    {
+      "piece": 316,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03922073837308887,
+      "max_gap_m": 0.15968086533623493
+    },
+    {
+      "piece": 317,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01790269394053852,
+      "max_gap_m": 0.08103058092821044
+    },
+    {
+      "piece": 318,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004101876896474371,
+      "max_gap_m": 0.02009146946080509
+    },
+    {
+      "piece": 319,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02127910793575838,
+      "max_gap_m": 0.09730988113525699
+    },
+    {
+      "piece": 320,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004873233863550763,
+      "max_gap_m": 0.039656978017067634
+    },
+    {
+      "piece": 321,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02521332636787063,
+      "max_gap_m": 0.20956617324442625
+    },
+    {
+      "piece": 322,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.024563596795345255,
+      "max_gap_m": 0.20974947711760294
+    },
+    {
+      "piece": 323,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01683709289848917,
+      "max_gap_m": 0.044631434720454236
+    },
+    {
+      "piece": 324,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.019871163211238718,
+      "max_gap_m": 0.11369562116983029
+    },
+    {
+      "piece": 325,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.026863981596751463,
+      "max_gap_m": 0.05625407038910085
+    },
+    {
+      "piece": 326,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010963930939509287,
+      "max_gap_m": 0.05812447371959467
+    },
+    {
+      "piece": 327,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.003316666775004473,
+      "max_gap_m": 0.02429383419862921
+    },
+    {
+      "piece": 328,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008128427765579302,
+      "max_gap_m": 0.06261277758498189
+    },
+    {
+      "piece": 329,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02558699625594077,
+      "max_gap_m": 0.12281500381777674
+    },
+    {
+      "piece": 330,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04684522810673156,
+      "max_gap_m": 0.1476384377733983
+    },
+    {
+      "piece": 331,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01830878412468931,
+      "max_gap_m": 0.10953875096939716
+    },
+    {
+      "piece": 332,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008083365116992272,
+      "max_gap_m": 0.029843791152702512
+    },
+    {
+      "piece": 333,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03800437870579579,
+      "max_gap_m": 0.10397528537887704
+    },
+    {
+      "piece": 334,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014639808795051529,
+      "max_gap_m": 0.04988366289330978
+    },
+    {
+      "piece": 335,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007689669616475603,
+      "max_gap_m": 0.03093582752692353
+    },
+    {
+      "piece": 336,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011104062843592055,
+      "max_gap_m": 0.06978007354063526
+    },
+    {
+      "piece": 337,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007372458506030771,
+      "max_gap_m": 0.046696326935694976
+    },
+    {
+      "piece": 338,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03691196138206149,
+      "max_gap_m": 0.05784239809838912
+    },
+    {
+      "piece": 339,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04760885104501361,
+      "max_gap_m": 0.2669791947683534
+    },
+    {
+      "piece": 340,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01208998884780113,
+      "max_gap_m": 0.02775201485164233
+    },
+    {
+      "piece": 341,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006932763414487175,
+      "max_gap_m": 0.06634036775494284
+    },
+    {
+      "piece": 342,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012796543948545652,
+      "max_gap_m": 0.04878949513155506
+    },
+    {
+      "piece": 343,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010359005076669925,
+      "max_gap_m": 0.02891451362144981
+    },
+    {
+      "piece": 344,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008412089688436458,
+      "max_gap_m": 0.03851319926334254
+    },
+    {
+      "piece": 345,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010045731577494554,
+      "max_gap_m": 0.046693167556719456
+    },
+    {
+      "piece": 346,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011606547467886613,
+      "max_gap_m": 0.04715306154214102
+    },
+    {
+      "piece": 347,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009528908491361593,
+      "max_gap_m": 0.04228356290524504
+    },
+    {
+      "piece": 348,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006766688904868368,
+      "max_gap_m": 0.022931879807953998
+    },
+    {
+      "piece": 349,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008061126742894581,
+      "max_gap_m": 0.026697725012848145
+    },
+    {
+      "piece": 350,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00455262025765249,
+      "max_gap_m": 0.015013105061382925
+    },
+    {
+      "piece": 351,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0037193849040721427,
+      "max_gap_m": 0.023504268891773844
+    },
+    {
+      "piece": 352,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.016580650398465263,
+      "max_gap_m": 0.07447625020006976
+    },
+    {
+      "piece": 353,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007963002631808602,
+      "max_gap_m": 0.026781291954124015
+    },
+    {
+      "piece": 354,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004457632184074994,
+      "max_gap_m": 0.032845568215763316
+    },
+    {
+      "piece": 355,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.038681369817594846,
+      "max_gap_m": 0.13682983245693753
+    },
+    {
+      "piece": 356,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006196760941797136,
+      "max_gap_m": 0.014205630939772979
+    },
+    {
+      "piece": 357,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009338647789992022,
+      "max_gap_m": 0.0373096275812117
+    },
+    {
+      "piece": 358,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.019596588408956728,
+      "max_gap_m": 0.07426173994879204
+    },
+    {
+      "piece": 359,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007053910813838521,
+      "max_gap_m": 0.03220735506968364
+    },
+    {
+      "piece": 360,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012685868253226873,
+      "max_gap_m": 0.06386695034987264
+    },
+    {
+      "piece": 361,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03449040422457039,
+      "max_gap_m": 0.12974691857217804
+    },
+    {
+      "piece": 362,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007745024195805583,
+      "max_gap_m": 0.03763420242329796
+    },
+    {
+      "piece": 363,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.025111331077028523,
+      "max_gap_m": 0.0854759227602376
+    },
+    {
+      "piece": 364,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.018385210417547926,
+      "max_gap_m": 0.11648231244787266
+    },
+    {
+      "piece": 365,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007022057445312396,
+      "max_gap_m": 0.061875847450633764
+    },
+    {
+      "piece": 366,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009959876322815253,
+      "max_gap_m": 0.040194793014780905
+    },
+    {
+      "piece": 367,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014768075169976691,
+      "max_gap_m": 0.06604955682182101
+    },
+    {
+      "piece": 368,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004234544702622134,
+      "max_gap_m": 0.03607510887944837
+    },
+    {
+      "piece": 369,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012958400121994645,
+      "max_gap_m": 0.077685321717708
+    },
+    {
+      "piece": 370,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008032590277664634,
+      "max_gap_m": 0.037576452174017824
+    },
+    {
+      "piece": 371,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0033481862648364336,
+      "max_gap_m": 0.026375034302530492
+    },
+    {
+      "piece": 372,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004796704036358956,
+      "max_gap_m": 0.029883777967346967
+    },
+    {
+      "piece": 373,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015463764572420435,
+      "max_gap_m": 0.13073141683450656
+    },
+    {
+      "piece": 374,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.022489766967985395,
+      "max_gap_m": 0.07713081450492329
+    },
+    {
+      "piece": 375,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.026706849652087417,
+      "max_gap_m": 0.16250665823472246
+    },
+    {
+      "piece": 376,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008939945196957289,
+      "max_gap_m": 0.051659626172183976
+    },
+    {
+      "piece": 377,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008145458017270124,
+      "max_gap_m": 0.0264538003653272
+    },
+    {
+      "piece": 378,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.012211917572273356,
+      "max_gap_m": 0.032693793079361905
+    },
+    {
+      "piece": 379,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007968720919067668,
+      "max_gap_m": 0.05709035082522561
+    },
+    {
+      "piece": 380,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.030320647075049598,
+      "max_gap_m": 0.07675505066825392
+    },
+    {
+      "piece": 381,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006011947118070696,
+      "max_gap_m": 0.02832826151826251
+    },
+    {
+      "piece": 382,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006065148164506776,
+      "max_gap_m": 0.043677087855472724
+    },
+    {
+      "piece": 383,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006765604087452026,
+      "max_gap_m": 0.030117769244014048
+    },
+    {
+      "piece": 384,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03722985352382058,
+      "max_gap_m": 0.09931415293482902
+    },
+    {
+      "piece": 385,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006074541599892458,
+      "max_gap_m": 0.058924685191842074
+    },
+    {
+      "piece": 386,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005640661434036215,
+      "max_gap_m": 0.02493392073504247
+    },
+    {
+      "piece": 387,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006297876705437272,
+      "max_gap_m": 0.021400627183237847
+    },
+    {
+      "piece": 388,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015170029085701697,
+      "max_gap_m": 0.10481014890907356
+    },
+    {
+      "piece": 389,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02421721971615154,
+      "max_gap_m": 0.12968768776290177
+    },
+    {
+      "piece": 390,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013597541048691208,
+      "max_gap_m": 0.03946571638821428
+    },
+    {
+      "piece": 391,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04707066502392629,
+      "max_gap_m": 0.13802286218745966
+    },
+    {
+      "piece": 392,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.058315881865981994,
+      "max_gap_m": 0.16275810499661347
+    },
+    {
+      "piece": 393,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04898180170687569,
+      "max_gap_m": 0.1563506282513548
+    },
+    {
+      "piece": 394,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03686934245005613,
+      "max_gap_m": 0.2416470725319631
+    },
+    {
+      "piece": 395,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015127718575247362,
+      "max_gap_m": 0.102523854463315
+    },
+    {
+      "piece": 396,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007542201969371859,
+      "max_gap_m": 0.031081758672940663
+    },
+    {
+      "piece": 397,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02359730071958549,
+      "max_gap_m": 0.07090713127464748
+    },
+    {
+      "piece": 398,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.029849384291973036,
+      "max_gap_m": 0.16637092326529962
+    },
+    {
+      "piece": 399,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006120263440483276,
+      "max_gap_m": 0.01950875229470364
+    },
+    {
+      "piece": 400,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.028926959144620623,
+      "max_gap_m": 0.15443335900649224
+    },
+    {
+      "piece": 401,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.023437478271249618,
+      "max_gap_m": 0.1198330314572848
+    },
+    {
+      "piece": 402,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.018981373726121187,
+      "max_gap_m": 0.09989048734621489
+    },
+    {
+      "piece": 403,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03311520989681757,
+      "max_gap_m": 0.14243898281487605
+    },
+    {
+      "piece": 404,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015504271925609991,
+      "max_gap_m": 0.12995591662546996
+    },
+    {
+      "piece": 405,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005104835118566603,
+      "max_gap_m": 0.03879927038214506
+    },
+    {
+      "piece": 406,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011527652205774286,
+      "max_gap_m": 0.04686692968174638
+    },
+    {
+      "piece": 407,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009901871144607277,
+      "max_gap_m": 0.08833517520684661
+    },
+    {
+      "piece": 408,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.027981524887600806,
+      "max_gap_m": 0.08118948984970809
+    },
+    {
+      "piece": 409,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011945464956261809,
+      "max_gap_m": 0.059296743460625884
+    },
+    {
+      "piece": 410,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.013183297736121202,
+      "max_gap_m": 0.049666329449124025
+    },
+    {
+      "piece": 411,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.043482682558230346,
+      "max_gap_m": 0.21128151208678098
+    },
+    {
+      "piece": 412,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0779431102332454,
+      "max_gap_m": 0.2974867664534924
+    },
+    {
+      "piece": 413,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008381185148547382,
+      "max_gap_m": 0.035912415132992176
+    },
+    {
+      "piece": 414,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005050105032592039,
+      "max_gap_m": 0.024876377221230095
+    },
+    {
+      "piece": 415,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.05810910982092138,
+      "max_gap_m": 0.18830215689200328
+    },
+    {
+      "piece": 416,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006538606422364146,
+      "max_gap_m": 0.02780808274816926
+    },
+    {
+      "piece": 417,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006673393579676223,
+      "max_gap_m": 0.02744793375739707
+    },
+    {
+      "piece": 418,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021665527776085602,
+      "max_gap_m": 0.07098541872765282
+    },
+    {
+      "piece": 419,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006990294420604948,
+      "max_gap_m": 0.03261912679983603
+    },
+    {
+      "piece": 420,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.04389943559858045,
+      "max_gap_m": 0.16659173188130233
+    },
+    {
+      "piece": 421,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0048378325153313195,
+      "max_gap_m": 0.020817978357111355
+    },
+    {
+      "piece": 422,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02853125926256231,
+      "max_gap_m": 0.11403291173389823
+    },
+    {
+      "piece": 423,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.037960212551683054,
+      "max_gap_m": 0.0957416721356601
+    },
+    {
+      "piece": 424,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03560632371486802,
+      "max_gap_m": 0.16017044443806477
+    },
+    {
+      "piece": 425,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009299509629900532,
+      "max_gap_m": 0.03759320429359597
+    },
+    {
+      "piece": 426,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.007265456570010126,
+      "max_gap_m": 0.03664686218854535
+    },
+    {
+      "piece": 427,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006676091852430149,
+      "max_gap_m": 0.04402631976073823
+    },
+    {
+      "piece": 428,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03740343088218781,
+      "max_gap_m": 0.18573035567909338
+    },
+    {
+      "piece": 429,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00839689487164913,
+      "max_gap_m": 0.0333258140453937
+    },
+    {
+      "piece": 430,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.024193715443496883,
+      "max_gap_m": 0.06943535035498508
+    },
+    {
+      "piece": 431,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.00807211312297279,
+      "max_gap_m": 0.03932994607809248
+    },
+    {
+      "piece": 432,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011357010536779288,
+      "max_gap_m": 0.046710570764533776
+    },
+    {
+      "piece": 433,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010891485279109409,
+      "max_gap_m": 0.04848085022853099
+    },
+    {
+      "piece": 434,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0133518158689514,
+      "max_gap_m": 0.03601303361765562
+    },
+    {
+      "piece": 435,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006423106272533119,
+      "max_gap_m": 0.026473574154186608
+    },
+    {
+      "piece": 436,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015834740566193828,
+      "max_gap_m": 0.07347028995840654
+    },
+    {
+      "piece": 437,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005256237473596326,
+      "max_gap_m": 0.015592008364564813
+    },
+    {
+      "piece": 438,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0043827690958935794,
+      "max_gap_m": 0.03540375378730559
+    },
+    {
+      "piece": 439,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006160450499103687,
+      "max_gap_m": 0.034466007436531554
+    },
+    {
+      "piece": 440,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.005430390081741843,
+      "max_gap_m": 0.03710111146944295
+    },
+    {
+      "piece": 441,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009077178808768904,
+      "max_gap_m": 0.04477463486716102
+    },
+    {
+      "piece": 442,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004565559465528196,
+      "max_gap_m": 0.01795259634594462
+    },
+    {
+      "piece": 443,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.03421479774617428,
+      "max_gap_m": 0.0865519638983531
+    },
+    {
+      "piece": 444,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.015555881030464458,
+      "max_gap_m": 0.12581828100915385
+    },
+    {
+      "piece": 445,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.02098721620436228,
+      "max_gap_m": 0.1009049442559466
+    },
+    {
+      "piece": 446,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.0065377554318093445,
+      "max_gap_m": 0.021620317566033276
+    },
+    {
+      "piece": 447,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014974188027259472,
+      "max_gap_m": 0.03795874321416315
+    },
+    {
+      "piece": 448,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01543536265293527,
+      "max_gap_m": 0.05069421039626876
+    },
+    {
+      "piece": 449,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009946413148745115,
+      "max_gap_m": 0.04227510320143962
+    },
+    {
+      "piece": 450,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.027091042748194488,
+      "max_gap_m": 0.08464844094309343
+    },
+    {
+      "piece": 451,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.041696461620539776,
+      "max_gap_m": 0.09853590239506069
+    },
+    {
+      "piece": 452,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.040600774730790434,
+      "max_gap_m": 0.10716728642767503
+    },
+    {
+      "piece": 453,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009253564483162446,
+      "max_gap_m": 0.05517394258081937
+    },
+    {
+      "piece": 454,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.014895238333195726,
+      "max_gap_m": 0.046622143651409376
+    },
+    {
+      "piece": 455,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.006714606832459252,
+      "max_gap_m": 0.0334888476059072
+    },
+    {
+      "piece": 456,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.024208871593667997,
+      "max_gap_m": 0.13992083963252783
+    },
+    {
+      "piece": 457,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.01804827672276929,
+      "max_gap_m": 0.07005329477811734
+    },
+    {
+      "piece": 458,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.011663871794233116,
+      "max_gap_m": 0.03441288995434616
+    },
+    {
+      "piece": 459,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004725189903768745,
+      "max_gap_m": 0.020086871081067825
+    },
+    {
+      "piece": 460,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.004097230490057613,
+      "max_gap_m": 0.016486778169399863
+    },
+    {
+      "piece": 461,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.010110314775486906,
+      "max_gap_m": 0.048539428621466874
+    },
+    {
+      "piece": 462,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.023054423798306245,
+      "max_gap_m": 0.05384319337713994
+    },
+    {
+      "piece": 463,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.021745602481722137,
+      "max_gap_m": 0.07038653109062215
+    },
+    {
+      "piece": 464,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.008661649879006972,
+      "max_gap_m": 0.03622562277440114
+    },
+    {
+      "piece": 465,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.05324975541614624,
+      "max_gap_m": 0.14998524002597222
+    },
+    {
+      "piece": 466,
+      "group": "Bedded_rockfall_fragments",
+      "min_gap_m": -0.009193619754249288,
+      "max_gap_m": 0.054369254923708005
+    },
+    {
+      "piece": 467,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004283958125251328,
+      "max_gap_m": 0.014255542810651209
+    },
+    {
+      "piece": 468,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006383130013666721,
+      "max_gap_m": 0.01886969932095897
+    },
+    {
+      "piece": 469,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0035254243920163145,
+      "max_gap_m": 0.008591895060740089
+    },
+    {
+      "piece": 470,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008004829767010557,
+      "max_gap_m": 0.023702655232264613
+    },
+    {
+      "piece": 471,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007332244097877749,
+      "max_gap_m": 0.016130698432925403
+    },
+    {
+      "piece": 472,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007333100272403303,
+      "max_gap_m": 0.020589960652140304
+    },
+    {
+      "piece": 473,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007649325793427135,
+      "max_gap_m": 0.024407293621741644
+    },
+    {
+      "piece": 474,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004069955675002401,
+      "max_gap_m": 0.010202632033524783
+    },
+    {
+      "piece": 475,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009081767820097605,
+      "max_gap_m": 0.020769516674845778
+    },
+    {
+      "piece": 476,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013444315479415103,
+      "max_gap_m": 0.03266551252953445
+    },
+    {
+      "piece": 477,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008412461858552022,
+      "max_gap_m": 0.015858292518986954
+    },
+    {
+      "piece": 478,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005661837428314165,
+      "max_gap_m": 0.014331236808242942
+    },
+    {
+      "piece": 479,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003078835897791843,
+      "max_gap_m": 0.00799457722226854
+    },
+    {
+      "piece": 480,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0064899989303980055,
+      "max_gap_m": 0.017054379085848642
+    },
+    {
+      "piece": 481,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009088315040425288,
+      "max_gap_m": 0.02534528098829736
+    },
+    {
+      "piece": 482,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008262125571905032,
+      "max_gap_m": 0.016203429833338834
+    },
+    {
+      "piece": 483,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010097666094419228,
+      "max_gap_m": 0.026548773287119572
+    },
+    {
+      "piece": 484,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0071817704491216675,
+      "max_gap_m": 0.018307658753901467
+    },
+    {
+      "piece": 485,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005211677024849375,
+      "max_gap_m": 0.012835067731567347
+    },
+    {
+      "piece": 486,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0054593208621896705,
+      "max_gap_m": 0.01351661907576411
+    },
+    {
+      "piece": 487,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014348109834099149,
+      "max_gap_m": 0.03567051566659943
+    },
+    {
+      "piece": 488,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0044587143123823725,
+      "max_gap_m": 0.009174287383221014
+    },
+    {
+      "piece": 489,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008409785341169068,
+      "max_gap_m": 0.026396863395445856
+    },
+    {
+      "piece": 490,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005159736508474955,
+      "max_gap_m": 0.011884986801930508
+    },
+    {
+      "piece": 491,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011136013080433937,
+      "max_gap_m": 0.03070292111437098
+    },
+    {
+      "piece": 492,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006569134671054995,
+      "max_gap_m": 0.02370934394279658
+    },
+    {
+      "piece": 493,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004041873234905902,
+      "max_gap_m": 0.011737553474203216
+    },
+    {
+      "piece": 494,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004465335926100572,
+      "max_gap_m": 0.010751968772840181
+    },
+    {
+      "piece": 495,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012634333054797262,
+      "max_gap_m": 0.028456930877065634
+    },
+    {
+      "piece": 496,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007690392702580318,
+      "max_gap_m": 0.02218455527560137
+    },
+    {
+      "piece": 497,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007202475536718073,
+      "max_gap_m": 0.02247915495352807
+    },
+    {
+      "piece": 498,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014826662559837597,
+      "max_gap_m": 0.03676326250937807
+    },
+    {
+      "piece": 499,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005011824602330434,
+      "max_gap_m": 0.013605187231758104
+    },
+    {
+      "piece": 500,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007010267410686618,
+      "max_gap_m": 0.019877207909012436
+    },
+    {
+      "piece": 501,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00999139526794815,
+      "max_gap_m": 0.024934327457674682
+    },
+    {
+      "piece": 502,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011994639939566287,
+      "max_gap_m": 0.03942021481396543
+    },
+    {
+      "piece": 503,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015404754998653767,
+      "max_gap_m": 0.03155131729309011
+    },
+    {
+      "piece": 504,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005682696171282975,
+      "max_gap_m": 0.018194907289489165
+    },
+    {
+      "piece": 505,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013085582580076305,
+      "max_gap_m": 0.037573345585857815
+    },
+    {
+      "piece": 506,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006937505639628805,
+      "max_gap_m": 0.027230276004020615
+    },
+    {
+      "piece": 507,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006857915458029355,
+      "max_gap_m": 0.015102602406155371
+    },
+    {
+      "piece": 508,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.019976788217781427,
+      "max_gap_m": 0.05086512564268397
+    },
+    {
+      "piece": 509,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00452775810555936,
+      "max_gap_m": 0.014896538809893306
+    },
+    {
+      "piece": 510,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0028567608710612924,
+      "max_gap_m": 0.01297256746667938
+    },
+    {
+      "piece": 511,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009020880971475687,
+      "max_gap_m": 0.019664172274368397
+    },
+    {
+      "piece": 512,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011241601577265808,
+      "max_gap_m": 0.030642016454765386
+    },
+    {
+      "piece": 513,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007942567117822485,
+      "max_gap_m": 0.018146451384298268
+    },
+    {
+      "piece": 514,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013038468766869427,
+      "max_gap_m": 0.04484327064361876
+    },
+    {
+      "piece": 515,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00773333840399848,
+      "max_gap_m": 0.02028868059521302
+    },
+    {
+      "piece": 516,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006682343599609203,
+      "max_gap_m": 0.01609893581670896
+    },
+    {
+      "piece": 517,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006572154745911968,
+      "max_gap_m": 0.016980150256443255
+    },
+    {
+      "piece": 518,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01270098786963697,
+      "max_gap_m": 0.029655535761766938
+    },
+    {
+      "piece": 519,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004482014867817408,
+      "max_gap_m": 0.012443925764947295
+    },
+    {
+      "piece": 520,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0038347942253959544,
+      "max_gap_m": 0.009858805945620663
+    },
+    {
+      "piece": 521,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008179228036264752,
+      "max_gap_m": 0.02074566195950006
+    },
+    {
+      "piece": 522,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.020748496037209074,
+      "max_gap_m": 0.045189165386375574
+    },
+    {
+      "piece": 523,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01361593589017937,
+      "max_gap_m": 0.04078944447614097
+    },
+    {
+      "piece": 524,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004774172371068919,
+      "max_gap_m": 0.012217912359433203
+    },
+    {
+      "piece": 525,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005039063317055045,
+      "max_gap_m": 0.010005385010024972
+    },
+    {
+      "piece": 526,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010170468629265461,
+      "max_gap_m": 0.040892110595806774
+    },
+    {
+      "piece": 527,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012444053313535486,
+      "max_gap_m": 0.0365883169629469
+    },
+    {
+      "piece": 528,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009063827894578824,
+      "max_gap_m": 0.0332507668356172
+    },
+    {
+      "piece": 529,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012957133101828944,
+      "max_gap_m": 0.029009896865513057
+    },
+    {
+      "piece": 530,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0037320733157149982,
+      "max_gap_m": 0.011158033811983673
+    },
+    {
+      "piece": 531,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00739694481129366,
+      "max_gap_m": 0.029147796588811337
+    },
+    {
+      "piece": 532,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016467177110151165,
+      "max_gap_m": 0.05011546801227651
+    },
+    {
+      "piece": 533,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006256992958201452,
+      "max_gap_m": 0.027923581671371545
+    },
+    {
+      "piece": 534,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010392320316374354,
+      "max_gap_m": 0.03058736495998407
+    },
+    {
+      "piece": 535,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009896443783508735,
+      "max_gap_m": 0.03477897246081946
+    },
+    {
+      "piece": 536,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007144797443404849,
+      "max_gap_m": 0.016897601181549177
+    },
+    {
+      "piece": 537,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005379895475727481,
+      "max_gap_m": 0.012965415033434902
+    },
+    {
+      "piece": 538,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010628366162895975,
+      "max_gap_m": 0.02397426586672291
+    },
+    {
+      "piece": 539,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010941145594939583,
+      "max_gap_m": 0.02354709889196477
+    },
+    {
+      "piece": 540,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004419469865512449,
+      "max_gap_m": 0.011802876559755426
+    },
+    {
+      "piece": 541,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005217905320657246,
+      "max_gap_m": 0.018526168493734257
+    },
+    {
+      "piece": 542,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.021210946768078637,
+      "max_gap_m": 0.05177913813273219
+    },
+    {
+      "piece": 543,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016129751030997175,
+      "max_gap_m": 0.0412798944900028
+    },
+    {
+      "piece": 544,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.002881705548918062,
+      "max_gap_m": 0.006431895242353547
+    },
+    {
+      "piece": 545,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005562089416978971,
+      "max_gap_m": 0.020926879845062557
+    },
+    {
+      "piece": 546,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014516122325080566,
+      "max_gap_m": 0.04409707539398994
+    },
+    {
+      "piece": 547,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006017245958822748,
+      "max_gap_m": 0.014015785330427577
+    },
+    {
+      "piece": 548,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00959024090402999,
+      "max_gap_m": 0.02772909930352424
+    },
+    {
+      "piece": 549,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005848155230045435,
+      "max_gap_m": 0.015296553473029051
+    },
+    {
+      "piece": 550,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.022799751052076267,
+      "max_gap_m": 0.056025418994844256
+    },
+    {
+      "piece": 551,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006601855274021073,
+      "max_gap_m": 0.016627723759575053
+    },
+    {
+      "piece": 552,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01176335258228342,
+      "max_gap_m": 0.03742752300778278
+    },
+    {
+      "piece": 553,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008915694320370982,
+      "max_gap_m": 0.016865545937881476
+    },
+    {
+      "piece": 554,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009696583576364992,
+      "max_gap_m": 0.025939152739312826
+    },
+    {
+      "piece": 555,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004622850948997448,
+      "max_gap_m": 0.015097448508213235
+    },
+    {
+      "piece": 556,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014793365083948962,
+      "max_gap_m": 0.04100846029063737
+    },
+    {
+      "piece": 557,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004954168885210934,
+      "max_gap_m": 0.0129698805753512
+    },
+    {
+      "piece": 558,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006622115989912497,
+      "max_gap_m": 0.01763510507148694
+    },
+    {
+      "piece": 559,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007609487808813528,
+      "max_gap_m": 0.016643971923523578
+    },
+    {
+      "piece": 560,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00954933490143968,
+      "max_gap_m": 0.03385933401377636
+    },
+    {
+      "piece": 561,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009735035305560968,
+      "max_gap_m": 0.032200171789697835
+    },
+    {
+      "piece": 562,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.017563677525364474,
+      "max_gap_m": 0.0391600824666522
+    },
+    {
+      "piece": 563,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005699795751126557,
+      "max_gap_m": 0.010239250783845022
+    },
+    {
+      "piece": 564,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013130157937298603,
+      "max_gap_m": 0.032033774897869856
+    },
+    {
+      "piece": 565,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014638105651492372,
+      "max_gap_m": 0.03278526949813282
+    },
+    {
+      "piece": 566,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006750918971483666,
+      "max_gap_m": 0.02335847609878211
+    },
+    {
+      "piece": 567,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014149600893781367,
+      "max_gap_m": 0.03800537341129623
+    },
+    {
+      "piece": 568,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016457762274971782,
+      "max_gap_m": 0.04548100147421971
+    },
+    {
+      "piece": 569,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006219173046748405,
+      "max_gap_m": 0.015212498841652267
+    },
+    {
+      "piece": 570,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004364573804851522,
+      "max_gap_m": 0.009159307744073947
+    },
+    {
+      "piece": 571,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01809976757084077,
+      "max_gap_m": 0.04046467329481768
+    },
+    {
+      "piece": 572,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009120347493872916,
+      "max_gap_m": 0.02549340015694508
+    },
+    {
+      "piece": 573,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.002838030077252404,
+      "max_gap_m": 0.0074464091261847165
+    },
+    {
+      "piece": 574,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013120465197862807,
+      "max_gap_m": 0.03495296777182469
+    },
+    {
+      "piece": 575,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010779715152046551,
+      "max_gap_m": 0.029875083112048652
+    },
+    {
+      "piece": 576,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013202013264285398,
+      "max_gap_m": 0.04293457487359732
+    },
+    {
+      "piece": 577,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011529042057466604,
+      "max_gap_m": 0.02883573895508293
+    },
+    {
+      "piece": 578,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011935840027838984,
+      "max_gap_m": 0.03486534578391193
+    },
+    {
+      "piece": 579,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014323479411868761,
+      "max_gap_m": 0.04347312117335747
+    },
+    {
+      "piece": 580,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007335687829102211,
+      "max_gap_m": 0.018888936915283483
+    },
+    {
+      "piece": 581,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01857979023452827,
+      "max_gap_m": 0.04583226667731924
+    },
+    {
+      "piece": 582,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009447351131222137,
+      "max_gap_m": 0.028672133301060998
+    },
+    {
+      "piece": 583,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014979597654378257,
+      "max_gap_m": 0.041502081081226355
+    },
+    {
+      "piece": 584,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004736860661378406,
+      "max_gap_m": 0.012431953736498358
+    },
+    {
+      "piece": 585,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004391180933323066,
+      "max_gap_m": 0.010252184128634226
+    },
+    {
+      "piece": 586,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0076824401037765555,
+      "max_gap_m": 0.02047852413232809
+    },
+    {
+      "piece": 587,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012148619015655615,
+      "max_gap_m": 0.03214336722052627
+    },
+    {
+      "piece": 588,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012236215101098097,
+      "max_gap_m": 0.04468535355277373
+    },
+    {
+      "piece": 589,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011562144869736002,
+      "max_gap_m": 0.03205181452950945
+    },
+    {
+      "piece": 590,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007945403681885677,
+      "max_gap_m": 0.02043249638284167
+    },
+    {
+      "piece": 591,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012324345126138225,
+      "max_gap_m": 0.027987803374116715
+    },
+    {
+      "piece": 592,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.017980013548542645,
+      "max_gap_m": 0.04899497770055988
+    },
+    {
+      "piece": 593,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00714487973268807,
+      "max_gap_m": 0.018698757890646928
+    },
+    {
+      "piece": 594,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011459165821923634,
+      "max_gap_m": 0.031446212438236976
+    },
+    {
+      "piece": 595,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0067776732723796584,
+      "max_gap_m": 0.021382669474852373
+    },
+    {
+      "piece": 596,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005555087295218475,
+      "max_gap_m": 0.011384611566570252
+    },
+    {
+      "piece": 597,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010045471913179393,
+      "max_gap_m": 0.026383155880904285
+    },
+    {
+      "piece": 598,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0073958094979080895,
+      "max_gap_m": 0.019785540829924543
+    },
+    {
+      "piece": 599,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005302936161984573,
+      "max_gap_m": 0.015854180556733682
+    },
+    {
+      "piece": 600,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008834415301324505,
+      "max_gap_m": 0.022506805853812373
+    },
+    {
+      "piece": 601,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006323951513147935,
+      "max_gap_m": 0.013923023161153791
+    },
+    {
+      "piece": 602,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005520877223052556,
+      "max_gap_m": 0.019112466394959504
+    },
+    {
+      "piece": 603,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003992403790681914,
+      "max_gap_m": 0.012021728554059724
+    },
+    {
+      "piece": 604,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016471963543156012,
+      "max_gap_m": 0.055900622966820135
+    },
+    {
+      "piece": 605,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010548690830820884,
+      "max_gap_m": 0.019808196657498223
+    },
+    {
+      "piece": 606,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009490960642547397,
+      "max_gap_m": 0.02407726028132323
+    },
+    {
+      "piece": 607,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00877067504073642,
+      "max_gap_m": 0.02577672037747722
+    },
+    {
+      "piece": 608,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004039075466717723,
+      "max_gap_m": 0.006923992735579129
+    },
+    {
+      "piece": 609,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0089669494771486,
+      "max_gap_m": 0.02240734266778166
+    },
+    {
+      "piece": 610,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007020556272178569,
+      "max_gap_m": 0.022107798317751337
+    },
+    {
+      "piece": 611,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0069693060911504845,
+      "max_gap_m": 0.018341914591326003
+    },
+    {
+      "piece": 612,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010304178565562289,
+      "max_gap_m": 0.028749149033668042
+    },
+    {
+      "piece": 613,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01163784825190296,
+      "max_gap_m": 0.030400850452874762
+    },
+    {
+      "piece": 614,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011513665145116592,
+      "max_gap_m": 0.031697597394282406
+    },
+    {
+      "piece": 615,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006697888009633335,
+      "max_gap_m": 0.019313203346129793
+    },
+    {
+      "piece": 616,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01362717944894569,
+      "max_gap_m": 0.043868016352773515
+    },
+    {
+      "piece": 617,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015942264564449693,
+      "max_gap_m": 0.051399454627523045
+    },
+    {
+      "piece": 618,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004499942685330799,
+      "max_gap_m": 0.014191839119124222
+    },
+    {
+      "piece": 619,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007878506634496407,
+      "max_gap_m": 0.018239749281084405
+    },
+    {
+      "piece": 620,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003756267370344176,
+      "max_gap_m": 0.009599626141821353
+    },
+    {
+      "piece": 621,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.02022954749095468,
+      "max_gap_m": 0.0593651686829612
+    },
+    {
+      "piece": 622,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010268918048942923,
+      "max_gap_m": 0.025080060252933595
+    },
+    {
+      "piece": 623,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005618809388401369,
+      "max_gap_m": 0.012539086704254965
+    },
+    {
+      "piece": 624,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00830488654399239,
+      "max_gap_m": 0.021019856224839997
+    },
+    {
+      "piece": 625,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.020499224131744376,
+      "max_gap_m": 0.04492154397414768
+    },
+    {
+      "piece": 626,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016290738542375727,
+      "max_gap_m": 0.04101025210274656
+    },
+    {
+      "piece": 627,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008063531007966994,
+      "max_gap_m": 0.02138853541000156
+    },
+    {
+      "piece": 628,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009718275848777963,
+      "max_gap_m": 0.02790221737003891
+    },
+    {
+      "piece": 629,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011531391312137373,
+      "max_gap_m": 0.030293261649434716
+    },
+    {
+      "piece": 630,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006307397508317436,
+      "max_gap_m": 0.014415106858544607
+    },
+    {
+      "piece": 631,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016579300996320046,
+      "max_gap_m": 0.04088176797186882
+    },
+    {
+      "piece": 632,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008366039981671208,
+      "max_gap_m": 0.022680014659705955
+    },
+    {
+      "piece": 633,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00946010924623808,
+      "max_gap_m": 0.026212227100002344
+    },
+    {
+      "piece": 634,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014038825981534823,
+      "max_gap_m": 0.036194008008834634
+    },
+    {
+      "piece": 635,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013425023905266592,
+      "max_gap_m": 0.03441595898369601
+    },
+    {
+      "piece": 636,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008210397414795623,
+      "max_gap_m": 0.022570651115551843
+    },
+    {
+      "piece": 637,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015666406909228714,
+      "max_gap_m": 0.03970997806396259
+    },
+    {
+      "piece": 638,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013381619326187144,
+      "max_gap_m": 0.03627475041365358
+    },
+    {
+      "piece": 639,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007979475403416605,
+      "max_gap_m": 0.027346947073891403
+    },
+    {
+      "piece": 640,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0031177335299961695,
+      "max_gap_m": 0.007156029271148806
+    },
+    {
+      "piece": 641,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00957998247780567,
+      "max_gap_m": 0.03391555739051198
+    },
+    {
+      "piece": 642,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012122640566337384,
+      "max_gap_m": 0.025232121902579785
+    },
+    {
+      "piece": 643,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011140631629051878,
+      "max_gap_m": 0.028868259778172145
+    },
+    {
+      "piece": 644,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006449317604418206,
+      "max_gap_m": 0.023199751626386926
+    },
+    {
+      "piece": 645,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0059548536150543785,
+      "max_gap_m": 0.01945754001999972
+    },
+    {
+      "piece": 646,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0034019592108318064,
+      "max_gap_m": 0.00854115623453272
+    },
+    {
+      "piece": 647,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011451233896858537,
+      "max_gap_m": 0.03054649771532983
+    },
+    {
+      "piece": 648,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006602858387025817,
+      "max_gap_m": 0.016373611014947283
+    },
+    {
+      "piece": 649,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0026096568557484046,
+      "max_gap_m": 0.00822668698595258
+    },
+    {
+      "piece": 650,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0037998381974522766,
+      "max_gap_m": 0.006458191192014101
+    },
+    {
+      "piece": 651,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004402441372809096,
+      "max_gap_m": 0.010202105775537096
+    },
+    {
+      "piece": 652,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003230820413688648,
+      "max_gap_m": 0.006675485972680965
+    },
+    {
+      "piece": 653,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006083431557631552,
+      "max_gap_m": 0.01620508322954478
+    },
+    {
+      "piece": 654,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.020050902080745434,
+      "max_gap_m": 0.052184701475537554
+    },
+    {
+      "piece": 655,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011216852838188462,
+      "max_gap_m": 0.025749764197650724
+    },
+    {
+      "piece": 656,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010010067094218485,
+      "max_gap_m": 0.02146990611417534
+    },
+    {
+      "piece": 657,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004890498657547246,
+      "max_gap_m": 0.02267393020651845
+    },
+    {
+      "piece": 658,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01961549538436752,
+      "max_gap_m": 0.04739860257567137
+    },
+    {
+      "piece": 659,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006240084894123532,
+      "max_gap_m": 0.020420381042881797
+    },
+    {
+      "piece": 660,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00560230146843349,
+      "max_gap_m": 0.017347926583073117
+    },
+    {
+      "piece": 661,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011454661112042871,
+      "max_gap_m": 0.030020447356287002
+    },
+    {
+      "piece": 662,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015420468846248925,
+      "max_gap_m": 0.04107063258007748
+    },
+    {
+      "piece": 663,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01072938478896382,
+      "max_gap_m": 0.027000903421215167
+    },
+    {
+      "piece": 664,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004815717701500355,
+      "max_gap_m": 0.013881490546470587
+    },
+    {
+      "piece": 665,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01298730562221262,
+      "max_gap_m": 0.027871870156654183
+    },
+    {
+      "piece": 666,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00588197090876795,
+      "max_gap_m": 0.013849080773224526
+    },
+    {
+      "piece": 667,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00449240066517792,
+      "max_gap_m": 0.008495572094423559
+    },
+    {
+      "piece": 668,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005038319027296623,
+      "max_gap_m": 0.013142268671424193
+    },
+    {
+      "piece": 669,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009263247375261519,
+      "max_gap_m": 0.0249091596712126
+    },
+    {
+      "piece": 670,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006928518273297088,
+      "max_gap_m": 0.01957901576120298
+    },
+    {
+      "piece": 671,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013905145032950428,
+      "max_gap_m": 0.048897094662153195
+    },
+    {
+      "piece": 672,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004685283386561878,
+      "max_gap_m": 0.01533357979784189
+    },
+    {
+      "piece": 673,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009982468172759495,
+      "max_gap_m": 0.022362837995060073
+    },
+    {
+      "piece": 674,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01805629486307203,
+      "max_gap_m": 0.054250332418639635
+    },
+    {
+      "piece": 675,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003469118424015906,
+      "max_gap_m": 0.008179430727555816
+    },
+    {
+      "piece": 676,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00990774475652656,
+      "max_gap_m": 0.03172615070250523
+    },
+    {
+      "piece": 677,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.022651882716498095,
+      "max_gap_m": 0.056311038581942675
+    },
+    {
+      "piece": 678,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01282571320893569,
+      "max_gap_m": 0.035173446888098966
+    },
+    {
+      "piece": 679,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014755633809394986,
+      "max_gap_m": 0.035580694215572806
+    },
+    {
+      "piece": 680,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012923337408315971,
+      "max_gap_m": 0.03765613914391794
+    },
+    {
+      "piece": 681,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006757774019874707,
+      "max_gap_m": 0.017288406376730348
+    },
+    {
+      "piece": 682,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008080100122742476,
+      "max_gap_m": 0.013976362373052983
+    },
+    {
+      "piece": 683,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013493529800833126,
+      "max_gap_m": 0.03397037618093529
+    },
+    {
+      "piece": 684,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003019598571131904,
+      "max_gap_m": 0.00806117486034652
+    },
+    {
+      "piece": 685,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005557367159604573,
+      "max_gap_m": 0.016404176366944925
+    },
+    {
+      "piece": 686,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0054873647774902334,
+      "max_gap_m": 0.013500964329509646
+    },
+    {
+      "piece": 687,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007060444523806955,
+      "max_gap_m": 0.01939644058605336
+    },
+    {
+      "piece": 688,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013649738855496515,
+      "max_gap_m": 0.03287684224699822
+    },
+    {
+      "piece": 689,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014922621424433735,
+      "max_gap_m": 0.04333260855921289
+    },
+    {
+      "piece": 690,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0035030734489708837,
+      "max_gap_m": 0.00769595978905574
+    },
+    {
+      "piece": 691,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00431251184497107,
+      "max_gap_m": 0.009208992982586914
+    },
+    {
+      "piece": 692,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006925709954382353,
+      "max_gap_m": 0.02084277879670743
+    },
+    {
+      "piece": 693,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01079000001229441,
+      "max_gap_m": 0.02501672556984391
+    },
+    {
+      "piece": 694,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00384036824673073,
+      "max_gap_m": 0.00903831452170295
+    },
+    {
+      "piece": 695,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005523216021640409,
+      "max_gap_m": 0.01806199926750421
+    },
+    {
+      "piece": 696,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004734954270534636,
+      "max_gap_m": 0.014520069476734884
+    },
+    {
+      "piece": 697,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.017578022723405473,
+      "max_gap_m": 0.04466634876781794
+    },
+    {
+      "piece": 698,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008941654761668319,
+      "max_gap_m": 0.02738286925838211
+    },
+    {
+      "piece": 699,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007486189116027275,
+      "max_gap_m": 0.019063595126368654
+    },
+    {
+      "piece": 700,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014590803876715075,
+      "max_gap_m": 0.03762614674515179
+    },
+    {
+      "piece": 701,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014073418793132897,
+      "max_gap_m": 0.03301206020417413
+    },
+    {
+      "piece": 702,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0032888483480287972,
+      "max_gap_m": 0.008414627497949773
+    },
+    {
+      "piece": 703,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0077197321891195585,
+      "max_gap_m": 0.027728757080905022
+    },
+    {
+      "piece": 704,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00463280082757811,
+      "max_gap_m": 0.01450720033811452
+    },
+    {
+      "piece": 705,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005880873884585788,
+      "max_gap_m": 0.016203345693898405
+    },
+    {
+      "piece": 706,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007602862570107394,
+      "max_gap_m": 0.018098821370629598
+    },
+    {
+      "piece": 707,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006828905321918655,
+      "max_gap_m": 0.019008904104114488
+    },
+    {
+      "piece": 708,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01232338109784012,
+      "max_gap_m": 0.025448312988538363
+    },
+    {
+      "piece": 709,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011839481387199702,
+      "max_gap_m": 0.03234617396571922
+    },
+    {
+      "piece": 710,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007317312860885258,
+      "max_gap_m": 0.017854212295066493
+    },
+    {
+      "piece": 711,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00567824801877731,
+      "max_gap_m": 0.017525666380822175
+    },
+    {
+      "piece": 712,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0054847180002617485,
+      "max_gap_m": 0.013021776049314412
+    },
+    {
+      "piece": 713,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014318659962595404,
+      "max_gap_m": 0.05674306878771096
+    },
+    {
+      "piece": 714,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013822273961220169,
+      "max_gap_m": 0.032655772673062244
+    },
+    {
+      "piece": 715,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010188551483967967,
+      "max_gap_m": 0.035383250298580915
+    },
+    {
+      "piece": 716,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010277097520279603,
+      "max_gap_m": 0.02932554788268231
+    },
+    {
+      "piece": 717,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.02157945056644872,
+      "max_gap_m": 0.06402905297731765
+    },
+    {
+      "piece": 718,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006199002246539492,
+      "max_gap_m": 0.02325068772382613
+    },
+    {
+      "piece": 719,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01396095483074869,
+      "max_gap_m": 0.03804512379653778
+    },
+    {
+      "piece": 720,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012697944090744054,
+      "max_gap_m": 0.03367001568100697
+    },
+    {
+      "piece": 721,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016332907748167674,
+      "max_gap_m": 0.04462579198436059
+    },
+    {
+      "piece": 722,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008894724812350568,
+      "max_gap_m": 0.02050935391106362
+    },
+    {
+      "piece": 723,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003974844986045556,
+      "max_gap_m": 0.009575405205117515
+    },
+    {
+      "piece": 724,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00914479866337381,
+      "max_gap_m": 0.03574385719912854
+    },
+    {
+      "piece": 725,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004438360908855077,
+      "max_gap_m": 0.009476101147788407
+    },
+    {
+      "piece": 726,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01554019347661767,
+      "max_gap_m": 0.040175292633688214
+    },
+    {
+      "piece": 727,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011024703563098481,
+      "max_gap_m": 0.02776536016932729
+    },
+    {
+      "piece": 728,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015446159027621302,
+      "max_gap_m": 0.04086468194209507
+    },
+    {
+      "piece": 729,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.021087755625604998,
+      "max_gap_m": 0.06715735670753875
+    },
+    {
+      "piece": 730,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009936954725015254,
+      "max_gap_m": 0.03276309088931054
+    },
+    {
+      "piece": 731,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00847131438970744,
+      "max_gap_m": 0.03504784127794974
+    },
+    {
+      "piece": 732,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006181655993961033,
+      "max_gap_m": 0.013971753594130998
+    },
+    {
+      "piece": 733,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013949512759153876,
+      "max_gap_m": 0.048742063090423615
+    },
+    {
+      "piece": 734,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015326469082878158,
+      "max_gap_m": 0.04107774503918911
+    },
+    {
+      "piece": 735,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016052315048700916,
+      "max_gap_m": 0.03515098962941399
+    },
+    {
+      "piece": 736,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005148487912147115,
+      "max_gap_m": 0.015328554009132495
+    },
+    {
+      "piece": 737,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007455870117708707,
+      "max_gap_m": 0.01661830332300529
+    },
+    {
+      "piece": 738,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004805281479659598,
+      "max_gap_m": 0.009315435417395573
+    },
+    {
+      "piece": 739,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0038549175689484017,
+      "max_gap_m": 0.00737047358852938
+    },
+    {
+      "piece": 740,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0036014700275659034,
+      "max_gap_m": 0.008611034483005361
+    },
+    {
+      "piece": 741,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005435709686092728,
+      "max_gap_m": 0.013954778677272697
+    },
+    {
+      "piece": 742,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005093765155122887,
+      "max_gap_m": 0.013475628868649614
+    },
+    {
+      "piece": 743,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005248108058901996,
+      "max_gap_m": 0.013228251418849632
+    },
+    {
+      "piece": 744,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0031234738171759327,
+      "max_gap_m": 0.009551754034651652
+    },
+    {
+      "piece": 745,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0055035231915164795,
+      "max_gap_m": 0.012681041798200676
+    },
+    {
+      "piece": 746,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007118857152035973,
+      "max_gap_m": 0.01985889378281014
+    },
+    {
+      "piece": 747,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01619977959739133,
+      "max_gap_m": 0.03464359269153344
+    },
+    {
+      "piece": 748,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007200711774355509,
+      "max_gap_m": 0.02031026319725525
+    },
+    {
+      "piece": 749,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00518860939609668,
+      "max_gap_m": 0.013834635982505311
+    },
+    {
+      "piece": 750,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006643329389114664,
+      "max_gap_m": 0.018379004885565174
+    },
+    {
+      "piece": 751,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008295510147039692,
+      "max_gap_m": 0.019942201745350385
+    },
+    {
+      "piece": 752,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012292587155355111,
+      "max_gap_m": 0.028016889660789163
+    },
+    {
+      "piece": 753,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005829010280330671,
+      "max_gap_m": 0.013717334166169715
+    },
+    {
+      "piece": 754,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0038519208028662266,
+      "max_gap_m": 0.01331349442788761
+    },
+    {
+      "piece": 755,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009825553185059316,
+      "max_gap_m": 0.024905910589893592
+    },
+    {
+      "piece": 756,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009514759920895732,
+      "max_gap_m": 0.03366060720036956
+    },
+    {
+      "piece": 757,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005663920173968412,
+      "max_gap_m": 0.019784190802383805
+    },
+    {
+      "piece": 758,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004938191185787033,
+      "max_gap_m": 0.010987870170447972
+    },
+    {
+      "piece": 759,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011104591390947036,
+      "max_gap_m": 0.0268221890318366
+    },
+    {
+      "piece": 760,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004999392930348713,
+      "max_gap_m": 0.019173290710359905
+    },
+    {
+      "piece": 761,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006234978796057354,
+      "max_gap_m": 0.01578936386313387
+    },
+    {
+      "piece": 762,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01106369354996345,
+      "max_gap_m": 0.030570198096145
+    },
+    {
+      "piece": 763,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00562670159164308,
+      "max_gap_m": 0.015289132980794942
+    },
+    {
+      "piece": 764,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012649976901596666,
+      "max_gap_m": 0.022231787228625496
+    },
+    {
+      "piece": 765,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.018463403321774693,
+      "max_gap_m": 0.049908874091866354
+    },
+    {
+      "piece": 766,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0072119866527635135,
+      "max_gap_m": 0.013343961750306166
+    },
+    {
+      "piece": 767,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006034544933079589,
+      "max_gap_m": 0.01365065070120483
+    },
+    {
+      "piece": 768,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004646495165858078,
+      "max_gap_m": 0.015969362795431638
+    },
+    {
+      "piece": 769,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005766324463893635,
+      "max_gap_m": 0.013942897298622636
+    },
+    {
+      "piece": 770,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00609493862330833,
+      "max_gap_m": 0.011833812090468451
+    },
+    {
+      "piece": 771,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01197226183366823,
+      "max_gap_m": 0.02732361544523898
+    },
+    {
+      "piece": 772,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006170659710330449,
+      "max_gap_m": 0.01758661530190619
+    },
+    {
+      "piece": 773,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011327724999254482,
+      "max_gap_m": 0.022171764046622876
+    },
+    {
+      "piece": 774,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006466298301833151,
+      "max_gap_m": 0.016966619774825886
+    },
+    {
+      "piece": 775,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0049988499106589646,
+      "max_gap_m": 0.011460114668007615
+    },
+    {
+      "piece": 776,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007774787721701676,
+      "max_gap_m": 0.025816086537952476
+    },
+    {
+      "piece": 777,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007429924695951412,
+      "max_gap_m": 0.019169351455168293
+    },
+    {
+      "piece": 778,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006393597978579954,
+      "max_gap_m": 0.015884982324998922
+    },
+    {
+      "piece": 779,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008968013983014056,
+      "max_gap_m": 0.02150375893764414
+    },
+    {
+      "piece": 780,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007246557522903901,
+      "max_gap_m": 0.016682170465240814
+    },
+    {
+      "piece": 781,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005218152209992232,
+      "max_gap_m": 0.013778672247212352
+    },
+    {
+      "piece": 782,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0037348934761643193,
+      "max_gap_m": 0.007729828707657538
+    },
+    {
+      "piece": 783,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0105564423520344,
+      "max_gap_m": 0.0308571545614508
+    },
+    {
+      "piece": 784,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004269175293774866,
+      "max_gap_m": 0.0125455521389755
+    },
+    {
+      "piece": 785,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014936035052262708,
+      "max_gap_m": 0.04216420347932884
+    },
+    {
+      "piece": 786,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004905188256804971,
+      "max_gap_m": 0.018438395065855262
+    },
+    {
+      "piece": 787,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011896962222206348,
+      "max_gap_m": 0.03295135115968845
+    },
+    {
+      "piece": 788,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004369457131372753,
+      "max_gap_m": 0.01232207676448109
+    },
+    {
+      "piece": 789,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010998340033460341,
+      "max_gap_m": 0.031159261514157766
+    },
+    {
+      "piece": 790,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006663073401168063,
+      "max_gap_m": 0.016746268048477092
+    },
+    {
+      "piece": 791,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011816810858334359,
+      "max_gap_m": 0.026742758839297998
+    },
+    {
+      "piece": 792,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004160119033034815,
+      "max_gap_m": 0.01111143938962797
+    },
+    {
+      "piece": 793,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010685214299905543,
+      "max_gap_m": 0.03598320088120305
+    },
+    {
+      "piece": 794,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.018568167524451507,
+      "max_gap_m": 0.04658152506807328
+    },
+    {
+      "piece": 795,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004369701862721398,
+      "max_gap_m": 0.01714379014572051
+    },
+    {
+      "piece": 796,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00615861199179904,
+      "max_gap_m": 0.018791520481487634
+    },
+    {
+      "piece": 797,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014469187639089845,
+      "max_gap_m": 0.048566902136399484
+    },
+    {
+      "piece": 798,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00618442490344423,
+      "max_gap_m": 0.014956903359414006
+    },
+    {
+      "piece": 799,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006285008922027352,
+      "max_gap_m": 0.017000074934413634
+    },
+    {
+      "piece": 800,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00621053225136739,
+      "max_gap_m": 0.015269648554678383
+    },
+    {
+      "piece": 801,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.02198872964118774,
+      "max_gap_m": 0.05605312081290583
+    },
+    {
+      "piece": 802,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006599423810200622,
+      "max_gap_m": 0.017133009325703885
+    },
+    {
+      "piece": 803,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006284926519056835,
+      "max_gap_m": 0.017731537273262037
+    },
+    {
+      "piece": 804,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010349226643138032,
+      "max_gap_m": 0.02667459183742099
+    },
+    {
+      "piece": 805,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01355604672066156,
+      "max_gap_m": 0.030162623807736558
+    },
+    {
+      "piece": 806,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01705726981622449,
+      "max_gap_m": 0.050237723755146235
+    },
+    {
+      "piece": 807,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012122966082734388,
+      "max_gap_m": 0.04115003680194593
+    },
+    {
+      "piece": 808,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011915067762378304,
+      "max_gap_m": 0.03457849032572354
+    },
+    {
+      "piece": 809,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015149113053974816,
+      "max_gap_m": 0.03794206280992609
+    },
+    {
+      "piece": 810,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0026299439264671834,
+      "max_gap_m": 0.008991413131380313
+    },
+    {
+      "piece": 811,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008091941697961944,
+      "max_gap_m": 0.016694822111597396
+    },
+    {
+      "piece": 812,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008950717243489503,
+      "max_gap_m": 0.03915009932797764
+    },
+    {
+      "piece": 813,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010598610944958523,
+      "max_gap_m": 0.02435581709911784
+    },
+    {
+      "piece": 814,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01672832593500845,
+      "max_gap_m": 0.03397301680458248
+    },
+    {
+      "piece": 815,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.02078468571716413,
+      "max_gap_m": 0.046922227208698875
+    },
+    {
+      "piece": 816,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0096220674292887,
+      "max_gap_m": 0.0298684324754086
+    },
+    {
+      "piece": 817,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005009194661993149,
+      "max_gap_m": 0.015143474909900992
+    },
+    {
+      "piece": 818,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004766668039826838,
+      "max_gap_m": 0.01682916001025564
+    },
+    {
+      "piece": 819,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014010604369796273,
+      "max_gap_m": 0.036182612825172274
+    },
+    {
+      "piece": 820,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010210055063799017,
+      "max_gap_m": 0.026581140104707024
+    },
+    {
+      "piece": 821,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004100500484160108,
+      "max_gap_m": 0.011697983872121356
+    },
+    {
+      "piece": 822,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00850199203359487,
+      "max_gap_m": 0.02266765959756001
+    },
+    {
+      "piece": 823,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01668530623121564,
+      "max_gap_m": 0.04495895179925968
+    },
+    {
+      "piece": 824,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009914706170609133,
+      "max_gap_m": 0.02968180396571901
+    },
+    {
+      "piece": 825,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007824440824548683,
+      "max_gap_m": 0.01943513949591904
+    },
+    {
+      "piece": 826,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008420311131138697,
+      "max_gap_m": 0.021680392944342652
+    },
+    {
+      "piece": 827,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005659234072971253,
+      "max_gap_m": 0.012509595771292958
+    },
+    {
+      "piece": 828,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014665098484176103,
+      "max_gap_m": 0.03905852499722634
+    },
+    {
+      "piece": 829,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013915021618066459,
+      "max_gap_m": 0.04225215518972131
+    },
+    {
+      "piece": 830,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012831070247287718,
+      "max_gap_m": 0.03139955887728174
+    },
+    {
+      "piece": 831,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006521384857573656,
+      "max_gap_m": 0.015334087819829118
+    },
+    {
+      "piece": 832,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.019303433645437518,
+      "max_gap_m": 0.06201912388526498
+    },
+    {
+      "piece": 833,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012842180571104783,
+      "max_gap_m": 0.0433610596640345
+    },
+    {
+      "piece": 834,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0059744896395569624,
+      "max_gap_m": 0.014800503142172124
+    },
+    {
+      "piece": 835,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006026906769475286,
+      "max_gap_m": 0.01842724088052484
+    },
+    {
+      "piece": 836,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007062738962030302,
+      "max_gap_m": 0.01850031692116158
+    },
+    {
+      "piece": 837,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013152465392502088,
+      "max_gap_m": 0.04726375454630516
+    },
+    {
+      "piece": 838,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011555915013542944,
+      "max_gap_m": 0.027502808352400543
+    },
+    {
+      "piece": 839,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.017606715805311424,
+      "max_gap_m": 0.04448871213213218
+    },
+    {
+      "piece": 840,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010464857997602925,
+      "max_gap_m": 0.027084933753711918
+    },
+    {
+      "piece": 841,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004724289570611023,
+      "max_gap_m": 0.010793470924106638
+    },
+    {
+      "piece": 842,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015805722474253797,
+      "max_gap_m": 0.04018434712900518
+    },
+    {
+      "piece": 843,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.019667623528722616,
+      "max_gap_m": 0.06281091454381384
+    },
+    {
+      "piece": 844,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006833949358429792,
+      "max_gap_m": 0.016268931059039204
+    },
+    {
+      "piece": 845,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004665497019693932,
+      "max_gap_m": 0.014398895047528448
+    },
+    {
+      "piece": 846,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0049461236702815214,
+      "max_gap_m": 0.010145440201159872
+    },
+    {
+      "piece": 847,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01586181953259644,
+      "max_gap_m": 0.04661231442786151
+    },
+    {
+      "piece": 848,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005685160593824706,
+      "max_gap_m": 0.022567899665372204
+    },
+    {
+      "piece": 849,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011095470492828607,
+      "max_gap_m": 0.030211361118188285
+    },
+    {
+      "piece": 850,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006003475437239628,
+      "max_gap_m": 0.015308937998616531
+    },
+    {
+      "piece": 851,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005842066917594951,
+      "max_gap_m": 0.019489855182522553
+    },
+    {
+      "piece": 852,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00577161030373044,
+      "max_gap_m": 0.017138641929346582
+    },
+    {
+      "piece": 853,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009004613694328423,
+      "max_gap_m": 0.023861858246344347
+    },
+    {
+      "piece": 854,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.020993914623691268,
+      "max_gap_m": 0.06905181953330009
+    },
+    {
+      "piece": 855,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010741060659946872,
+      "max_gap_m": 0.028834091925776795
+    },
+    {
+      "piece": 856,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012974596995411342,
+      "max_gap_m": 0.03582359383913403
+    },
+    {
+      "piece": 857,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005873844733434552,
+      "max_gap_m": 0.016776997984955355
+    },
+    {
+      "piece": 858,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008010772648924802,
+      "max_gap_m": 0.02170353141919812
+    },
+    {
+      "piece": 859,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00462157329409392,
+      "max_gap_m": 0.012100679752473364
+    },
+    {
+      "piece": 860,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00922817825602007,
+      "max_gap_m": 0.03397200471457207
+    },
+    {
+      "piece": 861,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012186554616709033,
+      "max_gap_m": 0.03265739899283088
+    },
+    {
+      "piece": 862,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014665597574303349,
+      "max_gap_m": 0.05409731133775567
+    },
+    {
+      "piece": 863,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007435306727806068,
+      "max_gap_m": 0.019073848670596916
+    },
+    {
+      "piece": 864,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0063699472895634435,
+      "max_gap_m": 0.01638121691810257
+    },
+    {
+      "piece": 865,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005829051616500908,
+      "max_gap_m": 0.01934842369507453
+    },
+    {
+      "piece": 866,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007422544648895663,
+      "max_gap_m": 0.01762339888047898
+    },
+    {
+      "piece": 867,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016682520521012142,
+      "max_gap_m": 0.04266745202983652
+    },
+    {
+      "piece": 868,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004821229596219029,
+      "max_gap_m": 0.013649602146239725
+    },
+    {
+      "piece": 869,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00732372957077565,
+      "max_gap_m": 0.01915975607161584
+    },
+    {
+      "piece": 870,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011807836783885778,
+      "max_gap_m": 0.0349028540215275
+    },
+    {
+      "piece": 871,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005503316307704342,
+      "max_gap_m": 0.01530677832205013
+    },
+    {
+      "piece": 872,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0037513990946260317,
+      "max_gap_m": 0.009759563370408869
+    },
+    {
+      "piece": 873,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0038470265089026456,
+      "max_gap_m": 0.011114918448183825
+    },
+    {
+      "piece": 874,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014219947992867785,
+      "max_gap_m": 0.033073466814194305
+    },
+    {
+      "piece": 875,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005252626209931943,
+      "max_gap_m": 0.009670565057730729
+    },
+    {
+      "piece": 876,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003537632190652673,
+      "max_gap_m": 0.007254613524810327
+    },
+    {
+      "piece": 877,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004105323709474279,
+      "max_gap_m": 0.015049085608576485
+    },
+    {
+      "piece": 878,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009704130827942914,
+      "max_gap_m": 0.02943502895387673
+    },
+    {
+      "piece": 879,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006712382715357651,
+      "max_gap_m": 0.012352583411965046
+    },
+    {
+      "piece": 880,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004939657934512426,
+      "max_gap_m": 0.009937081283062435
+    },
+    {
+      "piece": 881,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006818438946415123,
+      "max_gap_m": 0.0208439854843967
+    },
+    {
+      "piece": 882,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007034314153679194,
+      "max_gap_m": 0.0121143994575319
+    },
+    {
+      "piece": 883,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010348658338888941,
+      "max_gap_m": 0.027823968303371124
+    },
+    {
+      "piece": 884,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00550851025654539,
+      "max_gap_m": 0.015047934482524894
+    },
+    {
+      "piece": 885,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010691594026184081,
+      "max_gap_m": 0.029773267211348042
+    },
+    {
+      "piece": 886,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00743927403854075,
+      "max_gap_m": 0.01881985074816156
+    },
+    {
+      "piece": 887,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005592777064865384,
+      "max_gap_m": 0.012133944773096123
+    },
+    {
+      "piece": 888,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00792533674037349,
+      "max_gap_m": 0.021036200546720396
+    },
+    {
+      "piece": 889,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014847924953715175,
+      "max_gap_m": 0.040662891246427135
+    },
+    {
+      "piece": 890,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006837303850283888,
+      "max_gap_m": 0.016437836980063764
+    },
+    {
+      "piece": 891,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011607440153083265,
+      "max_gap_m": 0.03647404088608294
+    },
+    {
+      "piece": 892,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008200808353414163,
+      "max_gap_m": 0.020656428566150742
+    },
+    {
+      "piece": 893,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01497151936005131,
+      "max_gap_m": 0.038534261968714734
+    },
+    {
+      "piece": 894,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0042385068655559355,
+      "max_gap_m": 0.010775532898675333
+    },
+    {
+      "piece": 895,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00468362080113352,
+      "max_gap_m": 0.014427567645619477
+    },
+    {
+      "piece": 896,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01382105920966506,
+      "max_gap_m": 0.028225452674264434
+    },
+    {
+      "piece": 897,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004715157711191912,
+      "max_gap_m": 0.006007432264481298
+    },
+    {
+      "piece": 898,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008117698050656486,
+      "max_gap_m": 0.02418305153388678
+    },
+    {
+      "piece": 899,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005372320108717632,
+      "max_gap_m": 0.009371819232990353
+    },
+    {
+      "piece": 900,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.02105724691280994,
+      "max_gap_m": 0.056125964860341854
+    },
+    {
+      "piece": 901,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0069958664204492205,
+      "max_gap_m": 0.025220288377698297
+    },
+    {
+      "piece": 902,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006712609248794632,
+      "max_gap_m": 0.015702623079748318
+    },
+    {
+      "piece": 903,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01497681490858166,
+      "max_gap_m": 0.03755727938029049
+    },
+    {
+      "piece": 904,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005693844655038249,
+      "max_gap_m": 0.013060650487204228
+    },
+    {
+      "piece": 905,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0053654199474133316,
+      "max_gap_m": 0.014871911301586556
+    },
+    {
+      "piece": 906,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0034109492223642346,
+      "max_gap_m": 0.011676590346153926
+    },
+    {
+      "piece": 907,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009595650687154567,
+      "max_gap_m": 0.024042052568603256
+    },
+    {
+      "piece": 908,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004584657601601705,
+      "max_gap_m": 0.011704325451054515
+    },
+    {
+      "piece": 909,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.018701998333280276,
+      "max_gap_m": 0.05715381648825005
+    },
+    {
+      "piece": 910,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010354733607029765,
+      "max_gap_m": 0.030002667844701014
+    },
+    {
+      "piece": 911,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00561156736094473,
+      "max_gap_m": 0.01613591159813446
+    },
+    {
+      "piece": 912,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01357405114386731,
+      "max_gap_m": 0.036405556592307015
+    },
+    {
+      "piece": 913,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01821320016652689,
+      "max_gap_m": 0.046880949107767134
+    },
+    {
+      "piece": 914,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010433556330721516,
+      "max_gap_m": 0.02972496414160064
+    },
+    {
+      "piece": 915,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004332175945984312,
+      "max_gap_m": 0.010163823704172556
+    },
+    {
+      "piece": 916,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008565940227743984,
+      "max_gap_m": 0.02391453891704093
+    },
+    {
+      "piece": 917,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005392210629776462,
+      "max_gap_m": 0.013188936774766014
+    },
+    {
+      "piece": 918,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006792528747060822,
+      "max_gap_m": 0.01754647027488848
+    },
+    {
+      "piece": 919,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007264232672864052,
+      "max_gap_m": 0.01917436808017245
+    },
+    {
+      "piece": 920,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006257704583123913,
+      "max_gap_m": 0.01615852735757395
+    },
+    {
+      "piece": 921,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014462030665526898,
+      "max_gap_m": 0.036761542738510566
+    },
+    {
+      "piece": 922,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00706255836992814,
+      "max_gap_m": 0.02395121381007867
+    },
+    {
+      "piece": 923,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009160804397813818,
+      "max_gap_m": 0.01479968651943378
+    },
+    {
+      "piece": 924,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008372554609838101,
+      "max_gap_m": 0.021780625429901723
+    },
+    {
+      "piece": 925,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010009312939961157,
+      "max_gap_m": 0.025899416270454584
+    },
+    {
+      "piece": 926,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0031929488001995465,
+      "max_gap_m": 0.007693062840523124
+    },
+    {
+      "piece": 927,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009023462435164581,
+      "max_gap_m": 0.026038544009562875
+    },
+    {
+      "piece": 928,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011632768181542907,
+      "max_gap_m": 0.04030806608388471
+    },
+    {
+      "piece": 929,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009437498020971671,
+      "max_gap_m": 0.020730670174608383
+    },
+    {
+      "piece": 930,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008786597024683802,
+      "max_gap_m": 0.016149407719381444
+    },
+    {
+      "piece": 931,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009800374973047699,
+      "max_gap_m": 0.026553798793503558
+    },
+    {
+      "piece": 932,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009916122069338285,
+      "max_gap_m": 0.028686573548075932
+    },
+    {
+      "piece": 933,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004870198020349796,
+      "max_gap_m": 0.014622875792945186
+    },
+    {
+      "piece": 934,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.017730813310883553,
+      "max_gap_m": 0.06450664919874505
+    },
+    {
+      "piece": 935,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005329120647654284,
+      "max_gap_m": 0.0142094175839131
+    },
+    {
+      "piece": 936,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005263146525332857,
+      "max_gap_m": 0.015315078837287055
+    },
+    {
+      "piece": 937,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0029850947214267115,
+      "max_gap_m": 0.007768827457428407
+    },
+    {
+      "piece": 938,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003819587805161881,
+      "max_gap_m": 0.007157455248175099
+    },
+    {
+      "piece": 939,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013491170694809568,
+      "max_gap_m": 0.034269159776095015
+    },
+    {
+      "piece": 940,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01488998271841821,
+      "max_gap_m": 0.05397483568858433
+    },
+    {
+      "piece": 941,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005581610065016035,
+      "max_gap_m": 0.01377303637562037
+    },
+    {
+      "piece": 942,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003903187996621621,
+      "max_gap_m": 0.012931103397189905
+    },
+    {
+      "piece": 943,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007871280605511686,
+      "max_gap_m": 0.020764019390546458
+    },
+    {
+      "piece": 944,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007460178141683982,
+      "max_gap_m": 0.0209812705442044
+    },
+    {
+      "piece": 945,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007604112730350332,
+      "max_gap_m": 0.015969039932824614
+    },
+    {
+      "piece": 946,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004537421730193447,
+      "max_gap_m": 0.013500329857252635
+    },
+    {
+      "piece": 947,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005189109866035102,
+      "max_gap_m": 0.016570393212578027
+    },
+    {
+      "piece": 948,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005332243374794932,
+      "max_gap_m": 0.013644539949075746
+    },
+    {
+      "piece": 949,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004980957278442194,
+      "max_gap_m": 0.014674402548818077
+    },
+    {
+      "piece": 950,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.020063810640199367,
+      "max_gap_m": 0.051193578213186264
+    },
+    {
+      "piece": 951,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.02139631196889774,
+      "max_gap_m": 0.07104056366938408
+    },
+    {
+      "piece": 952,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007440033901626675,
+      "max_gap_m": 0.018222374953741613
+    },
+    {
+      "piece": 953,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0052984866410845655,
+      "max_gap_m": 0.014270250514294425
+    },
+    {
+      "piece": 954,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008169386460785064,
+      "max_gap_m": 0.01899411269077303
+    },
+    {
+      "piece": 955,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00799499825581762,
+      "max_gap_m": 0.021813645667943388
+    },
+    {
+      "piece": 956,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01544551189471205,
+      "max_gap_m": 0.03876117392034176
+    },
+    {
+      "piece": 957,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011361930034272522,
+      "max_gap_m": 0.03423238611686813
+    },
+    {
+      "piece": 958,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004813249199030423,
+      "max_gap_m": 0.010632055279046565
+    },
+    {
+      "piece": 959,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009555263526316915,
+      "max_gap_m": 0.02823418709162906
+    },
+    {
+      "piece": 960,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009288997960248985,
+      "max_gap_m": 0.025907142893976054
+    },
+    {
+      "piece": 961,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008598960548416468,
+      "max_gap_m": 0.023962640642767374
+    },
+    {
+      "piece": 962,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008625439416573788,
+      "max_gap_m": 0.02089545196413467
+    },
+    {
+      "piece": 963,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005972369729850796,
+      "max_gap_m": 0.016664024432205632
+    },
+    {
+      "piece": 964,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00909303139085043,
+      "max_gap_m": 0.02424104290379757
+    },
+    {
+      "piece": 965,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015611514240069513,
+      "max_gap_m": 0.05198728820488313
+    },
+    {
+      "piece": 966,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007550158478039481,
+      "max_gap_m": 0.025256740791112613
+    },
+    {
+      "piece": 967,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014048045492844663,
+      "max_gap_m": 0.04143972833571391
+    },
+    {
+      "piece": 968,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0044561818732396195,
+      "max_gap_m": 0.012521952635901942
+    },
+    {
+      "piece": 969,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015171926339951115,
+      "max_gap_m": 0.040875797585625234
+    },
+    {
+      "piece": 970,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014649953039686525,
+      "max_gap_m": 0.03719235919030628
+    },
+    {
+      "piece": 971,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007388486065027566,
+      "max_gap_m": 0.016831907532583346
+    },
+    {
+      "piece": 972,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015449028294466923,
+      "max_gap_m": 0.05034105602737555
+    },
+    {
+      "piece": 973,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004707608018314435,
+      "max_gap_m": 0.01784987854741299
+    },
+    {
+      "piece": 974,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003931872376141898,
+      "max_gap_m": 0.00974293148574179
+    },
+    {
+      "piece": 975,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0127440016672997,
+      "max_gap_m": 0.03869097356844442
+    },
+    {
+      "piece": 976,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013608174789631056,
+      "max_gap_m": 0.033909627541092446
+    },
+    {
+      "piece": 977,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01733867403116357,
+      "max_gap_m": 0.06471591016617823
+    },
+    {
+      "piece": 978,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0195029595968072,
+      "max_gap_m": 0.05948475122957306
+    },
+    {
+      "piece": 979,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003213779797804593,
+      "max_gap_m": 0.010619827906732405
+    },
+    {
+      "piece": 980,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004906970977232306,
+      "max_gap_m": 0.012820475546204746
+    },
+    {
+      "piece": 981,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003983894218895279,
+      "max_gap_m": 0.014507583321511752
+    },
+    {
+      "piece": 982,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012785350461815032,
+      "max_gap_m": 0.023020595710568595
+    },
+    {
+      "piece": 983,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010039779232511675,
+      "max_gap_m": 0.024627501025261872
+    },
+    {
+      "piece": 984,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010845547118752907,
+      "max_gap_m": 0.038951577411772076
+    },
+    {
+      "piece": 985,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003803290805329984,
+      "max_gap_m": 0.011635425364237895
+    },
+    {
+      "piece": 986,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00863480247826428,
+      "max_gap_m": 0.02621120381750866
+    },
+    {
+      "piece": 987,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01094093345536612,
+      "max_gap_m": 0.02740217220152273
+    },
+    {
+      "piece": 988,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004624245879447042,
+      "max_gap_m": 0.009533213627754195
+    },
+    {
+      "piece": 989,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005995343910402226,
+      "max_gap_m": 0.017544120397301192
+    },
+    {
+      "piece": 990,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00789966563222664,
+      "max_gap_m": 0.028039103946400027
+    },
+    {
+      "piece": 991,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006319224491348752,
+      "max_gap_m": 0.025791651517255626
+    },
+    {
+      "piece": 992,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004138937329499671,
+      "max_gap_m": 0.011172584396326016
+    },
+    {
+      "piece": 993,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015058496250774572,
+      "max_gap_m": 0.04518284354976271
+    },
+    {
+      "piece": 994,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00406771358258938,
+      "max_gap_m": 0.011834598996925738
+    },
+    {
+      "piece": 995,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015746691254464547,
+      "max_gap_m": 0.04127920632148293
+    },
+    {
+      "piece": 996,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007248274304347036,
+      "max_gap_m": 0.02218487883674333
+    },
+    {
+      "piece": 997,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003563062817654422,
+      "max_gap_m": 0.011646873070981556
+    },
+    {
+      "piece": 998,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003192629136778813,
+      "max_gap_m": 0.007783537975654342
+    },
+    {
+      "piece": 999,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0077935784780965855,
+      "max_gap_m": 0.022638634842315264
+    },
+    {
+      "piece": 1000,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006528340381021902,
+      "max_gap_m": 0.01840946996241785
+    },
+    {
+      "piece": 1001,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006725390433803553,
+      "max_gap_m": 0.01792992554620193
+    },
+    {
+      "piece": 1002,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01067506374764636,
+      "max_gap_m": 0.033089883451021845
+    },
+    {
+      "piece": 1003,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01173791541423544,
+      "max_gap_m": 0.0369316418880595
+    },
+    {
+      "piece": 1004,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007353863687158763,
+      "max_gap_m": 0.01977926268179167
+    },
+    {
+      "piece": 1005,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004740906379113799,
+      "max_gap_m": 0.012214752029281115
+    },
+    {
+      "piece": 1006,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014314214401688577,
+      "max_gap_m": 0.04796303752750662
+    },
+    {
+      "piece": 1007,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013884401717877581,
+      "max_gap_m": 0.041566935855124276
+    },
+    {
+      "piece": 1008,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0035744493034477187,
+      "max_gap_m": 0.009488082125202135
+    },
+    {
+      "piece": 1009,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014213956221957535,
+      "max_gap_m": 0.045190160593078565
+    },
+    {
+      "piece": 1010,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004563251394032804,
+      "max_gap_m": 0.011531491636460653
+    },
+    {
+      "piece": 1011,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014479115332125266,
+      "max_gap_m": 0.025010146591549702
+    },
+    {
+      "piece": 1012,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005321434337334327,
+      "max_gap_m": 0.014062178415442758
+    },
+    {
+      "piece": 1013,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0043847463519448016,
+      "max_gap_m": 0.012437644945275828
+    },
+    {
+      "piece": 1014,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006580156023952871,
+      "max_gap_m": 0.019185900688287294
+    },
+    {
+      "piece": 1015,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011549103027386737,
+      "max_gap_m": 0.026187114581020535
+    },
+    {
+      "piece": 1016,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006350699007173416,
+      "max_gap_m": 0.013914161323336727
+    },
+    {
+      "piece": 1017,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011539110849540235,
+      "max_gap_m": 0.02929051208159497
+    },
+    {
+      "piece": 1018,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003714766830244489,
+      "max_gap_m": 0.013217116401109546
+    },
+    {
+      "piece": 1019,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.018786614251271205,
+      "max_gap_m": 0.06351943040585079
+    },
+    {
+      "piece": 1020,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0056155090585663404,
+      "max_gap_m": 0.013537006872734866
+    },
+    {
+      "piece": 1021,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013614729768598899,
+      "max_gap_m": 0.035921931350818004
+    },
+    {
+      "piece": 1022,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01706569960559174,
+      "max_gap_m": 0.038802836167931266
+    },
+    {
+      "piece": 1023,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009576413216332763,
+      "max_gap_m": 0.024112189174821164
+    },
+    {
+      "piece": 1024,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004890626722527727,
+      "max_gap_m": 0.0111615081446583
+    },
+    {
+      "piece": 1025,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010394112359245922,
+      "max_gap_m": 0.02289247689252122
+    },
+    {
+      "piece": 1026,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.02395118039891958,
+      "max_gap_m": 0.06378216244647494
+    },
+    {
+      "piece": 1027,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009016285268666935,
+      "max_gap_m": 0.02398303285481823
+    },
+    {
+      "piece": 1028,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01175735284152643,
+      "max_gap_m": 0.03526930722113511
+    },
+    {
+      "piece": 1029,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012129921630097407,
+      "max_gap_m": 0.04303636904617411
+    },
+    {
+      "piece": 1030,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005533397671310843,
+      "max_gap_m": 0.01629026823344858
+    },
+    {
+      "piece": 1031,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004604138232317617,
+      "max_gap_m": 0.011801190300067349
+    },
+    {
+      "piece": 1032,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004088540410133651,
+      "max_gap_m": 0.010051706376522099
+    },
+    {
+      "piece": 1033,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010196482508222582,
+      "max_gap_m": 0.02703677470520116
+    },
+    {
+      "piece": 1034,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01644071465229907,
+      "max_gap_m": 0.032078385080160976
+    },
+    {
+      "piece": 1035,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0076315761295567,
+      "max_gap_m": 0.016893297119486894
+    },
+    {
+      "piece": 1036,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003469814239433211,
+      "max_gap_m": 0.010995855328186172
+    },
+    {
+      "piece": 1037,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006742588457173848,
+      "max_gap_m": 0.014294280731940529
+    },
+    {
+      "piece": 1038,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0064471705552093805,
+      "max_gap_m": 0.012159468675706997
+    },
+    {
+      "piece": 1039,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013935980709004689,
+      "max_gap_m": 0.04044461766388389
+    },
+    {
+      "piece": 1040,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0072144911073377255,
+      "max_gap_m": 0.0158955018828201
+    },
+    {
+      "piece": 1041,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0075477529817812306,
+      "max_gap_m": 0.019045120939424565
+    },
+    {
+      "piece": 1042,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01171693347566026,
+      "max_gap_m": 0.032966194813323066
+    },
+    {
+      "piece": 1043,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01179561125553824,
+      "max_gap_m": 0.02723415775461771
+    },
+    {
+      "piece": 1044,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013137361650423493,
+      "max_gap_m": 0.03343528184896001
+    },
+    {
+      "piece": 1045,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004030841076338693,
+      "max_gap_m": 0.009950428596351812
+    },
+    {
+      "piece": 1046,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01712581556526188,
+      "max_gap_m": 0.04410397521640452
+    },
+    {
+      "piece": 1047,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007582404604552256,
+      "max_gap_m": 0.01808121650915062
+    },
+    {
+      "piece": 1048,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012179759186373595,
+      "max_gap_m": 0.03473986712658704
+    },
+    {
+      "piece": 1049,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00980779383085667,
+      "max_gap_m": 0.02771550312591725
+    },
+    {
+      "piece": 1050,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010478472721152099,
+      "max_gap_m": 0.028781558827650544
+    },
+    {
+      "piece": 1051,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014542159410733335,
+      "max_gap_m": 0.04671747356032391
+    },
+    {
+      "piece": 1052,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01183245842401337,
+      "max_gap_m": 0.031450606562154315
+    },
+    {
+      "piece": 1053,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006955449077886422,
+      "max_gap_m": 0.017807227002351822
+    },
+    {
+      "piece": 1054,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014953332838474387,
+      "max_gap_m": 0.041995577245728874
+    },
+    {
+      "piece": 1055,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014867468682486285,
+      "max_gap_m": 0.029909028402686888
+    },
+    {
+      "piece": 1056,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010721871936599278,
+      "max_gap_m": 0.03121288149401055
+    },
+    {
+      "piece": 1057,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007105635396199281,
+      "max_gap_m": 0.01526358135413669
+    },
+    {
+      "piece": 1058,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009284410579076002,
+      "max_gap_m": 0.043333987817136654
+    },
+    {
+      "piece": 1059,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004626041697843142,
+      "max_gap_m": 0.011457683640357597
+    },
+    {
+      "piece": 1060,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013546028112978947,
+      "max_gap_m": 0.035414466426374414
+    },
+    {
+      "piece": 1061,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.020882656595657245,
+      "max_gap_m": 0.04820173779512016
+    },
+    {
+      "piece": 1062,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004737367411680623,
+      "max_gap_m": 0.01356281226147563
+    },
+    {
+      "piece": 1063,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005939484472216261,
+      "max_gap_m": 0.013561847972028807
+    },
+    {
+      "piece": 1064,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004842644737296564,
+      "max_gap_m": 0.010715395838324468
+    },
+    {
+      "piece": 1065,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0074889687890938895,
+      "max_gap_m": 0.020055055358575616
+    },
+    {
+      "piece": 1066,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008550301471559274,
+      "max_gap_m": 0.025289920347399797
+    },
+    {
+      "piece": 1067,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0070065447936971115,
+      "max_gap_m": 0.02204990190420017
+    },
+    {
+      "piece": 1068,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004752955651609825,
+      "max_gap_m": 0.01154098898220901
+    },
+    {
+      "piece": 1069,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.017015916186248065,
+      "max_gap_m": 0.045798485126189836
+    },
+    {
+      "piece": 1070,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0055885946554769805,
+      "max_gap_m": 0.013607769921103241
+    },
+    {
+      "piece": 1071,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00900728241372828,
+      "max_gap_m": 0.039332937643956095
+    },
+    {
+      "piece": 1072,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005344341471147651,
+      "max_gap_m": 0.015688689909010595
+    },
+    {
+      "piece": 1073,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009284255523945684,
+      "max_gap_m": 0.021895981317096122
+    },
+    {
+      "piece": 1074,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010339831038642444,
+      "max_gap_m": 0.030377939955307964
+    },
+    {
+      "piece": 1075,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01037662781377599,
+      "max_gap_m": 0.025671898967257217
+    },
+    {
+      "piece": 1076,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005801539261452993,
+      "max_gap_m": 0.018613639944656923
+    },
+    {
+      "piece": 1077,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006198939846785018,
+      "max_gap_m": 0.01611618291095271
+    },
+    {
+      "piece": 1078,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012475383657862937,
+      "max_gap_m": 0.026298733543489217
+    },
+    {
+      "piece": 1079,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006415667148705062,
+      "max_gap_m": 0.01626902913948952
+    },
+    {
+      "piece": 1080,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016041376857396747,
+      "max_gap_m": 0.037020397937685766
+    },
+    {
+      "piece": 1081,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0042402818696042205,
+      "max_gap_m": 0.009299963331498004
+    },
+    {
+      "piece": 1082,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004299110680267837,
+      "max_gap_m": 0.015306184477387796
+    },
+    {
+      "piece": 1083,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0062311442089915126,
+      "max_gap_m": 0.01694103273432554
+    },
+    {
+      "piece": 1084,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00614438957593616,
+      "max_gap_m": 0.020589286998904582
+    },
+    {
+      "piece": 1085,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006337105847963431,
+      "max_gap_m": 0.02287808127896132
+    },
+    {
+      "piece": 1086,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012957295916244171,
+      "max_gap_m": 0.03591955248855652
+    },
+    {
+      "piece": 1087,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007673181228650017,
+      "max_gap_m": 0.018146220549673242
+    },
+    {
+      "piece": 1088,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.004960271675124122,
+      "max_gap_m": 0.012317284134370289
+    },
+    {
+      "piece": 1089,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.020666145580271494,
+      "max_gap_m": 0.04800737591885501
+    },
+    {
+      "piece": 1090,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007928806039146918,
+      "max_gap_m": 0.020607528556594756
+    },
+    {
+      "piece": 1091,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011404273525196101,
+      "max_gap_m": 0.037134953197998616
+    },
+    {
+      "piece": 1092,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01614643924093273,
+      "max_gap_m": 0.04219299117958297
+    },
+    {
+      "piece": 1093,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015472198222114847,
+      "max_gap_m": 0.04807090800056621
+    },
+    {
+      "piece": 1094,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005732459631407422,
+      "max_gap_m": 0.012359866045824446
+    },
+    {
+      "piece": 1095,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009291924869271162,
+      "max_gap_m": 0.018965475705181006
+    },
+    {
+      "piece": 1096,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00999655742991784,
+      "max_gap_m": 0.02205498433677955
+    },
+    {
+      "piece": 1097,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013795358254705348,
+      "max_gap_m": 0.04647230588715664
+    },
+    {
+      "piece": 1098,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005775814621800629,
+      "max_gap_m": 0.02327565102465043
+    },
+    {
+      "piece": 1099,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008650774565250624,
+      "max_gap_m": 0.025711120929907322
+    },
+    {
+      "piece": 1100,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014763648824520359,
+      "max_gap_m": 0.03578306660039168
+    },
+    {
+      "piece": 1101,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010832868844861829,
+      "max_gap_m": 0.0257505134318309
+    },
+    {
+      "piece": 1102,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0040759112713817935,
+      "max_gap_m": 0.009076756554076248
+    },
+    {
+      "piece": 1103,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00799666929055537,
+      "max_gap_m": 0.026478813847792493
+    },
+    {
+      "piece": 1104,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01559252804161737,
+      "max_gap_m": 0.04585359906888603
+    },
+    {
+      "piece": 1105,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01980015844161176,
+      "max_gap_m": 0.050976650060990586
+    },
+    {
+      "piece": 1106,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.00996451039994145,
+      "max_gap_m": 0.024567528346942757
+    },
+    {
+      "piece": 1107,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005244578411299883,
+      "max_gap_m": 0.013754882012008827
+    },
+    {
+      "piece": 1108,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006620020648950661,
+      "max_gap_m": 0.01736375503963916
+    },
+    {
+      "piece": 1109,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010169030797949674,
+      "max_gap_m": 0.027668517287156275
+    },
+    {
+      "piece": 1110,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014977147420708103,
+      "max_gap_m": 0.04000896643721946
+    },
+    {
+      "piece": 1111,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.019258955471140225,
+      "max_gap_m": 0.05156319754404921
+    },
+    {
+      "piece": 1112,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005363600254452289,
+      "max_gap_m": 0.014514341541411485
+    },
+    {
+      "piece": 1113,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01879576682505929,
+      "max_gap_m": 0.04547165167948203
+    },
+    {
+      "piece": 1114,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01183723377483989,
+      "max_gap_m": 0.030783743228188498
+    },
+    {
+      "piece": 1115,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007361426189608319,
+      "max_gap_m": 0.024505790479735556
+    },
+    {
+      "piece": 1116,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0038659258618401193,
+      "max_gap_m": 0.01000881993454067
+    },
+    {
+      "piece": 1117,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0065164103999373335,
+      "max_gap_m": 0.01591082967252347
+    },
+    {
+      "piece": 1118,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0029224893956072695,
+      "max_gap_m": 0.008929672461010757
+    },
+    {
+      "piece": 1119,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007873587426765638,
+      "max_gap_m": 0.019390451872359826
+    },
+    {
+      "piece": 1120,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009943681727275333,
+      "max_gap_m": 0.020521849347015786
+    },
+    {
+      "piece": 1121,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.007617621719861023,
+      "max_gap_m": 0.018005751406483028
+    },
+    {
+      "piece": 1122,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.014470444149810913,
+      "max_gap_m": 0.03748854986081385
+    },
+    {
+      "piece": 1123,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0038758207341386686,
+      "max_gap_m": 0.011959613363073315
+    },
+    {
+      "piece": 1124,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005746382809801526,
+      "max_gap_m": 0.01788075211088974
+    },
+    {
+      "piece": 1125,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.008955311303749797,
+      "max_gap_m": 0.022332921587927212
+    },
+    {
+      "piece": 1126,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01928549763117557,
+      "max_gap_m": 0.051799256038142866
+    },
+    {
+      "piece": 1127,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009087615523020759,
+      "max_gap_m": 0.027444116566438664
+    },
+    {
+      "piece": 1128,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0043612994699726015,
+      "max_gap_m": 0.0137875854037382
+    },
+    {
+      "piece": 1129,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0036126814907813942,
+      "max_gap_m": 0.011703620974498445
+    },
+    {
+      "piece": 1130,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.013229641203064385,
+      "max_gap_m": 0.040069614597419395
+    },
+    {
+      "piece": 1131,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.01592715886560639,
+      "max_gap_m": 0.03194424747194552
+    },
+    {
+      "piece": 1132,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.009028217471441845,
+      "max_gap_m": 0.024720934812402298
+    },
+    {
+      "piece": 1133,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012097885456709381,
+      "max_gap_m": 0.032983591817475885
+    },
+    {
+      "piece": 1134,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005049037621021546,
+      "max_gap_m": 0.013789061010759718
+    },
+    {
+      "piece": 1135,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.015789984219248154,
+      "max_gap_m": 0.045232326391636435
+    },
+    {
+      "piece": 1136,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.016534511413556496,
+      "max_gap_m": 0.0490743057382505
+    },
+    {
+      "piece": 1137,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006493002024973604,
+      "max_gap_m": 0.02058663739777372
+    },
+    {
+      "piece": 1138,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.010640529893857276,
+      "max_gap_m": 0.024255981432306256
+    },
+    {
+      "piece": 1139,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011482959953552842,
+      "max_gap_m": 0.029507030600039674
+    },
+    {
+      "piece": 1140,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012090341730668114,
+      "max_gap_m": 0.03167614089865686
+    },
+    {
+      "piece": 1141,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.003684036130468804,
+      "max_gap_m": 0.010596084284899665
+    },
+    {
+      "piece": 1142,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006325195703429777,
+      "max_gap_m": 0.025692509657037857
+    },
+    {
+      "piece": 1143,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006667682173815054,
+      "max_gap_m": 0.01893299321888109
+    },
+    {
+      "piece": 1144,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.011445258013233595,
+      "max_gap_m": 0.035944089435948456
+    },
+    {
+      "piece": 1145,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005501052741936074,
+      "max_gap_m": 0.015065074900684483
+    },
+    {
+      "piece": 1146,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.0036223992184766796,
+      "max_gap_m": 0.008969293283565605
+    },
+    {
+      "piece": 1147,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.005423325322875705,
+      "max_gap_m": 0.01162902107309044
+    },
+    {
+      "piece": 1148,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.012698383540838737,
+      "max_gap_m": 0.030730255140625058
+    },
+    {
+      "piece": 1149,
+      "group": "Wash_gravel",
+      "min_gap_m": -0.006902947752481403,
+      "max_gap_m": 0.01551311818943718
+    }
+  ],
+  "limits": "Geometric contact screen, not rigid-body stability or a complete solid-intersection proof."
+}

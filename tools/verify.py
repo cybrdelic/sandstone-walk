@@ -32,4 +32,8 @@ def main():
     report={'schema':'sandstone-walk-publication-validation/1','result':'PASS','triangles':triangles,'vertices':vertices,'parts':rows,'original_geometry_hashes_match':True,'all_assets_sha256_valid':True,'all_attributes_finite':True,'unchanged_shader_sha256':sh,'no_reference_projection':True,'no_hand_authored_light_probes':True}
     out=ROOT/'build';out.mkdir(exist_ok=True);(out/'validation.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k!='parts'},indent=2))
-if __name__=='__main__':main()
+if __name__=='__main__':
+    if manifest()['meta'].get('version')=='0.3.0':
+        from verify_volume import main as volume_main
+        volume_main()
+    else:main()

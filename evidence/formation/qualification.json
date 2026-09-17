@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "run_id": "35192615367",
+  "source_commit": "4f22b026fb37b9510e09e3891c422a4e93d3580c",
+  "native_geometry_matches_reviewed_hash": true,
+  "all_inputs_rebaked": true,
+  "desktop_browser": true,
+  "mobile_touch_emulation": true,
+  "physical_phone_benchmark": false,
+  "controls_css_and_glsl_unchanged": true,
+  "contact_uses_actual_floor_triangles": true,
+  "standalone_sha256": "3d98b1b7670805f6167fc31a385ff86518ca54323d21ecb5b23f4d3e5401ba52"
+}

@@ -297,7 +297,10 @@ float smooth(float a,float b,float x){float t=clamp((x-a)/(b-a));return t*t*(3-2
 // All coordinates are metres; tiny grains are footprint filtered.
 // Correlated position/elevation driven mixtures. The retained CC0 grayscale
 // photograph is only a weak albedo modulation, never a backdrop or a render.
-#include "formation_materials_r4.h"
+#ifndef CYBR_FORMATION_MATERIALS
+#define CYBR_FORMATION_MATERIALS "formation_materials_r4.h"
+#endif
+#include CYBR_FORMATION_MATERIALS
 
 // A numerical Snell-law connection to the displaced water heightfield.
 // The finite-difference solid-angle Jacobian includes local wave focusing.

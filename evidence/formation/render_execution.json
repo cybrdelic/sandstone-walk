@@ -1,0 +1,228 @@
+{
+  "renderer": "llvmpipe (LLVM 20.1.2, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2",
+  "same_shader_source_as_threejs": true,
+  "glsl_version": "300 es",
+  "shader_sha256": {
+    "sky.frag.glsl": "28131dded7929c2bea7698e6d5ede4beee5ea1642993710ede78fd9a45674fa1",
+    "sky.vert.glsl": "5d847398752d945684c42f69f23b4f115649ffa87217e66ad818fe152ab5c720",
+    "surface.vert.glsl": "053c5c537c896cdd26053f2a3c7bf60eb1cd15fe90a74fd6b90711a9bca179d0",
+    "surface.frag.glsl": "20efde8fb9c3820261b4d2a92e9034d705aa61483e0123d813511b72d354ffe0"
+  },
+  "browser_execution": false,
+  "width": 1200,
+  "height": 800,
+  "seconds": 7.470231605000038,
+  "results": [
+    {
+      "path": "evidence/formation/hero_beauty.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        123.81978854166667,
+        88.04289895833334,
+        51.26648541666667
+      ]
+    },
+    {
+      "path": "evidence/formation/hero_direct.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 1,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        64.94177291666666,
+        54.740096875,
+        41.479021875
+      ]
+    },
+    {
+      "path": "evidence/formation/hero_indirect.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 2,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        88.15355416666667,
+        54.691291666666665,
+        23.851482291666667
+      ]
+    },
+    {
+      "path": "evidence/formation/hero_normals.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 3,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        134.07723645833335,
+        110.02962395833333,
+        146.19902083333332
+      ]
+    },
+    {
+      "path": "evidence/formation/hero_visibility.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 4,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        79.32646041666666,
+        80.98538645833334,
+        82.912571875
+      ]
+    },
+    {
+      "path": "evidence/formation/forward_beauty.png",
+      "camera": [
+        0.25,
+        4.8,
+        1.6
+      ],
+      "target": [
+        1.2,
+        16,
+        2.6
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        121.75603333333333,
+        86.46261770833334,
+        50.37181770833333
+      ]
+    },
+    {
+      "path": "evidence/formation/reverse_beauty.png",
+      "camera": [
+        0.6,
+        9.0,
+        1.75
+      ],
+      "target": [
+        -0.3,
+        -4,
+        2.6
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        120.56293229166667,
+        88.83351770833333,
+        56.63206666666667
+      ]
+    },
+    {
+      "path": "evidence/formation/orbit_beauty.png",
+      "camera": [
+        -63,
+        -55,
+        62
+      ],
+      "target": [
+        2,
+        16,
+        3
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        142.31168541666668,
+        132.07097395833333,
+        117.65030833333333
+      ]
+    },
+    {
+      "path": "evidence/formation/rear_beauty.png",
+      "camera": [
+        65,
+        74,
+        52
+      ],
+      "target": [
+        3,
+        19,
+        4
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        143.93427708333334,
+        131.4633125,
+        114.80524895833334
+      ]
+    },
+    {
+      "path": "evidence/formation/rim_beauty.png",
+      "camera": [
+        -10,
+        -4,
+        20
+      ],
+      "target": [
+        1,
+        17,
+        7
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 4611262,
+      "rgb_mean": [
+        194.37828020833334,
+        159.57438125,
+        117.605571875
+      ]
+    }
+  ]
+}

@@ -40,7 +40,7 @@ Download the single-file viewer from [Releases](../../releases/latest), or build
 python tools/make_standalone.py
 ```
 
-The current controls and all current scene assets are embedded. The 0.2.0 release and the explicit `--legacy` builder preserve the earlier recovery separately; neither should be confused with this rebuilt formation.
+The current controls and all current scene assets are embedded. The earlier scene remains in the [v0.2.0 release](../../releases/tag/v0.2.0). The `--legacy` reconstruction command belongs to that checkout; it must not be run against these replacement assets.
 
 ## Mobile and desktop navigation
 

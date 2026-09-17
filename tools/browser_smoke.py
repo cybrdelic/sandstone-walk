@@ -21,6 +21,9 @@ from PIL import Image, ImageStat
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
+_EXPECTED=json.loads((ROOT/'web/scene.json').read_text())['meta']
+EXPECTED_TRIANGLES=_EXPECTED['triangles']
+EXPECTED_VERTICES=_EXPECTED['vertex_count']
 CAPTURE_HOOK = r"""
 (() => {
   const requestFrame = window.requestAnimationFrame.bind(window);
@@ -85,8 +88,8 @@ def main():
               triangles:CYBR_RECOVERY.geometry.reduce((s,g)=>s+g.index.count/3,0),
               vertices:CYBR_RECOVERY.geometry.reduce((s,g)=>s+g.attributes.position.count,0),
               programs:CYBR_RECOVERY.renderer.info.programs.length})''')
-            assert report['geometry']['triangles'] == 8108728
-            assert report['geometry']['vertices'] == 4072674
+            assert report['geometry']['triangles'] == EXPECTED_TRIANGLES
+            assert report['geometry']['vertices'] == EXPECTED_VERTICES
             assert report['geometry']['programs'] == 2
 
             def capture(name, capture_id):
@@ -98,7 +101,7 @@ def main():
                   drawnTriangles:CYBR_RECOVERY.renderer.info.render.triangles})''')
                 assert not result['error'], result['error']
                 assert result['glError'] == 0, result
-                assert result['drawnTriangles'] == 8108728, result['drawnTriangles']
+                assert result['drawnTriangles'] == EXPECTED_TRIANGLES, result['drawnTriangles']
                 assert result['png'].startswith('data:image/png;base64,')
                 raw = base64.b64decode(result['png'].split(',',1)[1], validate=True)
                 image = Image.open(io.BytesIO(raw)).convert('RGB')

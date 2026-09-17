@@ -1,0 +1,62 @@
+{
+  "geometry": [
+    {
+      "name": "Closed_alluvial_terrain",
+      "vertices": 482713,
+      "triangles": 965422,
+      "positions_sha256": "02201847188ca2a9a97b3a61ba66d72d5fbb3ddea10326a89367b7034449fd08",
+      "topology_sha256": "050580709d92989840c7f15c72bb481cd8a5e03f87b4fbd25af7628309bbe3ec",
+      "gpu_attributes_finite": true,
+      "volume_body": true
+    },
+    {
+      "name": "West_closed_sandstone_mass",
+      "vertices": 873762,
+      "triangles": 1747520,
+      "positions_sha256": "5f0bc0a45e2719576a7ab49c6b7fb12f6d11cb4ae8c1e70c50c9d275a3f0cf1e",
+      "topology_sha256": "bff440a3cb1a6bf9b6c76060129feb8d8f3bae59a992b2ae17a67429c4f991cd",
+      "gpu_attributes_finite": true,
+      "volume_body": true
+    },
+    {
+      "name": "East_closed_sandstone_mass",
+      "vertices": 873762,
+      "triangles": 1747520,
+      "positions_sha256": "36e561b1fa7a7df521396a7a31f176e2ce26fe2afe5197cb84b2d57518f89a2e",
+      "topology_sha256": "3f0c1c66865b4ac0e9aa020cbab5b4f666fcb530dc38003ffe800ecc8859b8b9",
+      "gpu_attributes_finite": true,
+      "volume_body": true
+    },
+    {
+      "name": "Jointed_talus_blocks",
+      "vertices": 3210,
+      "triangles": 6400,
+      "positions_sha256": "ec5e79db09404dd10bf496715df1bbbfec2354c5ba6a39af8aac03046533c10b",
+      "topology_sha256": "0191d940b26586a34e216efa2bcf1a5d11e1477d50c3b79742ef617d83a1e72e",
+      "gpu_attributes_finite": true,
+      "volume_body": false
+    },
+    {
+      "name": "Bedded_rockfall_fragments",
+      "vertices": 45804,
+      "triangles": 89760,
+      "positions_sha256": "f366f1ce35a2fb3dc86004d2abd07c009bdf035bd58e06bbaf796c44504c2d06",
+      "topology_sha256": "078e1ab8b9fc6ce893d95ee36571b4de0e3e64a2eee181a169bba02ada30827f",
+      "gpu_attributes_finite": true,
+      "volume_body": false
+    },
+    {
+      "name": "Wash_gravel",
+      "vertices": 28686,
+      "triangles": 54640,
+      "positions_sha256": "72388f7ccf33e6a16750b4fff7440aa19dee021cb0ab55dd8b22a24dec773580",
+      "topology_sha256": "800029a32571b9a9fd35d35e9e35c7884b6f68affce26ecfab463cbcd038a3d8",
+      "gpu_attributes_finite": true,
+      "volume_body": false
+    }
+  ],
+  "triangles": 4611262,
+  "vertices": 2307937,
+  "source_mesh_sha256": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+  "bake_matches_geometry": true
+}

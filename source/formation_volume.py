@@ -18,6 +18,7 @@ REPO=ROOT/'cybr-geo'
 sys.path[:0]=[str(REPO/'src'),str(REPO/'examples/three_scenes')]
 from build_scenes import Builder, grid_faces, vertex_normals, unit, smooth, n3, fractal
 from rebuild_scenes import fracture_block
+from support_surface import SupportSurface
 
 # These are formation-scale lithologic units, not a stack of identical sinusoids.
 BEDS=np.array([-.9,-.12,.39,1.10,1.82,2.93,3.37,4.52,5.83,6.34,7.86,8.61,10.34,12.11,14.24,16.63,19.8,23.5])
@@ -188,7 +189,8 @@ def apron(quality=1):
     return 'Closed_alluvial_terrain',v,f,{'rows':rows,'cols':cols,'baseVertices':rows*cols,'cyclicColumns':False,'kind':'parametric','extraVertices':len(v)-rows*cols}
 
 class Deposits:
-    def __init__(self,b):
+    def __init__(self,b,support):
+        self.support=support
         self.b=b;self.hash={};self.records=[];self.rejected=0
         self.yy=np.linspace(-26,65,2400)
         self.ww={side:width(self.yy,.20,side) for side in [-1,1]}
@@ -204,12 +206,12 @@ class Deposits:
         rng=self.b.rng;scale=(r,r*rng.uniform(.58,1.0),r*rng.uniform(.22,.50))
         v,f=fracture_block(int(rng.integers(1,2**30)),scale,family,sub)
         # Settle the full footprint onto the actual floor, then bury slightly.
-        support=floor(x+v[:,0],y+v[:,1]);height=float(np.ptp(v[:,2]))
+        support=self.support.height(np.c_[x+v[:,0],y+v[:,1]]);height=float(np.ptp(v[:,2]))
         vertical=float(np.max(support-v[:,2]))-burial*height
-        v+=np.array([x,y,vertical]);gap=v[:,2]-floor(v[:,0],v[:,1])
+        v+=np.array([x,y,vertical]);gap=v[:,2]-self.support.height(v[:,:2])
         self.b.add(label,v,f,mat=2)
         self.hash.setdefault(cell,[]).append((x,y,r))
-        self.records.append({'x':float(x),'y':float(y),'scale_m':list(map(float,scale)),
+        self.records.append({'group':label,'x':float(x),'y':float(y),'scale_m':list(map(float,scale)),
             'minimum_vertex_floor_gap_m':float(gap.min()),'maximum_vertex_floor_gap_m':float(gap.max()),
             'burial_fraction':float(burial),'vertices':len(v),'triangles':len(f)})
         return True
@@ -235,7 +237,8 @@ def build(out:Path,seed=20260917,quality=1.):
         report=validate_solid(name,v,f);solid_reports.append(report)
         print('SOLID',round(time.monotonic()-start,2),json.dumps(report),flush=True)
         b.add(name,v,f,mat=mat);design[name]=hints
-    deposits=Deposits(b)
+        if mat==0:support=SupportSurface(v,hints['rows'],hints['cols'])
+    deposits=Deposits(b,support)
     for x,y,r in [(-1.77,-2.3,.58),(2.02,1.8,.48),(-1.85,5.5,.64),(2.10,10.1,.59),(-1.75,20.5,.67)]:
         deposits.add(float(x+center(y)),y,r,'Jointed_talus_blocks',sub=3,burial=.19)
     rng=b.rng

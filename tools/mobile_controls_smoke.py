@@ -9,6 +9,9 @@ import argparse,base64,functools,http.server,json,math,os,re,signal,threading,ti
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
+_EXPECTED=json.loads((ROOT/'web/scene.json').read_text())['meta']
+EXPECTED_TRIANGLES=_EXPECTED['triangles']
+EXPECTED_VERTICES=_EXPECTED['vertex_count']
 HOOK=r'''(() => {
  const raf=requestAnimationFrame.bind(window);
  const s={paused:false,pending:null,armed:false,ready:false,png:null};window.__capture=s;
@@ -64,7 +67,7 @@ def main():
           page.goto(f'http://127.0.0.1:{server.server_port}/',wait_until='load',timeout=120000)
           page.wait_for_function('window.CYBR_RECOVERY?.controls && document.getElementById("loading").hidden',polling=100,timeout=180000)
           geometry=page.evaluate('({triangles:CYBR_RECOVERY.geometry.reduce((a,g)=>a+g.index.count/3,0),vertices:CYBR_RECOVERY.geometry.reduce((a,g)=>a+g.attributes.position.count,0)})')
-          assert geometry=={'triangles':8108728,'vertices':4072674},geometry
+          assert geometry=={'triangles':EXPECTED_TRIANGLES,'vertices':EXPECTED_VERTICES},geometry
           report['geometry']=geometry
         cdp=context.new_cdp_session(page)
         def snap():return page.evaluate('CYBR_RECOVERY.controls.snapshot()')

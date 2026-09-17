@@ -1,0 +1,21 @@
+{
+  "scene": "canyon",
+  "triangles": 4611262,
+  "parts": 6,
+  "components": {
+    "Closed_alluvial_terrain": 1,
+    "West_closed_sandstone_mass": 1,
+    "East_closed_sandstone_mass": 1,
+    "Jointed_talus_blocks": 5,
+    "Bedded_rockfall_fragments": 462,
+    "Wash_gravel": 683
+  },
+  "saved_and_reloaded_with_CYBR_GEO": true,
+  "finite_vertices": true,
+  "valid_indices": true,
+  "water_checks": [],
+  "tested_twig_roots": 0,
+  "maximum_twig_root_centerline_error_m": 0.0,
+  "mesh_sha256": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+  "image_generation": false
+}

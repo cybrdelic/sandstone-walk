@@ -1,0 +1,85 @@
+{
+  "method": "positive geometry-guided filtering and parametric interpolation of baked spectral irradiance",
+  "geometry_changed_by_resolve": false,
+  "direct_visibility_filtered": false,
+  "parts": [
+    {
+      "name": "Closed_alluvial_terrain",
+      "vertices": 482713,
+      "finite": true,
+      "indirect_mean_rgb": [
+        0.021886030212044716,
+        0.014402139000594616,
+        0.010632891207933426
+      ],
+      "indirect_max": 0.11724853515625,
+      "minimum_visibility": 0.0,
+      "maximum_visibility": 1.0
+    },
+    {
+      "name": "West_closed_sandstone_mass",
+      "vertices": 873762,
+      "finite": true,
+      "indirect_mean_rgb": [
+        0.06786709278821945,
+        0.030367689207196236,
+        0.011929616332054138
+      ],
+      "indirect_max": 0.2042236328125,
+      "minimum_visibility": 0.0,
+      "maximum_visibility": 0.9806531071662903
+    },
+    {
+      "name": "East_closed_sandstone_mass",
+      "vertices": 873762,
+      "finite": true,
+      "indirect_mean_rgb": [
+        0.05394398048520088,
+        0.025214124470949173,
+        0.01088231336325407
+      ],
+      "indirect_max": 0.17578125,
+      "minimum_visibility": 0.0,
+      "maximum_visibility": 0.9803068041801453
+    },
+    {
+      "name": "Jointed_talus_blocks",
+      "vertices": 3210,
+      "finite": true,
+      "indirect_mean_rgb": [
+        0.04416413605213165,
+        0.01703878678381443,
+        0.004746089223772287
+      ],
+      "indirect_max": 0.193359375,
+      "minimum_visibility": 0.0,
+      "maximum_visibility": 0.9451489448547363
+    },
+    {
+      "name": "Bedded_rockfall_fragments",
+      "vertices": 45804,
+      "finite": true,
+      "indirect_mean_rgb": [
+        0.04768320545554161,
+        0.018505608662962914,
+        0.005154814105480909
+      ],
+      "indirect_max": 0.2188720703125,
+      "minimum_visibility": 0.0,
+      "maximum_visibility": 0.9466837644577026
+    },
+    {
+      "name": "Wash_gravel",
+      "vertices": 28686,
+      "finite": true,
+      "indirect_mean_rgb": [
+        0.04632090777158737,
+        0.018388494849205017,
+        0.005540979094803333
+      ],
+      "indirect_max": 0.205322265625,
+      "minimum_visibility": 0.0,
+      "maximum_visibility": 0.966764509677887
+    }
+  ]
+}

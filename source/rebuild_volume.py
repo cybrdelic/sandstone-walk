@@ -20,7 +20,7 @@ def main():
  mesh=root/'native_scene/canyon/scene.meshbin';meshsha=sha(mesh)
  if a.expected_mesh and meshsha!=a.expected_mesh:raise RuntimeError('Regenerated geometry does not match reviewed source: '+meshsha)
  run('sites',[sys.executable,SOURCE/'prepare_volume.py','--root',root,'--stride',6])
- layout=json.loads((root/'data/layout.json').read_text());sourcehashes={str(q.relative_to(SOURCE)):sha(q) for q in [SOURCE/'bake.cpp',SOURCE/'transport_bake.cpp',SOURCE/'material_volume.h',SOURCE/'formation_volume.py',SOURCE/'prepare_volume.py',SOURCE/'resolve_volume.py',SOURCE/'pack_volume.py',SOURCE/'rebuild_volume.py']}
+ layout=json.loads((root/'data/layout.json').read_text());sourcehashes={str(q.relative_to(SOURCE)):sha(q) for q in [SOURCE/'bake.cpp',SOURCE/'transport_bake.cpp',SOURCE/'material_volume.h',SOURCE/'formation_volume.py',SOURCE/'support_surface.py',SOURCE/'prepare_volume.py',SOURCE/'resolve_volume.py',SOURCE/'pack_volume.py',SOURCE/'rebuild_volume.py']}
  flags=['g++','-O3','-std=c++17','-fopenmp','-I'+str(SOURCE/'cybr-geo/native')]
  run('compile_baker',flags+['-DCYBR_EXPECTED_TRIANGLE_COUNT='+str(layout['triangles']),'-DCYBR_FORMATION_MATERIALS="material_volume.h"',SOURCE/'bake.cpp','-o',root/'bake'])
  inputs={str(q.relative_to(root)):sha(q) for q in [mesh,root/'data/sites.bin',root/'data/vertices.bin']}

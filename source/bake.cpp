@@ -4,6 +4,9 @@
 #include "transport_bake.cpp"
 #undef main
 #include <filesystem>
+#ifndef CYBR_EXPECTED_TRIANGLE_COUNT
+#define CYBR_EXPECTED_TRIANGLE_COUNT 8108728
+#endif
 
 struct Site {V p,n;float material;};
 static_assert(sizeof(Site)==28);
@@ -20,7 +23,7 @@ std::vector<Site> readSites(const std::string&path,const char* magic){
 }
 void loadExactMesh(const std::string&path){
  std::ifstream f(path,std::ios::binary);uint32_t n;f.read(reinterpret_cast<char*>(&n),4);
- if(!f||n!=8108728)throw std::runtime_error("Unexpected geometry count; refusing a substitute scene");
+ if(!f||n!=CYBR_EXPECTED_TRIANGLE_COUNT)throw std::runtime_error("Unexpected geometry count; refusing a substitute scene");
  tris.resize(n);
  for(uint32_t i=0;i<n;i++){
   float a[20];f.read(reinterpret_cast<char*>(a),80);if(!f)throw std::runtime_error("Truncated mesh");

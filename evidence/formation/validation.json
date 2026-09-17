@@ -1,0 +1,72 @@
+{
+  "schema": "sandstone-walk-closed-geometry-validation/1",
+  "result": "PASS",
+  "triangles": 4611262,
+  "vertices": 2307937,
+  "parts": [
+    {
+      "name": "Closed_alluvial_terrain",
+      "triangles": 965422,
+      "vertices": 482713,
+      "watertight": true,
+      "winding_consistent": true,
+      "volume_m3": 38343.388672807814,
+      "degenerate_triangles": 0,
+      "folded_apron_cells": 0
+    },
+    {
+      "name": "West_closed_sandstone_mass",
+      "triangles": 1747520,
+      "vertices": 873762,
+      "watertight": true,
+      "winding_consistent": true,
+      "volume_m3": 11992.046789713548,
+      "degenerate_triangles": 0,
+      "valid_cross_sections": 2539
+    },
+    {
+      "name": "East_closed_sandstone_mass",
+      "triangles": 1747520,
+      "vertices": 873762,
+      "watertight": true,
+      "winding_consistent": true,
+      "volume_m3": 11987.3438269795,
+      "degenerate_triangles": 0,
+      "valid_cross_sections": 2539
+    },
+    {
+      "name": "Jointed_talus_blocks",
+      "triangles": 6400,
+      "vertices": 3210,
+      "watertight": true,
+      "winding_consistent": true,
+      "volume_m3": 1.2375480432748491,
+      "degenerate_triangles": 0
+    },
+    {
+      "name": "Bedded_rockfall_fragments",
+      "triangles": 89760,
+      "vertices": 45804,
+      "watertight": true,
+      "winding_consistent": true,
+      "volume_m3": 0.7452521639564699,
+      "degenerate_triangles": 0
+    },
+    {
+      "name": "Wash_gravel",
+      "triangles": 54640,
+      "vertices": 28686,
+      "watertight": true,
+      "winding_consistent": true,
+      "volume_m3": 0.0547154204970545,
+      "degenerate_triangles": 0
+    }
+  ],
+  "source_mesh_sha256": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+  "native_bake_matches_new_geometry": true,
+  "all_assets_sha256_valid": true,
+  "all_loose_rocks_intersect_actual_floor": true,
+  "closed_mass_and_apron_topology": true,
+  "projection_or_hand_authored_lighting": false,
+  "limits": "Cross-section self-crossing checks sample source rows and row midpoints. Bedrock/terrain overlap below ground is intentional. This is not a geophysical simulation or an exhaustive 3D solid-intersection certification."
+}

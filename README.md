@@ -1,18 +1,24 @@
 # Sandstone Walk
 
-**A walkable Three.js canyon with native spectral surface-baked lighting.**
+**A real 3D canyon with closed rock masses, spectral surface-baked lighting, mobile walking and orbit inspection.**
 
-Layered sandstone, jointed slabs, rockfall fans and an alluvial floor, preserved from a procedural CYBR GEO scene. The browser draws the original **8,108,728 triangles** and samples the precomputed lighting while the camera moves freely.
+![Walk and orbit — actual geometry rendering](media/sandstone-walk.gif)
 
-![Moving-camera render of Sandstone Walk](media/sandstone-walk.gif)
+[Interactive standalone / source downloads](../../releases/latest) · [MP4](media/sandstone-walk.mp4) · [Interior still](media/hero.png) · [Orbit still](media/orbit.png)
 
-[Higher-quality MP4](media/sandstone-walk.mp4) · [Full-resolution still](media/hero.png) · [Download standalone viewer](../../releases/latest) · [Technical notes](docs/ARCHITECTURE.md)
+## Geometry repair — 0.3.0
 
-The preview is a six-second moving-camera loop rendered from the shipped geometry, bake and GLSL. The MP4 contains 144 distinct 1200 × 800 frames at 24 fps; the GIF uses 72 of those frames at 720 × 480 and 12 fps. It is a native OpenGL ES execution of the viewer shaders, **not a browser recording**, image-generated animation, projected photograph or interpolated video.
+The earlier scene consisted of open canyon wall sheets, an open floor and a separate far-end backdrop. Orbit navigation exposed their lack of thickness. This release replaces those surfaces, rather than hiding their backs or projecting the original picture.
+
+The west and east formations now have connected cliff faces, irregular caprock rims, weathered shoulders, incised outer slopes and buried closing surfaces. The alluvial terrain is also a closed volume. Bedding recesses and finite joint/spall shapes are actual vertices. The far backdrop is removed; the passage continues around its bend. 1,150 independent fragments and blocks are settled into the evaluated floor. Candidate exclusion limits obvious rock overlaps; it is not a rigid-body settling simulation.
+
+The new scene contains **4,611,262 triangles and 2,307,937 vertices**. It is a new authored formation, not the old mesh decimated or the original photograph reconstructed exactly. All three large solids have zero boundary edges, consistent winding and positive signed volume. Cross-section checks reject folded cliff/crest profiles. The terrain grid is monotone, without folded-over apron cells.
+
+![Closed formation, orbit view](media/orbit.png)
+
+The lighting has been **rebaked against this new geometry**. The native CYBR GEO tracer evaluated 145,287 actual surface locations at 256 hemisphere samples each, using 16 spectral bands and depth 10. Separate finite-sun queries recorded 26,659,904 rays. No bake from the old walls is reused. Sandstone reflectance now has restrained weathering instead of the previous high-contrast camouflage-like varnish. Reflectance spectra remain authored RGB-anchor reconstructions, not measured minerals.
 
 ## Run
-
-No bundler, npm dependencies, API key or external CDN is needed to view the scene. Clone the repository and serve it over HTTP:
 
 ```bash
 git clone https://github.com/cybrdelic/sandstone-walk.git
@@ -20,100 +26,39 @@ cd sandstone-walk
 python -m http.server 8000
 ```
 
-Open **http://localhost:8000** in a current WebGL2 browser. The first load fetches approximately **92.8 MB of compressed geometry and lighting**. The JavaScript checks asset lengths and, on secure contexts such as localhost, SHA-256 hashes before uploading buffers.
+Open **http://localhost:8000**. The split viewer fetches approximately **73.1 MB** of compressed geometry and lighting. Three.js r180 is vendored; no runtime CDN, npm install or API key is needed. File lengths and, where available, SHA-256 hashes are checked during loading.
 
-For a single-file offline copy, download the standalone HTML from [Releases](../../releases/latest), or reassemble it from the repository:
+Download the single-file viewer from [Releases](../../releases/latest), or build the current version:
 
 ```bash
 python tools/make_standalone.py
 ```
 
-This writes `dist/Sandstone_Walk_Standalone.html` with the **current web UI, mobile controller and orbit mode**, plus a SHA-256 receipt. It checks every asset hash before embedding the unchanged bake and geometry. The approximately 124 MB file has no runtime CDN dependency. `python tools/make_standalone.py --legacy --out dist/Legacy_Recovery.html` remains available to reconstruct the original recovery byte-for-byte; it intentionally does not include the new controls.
+The current controls and all current scene assets are embedded. The earlier scene remains in the [v0.2.0 release](../../releases/tag/v0.2.0). The `--legacy` reconstruction command belongs to that checkout; it must not be run against these replacement assets.
 
-### Mobile and orbit controls
+## Mobile and desktop navigation
 
-[Mobile controls test](evidence/mobile_controls_ci/report.json) · [Portrait screenshot](evidence/mobile_controls_ci/mobile_walk.png) · [Orbit screenshot](evidence/mobile_controls_ci/mobile_orbit.png) · [Landscape screenshot](evidence/mobile_controls_ci/landscape_orbit.png)
+**Walk:** left-thumb analog stick to move; drag the scene with the other finger to look simultaneously. Hold − / + for height. Use the speed toggle for faster movement. On desktop use WASD/arrows, drag to look, Q/E for height and Shift for speed.
 
-Use **Walk** for the canyon interior and **Orbit** to inspect the entire formation. Switching back to Walk restores your previous walking position and direction. **Reference** returns to the authored camera; **Fit canyon** reframes the complete mesh in orbit mode.
+**Orbit:** one-finger drag to rotate, pinch to zoom and two-finger drag to pan. Desktop supports wheel zoom and right/middle or Shift-drag panning. **Fit canyon** reframes the full geometry. **Reference** returns to the entrance. Walk and Orbit keep separate camera poses. O switches navigation, F fits Orbit, R resets.
 
-| Action | Touch | Mouse / keyboard |
-| --- | --- | --- |
-| Walk and strafe | Left thumbstick (analog speed and dead zone) | WASD / arrows |
-| Look while walking | Drag the scene with the other finger | Left drag |
-| Change height | Hold − / + on the right | Q / E |
-| Faster movement | Move faster toggle | Either Shift key |
-| Orbit the scene | One-finger drag | Left drag |
-| Orbit zoom | Pinch; + / − buttons | Wheel |
-| Orbit pan | Two-finger drag | Right/middle drag, Shift-drag, or WASD |
-| Switch navigation | Walk / Orbit buttons | O |
-| Reframe orbit | Fit canyon | F |
-| Reference camera | Reference | R |
-| Automatic route | Settings → Walk through | Walk through |
+Safe-area-aware portrait/landscape layouts, the mobile Settings drawer, pointer ownership and cancellation/focus-loss cleanup are retained. This remains a free inspection camera: no collision or ground-following character controller. Geometry density is lower than the previous release, but no physical-phone FPS or memory guarantee is claimed.
 
-The thumbstick and look gestures work **simultaneously**. Releasing, cancelling or losing pointer capture, switching modes, resizing, hiding the page or losing focus clears held movement. Orbit gestures remain continuous when a finger is added or lifted. Settings use a compact mobile drawer; controls respect safe-area insets and support portrait and landscape. The portrait walking field of view is capped at 75° vertically instead of stretching the original horizontal field into a fisheye-like view. The original reference camera projection at desktop aspect ratios is retained.
+## Reproduce the new geometry and bake
 
-Movement remains **free-camera inspection, not a collision/ground-following character controller**. Geometry and lighting are unchanged. The resolution selector changes pixel shading cost, not mesh density. All 8.1M triangles still load: improved touch controls do not imply lower GPU-memory requirements or a mobile frame-rate guarantee.
-
-## Lighting and geometry
-
-The scene is generated by the retained CYBR GEO recipe rather than a scanned mesh or image-to-3D service. The native bake uses the recovered **16-band spectral transport code**, sampling **414,439 surface locations** with **256 hemisphere samples per location** and a maximum path depth of **10**. Separate finite-sun visibility queries use the full canyon mesh.
-
-The browser interpolates surface-bound indirect radiance and evaluates view-dependent direct diffuse and specular response. It also samples the native procedural sky and uses the recovered white balance and display transform. There are **no reference-image projections, hand-painted irradiance probes, hemisphere fill lights or fake bounce-light rig** in this version.
-
-| Preserved scene | Count |
-| --- | ---: |
-| Triangles | 8,108,728 |
-| Vertices | 4,072,674 |
-| Mesh groups | 7 |
-| Spectral bake sites | 414,439 |
-| Solar visibility rays recorded by the bake | 37,452,960 |
-
-The native source-mesh SHA-256 is `50fbfa563abe246a9049279274a1cea710be5b38f423ccdc6ab6ef731d27156a`. Publication checks compare **each shipped position buffer and complete index ordering** against the recovery's preserved hashes. There is no topology reduction or replacement geometry in the web package.
-
-## Repository layout
-
-```text
-index.html               Browser entry point and controls
-web/                     Viewer, GLSL, scene manifest and compressed assets
-  vendor/                Pinned Three.js r180 bundle with its license notice
-source/                  Native bake, scene generation and original packaging source
-  cybr-geo/              Retained CYBR GEO source and asset provenance
-tools/                   Array validation, browser smoke test, media rendering and packaging
-media/                   Animated GIF, MP4 and freshly rendered stills
-evidence/                Geometry, bake, shader, media and publication receipts
-docs/                    Architecture, reproduction and original recovery notes
-```
-
-## Rebuild and test
-
-Viewing the committed build does not require the Python rendering dependencies. To validate the arrays and source identity:
+Use Python 3.13 and GCC with C++17/OpenMP on Linux or WSL:
 
 ```bash
-python -m pip install -r source/requirements.txt
-python tools/verify.py
-node --check web/app.js
-node --check web/bootstrap.js
-node --check web/controls.js
+python -m pip install -r source/requirements-volume.txt
+python source/rebuild_volume.py --workspace ./work-volume --project . --spp 256 --threads 4 --render --film
+bash tools/encode_volume.sh
+python tools/verify_volume.py --evidence
+python tools/make_standalone.py
 ```
 
-To regenerate the native geometry and lighting on Linux or WSL, use GCC with C++17 and OpenMP support:
+The build records the geometry, input samples, native source and baker binary hashes. The native triangle loader is compiled with the actual regenerated triangle count. The material hook is opt-in; the original CYBR GEO material implementation remains the default for the retained historical pipeline.
 
-```bash
-python source/rebuild.py --workspace ./work --out ./rebuilt --spp 256 --threads 4 --depth 10
-```
-
-The native builder rejects a regenerated mesh that does not match the original mesh hash. Allow several GB of temporary disk space. The retained recovery notes distinguish historically executed stages from the orchestration wrapper; compiler and dependency differences can affect numerical bake output. See [reproduction notes](docs/REPRODUCING.md).
-
-To render the moving-camera preview from the committed bake with Mesa/EGL and FFmpeg:
-
-```bash
-python tools/render_preview.py --width 1200 --height 800 --frames 144 --fps 24
-bash tools/encode_preview.sh
-```
-
-Each frame is drawn from a new 3D camera pose using all 8.1 million triangles. This does not rerun spectral path tracing for every animation frame: it uses the existing native bake, just as the interactive viewer does.
-
-A real browser test is also supplied:
+For browser and multi-touch checks:
 
 ```bash
 python -m pip install -r tools/requirements-test.txt
@@ -122,16 +67,16 @@ python tools/browser_smoke.py
 python tools/mobile_controls_smoke.py
 ```
 
-Set `CHROMIUM_PATH` to use a system Chromium executable. The test exercises startup, geometry totals, rendered output, camera movement, reset and lighting-mode switching. It fails rather than silently substituting a static screenshot.
+`CHROMIUM_PATH` selects a system browser. Tests use the current scene totals, not the retired 8.1M count, and preserve actual canvas captures and graphics errors. Browser touch emulation is not physical-device benchmarking.
 
-## Validation and limits
+## Evidence and limits
 
-[Publication validation](evidence/publication_validation.json) confirms buffer integrity, original positions/topology, finite values and unchanged shaders. [Preview rendering](evidence/preview_render.json) records every camera pose and frame hash; [media verification](evidence/media_verification.json) verifies the delivered GIF and MP4. The initial native bake evidence is preserved separately in [recovery verification](evidence/recovery_verification.json).
+[Geometry and asset validation](evidence/formation/validation.json) · [Native bake](evidence/formation/bake.json) · [Geometry construction](evidence/formation/design.json) · [Rendered views](evidence/formation/render_execution.json) · [Animation receipt](evidence/formation/media.json)
 
-Local native GLES rendering completed with zero graphics errors. The local Chromium attempt was blocked by the environment's administrator policy; that failure is recorded in [local browser evidence](evidence/local_browser_attempt.json), not described as a successful browser test. The separate Chromium / Three.js WebGL2 test has now **passed on GitHub Actions**: all 8,108,728 triangles loaded and drew, three 1200 x 800 canvas captures completed with zero GL errors, and keyboard movement, camera poses, reference reset and lighting-mode switching passed. See the [browser report](evidence/browser_ci/report.json), [browser hero capture](evidence/browser_ci/hero.png), and [successful run](https://github.com/cybrdelic/sandstone-walk/actions/runs/35184213934). The test pauses between completed frames to capture the real browser canvas reliably on a software-GPU runner; it does not replace the renderer or its pixels.
+The GIF/MP4 contain actual moving-camera renders of the delivered geometry and shaders, not an animated still, generative imagery or frame interpolation. Native GLES output is identified separately from Chromium captures. Earlier `evidence/browser_ci/` and `evidence/mobile_controls_ci/` records describe the 0.1/0.2 releases; new browser qualification, when present, is under `evidence/formation/browser/` and `evidence/formation/mobile/`.
 
-This is a **static surface bake**, not dynamic global illumination or real-time spectral path tracing. Finite bake resolution, filtering and vertex interpolation can soften shadow boundaries and close-up material detail. Indirect glossy lighting is not fully view-dependent. The sun and scene geometry cannot move without rebaking. The result is not claimed to be a pixel-identical match to the original offline still or an externally certified visual-quality benchmark.
+This is an **authored, finite terrain study**, not a surveyed site, a geophysical erosion simulation or an unlimited world. The terrain has a finite closed underside visible from outside the environment. Bedrock/apron overlaps below ground are intentional. Cross-section gates sample all mesh rows and row midpoints, not a formal exhaustive triangle-intersection proof. Surface-lightmap interpolation still limits close-up GI detail. The static sun/scene requires rebaking after geometry or illumination changes; indirect glossy light is not fully view-dependent. No claim of pixel identity with the original still or an external “AAA” certification is made.
 
 ## License
 
-CYBR GEO-derived code and this project are distributed under **GPL-2.0-only**; see [LICENSE](LICENSE). The vendored Three.js r180 code retains its MIT notice. Original asset provenance and attribution are retained under `source/cybr-geo/examples/desert_hot_springs/assets/`. See [third-party notices](THIRD_PARTY_NOTICES.md).
+GPL-2.0-only for this project and CYBR GEO-derived code. Vendored Three.js retains its MIT license. Asset attribution remains under `source/cybr-geo/examples/desert_hot_springs/assets/`. See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).

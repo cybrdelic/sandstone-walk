@@ -1,0 +1,161 @@
+{
+  "source_mesh_sha256": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+  "input_sha256": {
+    "native_scene/canyon/scene.meshbin": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+    "data/sites.bin": "47b14d2ebd64d4ca80a95f696c7ebda8219242df6e48094843500c00d5412433",
+    "data/vertices.bin": "e6e8966a30f97441bf3bcedb837ec8b1d61bcac85503dd84b42af3cda6585bac"
+  },
+  "source_sha256": {
+    "bake.cpp": "e50ff9523e794ecbad604ddedb25d80c70439528c446a186b1608c4628b360a8",
+    "transport_bake.cpp": "bd6c2f8c9e0c02ef1cb35581fd589d180e43a712649419cf4bdcb2011ebff771",
+    "material_volume.h": "1021a9f91a7e13829ac207464f1d821e67a4e0b51a336f41e4cc43c469d90c40",
+    "formation_volume.py": "07a1ab8c96530846a89ff2b5035266c8fec91f8b23691ea9edae7a4608765dc6",
+    "support_surface.py": "728d64e51da1dfcc12b9c491fc199d1f86cba7bf6ebfc0f1bda42040e5ff976a",
+    "prepare_volume.py": "518b08036b15a4602ca3337b349a16b4768fa6e70076f26484002f74fd43d895",
+    "resolve_volume.py": "89a0dcff32130565e1657868ca4d8e1a2a03cecb855d29d6e682448001783017",
+    "pack_volume.py": "8fdc79b3b6b9d331f12259cef30d0639b5859c8af008898e5bec074e40f1c6de",
+    "rebuild_volume.py": "2fe59ca1b81e021231aeb3eaf64e17575ce1517b274b6dd6ab5946ae91f91243"
+  },
+  "steps": [
+    {
+      "stage": "geometry",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/formation_volume.py",
+        "--out",
+        "/home/runner/work/_temp/closed-formation/native_scene/canyon"
+      ],
+      "returncode": 0,
+      "seconds": 39.93115830299999
+    },
+    {
+      "stage": "sites",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/prepare_volume.py",
+        "--root",
+        "/home/runner/work/_temp/closed-formation",
+        "--stride",
+        "6"
+      ],
+      "returncode": 0,
+      "seconds": 0.8321625670000117
+    },
+    {
+      "stage": "compile_baker",
+      "command": [
+        "g++",
+        "-O3",
+        "-std=c++17",
+        "-fopenmp",
+        "-I/home/runner/work/sandstone-walk/sandstone-walk/source/cybr-geo/native",
+        "-DCYBR_EXPECTED_TRIANGLE_COUNT=4611262",
+        "-DCYBR_FORMATION_MATERIALS=\"material_volume.h\"",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/bake.cpp",
+        "-o",
+        "/home/runner/work/_temp/closed-formation/bake"
+      ],
+      "returncode": 0,
+      "seconds": 7.613715913000007
+    },
+    {
+      "stage": "spectral_bake",
+      "command": [
+        "/home/runner/work/_temp/closed-formation/bake",
+        "/home/runner/work/_temp/closed-formation/native_scene/canyon/scene.meshbin",
+        "/home/runner/work/_temp/closed-formation/data/sites.bin",
+        "/home/runner/work/_temp/closed-formation/data/vertices.bin",
+        "/home/runner/work/_temp/closed-formation/baked_final",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/cybr-geo/examples/desert_hot_springs/assets",
+        "256",
+        "4",
+        "10"
+      ],
+      "returncode": 0,
+      "seconds": 144.25374014800002
+    },
+    {
+      "stage": "compile_sky",
+      "command": [
+        "g++",
+        "-O3",
+        "-std=c++17",
+        "-fopenmp",
+        "-I/home/runner/work/sandstone-walk/sandstone-walk/source/cybr-geo/native",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/sky.cpp",
+        "-o",
+        "/home/runner/work/_temp/closed-formation/sky"
+      ],
+      "returncode": 0,
+      "seconds": 5.110447394999994
+    },
+    {
+      "stage": "native_sky",
+      "command": [
+        "/home/runner/work/_temp/closed-formation/sky",
+        "/home/runner/work/_temp/closed-formation/native_sky.bin"
+      ],
+      "returncode": 0,
+      "seconds": 1.9755718949999732
+    },
+    {
+      "stage": "resolve",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/resolve_volume.py",
+        "--root",
+        "/home/runner/work/_temp/closed-formation"
+      ],
+      "returncode": 0,
+      "seconds": 2.4604981640000005
+    },
+    {
+      "stage": "pack",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
+        "/home/runner/work/sandstone-walk/sandstone-walk/source/pack_volume.py",
+        "--root",
+        "/home/runner/work/_temp/closed-formation",
+        "--project",
+        "/home/runner/work/sandstone-walk/sandstone-walk"
+      ],
+      "returncode": 0,
+      "seconds": 13.212602021999999
+    },
+    {
+      "stage": "native_views",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
+        "/home/runner/work/sandstone-walk/sandstone-walk/tools/render_volume.py",
+        "--gles",
+        "--resolved",
+        "resolved_final",
+        "--width",
+        "1200",
+        "--height",
+        "800"
+      ],
+      "returncode": 0,
+      "seconds": 11.196838144000026
+    },
+    {
+      "stage": "native_film",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
+        "/home/runner/work/sandstone-walk/sandstone-walk/tools/render_volume.py",
+        "--gles",
+        "--resolved",
+        "resolved_final",
+        "--width",
+        "960",
+        "--height",
+        "640",
+        "--film",
+        "--output",
+        "build/formation_frames"
+      ],
+      "returncode": 0,
+      "seconds": 89.92619567500003
+    }
+  ]
+}

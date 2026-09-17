@@ -6,33 +6,51 @@
       380,
       780
     ],
-    "triangles": 8108728,
-    "sites": 414439,
+    "triangles": 4611262,
+    "sites": 145287,
     "hemisphere_samples_per_site": 256,
     "maximum_path_depth": 10,
     "sun_samples_per_lit_vertex": 16,
-    "sun_visibility_rays": 37452960,
-    "vertex_count": 4072674,
+    "sun_visibility_rays": 26659904,
+    "vertex_count": 2307937,
     "invalid_samples": 0,
     "clamped_contributions": 0,
-    "indirect_seconds_including_bvh": 237.4890004,
-    "wall_seconds": 245.7603599,
+    "indirect_seconds_including_bvh": 132.3070088,
+    "wall_seconds": 142.2567139,
     "solar_rgb": [
-      9.37061882,
-      7.763447285,
-      6.058387756
+      9.370616913,
+      7.763448238,
+      6.058386803
     ],
     "display_white_rgb": [
-      1.099015713,
-      0.9783982038,
-      0.9230284095
+      1.099015594,
+      0.9783981442,
+      0.9230282903
     ],
     "exposure": 2.5,
     "reference_image_used": false,
     "hero_camera_used_by_bake": false,
-    "source_mesh_sha256": "50fbfa563abe246a9049279274a1cea710be5b38f423ccdc6ab6ef731d27156a",
-    "geometry_modified": false,
-    "positions": "same float32 conversion as preserved renderer mesh; no decimation",
+    "source_mesh_sha256": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+    "input_sha256": {
+      "native_scene/canyon/scene.meshbin": "a488c69fe0004753c215d5df0171973da9161e9cf5d4751986a385a8bd56960c",
+      "data/sites.bin": "47b14d2ebd64d4ca80a95f696c7ebda8219242df6e48094843500c00d5412433",
+      "data/vertices.bin": "e6e8966a30f97441bf3bcedb837ec8b1d61bcac85503dd84b42af3cda6585bac"
+    },
+    "source_sha256": {
+      "bake.cpp": "e50ff9523e794ecbad604ddedb25d80c70439528c446a186b1608c4628b360a8",
+      "transport_bake.cpp": "bd6c2f8c9e0c02ef1cb35581fd589d180e43a712649419cf4bdcb2011ebff771",
+      "material_volume.h": "1021a9f91a7e13829ac207464f1d821e67a4e0b51a336f41e4cc43c469d90c40",
+      "formation_volume.py": "07a1ab8c96530846a89ff2b5035266c8fec91f8b23691ea9edae7a4608765dc6",
+      "support_surface.py": "728d64e51da1dfcc12b9c491fc199d1f86cba7bf6ebfc0f1bda42040e5ff976a",
+      "prepare_volume.py": "518b08036b15a4602ca3337b349a16b4768fa6e70076f26484002f74fd43d895",
+      "resolve_volume.py": "89a0dcff32130565e1657868ca4d8e1a2a03cecb855d29d6e682448001783017",
+      "pack_volume.py": "8fdc79b3b6b9d331f12259cef30d0639b5859c8af008898e5bec074e40f1c6de",
+      "rebuild_volume.py": "2fe59ca1b81e021231aeb3eaf64e17575ce1517b274b6dd6ab5946ae91f91243"
+    },
+    "baker_binary_sha256": "ebf8ee2efbca1c7b6e8251bf861a4f5b406c9b609dca9507a7793cf250719f3d",
+    "version": "0.3.0",
+    "geometry_modified": true,
+    "geometry_provenance": "CYBR GEO closed parametric masses, authored erosion and supported fracture products",
     "camera": [
       -0.42,
       -5.8,
@@ -49,295 +67,267 @@
       -0.33,
       0.913
     ],
-    "lighting": "native spectral surface irradiance and exact-geometry solar visibility",
+    "mesh_groups": 6,
+    "previous_source_mesh_sha256": "50fbfa563abe246a9049279274a1cea710be5b38f423ccdc6ab6ef731d27156a",
     "image_projection": false,
     "hand_authored_probes": false,
     "runtime_ambient_lights": 0,
     "static_bake": true,
-    "view_dependent_indirect_gloss": false,
-    "browser_runtime_verified": false
+    "field_reused_from_old_geometry": false,
+    "measured_geometry": false,
+    "geological_simulation": false
   },
   "meshes": [
     {
-      "name": "Alluvial_sand_and_rockfall_support",
-      "vertices": 877500,
-      "triangles": 1751002,
-      "kind": "grid",
-      "rows": 1350,
-      "cols": 650,
-      "flip": false,
-      "position": {
-        "url": "web/assets/Alluvial_sand_and_rockfall_support.position.deflate",
-        "sha256": "3be86b86bea39993d647f0047e3bf7e4dd130b4bff13637ff83384794d881185",
-        "bytes": 5071605,
-        "decodedBytes": 10530000
-      },
-      "normal": {
-        "url": "web/assets/Alluvial_sand_and_rockfall_support.normal.deflate",
-        "sha256": "5a71eb3ec18cbc53cd98dc238764ab72916bc6041b1deb7cc5bfb7a1d9315439",
-        "bytes": 4785169,
-        "decodedBytes": 5265000
-      },
-      "direct": {
-        "url": "web/assets/Alluvial_sand_and_rockfall_support.direct.deflate",
-        "sha256": "f84b1482d907c799603ab55835b693f6032111a9a0bb906e2c207919dc70a762",
-        "bytes": 3495682,
-        "decodedBytes": 5265000
-      },
-      "indirect": {
-        "url": "web/assets/Alluvial_sand_and_rockfall_support.indirect.deflate",
-        "sha256": "31a37fd69d85118f90f8e108886b6b8d4bf7c1ba7ba1ab206e4fbd39db882b75",
-        "bytes": 4321647,
-        "decodedBytes": 5265000
-      },
-      "surface": {
-        "url": "web/assets/Alluvial_sand_and_rockfall_support.surface.deflate",
-        "sha256": "d0202df19f4dc9bf9bee98e31d3d7fef8e077a3ed5e225c907189b4bba3907da",
-        "bytes": 98717,
-        "decodedBytes": 3510000
-      }
-    },
-    {
-      "name": "West_bedded_sandstone",
-      "vertices": 1241000,
-      "triangles": 2477142,
-      "kind": "grid",
-      "rows": 730,
-      "cols": 1700,
-      "flip": false,
-      "position": {
-        "url": "web/assets/West_bedded_sandstone.position.deflate",
-        "sha256": "49c8f2cee9561d85e02e6d7bb80791aba3e1c843402651b44f32e99bb1d98add",
-        "bytes": 7024907,
-        "decodedBytes": 14892000
-      },
-      "normal": {
-        "url": "web/assets/West_bedded_sandstone.normal.deflate",
-        "sha256": "17088a69a9775eaf43de889e01ef9a7a77d3b5dc25a5abc2de2d725682f61c94",
-        "bytes": 7266694,
-        "decodedBytes": 7446000
-      },
-      "direct": {
-        "url": "web/assets/West_bedded_sandstone.direct.deflate",
-        "sha256": "b12a86adc4f1f1609ca20a3dbe82fae21b64188536752c117b7553628e687ce4",
-        "bytes": 6044740,
-        "decodedBytes": 7446000
-      },
-      "indirect": {
-        "url": "web/assets/West_bedded_sandstone.indirect.deflate",
-        "sha256": "77be50e08d4392415343690f8c37237962f7cb109c314752b7a8fe9043c08f77",
-        "bytes": 6420478,
-        "decodedBytes": 7446000
-      },
-      "surface": {
-        "url": "web/assets/West_bedded_sandstone.surface.deflate",
-        "sha256": "d9e95206eedb9f8d604ffee6d883c71b771494d29aa46be7361ed39918a2883b",
-        "bytes": 832184,
-        "decodedBytes": 4964000
-      }
-    },
-    {
-      "name": "East_bedded_sandstone",
-      "vertices": 1241000,
-      "triangles": 2477142,
-      "kind": "grid",
-      "rows": 730,
-      "cols": 1700,
-      "flip": true,
-      "position": {
-        "url": "web/assets/East_bedded_sandstone.position.deflate",
-        "sha256": "ad318883020e150f67c5a9dd0e60c1058fd9342d626331ce8ab68809ccbd10f9",
-        "bytes": 6791642,
-        "decodedBytes": 14892000
-      },
-      "normal": {
-        "url": "web/assets/East_bedded_sandstone.normal.deflate",
-        "sha256": "199863509a1be840facb8d406d615a3cc20e2395f3c8d83e3380e0ea37b0f041",
-        "bytes": 7280220,
-        "decodedBytes": 7446000
-      },
-      "direct": {
-        "url": "web/assets/East_bedded_sandstone.direct.deflate",
-        "sha256": "f195d3c9679bf62948fc4c123954cfc459183c12308e7294d9baae1bdc5527f5",
-        "bytes": 6049476,
-        "decodedBytes": 7446000
-      },
-      "indirect": {
-        "url": "web/assets/East_bedded_sandstone.indirect.deflate",
-        "sha256": "9bea00d3a5a6b70636c9501163e946918fff4e91d536e249ca6af2effc35e19c",
-        "bytes": 6454186,
-        "decodedBytes": 7446000
-      },
-      "surface": {
-        "url": "web/assets/East_bedded_sandstone.surface.deflate",
-        "sha256": "d7298f63117fbfc9ae4d97ae256d2cfd5c13ad7d42bcb9e3fa7349ef622f94b9",
-        "bytes": 1226227,
-        "decodedBytes": 4964000
-      }
-    },
-    {
-      "name": "Rockfall_fans",
-      "vertices": 230160,
-      "triangles": 450480,
+      "name": "Closed_alluvial_terrain",
       "kind": "indexed",
-      "index": {
-        "url": "web/assets/Rockfall_fans.index.deflate",
-        "sha256": "63efe38905fb3461e440bc85c3217592c44f6313e2f484146048c20162b437a2",
-        "bytes": 1499182,
-        "decodedBytes": 5405760
-      },
-      "position": {
-        "url": "web/assets/Rockfall_fans.position.deflate",
-        "sha256": "60e2a6ea80f25458a98f58be3043b8f5db09753832ccfa687edab13b22b4dd64",
-        "bytes": 2502101,
-        "decodedBytes": 2761920
-      },
+      "vertices": 482713,
+      "triangles": 965422,
       "normal": {
-        "url": "web/assets/Rockfall_fans.normal.deflate",
-        "sha256": "d114c2a83b7ec18e2dbe9c368cd22d14ef90cd78de8842a0439fabf879d1f94f",
-        "bytes": 1381391,
-        "decodedBytes": 1380960
+        "url": "web/assets/Closed_alluvial_terrain.normal.deflate",
+        "bytes": 2518347,
+        "decodedBytes": 2896278,
+        "sha256": "8a9bc05948f65c31089f4aa160d1136711daa19be6e0f403e02dc367909cd0e5"
       },
       "direct": {
-        "url": "web/assets/Rockfall_fans.direct.deflate",
-        "sha256": "8dd0bcf5d094500274768aaab983225cff43e40e768eaa3cb44ccafb24accd1f",
-        "bytes": 1030844,
-        "decodedBytes": 1380960
+        "url": "web/assets/Closed_alluvial_terrain.direct.deflate",
+        "bytes": 1780441,
+        "decodedBytes": 2896278,
+        "sha256": "689b5063665a2ce91913df58b2c3c8539ce891e5053d1eba8df39ffcba53accd"
       },
       "indirect": {
-        "url": "web/assets/Rockfall_fans.indirect.deflate",
-        "sha256": "7159d9f70bf6f1855fde4917647d30ac1c9b78eb0c400ecbf3719af13701c8fa",
-        "bytes": 979183,
-        "decodedBytes": 1380960
+        "url": "web/assets/Closed_alluvial_terrain.indirect.deflate",
+        "bytes": 1456899,
+        "decodedBytes": 2896278,
+        "sha256": "89232103aa2c97f9e726abf8d5a1e5482765d0f889fa30278cd06936905ab0fa"
       },
       "surface": {
-        "url": "web/assets/Rockfall_fans.surface.deflate",
-        "sha256": "2a46fd79b1873b683e72da21fe95d59a1ffc16e57392688313aca1846759bcbd",
-        "bytes": 21150,
-        "decodedBytes": 920640
+        "url": "web/assets/Closed_alluvial_terrain.surface.deflate",
+        "bytes": 74707,
+        "decodedBytes": 1930852,
+        "sha256": "1042837dd8a9f13cfe195cb4950e341f2adf0dd1c3190e855acda2769794d941"
+      },
+      "position": {
+        "url": "web/assets/Closed_alluvial_terrain.position.deflate",
+        "bytes": 3684878,
+        "decodedBytes": 5792556,
+        "sha256": "df0fe48fb5da6b466c034d351d0f8130363680ef5a7fdc9ad498d14568bc266f"
+      },
+      "index": {
+        "url": "web/assets/Closed_alluvial_terrain.index.deflate",
+        "bytes": 4274230,
+        "decodedBytes": 11585064,
+        "sha256": "2194dfe9fbbf20d8293c987540ce53d520182db0e89a0d14be24ac4e65b2def7"
+      }
+    },
+    {
+      "name": "West_closed_sandstone_mass",
+      "kind": "indexed",
+      "vertices": 873762,
+      "triangles": 1747520,
+      "normal": {
+        "url": "web/assets/West_closed_sandstone_mass.normal.deflate",
+        "bytes": 5137922,
+        "decodedBytes": 5242572,
+        "sha256": "0b53f715c426c536e418a23d76362a11aa933eb6bcb9854cda5cda802cd20f7c"
+      },
+      "direct": {
+        "url": "web/assets/West_closed_sandstone_mass.direct.deflate",
+        "bytes": 3714166,
+        "decodedBytes": 5242572,
+        "sha256": "28c596a1c9fab5247d60691ca68ef72e8145d90a5fa7a8997ecfd6e41f688f2c"
+      },
+      "indirect": {
+        "url": "web/assets/West_closed_sandstone_mass.indirect.deflate",
+        "bytes": 4329768,
+        "decodedBytes": 5242572,
+        "sha256": "e43869f3b0a43e245a7bee717919784ee7707cea1d49b7b61e678feb796b7ab6"
+      },
+      "surface": {
+        "url": "web/assets/West_closed_sandstone_mass.surface.deflate",
+        "bytes": 622306,
+        "decodedBytes": 3495048,
+        "sha256": "bd5da2243ff748acd7b7329977e9c492d347125f1779e94c896a3bdc02fb6bff"
+      },
+      "position": {
+        "url": "web/assets/West_closed_sandstone_mass.position.deflate",
+        "bytes": 6391174,
+        "decodedBytes": 10485144,
+        "sha256": "b949de52c2735778bf71daef3893a814e874d7efa88ed68a2274a342f6eecfea"
+      },
+      "index": {
+        "url": "web/assets/West_closed_sandstone_mass.index.deflate",
+        "bytes": 7945464,
+        "decodedBytes": 20970240,
+        "sha256": "6f792acaeb758685a6bfbf192d445c329b3e6497cd49b69eb0efbe04438f6436"
+      }
+    },
+    {
+      "name": "East_closed_sandstone_mass",
+      "kind": "indexed",
+      "vertices": 873762,
+      "triangles": 1747520,
+      "normal": {
+        "url": "web/assets/East_closed_sandstone_mass.normal.deflate",
+        "bytes": 5150445,
+        "decodedBytes": 5242572,
+        "sha256": "bbb43d852458b5c867664a9b35b55b618d234191d92fc48268a942bf4e478db1"
+      },
+      "direct": {
+        "url": "web/assets/East_closed_sandstone_mass.direct.deflate",
+        "bytes": 3761027,
+        "decodedBytes": 5242572,
+        "sha256": "427b913792eec8a49c6605259900037955013760439efbcd6d94b0fbdc359f51"
+      },
+      "indirect": {
+        "url": "web/assets/East_closed_sandstone_mass.indirect.deflate",
+        "bytes": 4378916,
+        "decodedBytes": 5242572,
+        "sha256": "ce31128c30030f9dfb665b6177a0e7d035f93a6eaee9bebd27e153d6037cabb1"
+      },
+      "surface": {
+        "url": "web/assets/East_closed_sandstone_mass.surface.deflate",
+        "bytes": 1008243,
+        "decodedBytes": 3495048,
+        "sha256": "39f5017834ebac06be7ddd536f6ed38877c6f85d5e96544709e0d7eeaaa21f42"
+      },
+      "position": {
+        "url": "web/assets/East_closed_sandstone_mass.position.deflate",
+        "bytes": 6246616,
+        "decodedBytes": 10485144,
+        "sha256": "34393c654d0dfc1849e33b91ddca08e04cb28760fb185ffb0d7a1f9c7c5653f6"
+      },
+      "index": {
+        "url": "web/assets/East_closed_sandstone_mass.index.deflate",
+        "bytes": 7949433,
+        "decodedBytes": 20970240,
+        "sha256": "97bd7207afb4cc83121015076fba4f44807ac1ce14fc1c2c7d4c11dd46b6ee73"
+      }
+    },
+    {
+      "name": "Jointed_talus_blocks",
+      "kind": "indexed",
+      "vertices": 3210,
+      "triangles": 6400,
+      "normal": {
+        "url": "web/assets/Jointed_talus_blocks.normal.deflate",
+        "bytes": 19276,
+        "decodedBytes": 19260,
+        "sha256": "374f1b320e68c24e2d83a60d85a2ee8af4688329392e67744fc94195f4728938"
+      },
+      "direct": {
+        "url": "web/assets/Jointed_talus_blocks.direct.deflate",
+        "bytes": 13641,
+        "decodedBytes": 19260,
+        "sha256": "c44813ad68502f36bcf54716f2dd2e9cda93ed6b91b76ee38571b8be3203adda"
+      },
+      "indirect": {
+        "url": "web/assets/Jointed_talus_blocks.indirect.deflate",
+        "bytes": 17311,
+        "decodedBytes": 19260,
+        "sha256": "c9ec7f74dae4d4ded27893cf571559edcde7bd27f05b84197fda56b1f0907427"
+      },
+      "surface": {
+        "url": "web/assets/Jointed_talus_blocks.surface.deflate",
+        "bytes": 910,
+        "decodedBytes": 12840,
+        "sha256": "c2df6fa40615c083e0ae60a7fda36022aaa69f055007d81f2b87b6d6f0e0c40d"
+      },
+      "position": {
+        "url": "web/assets/Jointed_talus_blocks.position.deflate",
+        "bytes": 35712,
+        "decodedBytes": 38520,
+        "sha256": "7bbe41cbd3d68cc583accf6fd9944a1864d7dc0fa2a01b08395342ec852e4352"
+      },
+      "index": {
+        "url": "web/assets/Jointed_talus_blocks.index.deflate",
+        "bytes": 24127,
+        "decodedBytes": 76800,
+        "sha256": "cf74386bee0e7021d64f34374c9eb5dc9acc927d77fd66e49b6790457d1028de"
+      }
+    },
+    {
+      "name": "Bedded_rockfall_fragments",
+      "kind": "indexed",
+      "vertices": 45804,
+      "triangles": 89760,
+      "normal": {
+        "url": "web/assets/Bedded_rockfall_fragments.normal.deflate",
+        "bytes": 274915,
+        "decodedBytes": 274824,
+        "sha256": "ce72c27a054fc44d33b9d789d0413adebdf437f11353b17832a795f1ea392d0a"
+      },
+      "direct": {
+        "url": "web/assets/Bedded_rockfall_fragments.direct.deflate",
+        "bytes": 183310,
+        "decodedBytes": 274824,
+        "sha256": "f2c857009619cfc93586feb0d8f381f5690fb9f70389f842ad25b4657d400181"
+      },
+      "indirect": {
+        "url": "web/assets/Bedded_rockfall_fragments.indirect.deflate",
+        "bytes": 245155,
+        "decodedBytes": 274824,
+        "sha256": "d6bad60a285896d723bf71e666103c4bff521b2e5dcbf9da25687f5c222c8dd1"
+      },
+      "surface": {
+        "url": "web/assets/Bedded_rockfall_fragments.surface.deflate",
+        "bytes": 16555,
+        "decodedBytes": 183216,
+        "sha256": "027fc8abe25473138c64f00af617eea5347565687944936a013e36b4d63454e5"
+      },
+      "position": {
+        "url": "web/assets/Bedded_rockfall_fragments.position.deflate",
+        "bytes": 496604,
+        "decodedBytes": 549648,
+        "sha256": "011e0471d6973beef1b2ccdad1dd45eea473e098527f4c12e33b9538d574b383"
+      },
+      "index": {
+        "url": "web/assets/Bedded_rockfall_fragments.index.deflate",
+        "bytes": 300045,
+        "decodedBytes": 1077120,
+        "sha256": "f5c628239135bbfe00cbdca92006ef8ceddc0a075a2bff8ea24eb65a40cb7a2e"
       }
     },
     {
       "name": "Wash_gravel",
-      "vertices": 111804,
-      "triangles": 212960,
       "kind": "indexed",
-      "index": {
-        "url": "web/assets/Wash_gravel.index.deflate",
-        "sha256": "76c75ad790f3e390bca2b900f6f54c122d3eee28321b49c92dbb9f2d642908b8",
-        "bytes": 654440,
-        "decodedBytes": 2555520
-      },
-      "position": {
-        "url": "web/assets/Wash_gravel.position.deflate",
-        "sha256": "45a4fcbba921abd2fa14c250974727a3afee32fad29ceeb473b28418ca02570a",
-        "bytes": 1233884,
-        "decodedBytes": 1341648
-      },
+      "vertices": 28686,
+      "triangles": 54640,
       "normal": {
         "url": "web/assets/Wash_gravel.normal.deflate",
-        "sha256": "86f281e14fff76be41782e2a9e5e90d1a3e0985558130196ffa4214b0a579b70",
-        "bytes": 671035,
-        "decodedBytes": 670824
+        "bytes": 172177,
+        "decodedBytes": 172116,
+        "sha256": "79e9b1ddec39d1c106fb9f588a6b377e42f44cea655c2a37eb3790d72a290ca8"
       },
       "direct": {
         "url": "web/assets/Wash_gravel.direct.deflate",
-        "sha256": "e4a2c6e03f516f0f83e2617b90a88095343b04446cab2890f57f6f2459841b37",
-        "bytes": 519660,
-        "decodedBytes": 670824
+        "bytes": 121591,
+        "decodedBytes": 172116,
+        "sha256": "5e9f2a96293e5883881adff8c5410f2af9aa6d9301b65bdf532ac64a102afe4e"
       },
       "indirect": {
         "url": "web/assets/Wash_gravel.indirect.deflate",
-        "sha256": "6212c4fd301f925097bbae54502aee30f468ca5811512d5e7bc954cf19cdbc7c",
-        "bytes": 555171,
-        "decodedBytes": 670824
+        "bytes": 154830,
+        "decodedBytes": 172116,
+        "sha256": "7207f36501bbaac6efff2b8848d82fc51717629137841b7a642850318d4c4595"
       },
       "surface": {
         "url": "web/assets/Wash_gravel.surface.deflate",
-        "sha256": "52f8f71fae7c5a2f49d82be6edef55c5bc938bb6ff71c36942b7a7b0f062fc8a",
-        "bytes": 27458,
-        "decodedBytes": 447216
-      }
-    },
-    {
-      "name": "Fallen_jointed_slabs",
-      "vertices": 12810,
-      "triangles": 25600,
-      "kind": "indexed",
+        "bytes": 11745,
+        "decodedBytes": 114744,
+        "sha256": "f0c137b8311eed1c723ad4957413e9b383d036de4b66c73992d626cf7734329d"
+      },
+      "position": {
+        "url": "web/assets/Wash_gravel.position.deflate",
+        "bytes": 318503,
+        "decodedBytes": 344232,
+        "sha256": "024a8e9e86a69135f44e760b35d9d986effd8c252e1e5b82dc8e1d0d17e1afed"
+      },
       "index": {
-        "url": "web/assets/Fallen_jointed_slabs.index.deflate",
-        "sha256": "6f2df86bd6e748660eabe589d6f94df8855e2d5ad11fd212c0467776c51350cf",
-        "bytes": 101483,
-        "decodedBytes": 307200
-      },
-      "position": {
-        "url": "web/assets/Fallen_jointed_slabs.position.deflate",
-        "sha256": "3a017b647cf76007ddff1a536fa52614a6e91ef4e9f000f2eb4bcb93e6920451",
-        "bytes": 140204,
-        "decodedBytes": 153720
-      },
-      "normal": {
-        "url": "web/assets/Fallen_jointed_slabs.normal.deflate",
-        "sha256": "5904ead0c5b04c9337504c638bb29e972e8d3593a61c3ab030d4dda804e7a203",
-        "bytes": 76869,
-        "decodedBytes": 76860
-      },
-      "direct": {
-        "url": "web/assets/Fallen_jointed_slabs.direct.deflate",
-        "sha256": "c21c5a7ace274c68f9c37f26efba94d4906901f7fa15425f64fd7eb435bedef3",
-        "bytes": 58344,
-        "decodedBytes": 76860
-      },
-      "indirect": {
-        "url": "web/assets/Fallen_jointed_slabs.indirect.deflate",
-        "sha256": "104976cf67da725ec1c76119e239a445f4aec314b4fe4df3f9c97c1a497f5f92",
-        "bytes": 67675,
-        "decodedBytes": 76860
-      },
-      "surface": {
-        "url": "web/assets/Fallen_jointed_slabs.surface.deflate",
-        "sha256": "cd4bc3a5a488b511a12f9564b480764dddac2ac3c3a1790ec06d92a0a8731a5a",
-        "bytes": 2724,
-        "decodedBytes": 51240
-      }
-    },
-    {
-      "name": "Far_bend_continuous_wall",
-      "vertices": 358400,
-      "triangles": 714402,
-      "kind": "grid",
-      "rows": 640,
-      "cols": 560,
-      "flip": false,
-      "position": {
-        "url": "web/assets/Far_bend_continuous_wall.position.deflate",
-        "sha256": "5c6821f659c2c97599e17eba6f510b50df3d6ada2a8c35c97e1ebc87751e4d8f",
-        "bytes": 1977535,
-        "decodedBytes": 4300800
-      },
-      "normal": {
-        "url": "web/assets/Far_bend_continuous_wall.normal.deflate",
-        "sha256": "b7cbe33b14b8978edfb60a6f3fa4e11ae2d671350b9ac95d645d9197bc2e26c4",
-        "bytes": 2145578,
-        "decodedBytes": 2150400
-      },
-      "direct": {
-        "url": "web/assets/Far_bend_continuous_wall.direct.deflate",
-        "sha256": "aa052e2b728bdb683ea8cfe3bef877c1703dc1561265f6739e668b30f6f166d3",
-        "bytes": 1749636,
-        "decodedBytes": 2150400
-      },
-      "indirect": {
-        "url": "web/assets/Far_bend_continuous_wall.indirect.deflate",
-        "sha256": "f4eb2b76846bd107ebca0dc46c5e449d44e1f7a2c35c3732bf3099fb09b9855b",
-        "bytes": 1830792,
-        "decodedBytes": 2150400
-      },
-      "surface": {
-        "url": "web/assets/Far_bend_continuous_wall.surface.deflate",
-        "sha256": "9d13ee620ab6f7c75e04835602b43db77fa56e1a679f754d7268657a221c02e7",
-        "bytes": 325454,
-        "decodedBytes": 1433600
+        "url": "web/assets/Wash_gravel.index.deflate",
+        "bytes": 168000,
+        "decodedBytes": 655680,
+        "sha256": "188504a8aed40b05fe9aa33d090f48761168d526c0137e14767f0089ae655efa"
       }
     }
   ],
@@ -345,11 +335,11 @@
     "width": 256,
     "height": 128,
     "data": {
-      "url": "web/assets/sky.rgba16f.deflate",
-      "sha256": "d310055ad264df7609c9c2366e9f7397635875e16aafcf7c6713960b5943a794",
-      "bytes": 70999,
-      "decodedBytes": 262144
+      "url": "web/assets/native-sky.deflate",
+      "bytes": 71004,
+      "decodedBytes": 262144,
+      "sha256": "1a606d1a3ffeffdb869b4199eb1433bbc9cc123e393e78157fda237263c024f9"
     },
-    "source": "evaluated native physicalSky, not an image reference"
+    "source": "Native physicalSky evaluated in linear radiance"
   }
 }
