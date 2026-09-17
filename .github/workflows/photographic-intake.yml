@@ -2,7 +2,7 @@ name: Acquire photographic material sources
 on:
   push:
     branches: [feat/photographic-surfaces]
-    paths: [.github/workflows/photographic-intake.yml]
+    paths: [.github/workflows/photographic-intake.yml, tools/fetch_photographic_sources.py]
 permissions:
   contents: read
 jobs:
