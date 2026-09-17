@@ -1,22 +1,77 @@
 {
-  "source": "GitHub Actions clean runner",
-  "run_id": "35183866326",
-  "geometry_validation": "PASS",
-  "standalone_reconstruction": "byte-identical to supplied recovery",
+  "schema": "sandstone-walk-qualified-publication/1",
+  "result": "PASS",
+  "tested_commit": "d882dd600cf791ae9a21470146edde5d742784e3",
+  "tested_runtime_source_unchanged": true,
+  "run_id": 35184213934,
+  "artifact_id": 10481343115,
   "browser": {
-    "browser_runtime_verified": false,
+    "browser_runtime_verified": true,
     "errors": [],
-    "source": "actual Chromium / Three.js execution",
-    "started": 1789621094.3663843,
+    "source": "actual Chromium / Three.js WebGL2 execution",
+    "capture_method": "canvas PNG immediately after actual draw; no native-render substitution",
+    "started": 1789621412.7946253,
+    "captures": {
+      "hero": {
+        "sha256": "54c4eec1b95033f61bee360743620eb44b7031ccea09d7ab914c9d403c0c7267",
+        "bytes": 1919133,
+        "size": [
+          1200,
+          800
+        ],
+        "luminance_stddev": 52.210686794770254,
+        "gl_error": 0,
+        "drawn_triangles": 8108728
+      },
+      "forward": {
+        "sha256": "a2d45f711bc8e82a4b58ea1033ad473880db0c8551a335d36536b4487a4c82c0",
+        "bytes": 1872564,
+        "size": [
+          1200,
+          800
+        ],
+        "luminance_stddev": 55.49514389107265,
+        "gl_error": 0,
+        "drawn_triangles": 8108728
+      },
+      "indirect": {
+        "sha256": "12b6f363c6caff1f61950e58a76cca1f397fbe56940a69cf7a3efc1a8b74833b",
+        "bytes": 1757886,
+        "size": [
+          1200,
+          800
+        ],
+        "luminance_stddev": 15.818693558559389,
+        "gl_error": 0,
+        "drawn_triangles": 8108728
+      }
+    },
     "geometry": {
       "triangles": 8108728,
       "vertices": 4072674,
-      "programs": 2,
-      "drawnTriangles": 8108728
+      "programs": 2
     },
-    "result": "FAIL",
-    "exception": "Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n",
-    "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/sandstone-walk/sandstone-walk/tools/browser_smoke.py\", line 27, in main\n    page.screenshot(path=str(a.out/'hero.png'))\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.15/x64/lib/python3.13/site-packages/playwright/sync_api/_generated.py\", line 9815, in screenshot\n    self._sync(\n    ~~~~~~~~~~^\n        self._impl_obj.screenshot(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<13 lines>...\n        )\n        ^\n    )\n    ^\n  File \"/opt/hostedtoolcache/Python/3.13.15/x64/lib/python3.13/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ~~~~~~~~~~~^^\n  File \"/opt/hostedtoolcache/Python/3.13.15/x64/lib/python3.13/site-packages/playwright/_impl/_page.py\", line 814, in screenshot\n    encoded_binary = await self._channel.send(\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^\n        \"screenshot\", self._timeout_settings.timeout, params\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/opt/hostedtoolcache/Python/3.13.15/x64/lib/python3.13/site-packages/playwright/_impl/_connection.py\", line 69, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"/opt/hostedtoolcache/Python/3.13.15/x64/lib/python3.13/site-packages/playwright/_impl/_connection.py\", line 559, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n\n"
+    "controls": {
+      "keyboard_movement": true,
+      "lighting_mode": true,
+      "reference_reset": true,
+      "pose_change": true
+    },
+    "keyboard_positions": {
+      "before": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "after": [
+        -0.4189089588285723,
+        -5.770139925834612,
+        1.56
+      ]
+    },
+    "result": "PASS",
+    "wall_seconds": 61.955246925354004
   },
-  "media": "Native GLES moving-camera render; not a browser recording"
+  "native_preview_media_unchanged": true,
+  "offline_viewer_sha256": "0e49826210de340ddb6c45110fa833bad3d69efa6ae08124799e1aa03c523ade"
 }

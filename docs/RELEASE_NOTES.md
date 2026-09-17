@@ -1,6 +1,6 @@
-# Sandstone Walk 0.1.0
+# Sandstone Walk 0.1.1
 
-Initial publication of the native surface-bake recovery as a ready-to-serve Three.js project.
+Verified publication of the native surface-bake recovery as a ready-to-serve Three.js project. This packaging update includes passing Chromium canvas captures and controls tests; geometry, baked lighting, viewer shaders, GIF and MP4 are unchanged.
 
 - Exact 8,108,728-triangle canyon and preserved lighting buffers.
 - Reviewable browser code, shaders, native geometry/bake source and asset provenance.

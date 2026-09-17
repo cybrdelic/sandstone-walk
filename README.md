@@ -107,7 +107,7 @@ Each frame is drawn from a new 3D camera pose using all 8.1 million triangles. T
 A real browser test is also supplied:
 
 ```bash
-python -m pip install playwright
+python -m pip install -r tools/requirements-test.txt
 python -m playwright install chromium
 python tools/browser_smoke.py
 ```
@@ -118,7 +118,7 @@ Set `CHROMIUM_PATH` to use a system Chromium executable. The test exercises star
 
 [Publication validation](evidence/publication_validation.json) confirms buffer integrity, original positions/topology, finite values and unchanged shaders. [Preview rendering](evidence/preview_render.json) records every camera pose and frame hash; [media verification](evidence/media_verification.json) verifies the delivered GIF and MP4. The initial native bake evidence is preserved separately in [recovery verification](evidence/recovery_verification.json).
 
-Local native GLES rendering completed with zero graphics errors. The local Chromium attempt was blocked by the environment's administrator policy; that failure is recorded in [local browser evidence](evidence/local_browser_attempt.json), not described as a successful browser test. GitHub Actions runs the separate browser test on its own runner; its workflow result is the authority for that execution.
+Local native GLES rendering completed with zero graphics errors. The local Chromium attempt was blocked by the environment's administrator policy; that failure is recorded in [local browser evidence](evidence/local_browser_attempt.json), not described as a successful browser test. The separate Chromium / Three.js WebGL2 test has now **passed on GitHub Actions**: all 8,108,728 triangles loaded and drew, three 1200 x 800 canvas captures completed with zero GL errors, and keyboard movement, camera poses, reference reset and lighting-mode switching passed. See the [browser report](evidence/browser_ci/report.json), [browser hero capture](evidence/browser_ci/hero.png), and [successful run](https://github.com/cybrdelic/sandstone-walk/actions/runs/35184213934). The test pauses between completed frames to capture the real browser canvas reliably on a software-GPU runner; it does not replace the renderer or its pixels.
 
 This is a **static surface bake**, not dynamic global illumination or real-time spectral path tracing. Finite bake resolution, filtering and vertex interpolation can soften shadow boundaries and close-up material detail. Indirect glossy lighting is not fully view-dependent. The sun and scene geometry cannot move without rebaking. The result is not claimed to be a pixel-identical match to the original offline still or an externally certified visual-quality benchmark.
 
