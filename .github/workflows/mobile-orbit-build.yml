@@ -4,12 +4,20 @@ on:
     branches: [feat/mobile-orbit-controls]
 permissions:
   contents: write
+  actions: write
+concurrency:
+  group: mobile-orbit-integration
+  cancel-in-progress: true
 jobs:
   navigation:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Stop superseded capture attempt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run cancel 35187033306 || true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -27,6 +35,23 @@ jobs:
               assert actual==sha,(p,actual,sha)
           PY
           python tools/apply_mobile_orbit.py
+      - name: Isolate captures to the application frame and bound the test
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/mobile_controls_smoke.py');text=p.read_text()
+          old='window.requestAnimationFrame=cb=>raf(t=>{'
+          new="window.requestAnimationFrame=cb=>{if(cb.name!=='frame')return raf(cb);return raf(t=>{"
+          assert text.count(old)==1
+          text=text.replace(old,new).replace('s.paused=true;}\n });','s.paused=true;}\n });};',1)
+          assert "return raf(cb)" in text and '});};' in text
+          text=text.replace('import argparse,base64,functools,http.server,json,math,os,re,threading,time,traceback','import argparse,base64,functools,http.server,json,math,os,re,signal,threading,time,traceback')
+          text=text.replace('    started=time.monotonic()','    started=time.monotonic()\n    def deadline(signum,frame):raise TimeoutError("Mobile regression exceeded ten minutes; no pass claimed")\n    signal.signal(signal.SIGALRM,deadline);signal.alarm(600)')
+          text=text.replace("          report['checks'].append(name)","          report['checks'].append(name);print('PASS:',name,flush=True)")
+          text=text.replace("          page.screenshot(path=str(args.out/(name+'.png')),timeout=120000)","          screen=cdp.send('Page.captureScreenshot',{'format':'png','fromSurface':True})\n          (args.out/(name+'.png')).write_bytes(base64.b64decode(screen['data']))")
+          text=text.replace("      server.shutdown();report['seconds']", "      signal.alarm(0);server.shutdown();report['seconds']")
+          p.write_text(text)
+          PY
       - name: Install test dependencies
         run: |
           python -m pip install -r tools/requirements-test.txt
@@ -70,7 +95,7 @@ jobs:
           assert marker in text
           text=text.replace(marker,marker+'\n[Mobile controls test](evidence/mobile_controls_ci/report.json) · [Portrait screenshot](evidence/mobile_controls_ci/mobile_walk.png) · [Orbit screenshot](evidence/mobile_controls_ci/mobile_orbit.png) · [Landscape screenshot](evidence/mobile_controls_ci/landscape_orbit.png)\n',1)
           p.write_text(text)
-          paths=['web/app.js','index.html','tools/make_standalone.py','README.md','package.json','docs/RELEASE_NOTES.md','evidence/mobile_controls_ci']
+          paths=['web/app.js','index.html','tools/make_standalone.py','tools/mobile_controls_smoke.py','README.md','package.json','docs/RELEASE_NOTES.md','evidence/mobile_controls_ci']
           subprocess.run(['git','add','-f','--',*paths],check=True)
           names=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
           checks={name:hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in sorted(names) if name and name not in ['SHA256SUMS.json','.github/workflows/mobile-orbit-build.yml'] and Path(name).is_file()}
