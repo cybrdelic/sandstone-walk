@@ -24,34 +24,52 @@ def build_legacy(output:Path)->None:
     output.parent.mkdir(parents=True,exist_ok=True);output.write_bytes(raw)
     print(f'{output}: {len(raw)} bytes; SHA-256 {actual}; original recovery byte identity PASS')
 
-def build(output:Path)->None:
+def build(output:Path,texture_size:int=4096)->None:
+    if texture_size not in (2048,4096):raise ValueError('Texture size must be 2048 or 4096')
     data=json.loads((ROOT/'web/scene.json').read_text())
     def packed(entry):
         path=(ROOT/entry['url']).resolve()
         if not path.is_relative_to(ROOT):raise ValueError('Unsafe asset path')
         raw=path.read_bytes()
-        if hashlib.sha256(raw).hexdigest()!=entry['sha256']:raise ValueError('Asset checksum mismatch')
+        if hashlib.sha256(raw).hexdigest()!=entry['sha256']:raise ValueError('Asset checksum mismatch: '+entry['url'])
         return base64.b64encode(raw).decode('ascii')
     for mesh in data['meshes']:
         for key in ['position','normal','giR','giG','giB','surface','index']:
             if key in mesh:mesh[key]=packed(mesh[key])
     data['sky']['data']=packed(data['sky']['data'])
+    manifest=json.loads((ROOT/'web/detail/manifest.json').read_text())
+    detail={'manifest':manifest,'resolution':texture_size,'shader':(ROOT/'web/detail/material.glsl').read_text(),'images':{}}
+    for asset in manifest['textures'].values():
+        for entry in asset['levels'][str(texture_size)].values():detail['images'][entry['url']]=packed(entry)
     text=(ROOT/'index.html').read_text()
     text=text.replace('<link rel="stylesheet" href="web/controls.css">','<style>'+(ROOT/'web/controls.css').read_text()+'</style>')
-    for path in ['web/vendor/three.bundle.js','web/controls.js']:
+    for path in ['web/vendor/three.bundle.js','web/controls.js','web/detail/runtime.js','web/detail/quality.js']:
         text=text.replace('<script src="'+path+'"></script>','<script>'+(ROOT/path).read_text()+'</script>')
-    script='const CYBR_BAKE='+json.dumps(data,separators=(',',':'))+';\n'
+    # Data lives in removable JSON nodes, not giant compiled JS string literals.
+    # The application releases compressed entries after their decoded buffers
+    # have been created; the geometry itself remains untouched.
+    clean_json=lambda value:json.dumps(value,separators=(',',':')).replace('<','\\u003c')
+    payload='<script id="sw-scene-data" type="application/json">'+clean_json(data)+'</script>'
+    payload+='<script id="sw-detail-data" type="application/json">'+clean_json(detail)+'</script>'
+    script="for(const [id,key] of [['sw-scene-data','CYBR_BAKE'],['sw-detail-data','SW_DETAIL_ASSETS']]){const node=document.getElementById(id);window[key]=JSON.parse(node.textContent);node.remove();}\n"
     for key,path in [('SURFACE_VERTEX','surface.vert.glsl'),('SURFACE_FRAGMENT','surface.frag.glsl'),('SKY_VERTEX','sky.vert.glsl'),('SKY_FRAGMENT','sky.frag.glsl')]:
         script+='const '+key+'='+json.dumps((ROOT/'web'/path).read_text())+';\n'
     script+=(ROOT/'web/app.js').read_text()
-    text=text.replace('<script src="web/bootstrap.js"></script>','<script>'+script+'</script>')
+    text=text.replace('<script src="web/bootstrap.js"></script>',payload+'<script>'+script+'</script>')
     if '<script src=' in text or '<link rel="stylesheet"' in text:raise ValueError('Offline resources not embedded')
     raw=text.encode();output.parent.mkdir(parents=True,exist_ok=True);output.write_bytes(raw)
-    report={'schema':'sandstone-walk-standalone/2','bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),
-            'current_web_app_embedded':True,'mobile_and_orbit_controls_embedded':True,'all_asset_hashes_verified':True,
-            'legacy_html_identity_expected':False}
+    report={'schema':'sandstone-walk-standalone/3','bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),
+            'texture_size':texture_size,'texture_maps':4,'current_web_app_embedded':True,'no_cdn':True,
+            'mobile_and_orbit_controls_embedded':True,'all_asset_hashes_verified':True,
+            'legacy_html_identity_expected':False,'geometry_changed_in_this_revision':False}
     output.with_suffix('.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,default=ROOT/'dist/Sandstone_Walk_Standalone.html');ap.add_argument('--legacy',action='store_true',help='Build the unmodified 0.1 recovery instead');args=ap.parse_args();(build_legacy if args.legacy else build)(args.out)
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--out',type=Path,default=ROOT/'dist/Sandstone_Walk_Standalone.html')
+    ap.add_argument('--legacy',action='store_true',help='Build the unmodified 0.1 recovery instead')
+    ap.add_argument('--texture-size',type=int,choices=[2048,4096],default=4096)
+    args=ap.parse_args()
+    if args.legacy:build_legacy(args.out)
+    else:build(args.out,args.texture_size)

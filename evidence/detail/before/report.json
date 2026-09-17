@@ -1,0 +1,281 @@
+{
+  "result": "PASS",
+  "errors": [],
+  "captures": {
+    "hero": {
+      "sha256": "cf21366360e772f0f8c57cfe591e7c2aaf3f7687212e4df32c6c59714b795c69",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": null,
+      "actualDraw": 5029800
+    },
+    "right_close": {
+      "sha256": "2a4d9fbe2f4c6abbadf72dafeebed9a9c48708dd1a5d3399f15e7b24ad08b1c3",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          0.7,
+          5,
+          1.8
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6659885636835866,
+          -0.33711200016368975,
+          -0.3005283387058377,
+          0.5937149568799991
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": null,
+      "actualDraw": 5029800
+    },
+    "left_close": {
+      "sha256": "378eea33bd9c005702be594ae368ec50bad59e5d9597d8dcf299b5e397d6356a",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.7,
+          -2.8,
+          1.9
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6716407324934944,
+          0.2940652892116454,
+          0.2727371524276414,
+          0.6229275863390022
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": null,
+      "actualDraw": 5029800
+    },
+    "ground": {
+      "sha256": "bcf42f175d6f73de3f7763b4df86b3552107ee8415c23bd925320c4a1640b3e5",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          0.1,
+          -2,
+          1.2
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.4088840406242793,
+          -0.028066039398972033,
+          -0.06246385203233892,
+          0.9100134097608124
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": null,
+      "actualDraw": 5029800
+    },
+    "talus": {
+      "sha256": "2dec8ef72d1d1deed23525afabf2b231c8d0fb28158fd4a7b3bbe633bcb1b829",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.75,
+          -2.4,
+          0.95
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.5310791915999415,
+          0.2025886285240944,
+          0.29323883913930837,
+          0.7687156321179567
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": null,
+      "actualDraw": 5029800
+    },
+    "forward": {
+      "sha256": "a2b84185da9f02283ef0983d34383d62ebf27eaf6f3de76ee1c1c1d6dda7e98c",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          0.25,
+          4.8,
+          1.6
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7371121630520732,
+          -0.03120542571617762,
+          -0.028552448085698262,
+          0.6744454301089745
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": null,
+      "actualDraw": 5029800
+    }
+  },
+  "checks": [
+    "All original triangles and vertices retained",
+    "hero nonblank",
+    "hero graphics error-free",
+    "hero actual full-scene draw",
+    "right_close nonblank",
+    "right_close graphics error-free",
+    "right_close actual full-scene draw",
+    "left_close nonblank",
+    "left_close graphics error-free",
+    "left_close actual full-scene draw",
+    "ground nonblank",
+    "ground graphics error-free",
+    "ground actual full-scene draw",
+    "talus nonblank",
+    "talus graphics error-free",
+    "talus actual full-scene draw",
+    "forward nonblank",
+    "forward graphics error-free",
+    "forward actual full-scene draw",
+    "No browser or shader errors"
+  ],
+  "entrypoint": "Explicit in-memory file transport",
+  "browser_rendering": true,
+  "physical_device_benchmark": false,
+  "image_generation": false,
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "geometry": {
+    "triangles": 5029800,
+    "vertices": 2526592
+  },
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL 4.5)",
+  "actual_fragment_sha256": "04f969e6de0e33089dd317d922b6a1bda01a8427a31f9ab02e3ae6c85bd86942",
+  "draw_calls_observed": 6,
+  "seconds": 19.527614423999978
+}

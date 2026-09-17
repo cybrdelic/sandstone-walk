@@ -1,0 +1,89 @@
+{
+  "result": "PASS",
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "positions_indices_normals_macro_GI_and_sky_unchanged": true,
+  "triangles": 5029800,
+  "vertices": 2526592,
+  "verified_mesh_attributes": 58,
+  "maps": [
+    {
+      "asset": "rock_face_03",
+      "role": "color_rough",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "sha256": "e2b0eb2b70cc749b190e1986fa2763605211148e0c0969c4703916fc7e5616a5"
+    },
+    {
+      "asset": "rock_face_03",
+      "role": "normal_height_ao",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "sha256": "8157870910450ecf117a7369819d9676a8a006d3f75397c9c420045d3154f074"
+    },
+    {
+      "asset": "rock_face_03",
+      "role": "color_rough",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "sha256": "917dfdc8dc321c6cb685d3a221ec77960ba927999cc9f651e9d28cc07c426a14"
+    },
+    {
+      "asset": "rock_face_03",
+      "role": "normal_height_ao",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "sha256": "ecec0577c7cae7f847019ad99c8dc564c8c4c61c21ab3dff3c8ec77f375f4d0c"
+    },
+    {
+      "asset": "sandy_gravel",
+      "role": "color_rough",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "sha256": "700f15fd1674047783254ae83314dfdf6b226432e75e6f9af14da6b5f67d3186"
+    },
+    {
+      "asset": "sandy_gravel",
+      "role": "normal_height_ao",
+      "dimensions": [
+        4096,
+        4096
+      ],
+      "sha256": "1a5d594c22f6713945ab7a8fac4790c1c3d932db8f61664e7e49627b89fc5b8d"
+    },
+    {
+      "asset": "sandy_gravel",
+      "role": "color_rough",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "sha256": "19ec658b8073a9f5adc670929e72a3b879aa42d144b77928ccecbca534050b2b"
+    },
+    {
+      "asset": "sandy_gravel",
+      "role": "normal_height_ao",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "sha256": "4e5e93ca8b04a988fe73495a2962f71dc0db658864bf7eb8257bd9dbc0a7db7f"
+    }
+  ],
+  "manifest_sha256": "1a89cb7fb0fcc78f86aa37dd807d82df26b7478e0fbbad0e0c267e484ce25db7",
+  "shader_sha256": "1d36f25f6281c3fcc13e68e62ab573ad9b890e9431dd2b2705f777cd1554ad47",
+  "storage_exposure": 0.25,
+  "sun_disk_max_unscaled": 137949.25381286067,
+  "sun_disk_max_scaled": 34487.31345321517,
+  "fresh_spectral_bake": false,
+  "visual_acceptance": "Not established by integrity checks"
+}

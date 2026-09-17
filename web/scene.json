@@ -1826,7 +1826,17 @@
       ]
     ],
     "shader_source": "source/material_field.glsl shared by C++ and GLSL",
-    "specular_indirect": "Not represented; retained diffuse incident irradiance approximation"
+    "specular_indirect": "Not represented; retained diffuse incident irradiance approximation",
+    "detail_rendering": {
+      "revision": "0.5.0",
+      "manifest": "web/detail/manifest.json",
+      "manifest_sha256": "1a89cb7fb0fcc78f86aa37dd807d82df26b7478e0fbbad0e0c267e484ce25db7",
+      "native_bake_retained": true,
+      "source_mesh_changed": false,
+      "runtime_receiver": "Photographic triplanar albedo, normal, roughness, parallax and AO",
+      "direct_visibility": "Two geometry depth maps with receiver-plane bias and filtered finite-sun approximation",
+      "indirect_limitation": "Existing v0.4 macro spectral response; no claim of a fresh scanned-material GI bake"
+    }
   },
   "meshes": [
     {

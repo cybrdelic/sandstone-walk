@@ -1,7 +1,15 @@
-# Sandstone Walk 0.4.0 — World-space materials
+# Sandstone Walk 0.5.0 — Photographic detail
 
-Fix elongated per-vertex color/bump interpolation and anisotropic weathering coordinates. Replace them with a shared, per-fragment metre-scaled 3D material field, analytic micro-normal gradients and footprint filtering. The native 16-band surface bake is recomputed with that same material; receiver reflectance is applied after interpolating signed spectral-anchor light response.
+4K CC0 rock and gravel materials with registered normal, roughness, height and AO;
+metre-space triplanar projection; 12-layer parallax and local height shadows;
+16×-cap anisotropic filtering; native device-pixel rendering; eight-sample stationary
+HDR antialiasing; broad/near geometric sun-depth maps; fresh 4K PNG capture.
 
-All v0.3 positions and triangle indices, mobile controls and orbit navigation are preserved. New albedo, 25 cm world-checker, roughness and geometric-normal diagnostics are included. CPU/GLSL material and tessellation-parity tests supplement the existing mesh, desktop, mobile and multi-view checks.
+The 5,029,800-triangle geometry, native sky and spectral macro-bounce buffers remain
+unchanged. Existing mobile and orbit controls remain. The new photographic receiver
+is not a new full spectral transport bake. Finite geometry, low-frequency indirect
+lighting and raster shadow limits remain; this is not a claim of photoreal certification.
 
-This is authored procedural sandstone, not scanned rock or an AAA certification. The lighting remains a static diffuse bake. Previous releases and the legacy recovery remain available.
+Full and compact standalone downloads differ only in 4K versus 2K material maps.
+Both retain native-pixel rendering and all geometry. See docs/DETAIL_RENDERING.md
+for sources, memory, storage exposure and reproduction.

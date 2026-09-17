@@ -1,0 +1,96 @@
+{
+  "result": "PASS",
+  "errors": [],
+  "entrypoint": "Actual standalone HTML via localhost",
+  "deliveries": [
+    {
+      "filename": "Sandstone_Walk_Standalone.html",
+      "sha256": "2775c4c32d80b52a768d7bd5bd95b16e51e482231046f7c793ab5ba7121b0dba",
+      "bytes": 242759927,
+      "state": {
+        "maps": 4096,
+        "uploaded": [
+          [
+            4096,
+            4096
+          ],
+          [
+            4096,
+            4096
+          ],
+          [
+            4096,
+            4096
+          ],
+          [
+            4096,
+            4096
+          ]
+        ],
+        "triangles": 5029800,
+        "vertices": 2526592,
+        "observed": [
+          5029800,
+          5029800,
+          5029800,
+          5029800
+        ],
+        "glError": 0,
+        "dataNodes": false,
+        "controlMode": "walk"
+      },
+      "image_sha256": [
+        "36f86d03a3e1a4c789fb2ba90315c91294dec6db85ff442286ced7b66de2c075",
+        "a2607514199143e8199a05421c30c782b47b022fe9219009b50815f73a22e053"
+      ],
+      "external_requests": [],
+      "asset_requests": []
+    },
+    {
+      "filename": "Sandstone_Walk_Compact.html",
+      "sha256": "23c671a1218d52c56fabe65c159f0b6b4f48ced38bd82d76a3cdf2ce4b843a54",
+      "bytes": 142961499,
+      "state": {
+        "maps": 2048,
+        "uploaded": [
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "triangles": 5029800,
+        "vertices": 2526592,
+        "observed": [
+          5029800,
+          5029800,
+          5029800,
+          5029800
+        ],
+        "glError": 0,
+        "dataNodes": false,
+        "controlMode": "walk"
+      },
+      "image_sha256": [
+        "6c04c13f6ca72bb24cc0cf7d2d0c7e5eff78a4c0af0199a9ba0f9a295e0789da",
+        "b5cb7291579fed3a3e3e702daf49cde4f84e9d9792c527ae69af059c9a89a799"
+      ],
+      "external_requests": [],
+      "asset_requests": []
+    }
+  ],
+  "physical_device_benchmark": false,
+  "capture_method": "Actual canvas PNG immediately after draw in the same JavaScript task; no screenshot substitution",
+  "seconds": 36.544506377000005
+}

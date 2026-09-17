@@ -34,7 +34,7 @@ def main():
     signal.signal(signal.SIGALRM,deadline);signal.alarm(600)
     try:
       with sync_playwright() as p:
-        options=dict(headless=True,args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-dev-shm-usage'])
+        options=dict(headless=os.getenv('SW_HEADLESS','1')!='0',args=['--no-sandbox','--use-gl=angle','--use-angle='+os.getenv('SW_ANGLE','swiftshader'),'--enable-unsafe-swiftshader','--disable-dev-shm-usage','--ignore-gpu-blocklist','--disable-gpu-watchdog'])
         if os.getenv('CHROMIUM_PATH'):options['executable_path']=os.environ['CHROMIUM_PATH']
         browser=p.chromium.launch(**options)
         context=browser.new_context(viewport={'width':390,'height':844},device_scale_factor=1,is_mobile=True,has_touch=True)
@@ -89,7 +89,7 @@ def main():
             return
           page.evaluate('()=>{__capture.ready=false;__capture.armed=true;__resume();}')
           page.wait_for_function('__capture.ready',polling=100,timeout=180000)
-          data=page.evaluate('({png:__capture.png,error:CYBR_RECOVERY.renderer.getContext().getError(),triangles:CYBR_RECOVERY.renderer.info.render.triangles})')
+          data=page.evaluate('({png:__capture.png,error:CYBR_RECOVERY.renderer.getContext().getError(),triangles:CYBR_RECOVERY.quality.lastSceneTriangles})')
           check(name+' real GL draw',data['error']==0 and data['triangles']>0,data)
           (args.out/(name+'_canvas.png')).write_bytes(base64.b64decode(data['png'].split(',',1)[1]))
           screen=cdp.send('Page.captureScreenshot',{'format':'png','fromSurface':True})

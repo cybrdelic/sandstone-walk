@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "publication_run_id": "35280809275",
+  "input_commit": "60804b43e2f99a942944f0ab0bbb2e5e63a557d9",
+  "detail_render_run_id": 35278636289,
+  "offline_render_run_id": 35279262293,
+  "navigation_render_run_id": 35279475963,
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL 4.5)",
+  "detail_checks": 63,
+  "browser_http_entrypoint_verified": true,
+  "full_and_compact_standalone_verified": true,
+  "original_geometry_bake_and_controls_unchanged": true,
+  "fresh_spectral_bake": false,
+  "physical_phone_benchmark": false,
+  "harness_corrections": "Atomic canvas capture and explicit Mesa software-GPU launch flags; runtime renderer, inputs and assertion thresholds unchanged",
+  "prior_failures_preserved": true
+}

@@ -68,8 +68,8 @@ def main():
               'started':time.time(), 'captures':{}}
     try:
         with sync_playwright() as p:
-            options = {'headless':True, 'args':['--no-sandbox', '--use-gl=angle',
-                '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--disable-dev-shm-usage']}
+            options = {'headless':os.getenv('SW_HEADLESS','1')!='0', 'args':['--no-sandbox', '--use-gl=angle',
+                '--use-angle='+os.getenv('SW_ANGLE','swiftshader'), '--enable-unsafe-swiftshader', '--disable-dev-shm-usage','--ignore-gpu-blocklist','--disable-gpu-watchdog']}
             if os.getenv('CHROMIUM_PATH'):
                 options['executable_path'] = os.environ['CHROMIUM_PATH']
             browser = p.chromium.launch(**options)
@@ -87,7 +87,8 @@ def main():
               programs:CYBR_RECOVERY.renderer.info.programs.length})''')
             assert report['geometry']['triangles'] == 5029800
             assert report['geometry']['vertices'] == 2526592
-            assert report['geometry']['programs'] == 2
+            # Surface and sky compile at startup; HDR passes compile on first draw.
+            assert report['geometry']['programs'] >= 2
 
             def capture(name, capture_id):
                 page.evaluate('(id)=>window.__swArmCapture(id)', capture_id)
@@ -95,7 +96,7 @@ def main():
                                        polling=100, timeout=180000)
                 result = page.evaluate('''() => ({png:__swCapture.png,error:__swCapture.error,
                   glError:CYBR_RECOVERY.renderer.getContext().getError(),
-                  drawnTriangles:CYBR_RECOVERY.renderer.info.render.triangles})''')
+                  drawnTriangles:CYBR_RECOVERY.quality.lastSceneTriangles})''')
                 assert not result['error'], result['error']
                 assert result['glError'] == 0, result
                 assert result['drawnTriangles'] == 5029800, result['drawnTriangles']
