@@ -1,0 +1,247 @@
+{
+  "source_html_sha256": "0e49826210de340ddb6c45110fa833bad3d69efa6ae08124799e1aa03c523ade",
+  "source_html_bytes": 124439021,
+  "runtime_asset_count": 39,
+  "compressed_binary_bytes": 92786366,
+  "geometry_and_bake_arrays_unchanged": true,
+  "shader_files_unchanged": true,
+  "runtime_changes": [
+    "External file fetching, length and SHA-256 integrity checks. No geometry, lighting, material, or camera edits."
+  ],
+  "files": [
+    {
+      "url": "web/assets/Alluvial_sand_and_rockfall_support.position.deflate",
+      "sha256": "3be86b86bea39993d647f0047e3bf7e4dd130b4bff13637ff83384794d881185",
+      "bytes": 5071605,
+      "decodedBytes": 10530000
+    },
+    {
+      "url": "web/assets/Alluvial_sand_and_rockfall_support.normal.deflate",
+      "sha256": "5a71eb3ec18cbc53cd98dc238764ab72916bc6041b1deb7cc5bfb7a1d9315439",
+      "bytes": 4785169,
+      "decodedBytes": 5265000
+    },
+    {
+      "url": "web/assets/Alluvial_sand_and_rockfall_support.direct.deflate",
+      "sha256": "f84b1482d907c799603ab55835b693f6032111a9a0bb906e2c207919dc70a762",
+      "bytes": 3495682,
+      "decodedBytes": 5265000
+    },
+    {
+      "url": "web/assets/Alluvial_sand_and_rockfall_support.indirect.deflate",
+      "sha256": "31a37fd69d85118f90f8e108886b6b8d4bf7c1ba7ba1ab206e4fbd39db882b75",
+      "bytes": 4321647,
+      "decodedBytes": 5265000
+    },
+    {
+      "url": "web/assets/Alluvial_sand_and_rockfall_support.surface.deflate",
+      "sha256": "d0202df19f4dc9bf9bee98e31d3d7fef8e077a3ed5e225c907189b4bba3907da",
+      "bytes": 98717,
+      "decodedBytes": 3510000
+    },
+    {
+      "url": "web/assets/West_bedded_sandstone.position.deflate",
+      "sha256": "49c8f2cee9561d85e02e6d7bb80791aba3e1c843402651b44f32e99bb1d98add",
+      "bytes": 7024907,
+      "decodedBytes": 14892000
+    },
+    {
+      "url": "web/assets/West_bedded_sandstone.normal.deflate",
+      "sha256": "17088a69a9775eaf43de889e01ef9a7a77d3b5dc25a5abc2de2d725682f61c94",
+      "bytes": 7266694,
+      "decodedBytes": 7446000
+    },
+    {
+      "url": "web/assets/West_bedded_sandstone.direct.deflate",
+      "sha256": "b12a86adc4f1f1609ca20a3dbe82fae21b64188536752c117b7553628e687ce4",
+      "bytes": 6044740,
+      "decodedBytes": 7446000
+    },
+    {
+      "url": "web/assets/West_bedded_sandstone.indirect.deflate",
+      "sha256": "77be50e08d4392415343690f8c37237962f7cb109c314752b7a8fe9043c08f77",
+      "bytes": 6420478,
+      "decodedBytes": 7446000
+    },
+    {
+      "url": "web/assets/West_bedded_sandstone.surface.deflate",
+      "sha256": "d9e95206eedb9f8d604ffee6d883c71b771494d29aa46be7361ed39918a2883b",
+      "bytes": 832184,
+      "decodedBytes": 4964000
+    },
+    {
+      "url": "web/assets/East_bedded_sandstone.position.deflate",
+      "sha256": "ad318883020e150f67c5a9dd0e60c1058fd9342d626331ce8ab68809ccbd10f9",
+      "bytes": 6791642,
+      "decodedBytes": 14892000
+    },
+    {
+      "url": "web/assets/East_bedded_sandstone.normal.deflate",
+      "sha256": "199863509a1be840facb8d406d615a3cc20e2395f3c8d83e3380e0ea37b0f041",
+      "bytes": 7280220,
+      "decodedBytes": 7446000
+    },
+    {
+      "url": "web/assets/East_bedded_sandstone.direct.deflate",
+      "sha256": "f195d3c9679bf62948fc4c123954cfc459183c12308e7294d9baae1bdc5527f5",
+      "bytes": 6049476,
+      "decodedBytes": 7446000
+    },
+    {
+      "url": "web/assets/East_bedded_sandstone.indirect.deflate",
+      "sha256": "9bea00d3a5a6b70636c9501163e946918fff4e91d536e249ca6af2effc35e19c",
+      "bytes": 6454186,
+      "decodedBytes": 7446000
+    },
+    {
+      "url": "web/assets/East_bedded_sandstone.surface.deflate",
+      "sha256": "d7298f63117fbfc9ae4d97ae256d2cfd5c13ad7d42bcb9e3fa7349ef622f94b9",
+      "bytes": 1226227,
+      "decodedBytes": 4964000
+    },
+    {
+      "url": "web/assets/Rockfall_fans.position.deflate",
+      "sha256": "60e2a6ea80f25458a98f58be3043b8f5db09753832ccfa687edab13b22b4dd64",
+      "bytes": 2502101,
+      "decodedBytes": 2761920
+    },
+    {
+      "url": "web/assets/Rockfall_fans.normal.deflate",
+      "sha256": "d114c2a83b7ec18e2dbe9c368cd22d14ef90cd78de8842a0439fabf879d1f94f",
+      "bytes": 1381391,
+      "decodedBytes": 1380960
+    },
+    {
+      "url": "web/assets/Rockfall_fans.direct.deflate",
+      "sha256": "8dd0bcf5d094500274768aaab983225cff43e40e768eaa3cb44ccafb24accd1f",
+      "bytes": 1030844,
+      "decodedBytes": 1380960
+    },
+    {
+      "url": "web/assets/Rockfall_fans.indirect.deflate",
+      "sha256": "7159d9f70bf6f1855fde4917647d30ac1c9b78eb0c400ecbf3719af13701c8fa",
+      "bytes": 979183,
+      "decodedBytes": 1380960
+    },
+    {
+      "url": "web/assets/Rockfall_fans.surface.deflate",
+      "sha256": "2a46fd79b1873b683e72da21fe95d59a1ffc16e57392688313aca1846759bcbd",
+      "bytes": 21150,
+      "decodedBytes": 920640
+    },
+    {
+      "url": "web/assets/Rockfall_fans.index.deflate",
+      "sha256": "63efe38905fb3461e440bc85c3217592c44f6313e2f484146048c20162b437a2",
+      "bytes": 1499182,
+      "decodedBytes": 5405760
+    },
+    {
+      "url": "web/assets/Wash_gravel.position.deflate",
+      "sha256": "45a4fcbba921abd2fa14c250974727a3afee32fad29ceeb473b28418ca02570a",
+      "bytes": 1233884,
+      "decodedBytes": 1341648
+    },
+    {
+      "url": "web/assets/Wash_gravel.normal.deflate",
+      "sha256": "86f281e14fff76be41782e2a9e5e90d1a3e0985558130196ffa4214b0a579b70",
+      "bytes": 671035,
+      "decodedBytes": 670824
+    },
+    {
+      "url": "web/assets/Wash_gravel.direct.deflate",
+      "sha256": "e4a2c6e03f516f0f83e2617b90a88095343b04446cab2890f57f6f2459841b37",
+      "bytes": 519660,
+      "decodedBytes": 670824
+    },
+    {
+      "url": "web/assets/Wash_gravel.indirect.deflate",
+      "sha256": "6212c4fd301f925097bbae54502aee30f468ca5811512d5e7bc954cf19cdbc7c",
+      "bytes": 555171,
+      "decodedBytes": 670824
+    },
+    {
+      "url": "web/assets/Wash_gravel.surface.deflate",
+      "sha256": "52f8f71fae7c5a2f49d82be6edef55c5bc938bb6ff71c36942b7a7b0f062fc8a",
+      "bytes": 27458,
+      "decodedBytes": 447216
+    },
+    {
+      "url": "web/assets/Wash_gravel.index.deflate",
+      "sha256": "76c75ad790f3e390bca2b900f6f54c122d3eee28321b49c92dbb9f2d642908b8",
+      "bytes": 654440,
+      "decodedBytes": 2555520
+    },
+    {
+      "url": "web/assets/Fallen_jointed_slabs.position.deflate",
+      "sha256": "3a017b647cf76007ddff1a536fa52614a6e91ef4e9f000f2eb4bcb93e6920451",
+      "bytes": 140204,
+      "decodedBytes": 153720
+    },
+    {
+      "url": "web/assets/Fallen_jointed_slabs.normal.deflate",
+      "sha256": "5904ead0c5b04c9337504c638bb29e972e8d3593a61c3ab030d4dda804e7a203",
+      "bytes": 76869,
+      "decodedBytes": 76860
+    },
+    {
+      "url": "web/assets/Fallen_jointed_slabs.direct.deflate",
+      "sha256": "c21c5a7ace274c68f9c37f26efba94d4906901f7fa15425f64fd7eb435bedef3",
+      "bytes": 58344,
+      "decodedBytes": 76860
+    },
+    {
+      "url": "web/assets/Fallen_jointed_slabs.indirect.deflate",
+      "sha256": "104976cf67da725ec1c76119e239a445f4aec314b4fe4df3f9c97c1a497f5f92",
+      "bytes": 67675,
+      "decodedBytes": 76860
+    },
+    {
+      "url": "web/assets/Fallen_jointed_slabs.surface.deflate",
+      "sha256": "cd4bc3a5a488b511a12f9564b480764dddac2ac3c3a1790ec06d92a0a8731a5a",
+      "bytes": 2724,
+      "decodedBytes": 51240
+    },
+    {
+      "url": "web/assets/Fallen_jointed_slabs.index.deflate",
+      "sha256": "6f2df86bd6e748660eabe589d6f94df8855e2d5ad11fd212c0467776c51350cf",
+      "bytes": 101483,
+      "decodedBytes": 307200
+    },
+    {
+      "url": "web/assets/Far_bend_continuous_wall.position.deflate",
+      "sha256": "5c6821f659c2c97599e17eba6f510b50df3d6ada2a8c35c97e1ebc87751e4d8f",
+      "bytes": 1977535,
+      "decodedBytes": 4300800
+    },
+    {
+      "url": "web/assets/Far_bend_continuous_wall.normal.deflate",
+      "sha256": "b7cbe33b14b8978edfb60a6f3fa4e11ae2d671350b9ac95d645d9197bc2e26c4",
+      "bytes": 2145578,
+      "decodedBytes": 2150400
+    },
+    {
+      "url": "web/assets/Far_bend_continuous_wall.direct.deflate",
+      "sha256": "aa052e2b728bdb683ea8cfe3bef877c1703dc1561265f6739e668b30f6f166d3",
+      "bytes": 1749636,
+      "decodedBytes": 2150400
+    },
+    {
+      "url": "web/assets/Far_bend_continuous_wall.indirect.deflate",
+      "sha256": "f4eb2b76846bd107ebca0dc46c5e449d44e1f7a2c35c3732bf3099fb09b9855b",
+      "bytes": 1830792,
+      "decodedBytes": 2150400
+    },
+    {
+      "url": "web/assets/Far_bend_continuous_wall.surface.deflate",
+      "sha256": "9d13ee620ab6f7c75e04835602b43db77fa56e1a679f754d7268657a221c02e7",
+      "bytes": 325454,
+      "decodedBytes": 1433600
+    },
+    {
+      "url": "web/assets/sky.rgba16f.deflate",
+      "sha256": "d310055ad264df7609c9c2366e9f7397635875e16aafcf7c6713960b5943a794",
+      "bytes": 70999,
+      "decodedBytes": 262144
+    }
+  ]
+}

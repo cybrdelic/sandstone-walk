@@ -1,0 +1,21 @@
+usage: rebuild.py [-h] --workspace WORKSPACE --out OUT [--spp SPP]
+                  [--threads THREADS] [--depth DEPTH] [--cxx CXX]
+                  [--skip-geometry] [--reuse-raw-bake] [--glsl-proof]
+
+Reproduce the canyon mesh, native spectral bake, and self-contained viewer.
+Run with a C++17 compiler with OpenMP (tested here with GCC on Linux). The
+full working data needs several GB. Browser execution is a separate test.
+
+options:
+  -h, --help            show this help message and exit
+  --workspace WORKSPACE
+  --out OUT
+  --spp SPP
+  --threads THREADS
+  --depth DEPTH
+  --cxx CXX
+  --skip-geometry       Reuse an existing hash-verified mesh and assembly.
+  --reuse-raw-bake      Explicitly reuse existing bake files, after checking
+                        their settings.
+  --glsl-proof          Run optional standalone EGL/GLES proof, not a browser
+                        test.

@@ -1,0 +1,93 @@
+{
+  "method": "positive normalized linear-light GI filtering followed by spectral reflectance product and 16-band integration",
+  "geometry_modified": false,
+  "parts": [
+    {
+      "name": "Alluvial_sand_and_rockfall_support",
+      "vertices": 877500,
+      "indirect_min": 6.282329559326172e-05,
+      "indirect_max": 0.1107177734375,
+      "indirect_mean_rgb": [
+        0.0386824905872345,
+        0.0248182974755764,
+        0.018012739717960358
+      ],
+      "finite": true
+    },
+    {
+      "name": "West_bedded_sandstone",
+      "vertices": 1241000,
+      "indirect_min": 1.2814998626708984e-05,
+      "indirect_max": 0.193359375,
+      "indirect_mean_rgb": [
+        0.0362330861389637,
+        0.014642284251749516,
+        0.005290961358696222
+      ],
+      "finite": true
+    },
+    {
+      "name": "East_bedded_sandstone",
+      "vertices": 1241000,
+      "indirect_min": 5.960464477539063e-08,
+      "indirect_max": 0.2030029296875,
+      "indirect_mean_rgb": [
+        0.035933058708906174,
+        0.014827121049165726,
+        0.005544776096940041
+      ],
+      "finite": true
+    },
+    {
+      "name": "Rockfall_fans",
+      "vertices": 230160,
+      "indirect_min": 0.0,
+      "indirect_max": 0.2196044921875,
+      "indirect_mean_rgb": [
+        0.010991493239998817,
+        0.004562343005090952,
+        0.0017112494679167867
+      ],
+      "finite": true
+    },
+    {
+      "name": "Wash_gravel",
+      "vertices": 111804,
+      "indirect_min": 0.0,
+      "indirect_max": 0.235107421875,
+      "indirect_mean_rgb": [
+        0.030220532789826393,
+        0.013011094182729721,
+        0.005033990368247032
+      ],
+      "finite": true
+    },
+    {
+      "name": "Fallen_jointed_slabs",
+      "vertices": 12810,
+      "indirect_min": 1.1920928955078125e-07,
+      "indirect_max": 0.20654296875,
+      "indirect_mean_rgb": [
+        0.03815729171037674,
+        0.016346951946616173,
+        0.00636082561686635
+      ],
+      "finite": true
+    },
+    {
+      "name": "Far_bend_continuous_wall",
+      "vertices": 358400,
+      "indirect_min": 0.0005350112915039062,
+      "indirect_max": 0.207763671875,
+      "indirect_mean_rgb": [
+        0.050735004246234894,
+        0.025198375806212425,
+        0.01231234148144722
+      ],
+      "finite": true
+    }
+  ],
+  "albedo_smoothed": false,
+  "direct_color_smoothed": false,
+  "direct_visibility_reconstruction": "one-ring conservative minimum across coherent normals (dot > 0.86); slight finite shadow-edge erosion; raw ray results remain unchanged"
+}

@@ -1,0 +1,21 @@
+{
+"integrator":"recovered CYBR GEO spectral trace, surface irradiance adapter",
+"spectral_bands":16,
+"wavelength_nm":[380,780],
+"triangles":8108728,
+"sites":414439,
+"hemisphere_samples_per_site":256,
+"maximum_path_depth":10,
+"sun_samples_per_lit_vertex":16,
+"sun_visibility_rays":37452960,
+"vertex_count":4072674,
+"invalid_samples":0,
+"clamped_contributions":0,
+"indirect_seconds_including_bvh":237.4890004,
+"wall_seconds":245.7603599,
+"solar_rgb":[9.37061882,7.763447285,6.058387756],
+"display_white_rgb":[1.099015713,0.9783982038,0.9230284095],
+"exposure":2.5,
+"reference_image_used":false,
+"hero_camera_used_by_bake":false
+}

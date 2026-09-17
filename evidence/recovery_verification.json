@@ -1,0 +1,78 @@
+{
+  "schema": "cybr-canyon-recovery/1",
+  "status": "native bake and standalone shader proof completed; browser end-to-end verification unavailable",
+  "source_geometry": {
+    "sha256": "50fbfa563abe246a9049279274a1cea710be5b38f423ccdc6ab6ef731d27156a",
+    "matches_original_native_mesh": true,
+    "triangles": 8108728,
+    "vertices": 4072674,
+    "decimated": false
+  },
+  "native_bake": {
+    "integrator": "recovered CYBR GEO spectral trace, surface irradiance adapter",
+    "spectral_bands": 16,
+    "wavelength_nm": [
+      380,
+      780
+    ],
+    "triangles": 8108728,
+    "sites": 414439,
+    "hemisphere_samples_per_site": 256,
+    "maximum_path_depth": 10,
+    "sun_samples_per_lit_vertex": 16,
+    "sun_visibility_rays": 37452960,
+    "vertex_count": 4072674,
+    "invalid_samples": 0,
+    "clamped_contributions": 0,
+    "indirect_seconds_including_bvh": 237.4890004,
+    "wall_seconds": 245.7603599,
+    "solar_rgb": [
+      9.37061882,
+      7.763447285,
+      6.058387756
+    ],
+    "display_white_rgb": [
+      1.099015713,
+      0.9783982038,
+      0.9230284095
+    ],
+    "exposure": 2.5,
+    "reference_image_used": false,
+    "hero_camera_used_by_bake": false
+  },
+  "raw_bake_sha256": {
+    "irradiance.raw.f32": "340b8a10edc7b7b25f9a6cae063e1ebeed80b52c5ef8ddcddd29646392d24381",
+    "vertex_bake.raw.f32": "c32ce5acae7b14a2a67715db87fc92b2db154c815cd25d2cd56df300ff26a1b3",
+    "spectral_rgb_matrix.f32": "2424753241d9b35e02894e49cf9e2e8016a41768a7b081a8d7f7c75250063953"
+  },
+  "executed_checks": {
+    "embedded_payload_and_original_positions_match": true,
+    "all_embedded_attributes_finite": true,
+    "both_html_scripts_node_syntax_checked": true,
+    "surface_and_sky_glsl_es_300_compiled": true,
+    "native_gles_proof_camera_count": 3,
+    "native_gles_proof_image_count": 7,
+    "gl_errors": 0,
+    "shader_files_match_proofs_and_embedded_viewer": true,
+    "browser_runtime_verified": false,
+    "browser_obstruction": "ERR_BLOCKED_BY_ADMINISTRATOR"
+  },
+  "limits": [
+    "Finite-resolution filtered and interpolated diffuse surface bake, not full view-dependent transport.",
+    "Conservative one-ring direct visibility reconstruction can expand shadow edges.",
+    "Full-resolution geometry retained, but close-up material/lighting detail differs from the original native renderer.",
+    "No end-to-end browser, control, mobile or performance qualification.",
+    "The new source orchestration wrapper is syntax-checked; the underlying stages were executed individually."
+  ],
+  "artifacts": {
+    "viewer": {
+      "path": "CYBR_Canyon_Recovery.html",
+      "sha256": "0e49826210de340ddb6c45110fa833bad3d69efa6ae08124799e1aa03c523ade",
+      "bytes": 124439021
+    },
+    "native_shader_preview": {
+      "path": "evidence/hero_beauty.png",
+      "sha256": "264309135b7a629f8be1fc82d1628afe91e6cd03d011a96cd44eb9d5d8bacb90"
+    }
+  }
+}

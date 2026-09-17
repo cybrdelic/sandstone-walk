@@ -1,0 +1,1 @@
+/mnt/data/canyon_repair/bake /mnt/data/canyon_repair/native_scene/canyon/scene.meshbin /mnt/data/canyon_repair/data/sites.bin /mnt/data/canyon_repair/data/vertices.bin /mnt/data/canyon_repair/baked_final /mnt/data/canyon_repair/recovery/CYBR_GEO_NoiseFix_R5/cybr-geo/examples/desert_hot_springs/assets 256 4 10

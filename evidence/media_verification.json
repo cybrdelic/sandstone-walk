@@ -1,0 +1,46 @@
+{
+  "gif": {
+    "width": 720,
+    "height": 480,
+    "frames": 72,
+    "unique_frames": 72,
+    "duration_ms": 6000,
+    "loop": 0,
+    "bytes": 17402572
+  },
+  "mp4": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 1200,
+        "height": 800,
+        "r_frame_rate": "24/1",
+        "duration": "6.000000",
+        "nb_frames": "144"
+      }
+    ]
+  },
+  "source": "144 newly rendered native GLES frames; 1200x800; 24 fps; actual source geometry and delivered GLSL",
+  "image_generation": false,
+  "interpolated_frames": false,
+  "gif_resampling": "12 fps subset, Lanczos 720x480, 128-color palette, no dithering",
+  "files": {
+    "interior.png": {
+      "sha256": "ce185a250ce5071a2e7e2154ddd31aa0f1cc266c2ffb46fa31219907a1d00f4c",
+      "bytes": 1343541
+    },
+    "sandstone-walk.gif": {
+      "sha256": "90d4e0409cb19c46b6e82d2dd05a0b28cbb01666d86c6a648573a0bcb98d04b4",
+      "bytes": 17402572
+    },
+    "sandstone-walk.mp4": {
+      "sha256": "068277d7b90c48f936d6499ff9d525a56d9f6199c0c5bbc92277edf7cba0daf3",
+      "bytes": 4825635
+    },
+    "hero.png": {
+      "sha256": "21c83398f94ec930f7b7438bc2ac47cd93a4852e3d552dcd8b0fb91d8c9b4fc5",
+      "bytes": 1390323
+    }
+  }
+}

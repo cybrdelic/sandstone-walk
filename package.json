@@ -1,0 +1,14 @@
+{
+  "name": "sandstone-walk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An exact-geometry Three.js canyon with native spectral surface-baked lighting.",
+  "license": "GPL-2.0-only",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "python3 tools/verify.py && node --check web/app.js && node --check web/bootstrap.js",
+    "standalone": "python3 tools/make_standalone.py",
+    "preview": "python3 tools/render_preview.py && bash tools/encode_preview.sh",
+    "test:browser": "python3 tools/browser_smoke.py"
+  }
+}

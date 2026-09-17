@@ -1,0 +1,41 @@
+{
+  "meshes": [
+    {
+      "name": "Alluvial_sand_and_rockfall_support",
+      "embedded_position_matches_original": true,
+      "embedded_lighting_finite": true
+    },
+    {
+      "name": "West_bedded_sandstone",
+      "embedded_position_matches_original": true,
+      "embedded_lighting_finite": true
+    },
+    {
+      "name": "East_bedded_sandstone",
+      "embedded_position_matches_original": true,
+      "embedded_lighting_finite": true
+    },
+    {
+      "name": "Rockfall_fans",
+      "embedded_position_matches_original": true,
+      "embedded_lighting_finite": true
+    },
+    {
+      "name": "Wash_gravel",
+      "embedded_position_matches_original": true,
+      "embedded_lighting_finite": true
+    },
+    {
+      "name": "Fallen_jointed_slabs",
+      "embedded_position_matches_original": true,
+      "embedded_lighting_finite": true
+    },
+    {
+      "name": "Far_bend_continuous_wall",
+      "embedded_position_matches_original": true,
+      "embedded_lighting_finite": true
+    }
+  ],
+  "shaders_match_executed_sources": true,
+  "reference_image_not_embedded": true
+}

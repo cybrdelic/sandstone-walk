@@ -1,0 +1,165 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2",
+  "same_shader_source_as_threejs": true,
+  "glsl_version": "300 es",
+  "shader_sha256": {
+    "surface.vert.glsl": "053c5c537c896cdd26053f2a3c7bf60eb1cd15fe90a74fd6b90711a9bca179d0",
+    "surface.frag.glsl": "20efde8fb9c3820261b4d2a92e9034d705aa61483e0123d813511b72d354ffe0",
+    "sky.vert.glsl": "5d847398752d945684c42f69f23b4f115649ffa87217e66ad818fe152ab5c720",
+    "sky.frag.glsl": "28131dded7929c2bea7698e6d5ede4beee5ea1642993710ede78fd9a45674fa1"
+  },
+  "browser_execution": false,
+  "width": 1536,
+  "height": 1024,
+  "seconds": 9.009437387999924,
+  "results": [
+    {
+      "path": "evidence/hero_beauty.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 8108728,
+      "rgb_mean": [
+        93.62455368041992,
+        60.41203244527181,
+        30.576316197713215
+      ]
+    },
+    {
+      "path": "evidence/hero_direct.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 1,
+      "gl_error": 0,
+      "triangles_submitted": 8108728,
+      "rgb_mean": [
+        36.84775733947754,
+        29.599964777628582,
+        20.858340581258137
+      ]
+    },
+    {
+      "path": "evidence/hero_indirect.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 2,
+      "gl_error": 0,
+      "triangles_submitted": 8108728,
+      "rgb_mean": [
+        70.2446886698405,
+        39.05525016784668,
+        13.336596806844076
+      ]
+    },
+    {
+      "path": "evidence/hero_normals.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 3,
+      "gl_error": 0,
+      "triangles_submitted": 8108728,
+      "rgb_mean": [
+        137.57617632548013,
+        110.22025934855144,
+        131.3889331817627
+      ]
+    },
+    {
+      "path": "evidence/hero_visibility.png",
+      "camera": [
+        -0.42,
+        -5.8,
+        1.56
+      ],
+      "target": [
+        0.15,
+        9.8,
+        3.12
+      ],
+      "mode": 4,
+      "gl_error": 0,
+      "triangles_submitted": 8108728,
+      "rgb_mean": [
+        42.94269243876139,
+        42.96009508768717,
+        42.982504526774086
+      ]
+    },
+    {
+      "path": "evidence/forward_beauty.png",
+      "camera": [
+        0.25,
+        4.8,
+        1.6
+      ],
+      "target": [
+        1.2,
+        16,
+        2.6
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 8108728,
+      "rgb_mean": [
+        100.9537467956543,
+        66.60625712076823,
+        35.69918251037598
+      ]
+    },
+    {
+      "path": "evidence/reverse_beauty.png",
+      "camera": [
+        0.6,
+        9.0,
+        1.75
+      ],
+      "target": [
+        -0.3,
+        -4,
+        2.6
+      ],
+      "mode": 0,
+      "gl_error": 0,
+      "triangles_submitted": 8108728,
+      "rgb_mean": [
+        97.95560963948567,
+        72.67543919881184,
+        50.44932556152344
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "version": "OpenGL ES 3.2 Mesa 25.0.7-2",
+  "glsl_version": "300 es",
+  "browser_execution": false,
+  "programs": {
+    "surface": {
+      "program_linked": true,
+      "gl_error": 0
+    },
+    "sky": {
+      "program_linked": true,
+      "gl_error": 0
+    }
+  }
+}
