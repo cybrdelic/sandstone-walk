@@ -1,0 +1,75 @@
+name: Verify detail navigation on software OpenGL
+on:
+  push:
+    branches: [feat/scanned-surface-detail]
+    paths: [.github/workflows/detail-regression-repair.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      SW_HEADLESS: '0'
+      SW_ANGLE: gl
+      ANGLE_BACKEND: gl
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: detail-review-candidate
+          path: ${{ runner.temp }}/candidate
+          run-id: 35278636289
+          github-token: ${{ github.token }}
+      - name: Restore exact runtime and set only software-GPU browser launch flags
+        run: |
+          cd "$RUNNER_TEMP/candidate" && sha256sum --check candidate.sha256
+          python -m zipfile -e "$RUNNER_TEMP/candidate/candidate.zip" "$GITHUB_WORKSPACE"
+          cd "$GITHUB_WORKSPACE"
+          python - <<'PY'
+          import hashlib,json,shutil
+          from pathlib import Path
+          files=['tools/browser_smoke.py','tools/mobile_controls_smoke.py','tools/test_solid_browser.py']
+          expected=json.loads(Path('evidence/detail/source_intake.json').read_text())['files'];changes=[]
+          out=Path('build/repaired-tests');out.mkdir(parents=True)
+          for name in files:
+              p=Path(name);raw=p.read_bytes();before=hashlib.sha256(raw).hexdigest();assert before==expected[name]
+              text=raw.decode()
+              old="'--disable-gpu-sandbox']" if name.endswith('test_solid_browser.py') else "'--disable-dev-shm-usage']"
+              new="'--disable-gpu-sandbox','--disable-gpu-watchdog']" if name.endswith('test_solid_browser.py') else "'--disable-dev-shm-usage','--ignore-gpu-blocklist','--disable-gpu-watchdog']"
+              assert text.count(old)==1,name
+              patched=text.replace(old,new,1);assert patched.replace(new,old,1)==text
+              p.write_text(patched);shutil.copyfile(p,out/p.name)
+              changes.append({'file':name,'before_sha256':before,'after_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),
+                  'only_change':'Explicit Mesa software-GPU launch flags; all assertions, event sequences, geometry and images unchanged'})
+          (out/'changes.json').write_text(json.dumps(changes,indent=2)+'\n')
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install browser and software-OpenGL display
+        run: |
+          python -m pip install -r tools/requirements-test.txt
+          python -m playwright install --with-deps chromium
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri libegl1
+      - name: Execute unchanged native-field, desktop, multitouch and material-camera checks
+        run: |
+          python tools/test_material_field.py
+          xvfb-run -a python tools/browser_smoke.py
+          xvfb-run -a python tools/mobile_controls_smoke.py
+          xvfb-run -a python tools/test_solid_browser.py --materials --out build/solid_browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: detail-navigation-verification
+          retention-days: 7
+          path: |
+            build/repaired-tests/
+            build/browser/
+            build/mobile/
+            build/solid_browser/
+            build/material-field/report.json
+          if-no-files-found: warn
