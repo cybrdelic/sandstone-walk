@@ -7,9 +7,11 @@ on:
 permissions:
   contents: read
 jobs:
-  verify:
+  integrity:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,34 +24,77 @@ jobs:
         run: |
           python -m pip install -r tools/requirements-test.txt
           python -m playwright install --with-deps chromium
-      - name: Check immutable scene buffers and shader identity
+      - name: Check immutable scene, photographic maps and generated-source identity
         run: |
           python tools/check_manifest.py
-          python tools/build_material_shaders.py
-          git diff --exit-code -- web/bootstrap.js web/surface.vert.glsl web/surface.frag.glsl
+          python tools/build_detail.py
+          git diff --exit-code -- web
           python tools/verify.py
+          python tools/verify_detail.py
           node --check web/app.js
           node --check web/bootstrap.js
           node --check web/controls.js
-          python tools/make_standalone.py
-      - name: Validate shared CPU and GLSL material sampling
-        run: python tools/test_material_field.py
-      - name: Run real Three.js browser test
-        run: python tools/browser_smoke.py
-      - name: Test mobile multi-touch and orbit controls
-        run: python tools/mobile_controls_smoke.py
-      - name: Test scene and material from multiple browser cameras
-        run: python tools/test_solid_browser.py --materials --out build/solid_browser
-      - name: Preserve validation and browser evidence
+          node --check web/detail/runtime.js
+          node --check web/detail/quality.js
+          python tools/test_material_field.py
+          python tools/make_standalone.py --legacy --out build/Legacy_Recovery.html
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: sandstone-walk-verification
+          name: sandstone-integrity
+          retention-days: 7
           path: |
+            build/detail/integrity.json
             build/material-field/report.json
-            build/validation.json
-            build/browser/
-            build/mobile/
-            build/solid_browser/
-            dist/Sandstone_Walk_Standalone.json
-          if-no-files-found: error
+            evidence/solid_validation.json
+          if-no-files-found: warn
+  browser:
+    needs: integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [desktop, mobile, materials, detail, offline]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      SW_HEADLESS: '0'
+      SW_ANGLE: gl
+      ANGLE_BACKEND: gl
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install actual Chromium and software-OpenGL display
+        run: |
+          python -m pip install -r tools/requirements-test.txt
+          python -m playwright install --with-deps chromium
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri libegl1
+      - name: Execute actual scene and browser controls
+        env:
+          TEST: ${{ matrix.test }}
+        run: |
+          set -euo pipefail
+          case "$TEST" in
+            desktop) xvfb-run -a python tools/browser_smoke.py --out build/test-result ;;
+            mobile) xvfb-run -a python tools/mobile_controls_smoke.py --out build/test-result ;;
+            materials) xvfb-run -a python tools/test_solid_browser.py --materials --out build/test-result ;;
+            detail) xvfb-run -a python tools/test_detail_browser.py --out build/test-result ;;
+            offline)
+              python tools/make_standalone.py
+              python tools/make_standalone.py --texture-size 2048 --out dist/Sandstone_Walk_Compact.html
+              xvfb-run -a python tools/test_detail_standalone.py --out build/test-result
+              ;;
+          esac
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sandstone-${{ matrix.test }}-verification
+          retention-days: 7
+          path: |
+            build/test-result/
+            dist/*.json
+          if-no-files-found: warn
