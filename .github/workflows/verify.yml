@@ -34,6 +34,8 @@ jobs:
         run: python tools/browser_smoke.py
       - name: Test mobile multi-touch and orbit controls
         run: python tools/mobile_controls_smoke.py
+      - name: Test regenerated geometry from multiple browser cameras
+        run: python tools/test_solid_browser.py --out build/solid_browser
       - name: Preserve validation and browser evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -43,5 +45,6 @@ jobs:
             build/validation.json
             build/browser/
             build/mobile/
+            build/solid_browser/
             dist/Sandstone_Walk_Standalone.json
           if-no-files-found: error

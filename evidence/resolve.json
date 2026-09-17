@@ -1,93 +1,118 @@
 {
   "method": "positive normalized linear-light GI filtering followed by spectral reflectance product and 16-band integration",
   "geometry_modified": false,
+  "sparse_small_rock_interpolation": "8 spatial/normal nearest baked sites within the same closed rock, positive normalized weights; full samples at hero blocks; original adjacency filter retained",
+  "albedo_smoothed": false,
+  "direct_color_smoothed": false,
+  "direct_visibility_reconstruction": "one-ring conservative minimum across normals with dot > 0.86; finite shadow-edge erosion; raw ray results unchanged",
   "parts": [
     {
-      "name": "Alluvial_sand_and_rockfall_support",
-      "vertices": 877500,
-      "indirect_min": 6.282329559326172e-05,
-      "indirect_max": 0.1107177734375,
+      "name": "West_outcrop_and_rim",
+      "vertices": 132867,
+      "indirect_min": 0.005275726318359375,
+      "indirect_max": 0.219970703125,
       "indirect_mean_rgb": [
-        0.0386824905872345,
-        0.0248182974755764,
-        0.018012739717960358
+        0.07601562887430191,
+        0.0428764671087265,
+        0.02547483518719673
       ],
       "finite": true
     },
     {
-      "name": "West_bedded_sandstone",
-      "vertices": 1241000,
-      "indirect_min": 1.2814998626708984e-05,
-      "indirect_max": 0.193359375,
+      "name": "West_jointed_wall",
+      "vertices": 551817,
+      "indirect_min": 0.0002892017364501953,
+      "indirect_max": 0.2218017578125,
       "indirect_mean_rgb": [
-        0.0362330861389637,
-        0.014642284251749516,
-        0.005290961358696222
+        0.05702090635895729,
+        0.023020988330245018,
+        0.008214701898396015
       ],
       "finite": true
     },
     {
-      "name": "East_bedded_sandstone",
-      "vertices": 1241000,
-      "indirect_min": 5.960464477539063e-08,
-      "indirect_max": 0.2030029296875,
+      "name": "Connected_alluvial_channel",
+      "vertices": 183141,
+      "indirect_min": 1.0728836059570312e-06,
+      "indirect_max": 0.1343994140625,
       "indirect_mean_rgb": [
-        0.035933058708906174,
-        0.014827121049165726,
-        0.005544776096940041
+        0.04079725593328476,
+        0.020677343010902405,
+        0.0113917775452137
       ],
       "finite": true
     },
     {
-      "name": "Rockfall_fans",
-      "vertices": 230160,
+      "name": "East_jointed_wall",
+      "vertices": 551817,
+      "indirect_min": 0.00015115737915039062,
+      "indirect_max": 0.234375,
+      "indirect_mean_rgb": [
+        0.047242507338523865,
+        0.020110510289669037,
+        0.008088368922472
+      ],
+      "finite": true
+    },
+    {
+      "name": "East_outcrop_and_rim",
+      "vertices": 132867,
+      "indirect_min": 0.005191802978515625,
+      "indirect_max": 0.249755859375,
+      "indirect_mean_rgb": [
+        0.06960327178239822,
+        0.03913476690649986,
+        0.023358061909675598
+      ],
+      "finite": true
+    },
+    {
+      "name": "Closed_terrain_base",
+      "vertices": 7370,
+      "indirect_min": 0.003421783447265625,
+      "indirect_max": 0.09149169921875,
+      "indirect_mean_rgb": [
+        0.04407094791531563,
+        0.026984458789229393,
+        0.0157657191157341
+      ],
+      "finite": true
+    },
+    {
+      "name": "Joint_cut_talus",
+      "vertices": 788999,
       "indirect_min": 0.0,
-      "indirect_max": 0.2196044921875,
+      "indirect_max": 0.2626953125,
       "indirect_mean_rgb": [
-        0.010991493239998817,
-        0.004562343005090952,
-        0.0017112494679167867
+        0.02568431943655014,
+        0.010003197938203812,
+        0.003107069293037057
       ],
       "finite": true
     },
     {
-      "name": "Wash_gravel",
-      "vertices": 111804,
+      "name": "Channel_lag_gravel",
+      "vertices": 142932,
       "indirect_min": 0.0,
-      "indirect_max": 0.235107421875,
+      "indirect_max": 0.23779296875,
       "indirect_mean_rgb": [
-        0.030220532789826393,
-        0.013011094182729721,
-        0.005033990368247032
+        0.048583123832941055,
+        0.019530368968844414,
+        0.006311532109975815
       ],
       "finite": true
     },
     {
-      "name": "Fallen_jointed_slabs",
-      "vertices": 12810,
-      "indirect_min": 1.1920928955078125e-07,
-      "indirect_max": 0.20654296875,
+      "name": "Detached_joint_blocks",
+      "vertices": 34782,
+      "indirect_min": 0.0,
+      "indirect_max": 0.255615234375,
       "indirect_mean_rgb": [
-        0.03815729171037674,
-        0.016346951946616173,
-        0.00636082561686635
-      ],
-      "finite": true
-    },
-    {
-      "name": "Far_bend_continuous_wall",
-      "vertices": 358400,
-      "indirect_min": 0.0005350112915039062,
-      "indirect_max": 0.207763671875,
-      "indirect_mean_rgb": [
-        0.050735004246234894,
-        0.025198375806212425,
-        0.01231234148144722
+        0.04955879598855972,
+        0.0190020352602005,
+        0.005647074431180954
       ],
       "finite": true
     }
-  ],
-  "albedo_smoothed": false,
-  "direct_color_smoothed": false,
-  "direct_visibility_reconstruction": "one-ring conservative minimum across coherent normals (dot > 0.86); slight finite shadow-edge erosion; raw ray results remain unchanged"
+  ]
 }

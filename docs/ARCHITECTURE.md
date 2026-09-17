@@ -1,3 +1,5 @@
+> Historical v0.1/v0.2 recovery notes. The active v0.3 closed-landform recipe, counts and rebuild commands are documented in [SOLID_GEOMETRY.md](SOLID_GEOMETRY.md) and the root README.
+
 # Rendering architecture
 
 The geometry and lighting originate from the native surface-bake recovery, not the rejected single-camera projection or heuristic-probe variants.

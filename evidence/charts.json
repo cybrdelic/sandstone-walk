@@ -1,0 +1,74 @@
+{
+  "charts": [
+    {
+      "name": "West_outcrop_and_rim",
+      "rows": 1197,
+      "cols": 111,
+      "start_col": 0,
+      "material": 1,
+      "flip": false,
+      "kind": "grid",
+      "sample_stride": 5
+    },
+    {
+      "name": "West_jointed_wall",
+      "rows": 1197,
+      "cols": 461,
+      "start_col": 110,
+      "material": 1,
+      "flip": false,
+      "kind": "grid",
+      "sample_stride": 6
+    },
+    {
+      "name": "Connected_alluvial_channel",
+      "rows": 1197,
+      "cols": 153,
+      "start_col": 570,
+      "material": 0,
+      "flip": false,
+      "kind": "grid",
+      "sample_stride": 5
+    },
+    {
+      "name": "East_jointed_wall",
+      "rows": 1197,
+      "cols": 461,
+      "start_col": 722,
+      "material": 1,
+      "flip": false,
+      "kind": "grid",
+      "sample_stride": 6
+    },
+    {
+      "name": "East_outcrop_and_rim",
+      "rows": 1197,
+      "cols": 111,
+      "start_col": 1182,
+      "material": 1,
+      "flip": false,
+      "kind": "grid",
+      "sample_stride": 5
+    },
+    {
+      "name": "Closed_terrain_base",
+      "kind": "indexed",
+      "material": 16
+    },
+    {
+      "name": "Joint_cut_talus",
+      "kind": "indexed",
+      "material": 2
+    },
+    {
+      "name": "Channel_lag_gravel",
+      "kind": "indexed",
+      "material": 2
+    },
+    {
+      "name": "Detached_joint_blocks",
+      "kind": "indexed",
+      "material": 16
+    }
+  ]
+}

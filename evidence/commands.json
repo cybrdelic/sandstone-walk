@@ -1,0 +1,92 @@
+[
+  {
+    "name": "geometry",
+    "argv": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/Sandstone_Walk_Solid/source/solid_geometry.py",
+      "--work",
+      "/mnt/data/sw-solid-work3"
+    ]
+  },
+  {
+    "name": "prepare",
+    "argv": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/Sandstone_Walk_Solid/source/prepare_solid.py",
+      "--work",
+      "/mnt/data/sw-solid-work3"
+    ]
+  },
+  {
+    "name": "compile",
+    "argv": [
+      "/usr/bin/g++",
+      "-O3",
+      "-std=c++17",
+      "-fopenmp",
+      "-I/mnt/data/Sandstone_Walk_Solid/source/cybr-geo/native",
+      "-DSOLID_TRIANGLE_COUNT=5029800",
+      "/mnt/data/Sandstone_Walk_Solid/source/solid_bake.cpp",
+      "-o",
+      "/mnt/data/sw-solid-work3/solid_bake"
+    ]
+  },
+  {
+    "name": "bake",
+    "argv": [
+      "/mnt/data/sw-solid-work3/solid_bake",
+      "/mnt/data/sw-solid-work3/native_scene/canyon/scene.meshbin",
+      "/mnt/data/sw-solid-work3/data/sites.bin",
+      "/mnt/data/sw-solid-work3/data/vertices.bin",
+      "/mnt/data/sw-solid-work3/baked_final",
+      "/mnt/data/Sandstone_Walk_Solid/source/cybr-geo/examples/desert_hot_springs/assets",
+      "256",
+      "4",
+      "10"
+    ]
+  },
+  {
+    "name": "compile_sky",
+    "argv": [
+      "/usr/bin/g++",
+      "-O3",
+      "-std=c++17",
+      "-fopenmp",
+      "-I/mnt/data/Sandstone_Walk_Solid/source/cybr-geo/native",
+      "/mnt/data/Sandstone_Walk_Solid/source/sky.cpp",
+      "-o",
+      "/mnt/data/sw-solid-work3/sky"
+    ]
+  },
+  {
+    "name": "sky",
+    "argv": [
+      "/mnt/data/sw-solid-work3/sky",
+      "/mnt/data/sw-solid-work3/native_sky.bin"
+    ]
+  },
+  {
+    "name": "resolve",
+    "argv": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/Sandstone_Walk_Solid/source/resolve_solid.py",
+      "--root",
+      "/mnt/data/sw-solid-work3",
+      "--baked",
+      "baked_final",
+      "--out",
+      "resolved_final"
+    ]
+  },
+  {
+    "name": "package",
+    "argv": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/Sandstone_Walk_Solid/source/package_solid.py",
+      "--work",
+      "/mnt/data/sw-solid-work3",
+      "--out",
+      "/mnt/data/Sandstone_Walk_Solid"
+    ]
+  }
+]
