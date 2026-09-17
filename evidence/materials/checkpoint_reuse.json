@@ -1,0 +1,9 @@
+{
+  "bake_run_id": 35253810162,
+  "bake_checkpoint_artifact": 10511997729,
+  "prior_desktop_artifact": 10512425460,
+  "desktop_runtime_verified": true,
+  "prior_mobile_result": "TIMEOUT; not counted as pass",
+  "current_runtime_app_and_shader_changes": false,
+  "test_change": "Synchronize actual application frames with gl.finish and 120ms pacing on software GPU; input assertions and final capture resolutions unchanged."
+}

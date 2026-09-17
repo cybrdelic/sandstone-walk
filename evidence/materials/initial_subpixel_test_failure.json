@@ -1,0 +1,5 @@
+{
+  "result": "FAIL",
+  "error": "{'maximum': 0.0026424527168273926, 'mean': 0.00013161303453064951}",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/sandstone-walk/sandstone-walk/tools/test_material_field.py\", line 96, in <module>\n    try:main()\n        ~~~~^^\n  File \"/home/runner/work/sandstone-walk/sandstone-walk/tools/test_material_field.py\", line 87, in main\n    assert output['topology']['maximum']<.0005 and output['topology']['mean']<.00005,output['topology']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'maximum': 0.0026424527168273926, 'mean': 0.00013161303453064951}\n"
+}

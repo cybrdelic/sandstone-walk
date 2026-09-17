@@ -1,0 +1,56 @@
+{
+  "result": "PASS",
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "triangles": 5029800,
+  "vertices": 2526592,
+  "parts": [
+    {
+      "name": "West_outcrop_and_rim",
+      "positions_identical": true,
+      "indices_identical": true
+    },
+    {
+      "name": "West_jointed_wall",
+      "positions_identical": true,
+      "indices_identical": true
+    },
+    {
+      "name": "Connected_alluvial_channel",
+      "positions_identical": true,
+      "indices_identical": true
+    },
+    {
+      "name": "East_jointed_wall",
+      "positions_identical": true,
+      "indices_identical": true
+    },
+    {
+      "name": "East_outcrop_and_rim",
+      "positions_identical": true,
+      "indices_identical": true
+    },
+    {
+      "name": "Closed_terrain_base",
+      "positions_identical": true,
+      "indices_identical": true
+    },
+    {
+      "name": "Joint_cut_talus",
+      "positions_identical": true,
+      "indices_identical": true
+    },
+    {
+      "name": "Channel_lag_gravel",
+      "positions_identical": true,
+      "indices_identical": true
+    },
+    {
+      "name": "Detached_joint_blocks",
+      "positions_identical": true,
+      "indices_identical": true
+    }
+  ],
+  "controls_sha256": "5fe57ff35a14ee4361ef6d4d52285d3244fba6f3dee69a241ed3f13f42779f9f",
+  "controls_css_sha256": "256d533e2f2eed3b1aec23be17f920fb2fe38b9ae6a393b222f8b2cea1416291",
+  "material_field_sha256": "35a79a60933519d97cf9d148162d2924eeb3a6038f3fce741483a37d54499c8c"
+}

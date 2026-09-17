@@ -12,10 +12,11 @@ ROOT=Path(__file__).resolve().parents[1]
 HOOK=r'''(() => {
  const raf=requestAnimationFrame.bind(window);
  const s={paused:false,pending:null,armed:false,ready:false,png:null};window.__capture=s;
- window.requestAnimationFrame=cb=>{if(cb.name!=='frame')return raf(cb);return raf(t=>{
+ window.requestAnimationFrame=cb=>{if(cb.name!=='frame')return raf(cb);return setTimeout(()=>raf(t=>{
    if(s.paused){s.pending=cb;return;}cb(t);
+   window.CYBR_RECOVERY?.renderer.getContext().finish();
    if(s.armed){s.png=document.querySelector('canvas').toDataURL('image/png');s.armed=false;s.ready=true;s.paused=true;}
- });};
+ }),120);};
  window.__resume=()=>{s.paused=false;if(s.pending){const cb=s.pending;s.pending=null;requestAnimationFrame(cb);}};
 })();'''
 
@@ -25,7 +26,7 @@ def main():
     ap.add_argument('--out',type=Path,default=ROOT/'build/mobile');args=ap.parse_args();args.out.mkdir(parents=True,exist_ok=True)
     report={'schema':'sandstone-walk-navigation-test/1','result':'FAIL','checks':[], 'errors':[],
             'input':'Chromium CDP multi-touch, mouse and keyboard; emulated touch device, not physical phone',
-            'controls_only':args.controls_only,'scene_rendering_verified':False,'captures':[]}
+            'software_gpu_frame_sync':'Test-only gl.finish after actual frame plus 120ms pacing; scene, input and shaders unchanged. Not a frame-rate benchmark.', 'controls_only':args.controls_only,'scene_rendering_verified':False,'captures':[]}
     handler=functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(ROOT))
     server=http.server.ThreadingHTTPServer(('127.0.0.1',0),handler);threading.Thread(target=server.serve_forever,daemon=True).start()
     started=time.monotonic()

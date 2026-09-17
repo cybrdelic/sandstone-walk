@@ -84,14 +84,15 @@
     }
   ],
   "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
-  "old_geometry_deliberately_replaced": true,
+  "geometry_origin": "closed-landform-v0.3",
+  "geometry_changed_in_material_fix": false,
   "all_assets_sha256_valid": true,
   "all_attributes_finite": true,
-  "unchanged_shader_sha256": {
+  "active_shader_sha256": {
     "sky.frag.glsl": "28131dded7929c2bea7698e6d5ede4beee5ea1642993710ede78fd9a45674fa1",
     "sky.vert.glsl": "5d847398752d945684c42f69f23b4f115649ffa87217e66ad818fe152ab5c720",
-    "surface.frag.glsl": "20efde8fb9c3820261b4d2a92e9034d705aa61483e0123d813511b72d354ffe0",
-    "surface.vert.glsl": "053c5c537c896cdd26053f2a3c7bf60eb1cd15fe90a74fd6b90711a9bca179d0"
+    "surface.frag.glsl": "04f969e6de0e33089dd317d922b6a1bda01a8427a31f9ab02e3ae6c85bd86942",
+    "surface.vert.glsl": "59e17f48b5e8cbe7d19fc9cf68b81e75e28d89a4e88cdb71f9e5fe47cd6e7160"
   },
   "terrain": {
     "watertight": true,

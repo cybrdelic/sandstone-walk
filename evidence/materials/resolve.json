@@ -1,0 +1,110 @@
+{
+  "schema": "sandstone-world-material-resolve/1",
+  "geometry_modified": false,
+  "receiver_albedo_baked_into_attributes": false,
+  "receiver_micro_normals_baked": false,
+  "method": "16-band irradiance projected to a signed 3x3 spectral anchor response; same positive surface-local GI resolve as v0.3",
+  "parts": [
+    {
+      "name": "West_outcrop_and_rim",
+      "vertices": 132867,
+      "material": 1,
+      "normal_mean_dot_geometric": 1.0,
+      "transfer_min": -0.0440177284181118,
+      "transfer_max": 0.4352390766143799,
+      "finite": true,
+      "projection_absolute_error": 5.960464477539063e-08,
+      "half_relative_error": 7.287693733815104e-05
+    },
+    {
+      "name": "West_jointed_wall",
+      "vertices": 551817,
+      "material": 1,
+      "normal_mean_dot_geometric": 1.0,
+      "transfer_min": -0.04354645684361458,
+      "transfer_max": 0.3973727226257324,
+      "finite": true,
+      "projection_absolute_error": 2.9802322387695312e-08,
+      "half_relative_error": 4.588097726809792e-05
+    },
+    {
+      "name": "Connected_alluvial_channel",
+      "vertices": 183141,
+      "material": 0,
+      "normal_mean_dot_geometric": 1.0,
+      "transfer_min": -0.035402920097112656,
+      "transfer_max": 0.30074310302734375,
+      "finite": true,
+      "projection_absolute_error": 2.9802322387695312e-08,
+      "half_relative_error": 5.339582639862783e-05
+    },
+    {
+      "name": "East_jointed_wall",
+      "vertices": 551817,
+      "material": 1,
+      "normal_mean_dot_geometric": 1.0,
+      "transfer_min": -0.047350987792015076,
+      "transfer_max": 0.4665151536464691,
+      "finite": true,
+      "projection_absolute_error": 5.960464477539063e-08,
+      "half_relative_error": 6.92741377861239e-05
+    },
+    {
+      "name": "East_outcrop_and_rim",
+      "vertices": 132867,
+      "material": 1,
+      "normal_mean_dot_geometric": 1.0,
+      "transfer_min": -0.04104970023036003,
+      "transfer_max": 0.4418379068374634,
+      "finite": true,
+      "projection_absolute_error": 4.470348358154297e-08,
+      "half_relative_error": 6.674320320598781e-05
+    },
+    {
+      "name": "Closed_terrain_base",
+      "vertices": 7370,
+      "material": 16,
+      "normal_mean_dot_geometric": 1.000000238418579,
+      "transfer_min": -0.02833733893930912,
+      "transfer_max": 0.24576854705810547,
+      "finite": true,
+      "projection_absolute_error": 5.960464477539063e-08,
+      "half_relative_error": 4.031259231851436e-05
+    },
+    {
+      "name": "Joint_cut_talus",
+      "vertices": 788999,
+      "material": 2,
+      "normal_mean_dot_geometric": 1.0,
+      "transfer_min": -0.0508648045361042,
+      "transfer_max": 0.5364385843276978,
+      "finite": true,
+      "projection_absolute_error": 2.9802322387695312e-08,
+      "half_relative_error": 5.0293525418965146e-05
+    },
+    {
+      "name": "Channel_lag_gravel",
+      "vertices": 142932,
+      "material": 2,
+      "normal_mean_dot_geometric": 1.0,
+      "transfer_min": -0.05264158174395561,
+      "transfer_max": 0.5469349026679993,
+      "finite": true,
+      "projection_absolute_error": 5.960464477539063e-08,
+      "half_relative_error": 7.132354221539572e-05
+    },
+    {
+      "name": "Detached_joint_blocks",
+      "vertices": 34782,
+      "material": 16,
+      "normal_mean_dot_geometric": 1.0,
+      "transfer_min": -0.04668404161930084,
+      "transfer_max": 0.504113495349884,
+      "finite": true,
+      "projection_absolute_error": 5.960464477539063e-08,
+      "half_relative_error": 7.519876817241311e-05
+    }
+  ],
+  "max_spectral_projection_absolute_error": 5.960464477539063e-08,
+  "max_half_projection_relative_error": 7.519876817241311e-05
+}

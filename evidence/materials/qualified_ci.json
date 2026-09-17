@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "run_id": "35256251696",
+  "input_commit": "7d9e56c037d766c2889278166647e48ad423b1aa",
+  "native_bake_run_id": 35253810162,
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "material_field_sha256": "35a79a60933519d97cf9d148162d2924eeb3a6038f3fce741483a37d54499c8c",
+  "browser_runtime_verified": true,
+  "before_capture_run_id": 35251677406,
+  "before_after_camera_poses_preserved": true,
+  "frozen_geometry_restoration_verified": true,
+  "test_frame_pacing": "gl.finish after real frames; no changes to shaders, application or control assertions",
+  "physical_phone_benchmark": false
+}

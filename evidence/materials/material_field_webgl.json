@@ -1,0 +1,42 @@
+{
+  "schema": "sandstone-material-field-test/1",
+  "result": "PASS",
+  "errors": [],
+  "material_field_sha256": "35a79a60933519d97cf9d148162d2924eeb3a6038f3fce741483a37d54499c8c",
+  "cpu_glsl_samples": 4096,
+  "albedo_normal_independence_max_error": 0.0,
+  "unresolved_footprint_10m_color_ranges": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "cpu_glsl_max_color_error": 0.00020039081573486328,
+  "cpu_glsl_max_normal_error": 0.000620553269982338,
+  "minimum_normal_dot_geometric": 0.9766443967819214,
+  "tessellation_test": {
+    "coarse_triangles": 2,
+    "fine_triangles": 658,
+    "physical_patch_m": [
+      18,
+      0.75
+    ],
+    "viewport": [
+      188,
+      126
+    ],
+    "fine_grid": [
+      47,
+      7
+    ],
+    "rasterization_protocol": "Grid boundaries aligned to pixel boundaries to isolate material sampling from subpixel rasterization rounding",
+    "maximum": 3.039836883544922e-06,
+    "mean": 9.218339985365483e-08,
+    "position_max_error": 3.814697265625e-06,
+    "footprint_max_error": 1.9073486328125e-06
+  },
+  "gl_error": 0,
+  "renderer": "WebKit WebGL",
+  "coordinates": "Isotropic 3D world positions; no UVs or chart-dependent scales",
+  "backend": "webgl",
+  "seconds": 2.1302336560000015
+}

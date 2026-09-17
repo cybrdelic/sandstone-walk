@@ -1,0 +1,84 @@
+{
+  "schema": "sandstone-walk-navigation-test/1",
+  "result": "PASS",
+  "checks": [
+    "Touch UI visible",
+    "Walking mode is initial mode",
+    "Touch targets at least 44px",
+    "Joystick clear of mode dock",
+    "Analog thumbstick walks forward",
+    "Simultaneous thumbstick and drag-to-look",
+    "No stuck pointers or held movement",
+    "Release stops movement without drift",
+    "No stuck pointers or held movement",
+    "Hold-to-rise and cancellation",
+    "No stuck pointers or held movement",
+    "No stuck pointers or held movement",
+    "Blur stops automatic tour",
+    "mobile_walk real GL draw",
+    "Orbit switches to overview",
+    "Walk controls hidden in orbit",
+    "Overview fits actual bounds",
+    "One-finger orbit preserves radius",
+    "Pinch out zooms in",
+    "Two-finger pan moves target",
+    "Two-to-one gesture transition is bounded",
+    "No stuck pointers or held movement",
+    "Walk pose restored",
+    "Orbit pose restored",
+    "mobile_orbit real GL draw",
+    "Mouse wheel zoom",
+    "Right-drag pans",
+    "Zoom remains bounded and finite",
+    "No stuck pointers or held movement",
+    "landscape_orbit real GL draw",
+    "Landscape dock on screen",
+    "Reference exits orbit",
+    "No stuck pointers or held movement",
+    "Keyboard orbit shortcut",
+    "Keyboard reference shortcut",
+    "Mobile settings drawer opens",
+    "Mobile settings drawer closes",
+    "No stuck pointers or held movement",
+    "No browser or shader errors"
+  ],
+  "errors": [],
+  "input": "Chromium CDP multi-touch, mouse and keyboard; emulated touch device, not physical phone",
+  "software_gpu_frame_sync": "Test-only gl.finish after actual frame plus 120ms pacing; scene, input and shaders unchanged. Not a frame-rate benchmark.",
+  "controls_only": false,
+  "scene_rendering_verified": true,
+  "captures": [
+    {
+      "name": "mobile_walk",
+      "gl_error": 0,
+      "drawn_triangles": 5029800,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "mobile_orbit",
+      "gl_error": 0,
+      "drawn_triangles": 5029800,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "landscape_orbit",
+      "gl_error": 0,
+      "drawn_triangles": 5029800,
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
+    }
+  ],
+  "geometry": {
+    "triangles": 5029800,
+    "vertices": 2526592
+  },
+  "seconds": 190.328193967
+}

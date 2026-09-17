@@ -1,0 +1,839 @@
+{
+  "software_gpu_frame_sync": "Test-only gl.finish after actual frame plus 120ms pacing; scene, input and shaders unchanged. Not a frame-rate benchmark.",
+  "result": "PASS",
+  "browser_runtime_verified": true,
+  "errors": [],
+  "checks": [
+    "Every regenerated triangle and vertex loaded",
+    "Correct fresh bake identity",
+    "Surface and sky shader programs linked",
+    "hero GL error free",
+    "hero nonblank frame",
+    "forward GL error free",
+    "forward nonblank frame",
+    "reverse GL error free",
+    "reverse nonblank frame",
+    "Correct world material schema",
+    "Fresh bake of the delivered material",
+    "Receiver color and bump not baked",
+    "left_close_beauty GL error free",
+    "left_close_beauty nonblank frame",
+    "left_close_albedo GL error free",
+    "left_close_albedo nonblank frame",
+    "left_close_world_checker GL error free",
+    "left_close_world_checker nonblank frame",
+    "right_close_beauty GL error free",
+    "right_close_beauty nonblank frame",
+    "right_close_albedo GL error free",
+    "right_close_albedo nonblank frame",
+    "right_close_world_checker GL error free",
+    "right_close_world_checker nonblank frame",
+    "ground_beauty GL error free",
+    "ground_beauty nonblank frame",
+    "ground_albedo GL error free",
+    "ground_albedo nonblank frame",
+    "ground_world_checker GL error free",
+    "ground_world_checker nonblank frame",
+    "talus_beauty GL error free",
+    "talus_beauty nonblank frame",
+    "talus_albedo GL error free",
+    "talus_albedo nonblank frame",
+    "talus_world_checker GL error free",
+    "talus_world_checker nonblank frame",
+    "orbit GL error free",
+    "orbit nonblank frame",
+    "Orbit is a different actual camera",
+    "No image projection",
+    "Reference camera restored",
+    "Mobile thumbstick is visible",
+    "Walk and look operate simultaneously",
+    "Touch release clears movement",
+    "mobile_walk GL error free",
+    "mobile_walk nonblank frame",
+    "Orbit pinch zooms",
+    "Two-finger pan moves target",
+    "Cancellation clears all gestures",
+    "landscape_orbit GL error free",
+    "landscape_orbit nonblank frame",
+    "Controls shader runtime error free"
+  ],
+  "captures": {
+    "hero": {
+      "sha256": "b3611861eb0ebb5eba22359d1b604594d4d15c1e4f4ce641efd0edf83b1e234b",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 52.18747826500737
+    },
+    "forward": {
+      "sha256": "43ac939f9e3aa2eb606b70bd96794a3ebbe02c7f8eacfba1b3c55a85120a66d4",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          0.25,
+          4.8,
+          1.6
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7371121630520732,
+          -0.03120542571617762,
+          -0.028552448085698262,
+          0.6744454301089745
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 53.92804687045604
+    },
+    "reverse": {
+      "sha256": "ef69e50f6303218b58cb3dce5e90e03682f62336ba50a5fbf42e3c70cb68a1cd",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          0.6,
+          9,
+          1.75
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.025215552351772655,
+          0.7293210928383317,
+          0.6832984770843775,
+          0.023624366126247444
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 52.69643675371266
+    },
+    "left_close_beauty": {
+      "sha256": "53b26d735929c041bcb873502993b9eb9f2a5ce6efe3807af589d911914b9867",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          -0.7,
+          -2.8,
+          1.9
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6716407324934944,
+          0.2940652892116454,
+          0.2727371524276414,
+          0.6229275863390022
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 6.316041267812593
+    },
+    "left_close_albedo": {
+      "sha256": "29426c4a8e28af8a44296404055cadc6a52365c8a7ad5bdb037eb497a2a29575",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          -0.7,
+          -2.8,
+          1.9
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6716407324934944,
+          0.2940652892116454,
+          0.2727371524276414,
+          0.6229275863390022
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 9.718006567325123
+    },
+    "left_close_world_checker": {
+      "sha256": "c7aef41f85822f83f1299a34162208348549cdaff320d4508d9443c7d466f143",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          -0.7,
+          -2.8,
+          1.9
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6716407324934944,
+          0.2940652892116454,
+          0.2727371524276414,
+          0.6229275863390022
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 88.2586090117003
+    },
+    "right_close_beauty": {
+      "sha256": "90953c0cb5241f83189d609f36bb5cca0204cc95649b616d61bb3ae577c8acb0",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          0.7,
+          5,
+          1.8
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6659885636835866,
+          -0.33711200016368975,
+          -0.3005283387058377,
+          0.5937149568799991
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 41.171203777272744
+    },
+    "right_close_albedo": {
+      "sha256": "03c7dc4b519e7035eadd0611f78eca8f4e2ef9d8aaa96f22b02d78e3271c2b18",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          0.7,
+          5,
+          1.8
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6659885636835866,
+          -0.33711200016368975,
+          -0.3005283387058377,
+          0.5937149568799991
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 7.433641051805677
+    },
+    "right_close_world_checker": {
+      "sha256": "31d5cfdae0e99c5e41c1dfeeb1f7e2c64c29e203abadca6e8657527352b8ae2f",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          0.7,
+          5,
+          1.8
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6659885636835866,
+          -0.33711200016368975,
+          -0.3005283387058377,
+          0.5937149568799991
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 88.08144194657969
+    },
+    "ground_beauty": {
+      "sha256": "aed5b7aef27403a23e63560f4c23dcdfd8a7a4cc56b442262d6a7006426c379d",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          0.1,
+          -2,
+          1.2
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.4088840406242793,
+          -0.028066039398972033,
+          -0.06246385203233892,
+          0.9100134097608124
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 72.52850325300086
+    },
+    "ground_albedo": {
+      "sha256": "2bc02ef18170dc9c9b7dab5dee54ae96e0fc4a3896a129fa3dddb77825b7efa2",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          0.1,
+          -2,
+          1.2
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.4088840406242793,
+          -0.028066039398972033,
+          -0.06246385203233892,
+          0.9100134097608124
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 6.583799359171697
+    },
+    "ground_world_checker": {
+      "sha256": "42fa2058f49f101d7da85590097a455afff7776903a5988bd9a48701985e1e87",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          0.1,
+          -2,
+          1.2
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.4088840406242793,
+          -0.028066039398972033,
+          -0.06246385203233892,
+          0.9100134097608124
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 88.60838045280173
+    },
+    "talus_beauty": {
+      "sha256": "cb72186c55a0f3ff378c27bbc00dc79d8b979a5a101a8ca451ec84a59d17eaf5",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          -0.75,
+          -2.4,
+          0.95
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.5310791915999415,
+          0.2025886285240944,
+          0.29323883913930837,
+          0.7687156321179567
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 14.502901576163207
+    },
+    "talus_albedo": {
+      "sha256": "85c2c1609fb233f2964a94462d0e610516be03e4ea21be9a638906b4674fca67",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          -0.75,
+          -2.4,
+          0.95
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.5310791915999415,
+          0.2025886285240944,
+          0.29323883913930837,
+          0.7687156321179567
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 11.699096138911063
+    },
+    "talus_world_checker": {
+      "sha256": "ff91edccdc1692420cb9a0d9440ae84518dc5df938aaa201eae0058275c10370",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          -0.75,
+          -2.4,
+          0.95
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.5310791915999415,
+          0.2025886285240944,
+          0.29323883913930837,
+          0.7687156321179567
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 88.44077719044252
+    },
+    "orbit": {
+      "sha256": "0f580c425aec03e93e8e093899f67de30a68f892d38cf9f2f998caf8e0060ad5",
+      "size": [
+        1440,
+        960
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "orbit",
+        "eye": [
+          -47.73114639309572,
+          102.22106178068817,
+          86.22797586682222
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          -0.12576748866532947,
+          0.42145475772388585,
+          0.8605853892261326,
+          -0.2568096840799092
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 21.16211764170196
+    },
+    "mobile_walk": {
+      "sha256": "39b25800479006c17632e100a84185b380c52186494240412844ec59c2e3a173",
+      "size": [
+        390,
+        844
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 55.81253267604298
+    },
+    "landscape_orbit": {
+      "sha256": "5d28edf2fb251bb57810a5b7b102bb5fbd89010667099bf42f2fb3297179fc8c",
+      "size": [
+        1000,
+        650
+      ],
+      "gl_error": 0,
+      "triangles_drawn": 5029800,
+      "camera": {
+        "mode": "orbit",
+        "eye": [
+          -47.73114639309572,
+          102.22106178068817,
+          86.22797586682222
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          -0.12576748866532947,
+          0.42145475772388585,
+          0.8605853892261326,
+          -0.2568096840799092
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "luminance_std": 20.914312597258707
+    }
+  },
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "entrypoint": "Split web application via localhost HTTP",
+  "geometry": {
+    "triangles": 5029800,
+    "vertices": 2526592,
+    "programs": 2,
+    "hash": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79"
+  },
+  "active_shader_sha256": {
+    "surface.vert.glsl": "59e17f48b5e8cbe7d19fc9cf68b81e75e28d89a4e88cdb71f9e5fe47cd6e7160",
+    "surface.frag.glsl": "04f969e6de0e33089dd317d922b6a1bda01a8427a31f9ab02e3ae6c85bd86942"
+  },
+  "material_baseline": false,
+  "material_field_sha256": "35a79a60933519d97cf9d148162d2924eeb3a6038f3fce741483a37d54499c8c",
+  "touch_snapshots": {
+    "quaternion_before": [
+      0.7413067628950097,
+      -0.013538587125570562,
+      -0.012253065988087177,
+      0.6709179177206829
+    ],
+    "after": {
+      "mode": "walk",
+      "eye": [
+        -0.4036489232676964,
+        -5.6039309225024825,
+        1.56
+      ],
+      "target": [
+        8.103004455566406,
+        17,
+        7.156322479248047
+      ],
+      "quaternion": [
+        0.764704015830498,
+        -0.0854785043697084,
+        -0.07095047242185658,
+        0.6347339788655897
+      ],
+      "radius": 128.96669392313544,
+      "near": 0.35,
+      "far": 1323.3376016114412,
+      "stick": [
+        0,
+        -0.9289772727272727
+      ],
+      "pointers": 1,
+      "holds": 0,
+      "keys": 0,
+      "tour": false
+    }
+  },
+  "renderer": "WebKit WebGL",
+  "browser_version": "143.0.7499.4",
+  "angle_backend": "swiftshader",
+  "physical_phone_benchmark": false,
+  "seconds": 220.196170009
+}

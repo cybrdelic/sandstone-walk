@@ -33,7 +33,7 @@ def build(output:Path)->None:
         if hashlib.sha256(raw).hexdigest()!=entry['sha256']:raise ValueError('Asset checksum mismatch')
         return base64.b64encode(raw).decode('ascii')
     for mesh in data['meshes']:
-        for key in ['position','normal','direct','indirect','surface','index']:
+        for key in ['position','normal','giR','giG','giB','surface','index']:
             if key in mesh:mesh[key]=packed(mesh[key])
     data['sky']['data']=packed(data['sky']['data'])
     text=(ROOT/'index.html').read_text()

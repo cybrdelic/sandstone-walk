@@ -26,6 +26,9 @@
   canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();fail(new Error('The graphics context was lost. Reload the viewer; exact geometry uses substantial GPU memory.'));});
   const sun=new THREE.Vector3(...B.meta.sun).normalize();
   const uniforms={uVP:{value:new THREE.Matrix4()},uEye:{value:camera.position},uSun:{value:sun},uSolar:{value:new THREE.Vector3(...B.meta.solar_rgb)},uWhite:{value:new THREE.Vector3(...B.meta.display_white_rgb)},uExposure:{value:B.meta.exposure},uMode:{value:0}};
+  if(B.meta.material_schema!=='world-space-spectral-transfer/1')throw new Error('Missing per-pixel material transport data.');
+  uniforms.uRGBToAnchors={value:new THREE.Matrix3().set(...B.meta.rgb_to_anchors.flat())};
+  uniforms.uSolarResponse={value:new THREE.Matrix3().fromArray(B.meta.solar_anchor_response.flat())};
   const material=new THREE.RawShaderMaterial({glslVersion:THREE.GLSL3,vertexShader:SURFACE_VERTEX,fragmentShader:SURFACE_FRAGMENT,uniforms,side:THREE.DoubleSide,toneMapped:false});
   function base64(s){const raw=atob(s),bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);return bytes;}
   async function inflate(asset){
@@ -74,8 +77,7 @@
    const g=new THREE.BufferGeometry();
    g.setAttribute('position',await attr(d.position,'f32',3,d.vertices));
    g.setAttribute('bakeNormal',await attr(d.normal,'i16',3,d.vertices));
-   g.setAttribute('directRadiance',await attr(d.direct,'f16',3,d.vertices));
-   g.setAttribute('indirectRadiance',await attr(d.indirect,'f16',3,d.vertices));
+   for(const key of ['giR','giG','giB'])g.setAttribute(key,await attr(d[key],'f16',3,d.vertices));
    g.setAttribute('surface',await attr(d.surface,'u16',2,d.vertices));
    const indices=d.kind==='grid'?exactGridIndex(d.rows,d.cols,d.flip):new Uint32Array(await inflate(d.index));
    if(indices.length!==d.triangles*3)throw new Error('Source topology count mismatch: '+d.name);

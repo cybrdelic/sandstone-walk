@@ -1,0 +1,5 @@
+{
+  "run_id": 35251677406,
+  "artifact_id": 10511165592,
+  "note": "Before-material captures executed in the prior run, reused after image and baseline shader hash checks. That run later failed a new test; its baseline rendering itself passed."
+}

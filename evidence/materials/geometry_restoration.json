@@ -1,0 +1,75 @@
+{
+  "schema": "sandstone-material-geometry-restoration/1",
+  "result": "PASS",
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "mode": "Frozen native input restoration, not a new procedural build",
+  "native_mesh_bytes_identical": true,
+  "sample_sites_bytes_identical": true,
+  "vertex_sites_bytes_identical": true,
+  "frozen_manifest_sha256": "fff36e8ec51315ae679e5e7e4e374608deeca00a689607b5360d7c6405b98b22",
+  "parts": [
+    {
+      "name": "West_outcrop_and_rim",
+      "positions_from_existing_assets": true,
+      "triangles": 263120,
+      "position_sha256": "314be8d7199219ebc579ac5808ce0a6ace13225527a54427043804fb63898fbb",
+      "topology_sha256": "c01ca708f5f6cd321a3a9098f29fa3862cd5219a4bfe0525f22a626c0ae75b57"
+    },
+    {
+      "name": "West_jointed_wall",
+      "positions_from_existing_assets": true,
+      "triangles": 1100320,
+      "position_sha256": "469cc9cd38317669d57f85127eb69c28266a50d334d1083f032028d6fe5075a7",
+      "topology_sha256": "e2d304d655d197636449a763fe7d21991c24486f95fc214ba15934b2b19467ed"
+    },
+    {
+      "name": "Connected_alluvial_channel",
+      "positions_from_existing_assets": true,
+      "triangles": 363584,
+      "position_sha256": "8a405a5fb22f6fcd71d3f4d55cafa1f1ef9a7c9368f7eb1e969e1cfdf7624c9c",
+      "topology_sha256": "e303183dac3f5c5aa49d4b3eb842ff1596832d38242ccf85cbc96aa538d9609d"
+    },
+    {
+      "name": "East_jointed_wall",
+      "positions_from_existing_assets": true,
+      "triangles": 1100320,
+      "position_sha256": "dab51b0d2811ae5700837900c1ab839fcde6e25e7700fd2129a38a85ee689095",
+      "topology_sha256": "e2d304d655d197636449a763fe7d21991c24486f95fc214ba15934b2b19467ed"
+    },
+    {
+      "name": "East_outcrop_and_rim",
+      "positions_from_existing_assets": true,
+      "triangles": 263120,
+      "position_sha256": "25a93903b9297a28e078953883731dbaf1c40a7559365aa8192fdea7ae5a928f",
+      "topology_sha256": "c01ca708f5f6cd321a3a9098f29fa3862cd5219a4bfe0525f22a626c0ae75b57"
+    },
+    {
+      "name": "Closed_terrain_base",
+      "positions_from_existing_assets": true,
+      "triangles": 9762,
+      "position_sha256": "90ffd7018f7b5da767bac91e5ea3386a0f809daa9cf14417b23a3411fea1d729",
+      "topology_sha256": "e8ffa45e19b6d4d6aa487afc8334f700b4272a68beeab7dcd43eb4fe5c8c7557"
+    },
+    {
+      "name": "Joint_cut_talus",
+      "positions_from_existing_assets": true,
+      "triangles": 1575338,
+      "position_sha256": "a270223c03df809b6ca67db250df7c881a1cedfa1512e7603d3ca6b663ca2620",
+      "topology_sha256": "3775ac617348618eed86ffb1e7e4f8488b4e16a625a6d0de4442a104455dd87c"
+    },
+    {
+      "name": "Channel_lag_gravel",
+      "positions_from_existing_assets": true,
+      "triangles": 284696,
+      "position_sha256": "e57e8cb6ebd09fd46a5fa599a652a8fa968bac8a7ffebb31df47af2ac55d66d0",
+      "topology_sha256": "039136b2898a5dffc142c1663da240ba0c5ec9df0c4d02bd110c22c5f975c45b"
+    },
+    {
+      "name": "Detached_joint_blocks",
+      "positions_from_existing_assets": true,
+      "triangles": 69540,
+      "position_sha256": "4c39a8b0c2607269cc6dac38cc57f573593a7069d5fa4eaeefb66565a51a5e4b",
+      "topology_sha256": "fd631a8a6d5f5102fff3296eac7ec5404ad9c280e1f89bd5d0a05ae2684edadc"
+    }
+  ]
+}

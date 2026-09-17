@@ -4,11 +4,15 @@
 
 The current scene uses a **closed, connected landform**, not freestanding wall sheets. Interior cliffs join irregular rims, exterior outcrops and the alluvial channel; a curved canyon hides the distance naturally instead of using a separate backdrop. Rough joint-cut rockfall and channel gravel are closed meshes with varied shapes and supported placement.
 
-![Actual moving-camera render of the closed canyon](media/sandstone-walk-solid.gif)
+![Current per-fragment material, actual Three.js close-up](evidence/materials/browser_ci/right_close_beauty.png)
+
+[Material mapping notes](docs/MATERIAL_MAPPING.md) · [Albedo diagnostic](evidence/materials/browser_ci/right_close_albedo.png) · [25 cm world checker](evidence/materials/browser_ci/right_close_world_checker.png)
+
+**Version 0.4 fixes the stretched surface appearance without changing the mesh or controls.** Grain, finite weathering patches, roughness and micro-normal detail are evaluated per pixel in metre-scaled 3D space. A fresh native spectral bake stores incident-light response separately from receiving albedo. The previous vertex-sampled material is not multiplied underneath the replacement.
 
 [MP4](media/sandstone-walk-solid.mp4) · [Interior](media/solid-hero.png) · [Orbit](media/solid-orbit.png) · [Release downloads](../../releases/latest) · [Geometry and bake notes](docs/SOLID_GEOMETRY.md)
 
-This six-second, two-shot film is drawn from the shipped geometry, lighting data and GLSL in **native OpenGL ES**. The MP4 contains 144 different 1200 × 800 frames at 24 fps; the 720 × 480 GIF samples the same film at 12 fps. It is not an animated still, image generation, frame interpolation or a browser recording. Actual Three.js browser captures are separately recorded under [`evidence/browser/`](evidence/browser/).
+The linked six-second geometry film is the **archived v0.3 material appearance**, rendered in native OpenGL ES; it documents the unchanged geometry, not the current v0.4 material. The MP4 contains 144 different 1200 × 800 frames at 24 fps; the 720 × 480 GIF samples the same film at 12 fps. It is not an animated still, image generation, frame interpolation or a browser recording. Actual Three.js browser captures are separately recorded under [`evidence/browser/`](evidence/browser/).
 
 ## Run
 
@@ -20,7 +24,7 @@ cd sandstone-walk
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000` in a current WebGL2 browser. The active compressed mesh/bake buffers total approximately **68.5 MB**. A self-contained HTML is available in [Releases](../../releases/latest), or build it locally:
+Open `http://localhost:8000` in a current WebGL2 browser. The active compressed mesh/light-response buffers are listed with byte counts in `web/scene.json`. The larger legacy assets remain preserved but are not loaded by the current application. A self-contained HTML is available in [Releases](../../releases/latest), or build it locally:
 
 ```bash
 python tools/make_standalone.py
@@ -71,9 +75,11 @@ New native mesh SHA-256: `7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364
 
 ## Lighting
 
-Every changed surface is **freshly rebaked** with the retained native CYBR GEO transport code. The bake traces the complete regenerated mesh; it does not reuse lighting from the rejected sheets. Indirect lighting is sampled in 16 wavelength bands, filtered in linear light and stored on the surfaces. Direct sunlight visibility is evaluated separately with finite-sun rays; the viewer retains the original view-dependent diffuse/specular shader and native sky/display transform.
+The **same shared material field** is compiled into the C++ transport code and the fragment shader. Material-only rebuilds restore the exact pinned geometry from existing position/index buffers and preserved geometric normals; they do not remesh the canyon. The native bake traces the complete unchanged mesh in 16 wavelength bands, with 256 hemisphere samples at each of 228,136 surface locations and a maximum path depth of 10. Sun visibility remains separately traced against the full mesh.
 
-No photograph is projected into the canyon. There are no hand-colored light probes, hemisphere fill lights or artificial bounce-light rigs. The bake is static: moving the sun or changing the geometry requires another bake. Finite sampling and interpolation still limit small shadow transitions and close-up shading; indirect glossy transport is not fully view-dependent.
+The browser interpolates a **signed 3×3 spectral-anchor light response**, then applies the per-pixel receiver reflectance. This removes the old per-vertex color smearing without discarding the color of indirect illumination. Surface detail does not depend on triangle aspect ratio, charts, UVs or the camera. The footprint filter fades unresolved grain rather than stretching, sharpening or sliding it.
+
+No photograph is projected into the canyon. No hand-colored light probes or artificial fill rigs are used. The bake is static: changed geometry, lighting or the shared material requires another bake. This is an authored procedural sandstone material, not a scan or a claim of photorealism. Irradiance interpolation and finite sun-visibility sampling still limit very small shadow transitions; view-dependent indirect specular transport is not represented.
 
 ## Rebuild and verify
 
@@ -81,19 +87,22 @@ Linux / WSL requires a C++17 compiler with OpenMP. The numerical environment is 
 
 ```bash
 python -m pip install -r source/requirements-solid.txt
-python source/rebuild_solid.py --work ./build/solid-work --out . --spp 256 --depth 10 --threads 4
+python source/rebuild_materials.py --work ./build/material-work --spp 256 --depth 10 --threads 4
+python source/package_materials.py --work ./build/material-work
+python tools/build_material_shaders.py
 python tools/verify.py
 python tools/make_standalone.py
 ```
 
-The new recipe is `source/solid_geometry.py`; the old native scene generator and recovery orchestrator remain unchanged for historical reproduction. The new bake adapter takes its required triangle count from the validated regenerated layout rather than silently accepting an old mesh. Allow several GB of memory and temporary disk space. Compiler/platform differences can change floating-point bake results; receipts record actual generated identities.
+The geometry recipe remains `source/solid_geometry.py` and is hash-gated against the v0.3 mesh. The original native material path remains available when the new opt-in material adapter is not enabled; `--legacy` standalone reconstruction is still supported. The new bake adapter takes its required triangle count from the validated regenerated layout rather than silently accepting an old mesh. Allow several GB of memory and temporary disk space. Compiler/platform differences can change floating-point bake results; receipts record actual generated identities.
 
 ```bash
 python -m pip install -r tools/requirements-test.txt
 python -m playwright install chromium
+python tools/test_material_field.py
 python tools/browser_smoke.py
 python tools/mobile_controls_smoke.py
-python tools/test_solid_browser.py
+python tools/test_solid_browser.py --materials --out build/material-browser
 ```
 
 The existing desktop and multi-touch regressions remain active with the deliberately revised mesh counts. The additional scene test captures interior, reverse and orbit cameras and exercises simultaneous thumbstick/look, pinch and pan. It must draw the current geometry, not a screenshot substitute. Touch emulation is not a physical-phone benchmark.

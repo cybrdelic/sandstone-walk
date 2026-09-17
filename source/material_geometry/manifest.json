@@ -1,0 +1,70 @@
+{
+  "schema": "sandstone-pinned-material-geometry/1",
+  "scope": "Preserved native geometric normals and sample indices for the unchanged v0.3 mesh. Positions and triangle indices are restored from the existing versioned web assets, not duplicated or regenerated.",
+  "mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "vertices_sha256": "378222af21bf2e5c8ad5bda03a272edf1a3904251236876b8dbb74e097484b65",
+  "sites_sha256": "1aa5964e713c0cb619163d552ef9473a0502e59d39240c2d25a67fe4da67d1a1",
+  "files": {
+    "West_outcrop_and_rim.norm.npy.deflate": {
+      "sha256": "1ea49e5cf2e29580fe3157ac6520c60210c568087c1fe075ed442621e1f17cfe",
+      "decoded_sha256": "be6f7e91fcc8c93ee927c742edb9131d7f8059d3da8aef11acec92fd6a328c42",
+      "decoded_bytes": 1594532
+    },
+    "West_jointed_wall.norm.npy.deflate": {
+      "sha256": "cc3e0915b842fc8ca74b82783d0351d52ea0e86feea64aae0168d89e4513159d",
+      "decoded_sha256": "b5fc99ff54ceead0849c1ef2347dc6558c1545a6be66a81e3cebe92b33ba5d55",
+      "decoded_bytes": 6621932
+    },
+    "Connected_alluvial_channel.norm.npy.deflate": {
+      "sha256": "4f72179ecd0be0a4b1dd6cf54b42c15bca7984b934392a19d3a1ed4d6b478983",
+      "decoded_sha256": "7939a1e50240b1c3f72283df2a6de6045491c444a7704eaf090bfed34577e316",
+      "decoded_bytes": 2197820
+    },
+    "East_jointed_wall.norm.npy.deflate": {
+      "sha256": "a66394a48f36665bc243d8fb2f676a7180c478b827abbba134ec369a916a086a",
+      "decoded_sha256": "9cecfb72920a99df546e99e88773743f910e7eff2ab452d4f64493f98a9a14dd",
+      "decoded_bytes": 6621932
+    },
+    "East_outcrop_and_rim.norm.npy.deflate": {
+      "sha256": "aaebb246e134572f4eb99b79bbfad5d6a8b6b19fbd0d5f9b29ffb46e5fed3eed",
+      "decoded_sha256": "3aa815dc5a3b066c7f774656fdd438aab626d2e7e396e48e3a3a4d7aa620087f",
+      "decoded_bytes": 1594532
+    },
+    "Closed_terrain_base.norm.npy.deflate": {
+      "sha256": "70bf347f30429148cb39d0c9d5877ec9bde1e3142b600136115c4089fe9cba5e",
+      "decoded_sha256": "54f52b1853ea58348350c2e94ce6931db62c3b08fc93cbee3a4e00129e3cad86",
+      "decoded_bytes": 88568
+    },
+    "Joint_cut_talus.norm.npy.deflate": {
+      "sha256": "a06c96c55078016b30669040616cfe897f84283d1d474f64b8acd60b6160b254",
+      "decoded_sha256": "d65be160a2b3b400dc6727b5faf0d05195f324c06b385e34bf4c027df2b51e7b",
+      "decoded_bytes": 9468116
+    },
+    "Joint_cut_talus.siteids.npy.deflate": {
+      "sha256": "6ce01a32f9c272d6cb2410d6dbc2e77127765b02e2f996152fc99855b71dab69",
+      "decoded_sha256": "1e62713ff4a4abeb63939a0ea07ceeffda61dc01baa2b8345ab4f8641e49f707",
+      "decoded_bytes": 932864
+    },
+    "Channel_lag_gravel.norm.npy.deflate": {
+      "sha256": "4ee6497ad9a861a7a804ed4fb69dcaf7f805c0d4b1892d389b801a0a9e250c6a",
+      "decoded_sha256": "4e1e65b4cda66b8e4102eba2e93bfb287941e856425ed67bcc0dfe8ad4dd9466",
+      "decoded_bytes": 1715312
+    },
+    "Channel_lag_gravel.siteids.npy.deflate": {
+      "sha256": "5eebc1b87ca0c997cdc3f31227a831eee1743d366034175d131acd1e512e6944",
+      "decoded_sha256": "0cc31e17ef18a93b0143d4cfa9d4434f5a59250ff97e497e859a8fa3da9f081c",
+      "decoded_bytes": 154032
+    },
+    "Detached_joint_blocks.norm.npy.deflate": {
+      "sha256": "712d56218b8c2447ed753de5dc8a0d0b8a11ed7ff3d1a39660148285a257e65b",
+      "decoded_sha256": "8c462e014b0f7b703e0dc7b00ea00348b0ed99afbbdffce84b13dd0430152413",
+      "decoded_bytes": 417512
+    },
+    "layout.json": {
+      "sha256": "0447ad76c5b02ac8ec62178c84f7b069f9bf03def0d313eaa9a61d0d716c8cc4"
+    },
+    "geometry_report.json": {
+      "sha256": "47c4deb6855a8759efdbd02522a0424c031ae7580fce82f71af17a69d15a2c58"
+    }
+  }
+}
