@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def build_legacy(output:Path)->None:
-    data=json.loads((ROOT/'web/scene.json').read_text())
+    data=json.loads((ROOT/'source/legacy_v0_2/scene.json').read_text())
     def packed(entry):
         raw=(ROOT/entry['url']).read_bytes()
         if hashlib.sha256(raw).hexdigest()!=entry['sha256']:raise ValueError('Asset checksum mismatch')

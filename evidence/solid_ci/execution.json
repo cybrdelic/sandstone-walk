@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "run_id": "35245941104",
+  "tested_input_commit": "ebc0da6000b4e3d722dc91d86f70641ee25f3f92",
+  "browser_entrypoint": "Actual split Three.js application via localhost HTTP",
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "native_bake": "Executed locally before import; immutable inputs and results verified here",
+  "media": "Actual native GLES moving-camera render, not a browser recording",
+  "physical_phone_benchmark": false
+}

@@ -1,0 +1,122 @@
+{
+  "geometry": [
+    {
+      "name": "Alluvial_sand_and_rockfall_support",
+      "vertices": 877500,
+      "triangles": 1751002,
+      "positions_sha256": "507ced0e2d44cf0a90874051a74a021f6383e0a835c0623319139294ae047657",
+      "topology_sha256": "a99251b8870a0ab734b0ea34b20947c454cab5492283c57f7c9699ae616d5aa5",
+      "gpu_attributes_finite": true
+    },
+    {
+      "name": "West_bedded_sandstone",
+      "vertices": 1241000,
+      "triangles": 2477142,
+      "positions_sha256": "9a8cd2e89f13740f5648a43489cfbb85af45eecc5c932af90e085e1774f2aac4",
+      "topology_sha256": "ddcad8f2e17724200c81119b8b619dbf4e9dc9b10a8b1ef7e465abaf671de48b",
+      "gpu_attributes_finite": true
+    },
+    {
+      "name": "East_bedded_sandstone",
+      "vertices": 1241000,
+      "triangles": 2477142,
+      "positions_sha256": "651f1fc5e42c5e8e1bd474270250e1cd27a214a26106142181fb31f4aad2849f",
+      "topology_sha256": "12bebe1bf035fd9f1a4d7b1c1153c916ac24d66e8d231192dd458fc20d79a071",
+      "gpu_attributes_finite": true
+    },
+    {
+      "name": "Rockfall_fans",
+      "vertices": 230160,
+      "triangles": 450480,
+      "positions_sha256": "4dc304f75e9738ea9332fd94a34950236ecd5e538aacc5d4639f81791af00f7a",
+      "topology_sha256": "a88f969fa80e336d50a804b2c1c4220c0e52e79d389fdbe5ff133150cfe9ed6a",
+      "gpu_attributes_finite": true
+    },
+    {
+      "name": "Wash_gravel",
+      "vertices": 111804,
+      "triangles": 212960,
+      "positions_sha256": "3ddec90c249b29c011b1efe59ecf23da83e57f8f56c11b1736c4dd1554117500",
+      "topology_sha256": "6e30b2ce773001a6d0abda21dc681f389e34e2f6bca82f91175bd30133f6644e",
+      "gpu_attributes_finite": true
+    },
+    {
+      "name": "Fallen_jointed_slabs",
+      "vertices": 12810,
+      "triangles": 25600,
+      "positions_sha256": "b342719a895d36ccc47f07048fcd4d65ae8575ac0b8cdf62d1ae7e391a13939a",
+      "topology_sha256": "d5ed76ff05d8c32fb05f1ea385453a383f7c6747b66a58b240def6d6603fe59b",
+      "gpu_attributes_finite": true
+    },
+    {
+      "name": "Far_bend_continuous_wall",
+      "vertices": 358400,
+      "triangles": 714402,
+      "positions_sha256": "410d0c263922cd8355696bdaabdf79ec84d8754dd1659ee92de98bf7acfcdfe6",
+      "topology_sha256": "59d18e1ecf995610ea16a6ed53f31eff6ec3339c8a936d46c9c62bdc7d903a1b",
+      "gpu_attributes_finite": true
+    }
+  ],
+  "source_mesh_sha256": "50fbfa563abe246a9049279274a1cea710be5b38f423ccdc6ab6ef731d27156a",
+  "native_bake": {
+    "integrator": "recovered CYBR GEO spectral trace, surface irradiance adapter",
+    "spectral_bands": 16,
+    "wavelength_nm": [
+      380,
+      780
+    ],
+    "triangles": 8108728,
+    "sites": 414439,
+    "hemisphere_samples_per_site": 256,
+    "maximum_path_depth": 10,
+    "sun_samples_per_lit_vertex": 16,
+    "sun_visibility_rays": 37452960,
+    "vertex_count": 4072674,
+    "invalid_samples": 0,
+    "clamped_contributions": 0,
+    "indirect_seconds_including_bvh": 237.4890004,
+    "wall_seconds": 245.7603599,
+    "solar_rgb": [
+      9.37061882,
+      7.763447285,
+      6.058387756
+    ],
+    "display_white_rgb": [
+      1.099015713,
+      0.9783982038,
+      0.9230284095
+    ],
+    "exposure": 2.5,
+    "reference_image_used": false,
+    "hero_camera_used_by_bake": false,
+    "source_mesh_sha256": "50fbfa563abe246a9049279274a1cea710be5b38f423ccdc6ab6ef731d27156a",
+    "geometry_modified": false,
+    "positions": "same float32 conversion as preserved renderer mesh; no decimation",
+    "camera": [
+      -0.42,
+      -5.8,
+      1.56
+    ],
+    "target": [
+      0.15,
+      9.8,
+      3.12
+    ],
+    "horizontalFov": 68,
+    "sun": [
+      -0.24,
+      -0.33,
+      0.913
+    ],
+    "lighting": "native spectral surface irradiance and exact-geometry solar visibility",
+    "image_projection": false,
+    "hand_authored_probes": false,
+    "runtime_ambient_lights": 0,
+    "static_bake": true,
+    "view_dependent_indirect_gloss": false,
+    "browser_runtime_verified": false
+  },
+  "html_sha256": "0e49826210de340ddb6c45110fa833bad3d69efa6ae08124799e1aa03c523ade",
+  "html_bytes": 124439021,
+  "browser_runtime_verified": false
+}

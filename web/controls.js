@@ -59,6 +59,13 @@ class SandstoneControls {
     this.setReference();
   }
   center(y) {
+    const route=this.reference.centerline;
+    if (Array.isArray(route) && route.length>1) {
+      let low=0,high=route.length-1;
+      while(high-low>1){const mid=(low+high)>>1;if(route[mid][0]<=y)low=mid;else high=mid;}
+      const a=route[low],b=route[high],t=THREE.MathUtils.clamp((y-a[0])/(b[0]-a[0]),0,1);
+      return a[1]+(b[1]-a[1])*t;
+    }
     const t = THREE.MathUtils.clamp((y - 17) / 13, 0, 1);
     return .4*Math.sin(y*.21) + 1.35*Math.exp(-Math.pow((y-18)/6.8,2))
       - .9*Math.exp(-Math.pow((y-30)/4.8,2)) + 6.2*t*t*(3-2*t);

@@ -1,0 +1,36 @@
+{
+  "schema": "sandstone-walk-bake-inputs/1",
+  "capture_phase": "before_native_bake",
+  "files": {
+    "scene.meshbin": {
+      "path": "/mnt/data/sw-solid-work3/native_scene/canyon/scene.meshbin",
+      "sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+      "bytes": 402384004
+    },
+    "sites.bin": {
+      "path": "/mnt/data/sw-solid-work3/data/sites.bin",
+      "sha256": "1aa5964e713c0cb619163d552ef9473a0502e59d39240c2d25a67fe4da67d1a1",
+      "bytes": 6387816
+    },
+    "vertices.bin": {
+      "path": "/mnt/data/sw-solid-work3/data/vertices.bin",
+      "sha256": "378222af21bf2e5c8ad5bda03a272edf1a3904251236876b8dbb74e097484b65",
+      "bytes": 70744584
+    },
+    "solid_bake": {
+      "path": "/mnt/data/sw-solid-work3/solid_bake",
+      "sha256": "47f41c66bf91195d75580affd62e7a4176cfaa23e010b26b67b47a5a6c52bcac",
+      "bytes": 272872
+    },
+    "solid_bake.cpp": {
+      "path": "/mnt/data/Sandstone_Walk_Solid/source/solid_bake.cpp",
+      "sha256": "b2158192be7898712def2cca5875b45de8e9529cefff9969fc10d9e067b1959d",
+      "bytes": 7755
+    },
+    "transport_bake.cpp": {
+      "path": "/mnt/data/Sandstone_Walk_Solid/source/transport_bake.cpp",
+      "sha256": "a4d977927d3cfbccc538dffb4711dc840f33e9465c2e09c2bb0ba9a7673664f9",
+      "bytes": 48147
+    }
+  }
+}

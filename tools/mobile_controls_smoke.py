@@ -64,7 +64,7 @@ def main():
           page.goto(f'http://127.0.0.1:{server.server_port}/',wait_until='load',timeout=120000)
           page.wait_for_function('window.CYBR_RECOVERY?.controls && document.getElementById("loading").hidden',polling=100,timeout=180000)
           geometry=page.evaluate('({triangles:CYBR_RECOVERY.geometry.reduce((a,g)=>a+g.index.count/3,0),vertices:CYBR_RECOVERY.geometry.reduce((a,g)=>a+g.attributes.position.count,0)})')
-          assert geometry=={'triangles':8108728,'vertices':4072674},geometry
+          assert geometry=={'triangles':5029800,'vertices':2526592},geometry
           report['geometry']=geometry
         cdp=context.new_cdp_session(page)
         def snap():return page.evaluate('CYBR_RECOVERY.controls.snapshot()')

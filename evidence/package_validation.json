@@ -1,122 +1,86 @@
 {
+  "schema": "sandstone-walk-geometry-expectations/2",
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
   "geometry": [
     {
-      "name": "Alluvial_sand_and_rockfall_support",
-      "vertices": 877500,
-      "triangles": 1751002,
-      "positions_sha256": "507ced0e2d44cf0a90874051a74a021f6383e0a835c0623319139294ae047657",
-      "topology_sha256": "a99251b8870a0ab734b0ea34b20947c454cab5492283c57f7c9699ae616d5aa5",
-      "gpu_attributes_finite": true
+      "name": "West_outcrop_and_rim",
+      "vertices": 132867,
+      "triangles": 263120,
+      "positions_sha256": "314be8d7199219ebc579ac5808ce0a6ace13225527a54427043804fb63898fbb",
+      "topology_sha256": "c01ca708f5f6cd321a3a9098f29fa3862cd5219a4bfe0525f22a626c0ae75b57",
+      "all_attributes_finite": true
     },
     {
-      "name": "West_bedded_sandstone",
-      "vertices": 1241000,
-      "triangles": 2477142,
-      "positions_sha256": "9a8cd2e89f13740f5648a43489cfbb85af45eecc5c932af90e085e1774f2aac4",
-      "topology_sha256": "ddcad8f2e17724200c81119b8b619dbf4e9dc9b10a8b1ef7e465abaf671de48b",
-      "gpu_attributes_finite": true
+      "name": "West_jointed_wall",
+      "vertices": 551817,
+      "triangles": 1100320,
+      "positions_sha256": "469cc9cd38317669d57f85127eb69c28266a50d334d1083f032028d6fe5075a7",
+      "topology_sha256": "e2d304d655d197636449a763fe7d21991c24486f95fc214ba15934b2b19467ed",
+      "all_attributes_finite": true
     },
     {
-      "name": "East_bedded_sandstone",
-      "vertices": 1241000,
-      "triangles": 2477142,
-      "positions_sha256": "651f1fc5e42c5e8e1bd474270250e1cd27a214a26106142181fb31f4aad2849f",
-      "topology_sha256": "12bebe1bf035fd9f1a4d7b1c1153c916ac24d66e8d231192dd458fc20d79a071",
-      "gpu_attributes_finite": true
+      "name": "Connected_alluvial_channel",
+      "vertices": 183141,
+      "triangles": 363584,
+      "positions_sha256": "8a405a5fb22f6fcd71d3f4d55cafa1f1ef9a7c9368f7eb1e969e1cfdf7624c9c",
+      "topology_sha256": "e303183dac3f5c5aa49d4b3eb842ff1596832d38242ccf85cbc96aa538d9609d",
+      "all_attributes_finite": true
     },
     {
-      "name": "Rockfall_fans",
-      "vertices": 230160,
-      "triangles": 450480,
-      "positions_sha256": "4dc304f75e9738ea9332fd94a34950236ecd5e538aacc5d4639f81791af00f7a",
-      "topology_sha256": "a88f969fa80e336d50a804b2c1c4220c0e52e79d389fdbe5ff133150cfe9ed6a",
-      "gpu_attributes_finite": true
+      "name": "East_jointed_wall",
+      "vertices": 551817,
+      "triangles": 1100320,
+      "positions_sha256": "dab51b0d2811ae5700837900c1ab839fcde6e25e7700fd2129a38a85ee689095",
+      "topology_sha256": "e2d304d655d197636449a763fe7d21991c24486f95fc214ba15934b2b19467ed",
+      "all_attributes_finite": true
     },
     {
-      "name": "Wash_gravel",
-      "vertices": 111804,
-      "triangles": 212960,
-      "positions_sha256": "3ddec90c249b29c011b1efe59ecf23da83e57f8f56c11b1736c4dd1554117500",
-      "topology_sha256": "6e30b2ce773001a6d0abda21dc681f389e34e2f6bca82f91175bd30133f6644e",
-      "gpu_attributes_finite": true
+      "name": "East_outcrop_and_rim",
+      "vertices": 132867,
+      "triangles": 263120,
+      "positions_sha256": "25a93903b9297a28e078953883731dbaf1c40a7559365aa8192fdea7ae5a928f",
+      "topology_sha256": "c01ca708f5f6cd321a3a9098f29fa3862cd5219a4bfe0525f22a626c0ae75b57",
+      "all_attributes_finite": true
     },
     {
-      "name": "Fallen_jointed_slabs",
-      "vertices": 12810,
-      "triangles": 25600,
-      "positions_sha256": "b342719a895d36ccc47f07048fcd4d65ae8575ac0b8cdf62d1ae7e391a13939a",
-      "topology_sha256": "d5ed76ff05d8c32fb05f1ea385453a383f7c6747b66a58b240def6d6603fe59b",
-      "gpu_attributes_finite": true
+      "name": "Closed_terrain_base",
+      "vertices": 7370,
+      "triangles": 9762,
+      "positions_sha256": "90ffd7018f7b5da767bac91e5ea3386a0f809daa9cf14417b23a3411fea1d729",
+      "topology_sha256": "e8ffa45e19b6d4d6aa487afc8334f700b4272a68beeab7dcd43eb4fe5c8c7557",
+      "all_attributes_finite": true
     },
     {
-      "name": "Far_bend_continuous_wall",
-      "vertices": 358400,
-      "triangles": 714402,
-      "positions_sha256": "410d0c263922cd8355696bdaabdf79ec84d8754dd1659ee92de98bf7acfcdfe6",
-      "topology_sha256": "59d18e1ecf995610ea16a6ed53f31eff6ec3339c8a936d46c9c62bdc7d903a1b",
-      "gpu_attributes_finite": true
+      "name": "Joint_cut_talus",
+      "vertices": 788999,
+      "triangles": 1575338,
+      "positions_sha256": "a270223c03df809b6ca67db250df7c881a1cedfa1512e7603d3ca6b663ca2620",
+      "topology_sha256": "3775ac617348618eed86ffb1e7e4f8488b4e16a625a6d0de4442a104455dd87c",
+      "all_attributes_finite": true,
+      "closed_components": 665,
+      "minimum_component_volume_m3": 2.5672639748554703e-05
+    },
+    {
+      "name": "Channel_lag_gravel",
+      "vertices": 142932,
+      "triangles": 284696,
+      "positions_sha256": "e57e8cb6ebd09fd46a5fa599a652a8fa968bac8a7ffebb31df47af2ac55d66d0",
+      "topology_sha256": "039136b2898a5dffc142c1663da240ba0c5ec9df0c4d02bd110c22c5f975c45b",
+      "all_attributes_finite": true,
+      "closed_components": 292,
+      "minimum_component_volume_m3": 1.7814176898784027e-06
+    },
+    {
+      "name": "Detached_joint_blocks",
+      "vertices": 34782,
+      "triangles": 69540,
+      "positions_sha256": "4c39a8b0c2607269cc6dac38cc57f573593a7069d5fa4eaeefb66565a51a5e4b",
+      "topology_sha256": "fd631a8a6d5f5102fff3296eac7ec5404ad9c280e1f89bd5d0a05ae2684edadc",
+      "all_attributes_finite": true,
+      "closed_components": 6,
+      "minimum_component_volume_m3": 0.28303391078635454
     }
   ],
-  "source_mesh_sha256": "50fbfa563abe246a9049279274a1cea710be5b38f423ccdc6ab6ef731d27156a",
-  "native_bake": {
-    "integrator": "recovered CYBR GEO spectral trace, surface irradiance adapter",
-    "spectral_bands": 16,
-    "wavelength_nm": [
-      380,
-      780
-    ],
-    "triangles": 8108728,
-    "sites": 414439,
-    "hemisphere_samples_per_site": 256,
-    "maximum_path_depth": 10,
-    "sun_samples_per_lit_vertex": 16,
-    "sun_visibility_rays": 37452960,
-    "vertex_count": 4072674,
-    "invalid_samples": 0,
-    "clamped_contributions": 0,
-    "indirect_seconds_including_bvh": 237.4890004,
-    "wall_seconds": 245.7603599,
-    "solar_rgb": [
-      9.37061882,
-      7.763447285,
-      6.058387756
-    ],
-    "display_white_rgb": [
-      1.099015713,
-      0.9783982038,
-      0.9230284095
-    ],
-    "exposure": 2.5,
-    "reference_image_used": false,
-    "hero_camera_used_by_bake": false,
-    "source_mesh_sha256": "50fbfa563abe246a9049279274a1cea710be5b38f423ccdc6ab6ef731d27156a",
-    "geometry_modified": false,
-    "positions": "same float32 conversion as preserved renderer mesh; no decimation",
-    "camera": [
-      -0.42,
-      -5.8,
-      1.56
-    ],
-    "target": [
-      0.15,
-      9.8,
-      3.12
-    ],
-    "horizontalFov": 68,
-    "sun": [
-      -0.24,
-      -0.33,
-      0.913
-    ],
-    "lighting": "native spectral surface irradiance and exact-geometry solar visibility",
-    "image_projection": false,
-    "hand_authored_probes": false,
-    "runtime_ambient_lights": 0,
-    "static_bake": true,
-    "view_dependent_indirect_gloss": false,
-    "browser_runtime_verified": false
-  },
-  "html_sha256": "0e49826210de340ddb6c45110fa833bad3d69efa6ae08124799e1aa03c523ade",
-  "html_bytes": 124439021,
-  "browser_runtime_verified": false
+  "triangles": 5029800,
+  "vertices": 2526592
 }

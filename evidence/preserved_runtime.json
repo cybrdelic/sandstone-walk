@@ -1,0 +1,9 @@
+{
+  "controls.js": "2a19b8d408ad24e2e28e56fec6eb56d8d7b7cb25b105de653af552c5e63212ce",
+  "controls.css": "256d533e2f2eed3b1aec23be17f920fb2fe38b9ae6a393b222f8b2cea1416291",
+  "vendor/three.bundle.js": "879cc65f5021c03ac84045f8176a8f05b31de55aaebb3843fac64613b61eeda3",
+  "surface.vert.glsl": "053c5c537c896cdd26053f2a3c7bf60eb1cd15fe90a74fd6b90711a9bca179d0",
+  "surface.frag.glsl": "20efde8fb9c3820261b4d2a92e9034d705aa61483e0123d813511b72d354ffe0",
+  "sky.vert.glsl": "5d847398752d945684c42f69f23b4f115649ffa87217e66ad818fe152ab5c720",
+  "sky.frag.glsl": "28131dded7929c2bea7698e6d5ede4beee5ea1642993710ede78fd9a45674fa1"
+}

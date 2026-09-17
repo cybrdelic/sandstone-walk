@@ -82,7 +82,7 @@
    g.setIndex(new THREE.BufferAttribute(indices,1));g.computeBoundingSphere();
    const mesh=new THREE.Mesh(g,material);mesh.name=d.name;scene.add(mesh);geometry.push(g);triangles+=d.triangles;vertices+=d.vertices;
   }
-  if(triangles!==8108728||vertices!==4072674)throw new Error('Geometry integrity totals do not match the preserved canyon.');
+  if(triangles!==5029800||vertices!==2526592)throw new Error('Geometry integrity totals do not match the regenerated closed canyon.');
   const skyData=new Uint16Array(await inflate(B.sky.data));
   if(skyData.length!==B.sky.width*B.sky.height*4)throw new Error('Invalid native sky data.');
   const skyTexture=new THREE.DataTexture(skyData,B.sky.width,B.sky.height,THREE.RGBAFormat,THREE.HalfFloatType);
