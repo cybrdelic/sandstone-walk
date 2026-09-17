@@ -1,0 +1,23 @@
+name: Preserve surface-detail source
+on:
+  push:
+    branches: [feat/scanned-surface-detail]
+    paths: [.github/workflows/detail-intake.yml]
+permissions:
+  contents: read
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Acquire only the reviewed public-project source archive
+        env:
+          SOURCE_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-2b94-81f5-abab-2c42be16ea20/raw?se=2026-09-17T21%3A45%3A56Z&sp=r&sv=2026-02-06&sr=b&scid=efaa746c-cf4f-536f-bc42-59a87cacae13&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A19%3A16Z&ske=2026-09-18T18%3A19%3A16Z&sks=b&skv=2026-02-06&sig=wJmnKUvl%2BZAsgdAQIhNTl4uzh79%2BtvWlS8CRnzE3wrE%3D'
+        run: |
+          curl --fail --location --retry 2 --silent --show-error "$SOURCE_URL" -o "$RUNNER_TEMP/detail-source.zip"
+          echo "5dc7934b01b4c2945134ac70101fdeaf81f3c0caf8ff4281755483079b26e9cf  $RUNNER_TEMP/detail-source.zip" | sha256sum --check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: detail-source-intake
+          path: ${{ runner.temp }}/detail-source.zip
+          retention-days: 3
