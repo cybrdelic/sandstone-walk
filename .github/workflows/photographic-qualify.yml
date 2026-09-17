@@ -10,32 +10,34 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '4'
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Fetch checksum-pinned source and completed native bake
-        env:
-          SOURCE: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-0ec0-81f5-96f8-a75d1d62b2e3/raw?se=2026-09-17T19%3A41%3A54Z&sp=r&sv=2026-02-06&sr=b&scid=e69aa6ad-1682-5127-ac9a-3322e5faad0c&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A01%3A53Z&ske=2026-09-18T18%3A01%3A53Z&sks=b&skv=2026-02-06&sig=xpIovU5xN4DwGd5PaVd9M4I%2BDG%2BoTpUysQBSXkFzGFI%3D'
-          DATA1: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-3e24-81f5-8d70-ebd2405373ff/raw?se=2026-09-17T19%3A42%3A22Z&sp=r&sv=2026-02-06&sr=b&scid=0c1ae090-b6c3-5324-b1e9-d08b68129e94&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A12%3A37Z&ske=2026-09-18T18%3A12%3A37Z&sks=b&skv=2026-02-06&sig=ZIys7u23ha8UlBG%2BSwIvm53S65kfMSHrB7m3QJc5nNM%3D'
-          DATA2: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-e918-81f5-8269-a59295ca8ff3/raw?se=2026-09-17T19%3A42%3A41Z&sp=r&sv=2026-02-06&sr=b&scid=f08fa99b-aa00-5d38-be05-2bd7ec161051&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A12%3A45Z&ske=2026-09-18T18%3A12%3A45Z&sks=b&skv=2026-02-06&sig=Kal9GZzVhtkr%2BKoX1nOavqMRAej/MxpSpLgGmVnQAWs%3D'
-          DATA3: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-99a4-81f5-a9e4-2845b31bb756/raw?se=2026-09-17T19%3A43%3A03Z&sp=r&sv=2026-02-06&sr=b&scid=69132d4a-4233-5dd1-ad99-ecd65b8e829e&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A14%3A59Z&ske=2026-09-18T18%3A14%3A59Z&sks=b&skv=2026-02-06&sig=InbECSCXVPcFQKtM4yl65BrgY31MC1BLfUdRmtioKY4%3D'
-          DATA4: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-e214-81f5-9e93-e0d06c288cfe/raw?se=2026-09-17T19%3A43%3A30Z&sp=r&sv=2026-02-06&sr=b&scid=7a2025a8-c555-5e8d-a6ff-f54ad8ab9f39&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A21%3A31Z&ske=2026-09-18T18%3A21%3A31Z&sks=b&skv=2026-02-06&sig=Ih7MCXBm/71dCU10QdcdHco%2Bo7zc4p6rfA3G9CA86D4%3D'
+      - uses: actions/download-artifact@v4
+        with:
+          name: photographic-publication-inputs
+          run-id: 35266889060
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/inputs
+      - name: Verify archives, baseline and every imported file
         run: |
           python - <<'PY'
-          import hashlib,json,os,stat,subprocess,urllib.request,zipfile,shutil
+          import hashlib,json,os,stat,subprocess,zipfile,shutil
           from pathlib import Path
           tmp=Path(os.environ['RUNNER_TEMP']);stage=tmp/'photo-source';stage.mkdir()
           expected={'SOURCE':'ec936167d15f81d9aa60f5a468db22b36ec0f8178535a7eb55c5521c10accacc','DATA1':'5795b2bb48b6bfd5018e8213912574eb277c3a319258a0e81394d24e79edd827','DATA2':'be7ca86bca9a477737d3aa7e1bca69a4f67258cd22082d3d1c8d5ab042115994','DATA3':'b2889d3cc5ef8b49774dc6bcf2e016ec8852df380bc01c6daba2080a9387f265','DATA4':'3119a07b0e95596ef2fcd06165e70e5610eabdec517e991213eb149232d2d4c0'}
           sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
           seen=set()
           for key,wanted in expected.items():
-              target=tmp/(key+'.zip');urllib.request.urlretrieve(os.environ[key],target)
-              assert sha(target)==wanted,key
+              target=tmp/'inputs'/(key+'.zip');assert sha(target)==wanted,key
               with zipfile.ZipFile(target) as z:
                   for item in z.infolist():
-                      path=Path(item.filename)
-                      assert not path.is_absolute() and not {'..','.git','.github'}&set(path.parts)
+                      p=Path(item.filename)
+                      assert not p.is_absolute() and not {'..','.git','.github'}&set(p.parts)
                       assert not stat.S_ISLNK(item.external_attr>>16) and item.filename not in seen
                       seen.add(item.filename)
                   z.extractall(stage)
@@ -43,14 +45,12 @@ jobs:
           for name,h in source['files'].items():assert sha(stage/name)==h,name
           for name,h in data.items():assert sha(stage/name)==h,name
           for name,h in source['base_files'].items():
-              if name=='verification.json':
-                  assert subprocess.check_output(['git','hash-object',name]).decode().strip()=='87ae5de41cfef1a0f2f3896e001e7f4852407d27'
+              if name=='verification.json':assert subprocess.check_output(['git','hash-object',name]).decode().strip()=='87ae5de41cfef1a0f2f3896e001e7f4852407d27'
               else:assert (not Path(name).exists()) if h is None else sha(Path(name))==h,name
           subprocess.run(['git','diff','--exit-code',source['baseline_commit'],'HEAD','--',*source['files']],check=True)
           for name in set(source['files'])|set(data):
               p=Path(name);p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(stage/name,p)
-          Path('photo-intake.json').write_text(json.dumps({'source':source,'data':data,'archives':expected},indent=2)+'\n')
-          print('PASS: pinned candidate imported without geometry or control replacement')
+          Path('photo-intake.json').write_text(json.dumps({'source':source,'data':data,'archives':expected,'transfer_run':35266889060},indent=2)+'\n')
           PY
       - uses: actions/setup-python@v5
         with:
@@ -58,10 +58,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check topology, optical inputs, CPU-GLES parity and offline reconstruction
-        env:
-          OPENBLAS_NUM_THREADS: '1'
-          OMP_NUM_THREADS: '4'
+      - name: Check topology, optical inputs, parity and standalone reconstruction
         run: |
           python -m pip install -r tools/requirements-test.txt
           python tools/build_photographic_shaders.py
@@ -76,7 +73,7 @@ jobs:
           python tools/make_standalone.py --compact --out dist/Sandstone_Walk_Compact.html
           python tools/make_standalone.py --legacy --out build/Legacy_Recovery.html
           git diff --exit-code -- source/solid_geometry.py source/cybr-geo web/controls.js web/controls.css web/vendor .github
-      - name: Check complete moving-frame evidence and preserve candidate
+      - name: Verify moving-frame evidence and archive exact candidate
         run: |
           python - <<'PY'
           import hashlib,json,os,shutil,zipfile
@@ -131,7 +128,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Install Chromium and dependencies
+      - name: Install Chromium
         run: |
           python -m pip install -r tools/requirements-test.txt
           python -m playwright install --with-deps chromium
@@ -179,21 +176,21 @@ jobs:
           from pathlib import Path
           reports={}
           for name in ['desktop','mobile','photographic']:
-              p=Path('evidence/photographic/ci')/('photographic-'+name+'-verification')/'report.json'
-              r=json.loads(p.read_text());assert r['result']=='PASS' and not r['errors'],name
+              r=json.loads((Path('evidence/photographic/ci')/('photographic-'+name+'-verification')/'report.json').read_text())
+              assert r['result']=='PASS' and not r['errors'],name
               assert r.get('browser_runtime_verified',r.get('scene_rendering_verified')) is True,name
               reports[name]=r
           r=reports['photographic'];assert r['export']['size']==[3840,2560] and max(r['actual_texture_texel_errors'])<=1
           proof={'result':'PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_input_commit':os.environ['GITHUB_SHA'],
-              'native_bake':'Executed locally; compiled optical inputs and results hash-verified before these independent browser tests',
-              'browser_runtime_verified':True,'geometry_unchanged':True,'controls_unchanged':True,
-              'physical_phone_benchmark':False,'render_export_pixels':[3840,2560],'screen_density_test_pixels':[780,1688],
+              'native_bake':'Executed locally; compiled optical inputs and results hash-verified before independent browser tests',
+              'browser_runtime_verified':True,'geometry_unchanged':True,'controls_unchanged':True,'physical_phone_benchmark':False,
+              'render_export_pixels':[3840,2560],'screen_density_test_pixels':[780,1688],
               'texture_base':4096,'explicit_mip_levels':13,'compact_texture_base':2048,'browser_reports':{k:v['result'] for k,v in reports.items()}}
           Path('evidence/photographic/qualified_ci.json').write_text(json.dumps(proof,indent=2)+'\n')
           intake=json.loads(Path('photo-intake.json').read_text());paths=sorted(set(intake['source']['files'])|set(intake['data']))
           subprocess.run(['git','add','-f','--',*paths,'evidence/photographic'],check=True)
           names=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
-          skip={'SHA256SUMS.json','.github/workflows/photographic-intake.yml','.github/workflows/photographic-qualify.yml'}
+          skip={'SHA256SUMS.json','.github/workflows/photographic-intake.yml','.github/workflows/photographic-qualify.yml','.github/workflows/photo-transfer-check.yml'}
           hashes={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in sorted(names) if n and n not in skip and Path(n).is_file()}
           Path('SHA256SUMS.json').write_text(json.dumps(hashes,indent=2)+'\n');subprocess.run(['git','add','SHA256SUMS.json'],check=True)
           PY
@@ -210,7 +207,7 @@ jobs:
         run: |
           python tools/make_standalone.py
           python tools/make_standalone.py --compact --out dist/Sandstone_Walk_Compact.html
-          git archive --format=zip HEAD -- . ':!.github/workflows/photographic-intake.yml' ':!.github/workflows/photographic-qualify.yml' > dist/Sandstone_Walk_Project.zip
+          git archive --format=zip HEAD -- . ':!.github/workflows/photographic-intake.yml' ':!.github/workflows/photographic-qualify.yml' ':!.github/workflows/photo-transfer-check.yml' > dist/Sandstone_Walk_Project.zip
           sha256sum dist/*.html dist/*.zip > dist/SHA256SUMS.txt
           gh release create v0.5.0 --target "$QUALIFIED_COMMIT" --title 'Sandstone Walk 0.5.0 — Photographic 4K surfaces' --notes-file docs/RELEASE_NOTES.md --latest
           gh release upload v0.5.0 dist/Sandstone_Walk_Standalone.html dist/Sandstone_Walk_Compact.html dist/Sandstone_Walk_Project.zip dist/Sandstone_Walk_Standalone.json dist/Sandstone_Walk_Compact.json dist/SHA256SUMS.txt
