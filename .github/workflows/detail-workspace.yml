@@ -1,0 +1,71 @@
+name: Prepare surface-detail workspace
+on:
+  push:
+    branches: [feat/scanned-surface-detail]
+    paths: [.github/workflows/detail-workspace.yml]
+permissions:
+  contents: read
+jobs:
+  workspace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download original CC0 photographic material sets
+        run: |
+          python - <<'PY'
+          import hashlib,json,urllib.request,time
+          from pathlib import Path
+          root=Path('detail_sources');root.mkdir()
+          receipt={'license':'CC0-1.0','provider':'Poly Haven','license_url':'https://polyhaven.com/license','assets':{}}
+          for asset in ['rock_face_03','sandy_gravel']:
+              folder=root/asset;folder.mkdir()
+              req=urllib.request.Request('https://api.polyhaven.com/files/'+asset,headers={'User-Agent':'SandstoneWalk/0.5 asset acquisition'})
+              with urllib.request.urlopen(req,timeout=60) as r:files=json.load(r)
+              (folder/'files.json').write_text(json.dumps(files,indent=2))
+              maps={}
+              for role in ['diff','nor_gl','rough','disp','ao']:
+                  options=files[role]['4k'];ext='png' if role=='disp' and 'png' in options else 'jpg'
+                  record=options[ext];url=record['url']
+                  assert url.startswith(('https://dl.polyhaven.org/','https://dl.polyhaven.com/'))
+                  p=folder/(role+'.'+ext)
+                  for attempt in range(3):
+                      try:
+                          with urllib.request.urlopen(url,timeout=120) as r:p.write_bytes(r.read())
+                          break
+                      except Exception:
+                          if attempt==2:raise
+                          time.sleep(2)
+                  maps[role]={'url':url,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'path':str(p)}
+              receipt['assets'][asset]={'url':'https://polyhaven.com/a/'+asset,'resolution':'4k','maps':maps}
+          (root/'provenance.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          PY
+      - name: Package source plus only the currently referenced scene assets
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,zipfile
+          from pathlib import Path
+          entries=set()
+          for folder in ['source','tools','web','detail_sources']:
+              for p in Path(folder).rglob('*'):
+                  if p.is_file() and not (folder=='web' and 'assets' in p.parts):entries.add(p)
+          def refs(obj):
+              if isinstance(obj,dict):
+                  if isinstance(obj.get('url'),str) and obj['url'].startswith('web/assets/'):entries.add(Path(obj['url']))
+                  for v in obj.values():refs(v)
+              elif isinstance(obj,list):
+                  for v in obj:refs(v)
+          refs(json.loads(Path('web/scene.json').read_text()))
+          for name in ['index.html','README.md','LICENSE','package.json','verification.json']:
+              if Path(name).exists():entries.add(Path(name))
+          out=Path(os.environ['RUNNER_TEMP'])/'detail-workspace.zip'
+          with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=1) as z:
+              for p in sorted(entries):z.write(p,p.as_posix())
+          print('WORKSPACE',out.stat().st_size,hashlib.sha256(out.read_bytes()).hexdigest())
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: surface-detail-workspace
+          path: ${{ runner.temp }}/detail-workspace.zip
+          compression-level: 0
+          retention-days: 3
