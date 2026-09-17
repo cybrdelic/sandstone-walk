@@ -1,0 +1,19 @@
+name: Check photographic transfer
+on:
+  push:
+    branches: [feat/photographic-surfaces]
+    paths: [.github/workflows/photo-transfer-check.yml]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -L -sS 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-0ec0-81f5-96f8-a75d1d62b2e3/raw?se=2026-09-17T19%3A41%3A54Z&sp=r&sv=2026-02-06&sr=b&scid=e69aa6ad-1682-5127-ac9a-3322e5faad0c&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T18%3A01%3A53Z&ske=2026-09-18T18%3A01%3A53Z&sks=b&skv=2026-02-06&sig=xpIovU5xN4DwGd5PaVd9M4I%2BDG%2BoTpUysQBSXkFzGFI%3D' -o /tmp/transfer
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path('/tmp/transfer');print('bytes',p.stat().st_size);print('sha256',hashlib.sha256(p.read_bytes()).hexdigest())
+          if p.read_bytes()[:2]!=b'PK':print(p.read_text(errors='replace')[:2048])
+          PY
