@@ -28,23 +28,31 @@ For a single-file offline copy, download the standalone HTML from [Releases](../
 python tools/make_standalone.py
 ```
 
-This writes `dist/Sandstone_Walk_Standalone.html` and verifies that it is byte-identical to the preserved recovery delivery. It is approximately 124.4 MB. The split web version avoids placing that oversized HTML in Git and loads the same geometry, bake and shaders.
+This writes `dist/Sandstone_Walk_Standalone.html` with the **current web UI, mobile controller and orbit mode**, plus a SHA-256 receipt. It checks every asset hash before embedding the unchanged bake and geometry. The approximately 124 MB file has no runtime CDN dependency. `python tools/make_standalone.py --legacy --out dist/Legacy_Recovery.html` remains available to reconstruct the original recovery byte-for-byte; it intentionally does not include the new controls.
 
-### Controls
+### Mobile and orbit controls
 
-| Action | Input |
-| --- | --- |
-| Look around | Drag |
-| Move | WASD or arrow keys; on-screen arrows for touch |
-| Move vertically | Q / E |
-| Faster movement | Left Shift |
-| Step forward or backward | Mouse wheel |
-| Reset the camera | R or **Reference view** |
-| Follow the canyon route | **Walk through** |
-| Inspect lighting | Full, direct, indirect, normals or sun visibility |
-| Adjust display | Exposure, pixel resolution and interface toggle |
+[Mobile controls test](evidence/mobile_controls_ci/report.json) · [Portrait screenshot](evidence/mobile_controls_ci/mobile_walk.png) · [Orbit screenshot](evidence/mobile_controls_ci/mobile_orbit.png) · [Landscape screenshot](evidence/mobile_controls_ci/landscape_orbit.png)
 
-Movement is a free-camera inspection controller. It does not perform collision detection. The resolution selector changes pixel shading cost, not mesh density. All source triangles are retained, so GPU memory and performance requirements are substantial; no mobile or frame-rate guarantee is made.
+Use **Walk** for the canyon interior and **Orbit** to inspect the entire formation. Switching back to Walk restores your previous walking position and direction. **Reference** returns to the authored camera; **Fit canyon** reframes the complete mesh in orbit mode.
+
+| Action | Touch | Mouse / keyboard |
+| --- | --- | --- |
+| Walk and strafe | Left thumbstick (analog speed and dead zone) | WASD / arrows |
+| Look while walking | Drag the scene with the other finger | Left drag |
+| Change height | Hold − / + on the right | Q / E |
+| Faster movement | Move faster toggle | Either Shift key |
+| Orbit the scene | One-finger drag | Left drag |
+| Orbit zoom | Pinch; + / − buttons | Wheel |
+| Orbit pan | Two-finger drag | Right/middle drag, Shift-drag, or WASD |
+| Switch navigation | Walk / Orbit buttons | O |
+| Reframe orbit | Fit canyon | F |
+| Reference camera | Reference | R |
+| Automatic route | Settings → Walk through | Walk through |
+
+The thumbstick and look gestures work **simultaneously**. Releasing, cancelling or losing pointer capture, switching modes, resizing, hiding the page or losing focus clears held movement. Orbit gestures remain continuous when a finger is added or lifted. Settings use a compact mobile drawer; controls respect safe-area insets and support portrait and landscape. The portrait walking field of view is capped at 75° vertically instead of stretching the original horizontal field into a fisheye-like view. The original reference camera projection at desktop aspect ratios is retained.
+
+Movement remains **free-camera inspection, not a collision/ground-following character controller**. Geometry and lighting are unchanged. The resolution selector changes pixel shading cost, not mesh density. All 8.1M triangles still load: improved touch controls do not imply lower GPU-memory requirements or a mobile frame-rate guarantee.
 
 ## Lighting and geometry
 
@@ -85,6 +93,7 @@ python -m pip install -r source/requirements.txt
 python tools/verify.py
 node --check web/app.js
 node --check web/bootstrap.js
+node --check web/controls.js
 ```
 
 To regenerate the native geometry and lighting on Linux or WSL, use GCC with C++17 and OpenMP support:
@@ -110,6 +119,7 @@ A real browser test is also supplied:
 python -m pip install -r tools/requirements-test.txt
 python -m playwright install chromium
 python tools/browser_smoke.py
+python tools/mobile_controls_smoke.py
 ```
 
 Set `CHROMIUM_PATH` to use a system Chromium executable. The test exercises startup, geometry totals, rendered output, camera movement, reset and lighting-mode switching. It fails rather than silently substituting a static screenshot.

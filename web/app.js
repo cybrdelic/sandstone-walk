@@ -91,30 +91,26 @@
   const skyMat=new THREE.RawShaderMaterial({glslVersion:THREE.GLSL3,vertexShader:SKY_VERTEX,fragmentShader:SKY_FRAGMENT,uniforms:skyUniforms,depthTest:false,depthWrite:false,toneMapped:false});
   const skyGeom=new THREE.BufferGeometry();skyGeom.setAttribute('position',new THREE.Float32BufferAttribute([-1,-1,0,3,-1,0,-1,3,0],3));
   const skyScene=new THREE.Scene(),skyMesh=new THREE.Mesh(skyGeom,skyMat);skyMesh.frustumCulled=false;skyScene.add(skyMesh);
-  const keys=new Set();let yaw=0,pitch=0,autoWalk=false,walkY=-5.8,dragging=false,lastX=0,lastY=0,renderScale=1;
-  const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
-  function center(y){let t=clamp((y-17)/13,0,1);return .4*Math.sin(y*.21)+1.35*Math.exp(-Math.pow((y-18)/6.8,2))-.9*Math.exp(-Math.pow((y-30)/4.8,2))+6.2*t*t*(3-2*t);}
-  function look(){const c=Math.cos(pitch);camera.lookAt(camera.position.x+Math.sin(yaw)*c,camera.position.y+Math.cos(yaw)*c,camera.position.z+Math.sin(pitch));}
-  function aim(target){const d=new THREE.Vector3(...target).sub(camera.position).normalize();yaw=Math.atan2(d.x,d.y);pitch=Math.asin(clamp(d.z,-1,1));look();}
-  function reset(){autoWalk=false;keys.clear();$('walk').setAttribute('aria-pressed','false');camera.position.fromArray(B.meta.camera);aim(B.meta.target);walkY=-5.8;}
-  function resize(){const w=Math.max(1,innerWidth),h=Math.max(1,innerHeight);renderer.setPixelRatio(renderScale);renderer.setSize(w,h,false);camera.aspect=w/h;camera.fov=2*Math.atan(Math.tan(B.meta.horizontalFov*Math.PI/360)/camera.aspect)*180/Math.PI;camera.updateProjectionMatrix();}
-  canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;canvas.setPointerCapture(e.pointerId);autoWalk=false;$('walk').setAttribute('aria-pressed','false');});
-  canvas.addEventListener('pointermove',e=>{if(!dragging)return;yaw+=(e.clientX-lastX)*.003;pitch=clamp(pitch-(e.clientY-lastY)*.003,-1.46,1.46);lastX=e.clientX;lastY=e.clientY;look();});
-  const stopDrag=()=>{dragging=false;};canvas.addEventListener('pointerup',stopDrag);canvas.addEventListener('pointercancel',stopDrag);
-  canvas.addEventListener('wheel',e=>{e.preventDefault();const d=new THREE.Vector3(Math.sin(yaw),Math.cos(yaw),0);camera.position.addScaledVector(d,-Math.sign(e.deltaY)*.3);look();},{passive:false});
-  addEventListener('keydown',e=>{if(['INPUT','SELECT','BUTTON'].includes(document.activeElement?.tagName))return;if(['KeyW','KeyA','KeyS','KeyD','KeyQ','KeyE','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','ShiftLeft'].includes(e.code)){e.preventDefault();keys.add(e.code);}if(e.code==='KeyR')reset();});
-  addEventListener('keyup',e=>keys.delete(e.code));addEventListener('blur',()=>{keys.clear();dragging=false;});
-  for(const button of document.querySelectorAll('[data-move]')){
-   button.addEventListener('pointerdown',e=>{e.preventDefault();button.setPointerCapture(e.pointerId);keys.add(button.dataset.move);});
-   for(const type of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(type,()=>keys.delete(button.dataset.move));
+  let renderScale=1,controls=null;
+  function resize(){
+   const w=Math.max(1,innerWidth),h=Math.max(1,innerHeight);
+   renderer.setPixelRatio(renderScale);renderer.setSize(w,h,false);camera.aspect=w/h;
+   const nativeFov=2*Math.atan(Math.tan(B.meta.horizontalFov*Math.PI/360)/camera.aspect)*180/Math.PI;
+   camera.fov=controls?.mode==='orbit'?55:Math.min(75,nativeFov);camera.updateProjectionMatrix();
   }
-  $('reset').onclick=reset;
-  $('walk').onclick=()=>{autoWalk=!autoWalk;walkY=clamp(camera.position.y,-5.8,27.8);$('walk').setAttribute('aria-pressed',String(autoWalk));};
+  const bounds=new THREE.Box3().setFromObject(scene);
+  controls=new SandstoneControls({camera,canvas,bounds,reference:B.meta,onModeChange:()=>resize()});
   $('mode').onchange=e=>{uniforms.uMode.value=Number(e.target.value);};
   $('exposure').oninput=e=>{uniforms.uExposure.value=Number(e.target.value);$('ev').textContent=uniforms.uExposure.value.toFixed(2);};
   $('resolution').onchange=e=>{renderScale=Number(e.target.value);resize();};
-  $('hide').onclick=()=>{$('hud').classList.toggle('compact');};
-  addEventListener('resize',resize);reset();resize();
+  $('hide').textContent=controls.touch?'Settings':'Interface';
+  $('hide').setAttribute('aria-expanded','false');
+  $('hide').onclick=()=>{
+   controls.clearInput();
+   if(controls.touch){const open=document.body.classList.toggle('settings-open');if(open)controls.stopTour();$('hide').setAttribute('aria-expanded',String(open));}
+   else $('hud').classList.toggle('compact');
+  };
+  addEventListener('resize',resize);resize();
   camera.updateMatrixWorld(true);uniforms.uVP.value.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);skyUniforms.uInvVP.value.copy(uniforms.uVP.value).invert();
   renderer.compile(scene,camera);renderer.compile(skyScene,camera);
   if(failure)throw failure;
@@ -123,20 +119,14 @@
   function frame(now){
    if(failure)return;
    const dt=Math.min(.05,(now-last)/1000);last=now;
-   if(keys.size){
-    autoWalk=false;$('walk').setAttribute('aria-pressed','false');
-    let f=(keys.has('KeyW')||keys.has('ArrowUp')?1:0)-(keys.has('KeyS')||keys.has('ArrowDown')?1:0);
-    let r=(keys.has('KeyD')||keys.has('ArrowRight')?1:0)-(keys.has('KeyA')||keys.has('ArrowLeft')?1:0),z=(keys.has('KeyE')?1:0)-(keys.has('KeyQ')?1:0);
-    const norm=Math.hypot(f,r,z)||1,speed=dt*(keys.has('ShiftLeft')?5:1.8)/norm;
-    camera.position.x+=(Math.sin(yaw)*f+Math.cos(yaw)*r)*speed;camera.position.y+=(Math.cos(yaw)*f-Math.sin(yaw)*r)*speed;camera.position.z+=z*speed;look();
-   }else if(autoWalk){walkY+=dt*.6;if(walkY>=28){walkY=28;autoWalk=false;$('walk').setAttribute('aria-pressed','false');}camera.position.set(center(walkY)-.15,walkY,1.56+.012*(walkY+5.8));aim([center(walkY+5),walkY+5,2.3+.012*(walkY+5.8)]);}
+   controls.update(dt);
    camera.updateMatrixWorld(true);uniforms.uVP.value.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);skyUniforms.uInvVP.value.copy(uniforms.uVP.value).invert();
    renderer.clear();renderer.render(skyScene,camera);renderer.render(scene,camera);
    frames++;if(now-mark>1000){$('stats').textContent=`${Math.round(frames*1000/(now-mark))} fps · ${triangles.toLocaleString()} source triangles`;frames=0;mark=now;}
    requestAnimationFrame(frame);
   }
   // Read-only inspection hook plus explicit test controls; no screenshots supply lighting.
-  window.CYBR_RECOVERY={renderer,scene,camera,material,meta:B.meta,setReference:reset,setMode:value=>{uniforms.uMode.value=Number(value);},setPose:(eye,target)=>{autoWalk=false;camera.position.fromArray(eye);aim(target);},geometry};
+  window.CYBR_RECOVERY={renderer,scene,camera,material,meta:B.meta,controls,setReference:()=>controls.setReference(),setMode:value=>{uniforms.uMode.value=Number(value);$('mode').value=String(value);},setPose:(eye,target)=>controls.setPose(eye,target),setNavigationMode:mode=>controls.setNavigationMode(mode),geometry};
   requestAnimationFrame(frame);
  }catch(error){fail(error);}
 })();

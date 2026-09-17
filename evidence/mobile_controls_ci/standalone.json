@@ -1,0 +1,9 @@
+{
+  "schema": "sandstone-walk-standalone/2",
+  "bytes": 124458661,
+  "sha256": "7aca14323d939083256dadb27f815804efb091df96a53fcd8a94814e640f6729",
+  "current_web_app_embedded": true,
+  "mobile_and_orbit_controls_embedded": true,
+  "all_asset_hashes_verified": true,
+  "legacy_html_identity_expected": false
+}

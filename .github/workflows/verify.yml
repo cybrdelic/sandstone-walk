@@ -9,7 +9,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,12 +24,16 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Check immutable scene buffers and shader identity
         run: |
+          python tools/check_manifest.py
           python tools/verify.py
           node --check web/app.js
           node --check web/bootstrap.js
+          node --check web/controls.js
           python tools/make_standalone.py
       - name: Run real Three.js browser test
         run: python tools/browser_smoke.py
+      - name: Test mobile multi-touch and orbit controls
+        run: python tools/mobile_controls_smoke.py
       - name: Preserve validation and browser evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -38,4 +42,6 @@ jobs:
           path: |
             build/validation.json
             build/browser/
+            build/mobile/
+            dist/Sandstone_Walk_Standalone.json
           if-no-files-found: error
