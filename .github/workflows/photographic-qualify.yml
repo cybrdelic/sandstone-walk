@@ -7,9 +7,13 @@ permissions:
   contents: read
   actions: read
 jobs:
-  prepare:
+  verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [numeric, desktop, mobile, photographic]
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '4'
@@ -23,116 +27,43 @@ jobs:
           run-id: 35266889060
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/inputs
-      - name: Verify archives, baseline and every imported file
-        run: |
-          python - <<'PY'
-          import hashlib,json,os,stat,subprocess,zipfile,shutil
-          from pathlib import Path
-          tmp=Path(os.environ['RUNNER_TEMP']);stage=tmp/'photo-source';stage.mkdir()
-          expected={'SOURCE':'ec936167d15f81d9aa60f5a468db22b36ec0f8178535a7eb55c5521c10accacc','DATA1':'5795b2bb48b6bfd5018e8213912574eb277c3a319258a0e81394d24e79edd827','DATA2':'be7ca86bca9a477737d3aa7e1bca69a4f67258cd22082d3d1c8d5ab042115994','DATA3':'b2889d3cc5ef8b49774dc6bcf2e016ec8852df380bc01c6daba2080a9387f265','DATA4':'3119a07b0e95596ef2fcd06165e70e5610eabdec517e991213eb149232d2d4c0'}
-          sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-          seen=set()
-          for key,wanted in expected.items():
-              target=tmp/'inputs'/(key+'.zip');assert sha(target)==wanted,key
-              with zipfile.ZipFile(target) as z:
-                  for item in z.infolist():
-                      p=Path(item.filename)
-                      assert not p.is_absolute() and not {'..','.git','.github'}&set(p.parts)
-                      assert not stat.S_ISLNK(item.external_attr>>16) and item.filename not in seen
-                      seen.add(item.filename)
-                  z.extractall(stage)
-          source=json.loads((stage/'PHOTO_SOURCE_MANIFEST.json').read_text());data=json.loads((stage/'PHOTO_DATA_MANIFEST.json').read_text())
-          for name,h in source['files'].items():assert sha(stage/name)==h,name
-          for name,h in data.items():assert sha(stage/name)==h,name
-          for name,h in source['base_files'].items():
-              if name=='verification.json':assert subprocess.check_output(['git','hash-object',name]).decode().strip()=='87ae5de41cfef1a0f2f3896e001e7f4852407d27'
-              else:assert (not Path(name).exists()) if h is None else sha(Path(name))==h,name
-          subprocess.run(['git','diff','--exit-code',source['baseline_commit'],'HEAD','--',*source['files']],check=True)
-          for name in set(source['files'])|set(data):
-              p=Path(name);p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(stage/name,p)
-          Path('photo-intake.json').write_text(json.dumps({'source':source,'data':data,'archives':expected,'transfer_run':35266889060},indent=2)+'\n')
-          PY
+      - name: Restore checksum-verified candidate
+        run: python tools/restore_photographic_candidate.py "$RUNNER_TEMP/inputs"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check topology, optical inputs, parity and standalone reconstruction
+      - name: Install dependencies
+        run: python -m pip install -r tools/requirements-test.txt
+      - name: Install Mesa EGL and GLES for native parity
+        if: matrix.suite == 'numeric'
         run: |
-          python -m pip install -r tools/requirements-test.txt
+          sudo apt-get update -qq
+          sudo apt-get install -y libegl1 libgles2 libgl1-mesa-dri
+      - name: Confirm coherent shaders and immutable scene
+        run: |
           python tools/build_photographic_shaders.py
+          node --check web/app.js
+          node --check web/photographic.js
+          node --check web/controls.js
+          git diff --exit-code -- source/solid_geometry.py source/cybr-geo web/controls.js web/controls.css web/vendor .github
+      - name: Run geometry, texture and native material tests
+        if: matrix.suite == 'numeric'
+        run: |
           python tools/verify.py
           python tools/verify_photographic.py
           python tools/prepare_native_photographic.py
           python tools/test_photographic_field.py
-          node --check web/app.js
-          node --check web/photographic.js
-          node --check web/bootstrap.js
           python tools/make_standalone.py
           python tools/make_standalone.py --compact --out dist/Sandstone_Walk_Compact.html
           python tools/make_standalone.py --legacy --out build/Legacy_Recovery.html
-          git diff --exit-code -- source/solid_geometry.py source/cybr-geo web/controls.js web/controls.css web/vendor .github
-      - name: Verify moving-frame evidence and archive exact candidate
-        run: |
-          python - <<'PY'
-          import hashlib,json,os,shutil,zipfile
-          from pathlib import Path
-          m=json.loads(Path('evidence/photographic/film.json').read_text())
-          assert len(m['frames'])==96 and len({f['sha256'] for f in m['frames']})==96 and m['gif_unique_frames']==48
-          for p,h in m['files'].items():assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==h
-          for p,h in m['shader_hashes'].items():assert hashlib.sha256((Path('web')/p).read_bytes()).hexdigest()==h
-          shutil.copyfile('build/photographic_field/report.json','evidence/photographic/ci_native_glsl_parity.json')
-          shutil.copyfile('dist/Sandstone_Walk_Standalone.json','evidence/photographic/standalone.json')
-          shutil.copyfile('dist/Sandstone_Walk_Compact.json','evidence/photographic/compact.json')
-          dst=Path(os.environ['RUNNER_TEMP'])/'photographic-candidate.zip'
-          with zipfile.ZipFile(dst,'w',zipfile.ZIP_DEFLATED,compresslevel=1) as z:
-              for p in Path('.').rglob('*'):
-                  if not p.is_file() or p.parts[0] in ['.git','build','dist'] or '__pycache__' in p.parts:continue
-                  z.write(p,p.as_posix())
-          (dst.parent/'photographic-candidate.sha256').write_text(hashlib.sha256(dst.read_bytes()).hexdigest()+'  photographic-candidate.zip\n')
-          PY
-      - uses: actions/upload-artifact@v4
-        with:
-          name: photographic-candidate
-          compression-level: 0
-          retention-days: 3
-          path: |
-            ${{ runner.temp }}/photographic-candidate.zip
-            ${{ runner.temp }}/photographic-candidate.sha256
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: photographic-numeric-verification
-          path: |
-            build/validation.json
-            build/photographic_field/report.json
-            evidence/photographic/texture_integrity.json
-  browser:
-    needs: prepare
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        suite: [desktop, mobile, photographic]
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: photographic-candidate
-          path: ${{ runner.temp }}/candidate
-      - name: Restore candidate bytes
-        run: |
-          cd "$RUNNER_TEMP/candidate" && sha256sum --check photographic-candidate.sha256
-          python -m zipfile -e "$RUNNER_TEMP/candidate/photographic-candidate.zip" "$GITHUB_WORKSPACE"
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
       - name: Install Chromium
-        run: |
-          python -m pip install -r tools/requirements-test.txt
-          python -m playwright install --with-deps chromium
-      - name: Exercise actual Three.js renderer
+        if: matrix.suite != 'numeric'
+        run: python -m playwright install --with-deps chromium
+      - name: Exercise actual renderer and controls
+        if: matrix.suite != 'numeric'
         env:
           SUITE: ${{ matrix.suite }}
         run: |
@@ -143,71 +74,10 @@ jobs:
         if: always()
         with:
           name: photographic-${{ matrix.suite }}-verification
-          path: build/result/
+          path: |
+            build/result/
+            build/validation.json
+            build/photographic_field/report.json
+            evidence/photographic/texture_integrity.json
+            dist/*.json
           if-no-files-found: warn
-  publish:
-    needs: [prepare, browser]
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      contents: write
-      actions: read
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          name: photographic-candidate
-          path: ${{ runner.temp }}/candidate
-      - name: Restore tested candidate
-        run: |
-          cd "$RUNNER_TEMP/candidate" && sha256sum --check photographic-candidate.sha256
-          python -m zipfile -e "$RUNNER_TEMP/candidate/photographic-candidate.zip" "$GITHUB_WORKSPACE"
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: photographic-*-verification
-          path: evidence/photographic/ci
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-      - name: Verify browser outcomes and commit only tested files
-        run: |
-          python - <<'PY'
-          import hashlib,json,os,subprocess
-          from pathlib import Path
-          reports={}
-          for name in ['desktop','mobile','photographic']:
-              r=json.loads((Path('evidence/photographic/ci')/('photographic-'+name+'-verification')/'report.json').read_text())
-              assert r['result']=='PASS' and not r['errors'],name
-              assert r.get('browser_runtime_verified',r.get('scene_rendering_verified')) is True,name
-              reports[name]=r
-          r=reports['photographic'];assert r['export']['size']==[3840,2560] and max(r['actual_texture_texel_errors'])<=1
-          proof={'result':'PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_input_commit':os.environ['GITHUB_SHA'],
-              'native_bake':'Executed locally; compiled optical inputs and results hash-verified before independent browser tests',
-              'browser_runtime_verified':True,'geometry_unchanged':True,'controls_unchanged':True,'physical_phone_benchmark':False,
-              'render_export_pixels':[3840,2560],'screen_density_test_pixels':[780,1688],
-              'texture_base':4096,'explicit_mip_levels':13,'compact_texture_base':2048,'browser_reports':{k:v['result'] for k,v in reports.items()}}
-          Path('evidence/photographic/qualified_ci.json').write_text(json.dumps(proof,indent=2)+'\n')
-          intake=json.loads(Path('photo-intake.json').read_text());paths=sorted(set(intake['source']['files'])|set(intake['data']))
-          subprocess.run(['git','add','-f','--',*paths,'evidence/photographic'],check=True)
-          names=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
-          skip={'SHA256SUMS.json','.github/workflows/photographic-intake.yml','.github/workflows/photographic-qualify.yml','.github/workflows/photo-transfer-check.yml'}
-          hashes={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in sorted(names) if n and n not in skip and Path(n).is_file()}
-          Path('SHA256SUMS.json').write_text(json.dumps(hashes,indent=2)+'\n');subprocess.run(['git','add','SHA256SUMS.json'],check=True)
-          PY
-          python tools/check_manifest.py
-          git diff --cached --exit-code -- source/solid_geometry.py source/cybr-geo web/controls.js web/controls.css web/vendor .github
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Add verified photographic 4K surfaces, explicit mips, native DPR, fresh spectral bake and full-mesh sun detail'
-          git push origin HEAD:feat/photographic-surfaces
-          echo "QUALIFIED_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
-      - name: Publish current full and compact downloads
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          python tools/make_standalone.py
-          python tools/make_standalone.py --compact --out dist/Sandstone_Walk_Compact.html
-          git archive --format=zip HEAD -- . ':!.github/workflows/photographic-intake.yml' ':!.github/workflows/photographic-qualify.yml' ':!.github/workflows/photo-transfer-check.yml' > dist/Sandstone_Walk_Project.zip
-          sha256sum dist/*.html dist/*.zip > dist/SHA256SUMS.txt
-          gh release create v0.5.0 --target "$QUALIFIED_COMMIT" --title 'Sandstone Walk 0.5.0 — Photographic 4K surfaces' --notes-file docs/RELEASE_NOTES.md --latest
-          gh release upload v0.5.0 dist/Sandstone_Walk_Standalone.html dist/Sandstone_Walk_Compact.html dist/Sandstone_Walk_Project.zip dist/Sandstone_Walk_Standalone.json dist/Sandstone_Walk_Compact.json dist/SHA256SUMS.txt
