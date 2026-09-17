@@ -1,0 +1,160 @@
+name: Rebuild and qualify material mapping
+on:
+  push:
+    branches: [fix/surface-mapping]
+    paths: [.github/workflows/material-integrate.yml]
+permissions:
+  contents: write
+jobs:
+  material:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch checksum-pinned material source
+        env:
+          SOURCE_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-1aac-81f5-96ca-eab7e7a823ec/raw?se=2026-09-17T17%3A19%3A29Z&sp=r&sv=2026-02-06&sr=b&scid=bea56749-2e7c-5ef3-a7f2-07aac654d590&skoid=2757bbe4-5137-4324-975b-acedc0bad279&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-17T14%3A22%3A16Z&ske=2026-09-18T14%3A22%3A16Z&sks=b&skv=2026-02-06&sig=XJCXF3VYaQPkgIBdLYtja5uleVYSF9jMKGb4oqVH/qI%3D'
+        run: |
+          curl --fail --location --retry 2 --silent --show-error "$SOURCE_URL" -o "$RUNNER_TEMP/material-source.zip"
+          echo "aa79cc9978172c69e482f831354b710ccfac01c05f604082fb95fdd2e294eef5  $RUNNER_TEMP/material-source.zip" | sha256sum --check
+          python - <<'PY'
+          import hashlib,json,os,stat,zipfile
+          from pathlib import Path
+          stage=Path(os.environ['RUNNER_TEMP'])/'material-stage';stage.mkdir()
+          with zipfile.ZipFile(Path(os.environ['RUNNER_TEMP'])/'material-source.zip') as z:
+              entries=z.infolist()
+              assert len({e.filename for e in entries})==len(entries)
+              for e in entries:
+                  p=Path(e.filename)
+                  assert not p.is_absolute() and not {'..','.git','.github'}&set(p.parts)
+                  assert not stat.S_ISLNK(e.external_attr>>16)
+              z.extractall(stage)
+          data=json.loads((stage/'MATERIAL_SOURCE_MANIFEST.json').read_text())
+          sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+          for name,digest in data['source_files'].items():assert sha(stage/name)==digest,name
+          for name,digest in data['base_files'].items():
+              p=Path(name)
+              assert (not p.exists()) if digest is None else sha(p)==digest,name
+          print('Source and baseline fingerprints match')
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned build and browser dependencies
+        run: |
+          python -m pip install -r source/requirements-solid.txt -r tools/requirements-test.txt
+          python -m playwright install --with-deps chromium
+      - name: Capture the old material before modifying the app or its assets
+        run: |
+          cp "$RUNNER_TEMP/material-stage/tools/test_solid_browser.py" tools/test_solid_browser.py
+          python tools/test_solid_browser.py --materials-baseline --out evidence/materials/before_browser
+      - name: Apply only the verified material source
+        run: |
+          python - <<'PY'
+          import json,os,shutil
+          from pathlib import Path
+          stage=Path(os.environ['RUNNER_TEMP'])/'material-stage'
+          data=json.loads((stage/'MATERIAL_SOURCE_MANIFEST.json').read_text())
+          for name in data['source_files']:
+              p=Path(name);p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(stage/name,p)
+          Path('evidence/materials/source_intake.json').write_text(json.dumps(data,indent=2)+'\n')
+          PY
+          git diff --exit-code -- source/solid_geometry.py source/cybr-geo web/controls.js web/controls.css web/vendor media .github
+      - name: Require native and WebGL material parity before rebaking
+        run: python tools/test_material_field.py
+      - name: Rebuild identical geometry and execute fresh native spectral bake
+        run: |
+          python source/rebuild_materials.py --work build/material-work --spp 256 --depth 10 --threads 4
+          python source/package_materials.py --work build/material-work
+          python tools/build_material_shaders.py
+      - name: Check full topology, attributes, current standalone and legacy reconstruction
+        run: |
+          python tools/verify.py
+          node --check web/app.js
+          node --check web/bootstrap.js
+          node --check web/controls.js
+          python tools/make_standalone.py
+          python tools/make_standalone.py --legacy --out build/Legacy_Recovery.html
+      - name: Preserve existing desktop and mobile behavior
+        run: |
+          python tools/browser_smoke.py
+          python tools/mobile_controls_smoke.py
+      - name: Capture current wall, ground, rock and orbit material diagnostics
+        run: python tools/test_solid_browser.py --materials --out evidence/materials/browser_ci
+      - name: Verify and commit the qualified source, generated bake and comparisons
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,shutil,subprocess
+          from pathlib import Path
+          mat=json.loads(Path('build/material-field/report.json').read_text())
+          desktop=json.loads(Path('build/browser/report.json').read_text())
+          mobile=json.loads(Path('build/mobile/report.json').read_text())
+          after=json.loads(Path('evidence/materials/browser_ci/report.json').read_text())
+          before=json.loads(Path('evidence/materials/before_browser/report.json').read_text())
+          assert mat['result']=='PASS' and not mat['errors']
+          assert desktop['result']=='PASS' and desktop['browser_runtime_verified'] and not desktop['errors']
+          assert mobile['result']=='PASS' and mobile['scene_rendering_verified'] and not mobile['errors']
+          assert after['result']=='PASS' and after['browser_runtime_verified'] and not after['errors']
+          assert before['result']=='PASS' and before['browser_runtime_verified'] and not before['errors']
+          assert after['source_mesh_sha256']==before['source_mesh_sha256']=='7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79'
+          assert after['material_field_sha256']==mat['material_field_sha256']
+          assert len(after['captures'])==18 and len(before['captures'])==10
+          for entry in after['captures'].values():assert entry['gl_error']==0 and entry['triangles_drawn']==5029800
+          out=Path('evidence/materials')
+          shutil.copyfile('build/material-field/report.json',out/'material_field_webgl.json')
+          shutil.copyfile('build/browser/report.json',out/'desktop_report.json')
+          shutil.copyfile('build/mobile/report.json',out/'mobile_report.json')
+          shutil.copyfile('dist/Sandstone_Walk_Standalone.json',out/'standalone.json')
+          (out/'qualified_ci.json').write_text(json.dumps({'result':'PASS','run_id':os.environ['GITHUB_RUN_ID'],
+              'input_commit':os.environ['GITHUB_SHA'],'source_mesh_sha256':after['source_mesh_sha256'],
+              'material_field_sha256':mat['material_field_sha256'],
+              'native_spectral_bake_executed_in_this_run':True,'browser_runtime_verified':True,
+              'physical_phone_benchmark':False,'before_after_camera_poses_preserved':True},indent=2)+'\n')
+          v=json.loads(Path('verification.json').read_text());v['browser_runtime_verified']=True
+          Path('verification.json').write_text(json.dumps(v,indent=2)+'\n')
+          stage=Path(os.environ['RUNNER_TEMP'])/'material-stage';data=json.loads((stage/'MATERIAL_SOURCE_MANIFEST.json').read_text())
+          paths=list(data['source_files'])+['web/assets','web/scene.json','web/bootstrap.js','web/surface.vert.glsl','web/surface.frag.glsl','verification.json','evidence/materials','evidence/solid_validation.json']
+          subprocess.run(['git','add','-f','--',*paths],check=True)
+          names=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          omit={'SHA256SUMS.json','.github/workflows/material-workspace.yml','.github/workflows/material-integrate.yml'}
+          manifest={name:hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in sorted(names) if name and name not in omit and Path(name).is_file()}
+          Path('SHA256SUMS.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          subprocess.run(['git','add','SHA256SUMS.json'],check=True)
+          PY
+          python tools/check_manifest.py
+          git diff --cached --exit-code -- source/solid_geometry.py source/cybr-geo web/controls.js web/controls.css web/vendor media .github
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Fix material stretching with metre-space fragment shading and a fresh signed spectral light-response bake'
+          git push origin HEAD:fix/surface-mapping
+          echo "QUALIFIED_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Publish v0.4.0 downloads from the qualified tree
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tools/make_standalone.py
+          git archive --format=zip HEAD -- . ':!.github/workflows/material-workspace.yml' ':!.github/workflows/material-integrate.yml' > dist/Sandstone_Walk_Project.zip
+          sha256sum dist/Sandstone_Walk_Standalone.html dist/Sandstone_Walk_Project.zip > dist/SHA256SUMS.txt
+          gh release create v0.4.0 --target "$QUALIFIED_COMMIT" --title 'Sandstone Walk 0.4.0 — World-space materials' --notes-file docs/RELEASE_NOTES.md --latest
+          gh release upload v0.4.0 dist/Sandstone_Walk_Standalone.html dist/Sandstone_Walk_Project.zip dist/Sandstone_Walk_Standalone.json dist/SHA256SUMS.txt
+      - name: Preserve complete material verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: material-mapping-verification
+          path: |
+            build/material-field/report.json
+            build/material-work/logs/
+            build/material-work/material_execution.json
+            build/browser/
+            build/mobile/
+            build/validation.json
+            evidence/materials/
+            dist/Sandstone_Walk_Standalone.json
+          if-no-files-found: warn
