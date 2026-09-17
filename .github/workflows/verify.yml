@@ -26,6 +26,11 @@ jobs:
         with:
           node-version: '22'
       - run: python -m pip install -r tools/requirements-test.txt
+      - name: Install software graphics runtime
+        if: matrix.suite == 'numeric'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libegl1 libgles2 libgl1-mesa-dri
       - name: Check manifest and shader generation
         run: |
           python tools/check_manifest.py
