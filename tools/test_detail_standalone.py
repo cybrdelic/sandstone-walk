@@ -8,7 +8,8 @@ ROOT=Path(__file__).resolve().parents[1]
 HOOK="""(()=>{const raf=requestAnimationFrame.bind(window);window.__next=null;window.requestAnimationFrame=cb=>{if(cb.name==='frame'){__next=cb;return 1}return raf(cb)};window.__step=()=>{__next(performance.now());CYBR_RECOVERY.renderer.getContext().finish();};})();"""
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,default=ROOT/'build/detail-standalone');a=ap.parse_args();a.out.mkdir(parents=True,exist_ok=True)
-    report={'result':'FAIL','errors':[],'entrypoint':'Actual standalone HTML via localhost','deliveries':[],'physical_device_benchmark':False}
+    report={'result':'FAIL','errors':[],'entrypoint':'Actual standalone HTML via localhost','deliveries':[],'physical_device_benchmark':False,
+            'capture_method':'Actual canvas PNG immediately after draw in the same JavaScript task; no screenshot substitution'}
     server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(ROOT)))
     threading.Thread(target=server.serve_forever,daemon=True).start();start=time.monotonic()
     try:
@@ -26,14 +27,18 @@ def main():
           page.goto(prefix+'dist/'+filename,wait_until='load',timeout=240000)
           page.wait_for_function('window.CYBR_RECOVERY || !document.getElementById("error").hidden',polling=100)
           assert page.evaluate('!!window.CYBR_RECOVERY'),page.locator('#error').inner_text()
-          page.evaluate('''()=>{window.__sourceDraws=[];const a=CYBR_RECOVERY,render=a.renderer.render.bind(a.renderer);a.renderer.render=(s,c)=>{render(s,c);if(s===a.scene&&!s.overrideMaterial)__sourceDraws.push(a.renderer.info.render.triangles)};a.quality.limit=2;}''')
+          page.evaluate('''()=>{window.__sourceDraws=[];const a=CYBR_RECOVERY,render=a.renderer.render.bind(a.renderer);a.renderer.render=(s,c)=>{render(s,c);if(s===a.scene&&!s.overrideMaterial)__sourceDraws.push(a.renderer.info.render.triangles)};a.quality.limit=2;a.quality.invalidate();}''')
           images=[]
           for i in range(2):
             if i:page.evaluate('CYBR_RECOVERY.setPose([.25,4.8,1.6],[1.2,16,2.6])')
-            page.evaluate('__step();__step()')
-            raw=base64.b64decode(page.evaluate('document.querySelector("canvas").toDataURL("image/png")').split(',',1)[1])
-            im=Image.open(io.BytesIO(raw)).convert('RGB');assert im.size==(960,640) and ImageStat.Stat(im.convert('L')).stddev[0]>8
-            file=a.out/f'{size}_{i}.png';file.write_bytes(raw);images.append(hashlib.sha256(raw).hexdigest())
+            page.evaluate('__step()')
+            # The app intentionally does not preserve the default framebuffer.
+            # Draw and encode together; a separate task can observe a cleared canvas.
+            raw=base64.b64decode(page.evaluate('''()=>{__step();return document.querySelector('canvas').toDataURL('image/png');}''').split(',',1)[1])
+            file=a.out/f'{size}_{i}.png';file.write_bytes(raw)
+            im=Image.open(io.BytesIO(raw)).convert('RGB');deviation=ImageStat.Stat(im.convert('L')).stddev[0]
+            assert im.size==(960,640) and deviation>8,{'size':im.size,'luminance_stddev':deviation,'image':str(file)}
+            images.append(hashlib.sha256(raw).hexdigest())
           state=page.evaluate('''()=>({maps:CYBR_RECOVERY.detail.resolution,uploaded:CYBR_RECOVERY.detail.textures.map(t=>t.userData.uploadedSize),
             triangles:CYBR_RECOVERY.geometry.reduce((n,g)=>n+g.index.count/3,0),vertices:CYBR_RECOVERY.geometry.reduce((n,g)=>n+g.attributes.position.count,0),
             observed:__sourceDraws,glError:CYBR_RECOVERY.renderer.getContext().getError(),dataNodes:!!document.getElementById('sw-scene-data')||!!document.getElementById('sw-detail-data'),
