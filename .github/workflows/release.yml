@@ -1,0 +1,33 @@
+name: Package standalone release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing version tag to publish
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Assemble exact offline viewer
+        run: python tools/make_standalone.py
+      - name: Package repository
+        run: |
+          git archive --format=zip HEAD -o dist/Sandstone_Walk_Project.zip
+      - name: Publish downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          gh release view "$RELEASE_TAG" >/dev/null 2>&1 || gh release create "$RELEASE_TAG" --title "Sandstone Walk $RELEASE_TAG" --notes-file docs/RELEASE_NOTES.md
+          gh release upload "$RELEASE_TAG" dist/Sandstone_Walk_Standalone.html dist/Sandstone_Walk_Project.zip --clobber
