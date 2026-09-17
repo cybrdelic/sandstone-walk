@@ -1,0 +1,133 @@
+name: Build and verify closed canyon formation
+on:
+  push:
+    branches: [fix/closed-canyon-formation]
+    paths: ['.github/workflows/closed-formation-build.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: closed-canyon-formation
+  cancel-in-progress: true
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '4'
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      EGL_PLATFORM: surfaceless
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify reviewed source and integrate without replacing controls
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          expected={
+            'source/formation_volume.py':'ab78e5ffa8d196451e8dc2d95b6773a4bd6e44492ceea546b1ba7bce56bdfb79',
+            'source/material_volume.h':'1021a9f91a7e13829ac207464f1d821e67a4e0b51a336f41e4cc43c469d90c40',
+            'source/prepare_volume.py':'518b08036b15a4602ca3337b349a16b4768fa6e70076f26484002f74fd43d895',
+            'source/resolve_volume.py':'89a0dcff32130565e1657868ca4d8e1a2a03cecb855d29d6e682448001783017',
+            'source/pack_volume.py':'8fdc79b3b6b9d331f12259cef30d0639b5859c8af008898e5bec074e40f1c6de',
+            'source/rebuild_volume.py':'f8be998409671ecb2b31afc808610863ca3c2f6676f82847d13148c1f5b75e42',
+            'source/requirements-volume.txt':'0ce76bc9dbe4e5d3c9ae50083c47ad01a83c87bd5bdf8d7b514b276d4586fc04',
+            'tools/render_volume.py':'4f8c250860b8fee12df9d4d0ddba208c029186674d81e340c750671e3c976f83',
+            'tools/verify_volume.py':'67ac81fb4b8a05a0f45361a3f4b4b102b520c078ab8b9bdf5838dac7c77b2f32',
+            'tools/integrate_volume.py':'c15b48b6e5d5ba910daba7ec1aa628c3122b4c95788cfe8357919569750c66f3',
+            'tools/document_volume.py':'c1de9bdea35685f4850cad89794ca74d4275b846539bd2429bf26307b881ad96',
+            'tools/encode_volume.sh':'9b525282c359cba71bc9d97d4e04b795f0c5d343405ea20bb5b918bd7c3eff28'}
+          for name,wanted in expected.items():
+              actual=hashlib.sha256(Path(name).read_bytes()).hexdigest()
+              assert actual==wanted,(name,actual,wanted)
+          print('All twelve reviewed source files match the local executed build')
+          PY
+          python tools/integrate_volume.py
+          git diff 12a6b27064e624d6ab0bb80ea20a2f2ded3fc7fe --exit-code -- web/controls.js web/controls.css web/vendor 'web/*.glsl' 'source/*.glsl' source/cybr-geo
+      - name: Install geometry, native graphics and browser dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libegl1 libgles2 libgl1-mesa-dri ffmpeg
+          python -m pip install -r source/requirements-volume.txt -r tools/requirements-test.txt
+          python -m playwright install --with-deps chromium
+      - name: Build closed geometry and actual native spectral lighting
+        run: |
+          python source/rebuild_volume.py --workspace "$RUNNER_TEMP/closed-formation" --project "$GITHUB_WORKSPACE" --spp 256 --threads 4 --expected-mesh e578dc9f94a378e6300745bf8a52b2a8a1deb10b335a49ec6a204bf8f124a78f --render --film
+          bash tools/encode_volume.sh
+          python tools/verify_volume.py --evidence
+          python tools/verify.py
+          node --check web/app.js
+          node --check web/controls.js
+          node --check web/bootstrap.js
+          python tools/make_standalone.py
+      - name: Real Chromium desktop regression
+        run: python tools/browser_smoke.py
+      - name: Real Chromium mobile multi-touch and orbit regression
+        run: python tools/mobile_controls_smoke.py
+      - name: Bind current browser evidence and document the changed geometry
+        run: |
+          python - <<'PY'
+          import json,shutil,os,hashlib
+          from pathlib import Path
+          root=Path('evidence/formation')
+          browser=json.loads(Path('build/browser/report.json').read_text())
+          mobile=json.loads(Path('build/mobile/report.json').read_text())
+          assert browser['result']=='PASS' and browser['browser_runtime_verified'] and not browser['errors']
+          assert mobile['result']=='PASS' and mobile['scene_rendering_verified'] and not mobile['controls_only'] and not mobile['errors']
+          assert mobile['geometry']['triangles']==4611262 and mobile['geometry']['vertices']==2307937
+          assert len(mobile['captures'])==3 and all(x['gl_error']==0 and x['drawn_triangles']==4611262 for x in mobile['captures'])
+          for kind in ['browser','mobile']:
+              dest=root/kind;dest.mkdir(exist_ok=True)
+              for p in Path('build',kind).iterdir():
+                  if p.is_file():shutil.copyfile(p,dest/p.name)
+          shutil.copyfile('dist/Sandstone_Walk_Standalone.json',root/'standalone.json')
+          (root/'qualification.json').write_text(json.dumps({
+              'result':'PASS','run_id':os.environ['GITHUB_RUN_ID'],'source_commit':os.environ['GITHUB_SHA'],
+              'native_geometry_matches_reviewed_hash':True,'all_inputs_rebaked':True,
+              'desktop_browser':True,'mobile_touch_emulation':True,'physical_phone_benchmark':False,
+              'controls_css_and_glsl_unchanged':True,
+              'standalone_sha256':hashlib.sha256(Path('dist/Sandstone_Walk_Standalone.html').read_bytes()).hexdigest()
+          },indent=2)+'\n')
+          PY
+          python tools/document_volume.py
+      - name: Commit only fully executed source, assets, media and evidence
+        run: |
+          git diff 12a6b27064e624d6ab0bb80ea20a2f2ded3fc7fe --exit-code -- web/controls.js web/controls.css web/vendor 'web/*.glsl' 'source/*.glsl' source/cybr-geo
+          git add -f source/bake.cpp source/transport_bake.cpp web/app.js web/scene.json tools/verify.py tools/browser_smoke.py tools/mobile_controls_smoke.py tools/requirements-test.txt README.md docs/RELEASE_NOTES.md package.json
+          git add -A -f -- web/assets media evidence/formation
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          names=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          omitted={'SHA256SUMS.json','.github/workflows/closed-formation-build.yml'}
+          sums={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in sorted(names) if n and n not in omitted and Path(n).is_file()}
+          Path('SHA256SUMS.json').write_text(json.dumps(sums,indent=2)+'\n')
+          PY
+          python tools/check_manifest.py
+          git add SHA256SUMS.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Rebuild closed canyon masses, rebake native light and publish passing browser/mobile evidence'
+          git push origin HEAD:fix/closed-canyon-formation
+      - name: Preserve execution evidence and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: closed-formation-verification
+          path: |
+            evidence/formation/
+            build/validation.json
+            build/browser/
+            build/mobile/
+            dist/Sandstone_Walk_Standalone.json
+            ${{ runner.temp }}/closed-formation/logs/
+          if-no-files-found: warn
