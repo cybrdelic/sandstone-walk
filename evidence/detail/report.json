@@ -1,0 +1,1657 @@
+{
+  "result": "PASS",
+  "errors": [],
+  "captures": {
+    "hero": {
+      "sha256": "be68dc8068a4cd9a9c76dec4c7e0e691afc5cad0a6f8904ea0c413495d7ff159",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 8,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 1,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "right_close": {
+      "sha256": "92645e8dc92b380cc23ac00a0d424ee3b426fbc6960584b0ca588f0b62a5b64d",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          0.7,
+          5,
+          1.8
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6659885636835866,
+          -0.33711200016368975,
+          -0.3005283387058377,
+          0.5937149568799991
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 16,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 2,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "left_close": {
+      "sha256": "3a296dd90286d81bae8da93196b510b373df38bcbbef0c1cc85169e544c4812f",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.7,
+          -2.8,
+          1.9
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.6716407324934944,
+          0.2940652892116454,
+          0.2727371524276414,
+          0.6229275863390022
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 24,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 3,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "ground": {
+      "sha256": "a44a8a0af72ad18424c49559ac9cbdad83bed310f5f83a60f8a9b200675dd7e8",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          0.1,
+          -2,
+          1.2
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.4088840406242793,
+          -0.028066039398972033,
+          -0.06246385203233892,
+          0.9100134097608124
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 32,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 4,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "talus": {
+      "sha256": "52d5d4633736d1f41f1a9ce4d4facc6e46b6d4b5046bf29771ae21bc04f658b2",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.75,
+          -2.4,
+          0.95
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.5310791915999415,
+          0.2025886285240944,
+          0.29323883913930837,
+          0.7687156321179567
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 40,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 5,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "forward": {
+      "sha256": "c1dd680ee4ee3c66f062f7d731366c690ad86ae64c7556b3b2ee88d996639e08",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          0.25,
+          4.8,
+          1.6
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7371121630520732,
+          -0.03120542571617762,
+          -0.028552448085698262,
+          0.6744454301089745
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 48,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 6,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "hero_settled": {
+      "sha256": "be68dc8068a4cd9a9c76dec4c7e0e691afc5cad0a6f8904ea0c413495d7ff159",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 143.36157350790614,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 56,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 7,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "orbit": {
+      "sha256": "b67c89ea5f19d9d9237caf667ff1a18b3d0d791675fd3739675f32618a4f1cb1",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "orbit",
+        "eye": [
+          -47.73114639309572,
+          102.22106178068817,
+          86.22797586682222
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          -0.12576748866532947,
+          0.42145475772388585,
+          0.8605853892261326,
+          -0.2568096840799092
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 66,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 8,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "diagnostic_3": {
+      "sha256": "b24e86ff715cb54bad955e6b9b247d8e1b6f39170dacedec1d8b90d7bed76b67",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 1,
+        "sampleLimit": 1,
+        "sceneDraws": 67,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 9,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "diagnostic_4": {
+      "sha256": "35c892ba0178506b5a421e966c760b6c5a2dfc398a6fc2afbd81dfdd06c4c92b",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 1,
+        "sampleLimit": 1,
+        "sceneDraws": 68,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 9,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "diagnostic_5": {
+      "sha256": "e4bec02d7eb62cb829fe345cbdc3b8b6cccf18fa2ad451adf2435b44dd894861",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 1,
+        "sampleLimit": 1,
+        "sceneDraws": 69,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 9,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "diagnostic_6": {
+      "sha256": "9a0e373b3bc5223e32e188ec99b4e2e7bacf2dad5fc157bb9cd552b5575ccd07",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 1,
+        "sampleLimit": 1,
+        "sceneDraws": 70,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 9,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "diagnostic_7": {
+      "sha256": "89a286ccdf2c545f3f570c08b381ceafcb1430869353477b6796dcdbab72e40f",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 1,
+        "sampleLimit": 1,
+        "sceneDraws": 71,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 9,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "diagnostic_8": {
+      "sha256": "cb317255224788002d67e629ae5cf2490a07f426f075a5806f4504a71da5b9b1",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 1,
+        "sampleLimit": 1,
+        "sceneDraws": 72,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 9,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    },
+    "sun_disk": {
+      "sha256": "28106db0208dfda235e69d8395e668a3241c25212dfdf99012bd196e9be548bd",
+      "size": [
+        1200,
+        800
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          0,
+          -38,
+          28
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.30244083988166487,
+          0.9300611753732387,
+          0.19837906193684565,
+          0.06450965989741364
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1200,
+          800
+        ],
+        "cssSize": [
+          1200,
+          800
+        ],
+        "pixelRatio": 1,
+        "requestedPixelRatio": 1,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 80,
+        "lastSceneTriangles": 9762,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 10,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 9762
+    },
+    "native_dpr3": {
+      "sha256": "bbf60a684dcb68eb41f8eddfed426cd48b917638d06e8b9f836ab74893863ea9",
+      "size": [
+        1170,
+        2532
+      ],
+      "glError": 0,
+      "pose": {
+        "mode": "walk",
+        "eye": [
+          -0.42,
+          -5.8,
+          1.56
+        ],
+        "target": [
+          8.103004455566406,
+          17,
+          7.156322479248047
+        ],
+        "quaternion": [
+          0.7413067628950097,
+          -0.013538587125570562,
+          -0.012253065988087177,
+          0.6709179177206829
+        ],
+        "radius": 128.96669392313544,
+        "near": 0.35,
+        "far": 1323.3376016114412,
+        "stick": [
+          0,
+          0
+        ],
+        "pointers": 0,
+        "holds": 0,
+        "keys": 0,
+        "tour": false
+      },
+      "quality": {
+        "drawingBuffer": [
+          1170,
+          2532
+        ],
+        "cssSize": [
+          390,
+          844
+        ],
+        "pixelRatio": 3,
+        "requestedPixelRatio": 3,
+        "pixelBudget": 8388608,
+        "capped": false,
+        "samples": 8,
+        "sampleLimit": 8,
+        "sceneDraws": 88,
+        "lastSceneTriangles": 5029800,
+        "shadowMapSize": 4096,
+        "shadowTriangles": 5029800,
+        "nearShadowDraws": 11,
+        "linearHDR": true,
+        "linearHDRStorageScale": 0.25,
+        "latestCapture": null,
+        "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+      },
+      "actualDraw": 5029800
+    }
+  },
+  "checks": [
+    "All original triangles and vertices retained",
+    "hero nonblank",
+    "hero graphics error-free",
+    "hero actual full-scene draw",
+    "right_close nonblank",
+    "right_close graphics error-free",
+    "right_close actual full-scene draw",
+    "left_close nonblank",
+    "left_close graphics error-free",
+    "left_close actual full-scene draw",
+    "ground nonblank",
+    "ground graphics error-free",
+    "ground actual full-scene draw",
+    "talus nonblank",
+    "talus graphics error-free",
+    "talus actual full-scene draw",
+    "forward nonblank",
+    "forward graphics error-free",
+    "forward actual full-scene draw",
+    "Requested photographic map dimensions uploaded",
+    "Mipmapped maps and anisotropic filtering",
+    "Four material maps registered to physical metre scales",
+    "Changed camera starts at one fresh sample",
+    "hero_settled nonblank",
+    "hero_settled graphics error-free",
+    "hero_settled actual full-scene draw",
+    "Static camera converges to 8 HDR samples",
+    "Converged camera reuses its own stable image",
+    "Camera change clears history without reprojection",
+    "Material changes clear history",
+    "orbit nonblank",
+    "orbit graphics error-free",
+    "orbit actual full-scene draw",
+    "diagnostic_3 nonblank",
+    "diagnostic_3 graphics error-free",
+    "diagnostic_3 actual full-scene draw",
+    "diagnostic_4 nonblank",
+    "diagnostic_4 graphics error-free",
+    "diagnostic_4 actual full-scene draw",
+    "diagnostic_5 nonblank",
+    "diagnostic_5 graphics error-free",
+    "diagnostic_5 actual full-scene draw",
+    "diagnostic_6 nonblank",
+    "diagnostic_6 graphics error-free",
+    "diagnostic_6 actual full-scene draw",
+    "diagnostic_7 nonblank",
+    "diagnostic_7 graphics error-free",
+    "diagnostic_7 actual full-scene draw",
+    "diagnostic_8 nonblank",
+    "diagnostic_8 graphics error-free",
+    "diagnostic_8 actual full-scene draw",
+    "sun_disk nonblank",
+    "sun_disk graphics error-free",
+    "HDR solar disc remains bright, not NaN/black",
+    "native_dpr3 nonblank",
+    "native_dpr3 graphics error-free",
+    "native_dpr3 actual full-scene draw",
+    "DPR3 is 1170 by 2532 actual pixels",
+    "Native rendering is nine times the old CSS-pixel count",
+    "Fresh 3840x2560 export with eight actual samples",
+    "4K capture restores interactive dimensions and input",
+    "Film consists of 48 distinct geometry-rendered frames",
+    "No browser or shader errors"
+  ],
+  "entrypoint": "localhost HTTP",
+  "browser_rendering": true,
+  "physical_device_benchmark": false,
+  "image_generation": false,
+  "source_mesh_sha256": "7522cf1848ef94af2593e4a2d2a9df382df11c2e85e9ac4662a364a107656c79",
+  "geometry": {
+    "triangles": 5029800,
+    "vertices": 2526592
+  },
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL 4.5)",
+  "detail": {
+    "resolution": 4096,
+    "anisotropy": 16,
+    "maps": 4,
+    "uncompressed_mip_bytes": 357913941,
+    "parallax": true,
+    "micro_shadows": true,
+    "scan_enabled": true,
+    "geometry_changed": false,
+    "indirect_transport": "Reused macro spectral response; fine-scale scanned receiving material is not rebaked transport."
+  },
+  "export4k": {
+    "sha256": "ab581c8f82e619ed8d842b4923d7e0ba1f208ea5e2457dec0f2782c3847acf7a",
+    "report": {
+      "width": 3840,
+      "height": 2560,
+      "samples": 8,
+      "bytes": 21199091,
+      "sourceTriangles": 5029800,
+      "upscaled": false,
+      "method": "Fresh 4K WebGL render with linear-HDR supersampling"
+    },
+    "restored": {
+      "drawingBuffer": [
+        1200,
+        800
+      ],
+      "cssSize": [
+        1200,
+        800
+      ],
+      "pixelRatio": 1,
+      "requestedPixelRatio": 1,
+      "pixelBudget": 8388608,
+      "capped": false,
+      "samples": 1,
+      "sampleLimit": 8,
+      "sceneDraws": 97,
+      "lastSceneTriangles": 5029800,
+      "shadowMapSize": 4096,
+      "shadowTriangles": 5029800,
+      "nearShadowDraws": 11,
+      "linearHDR": true,
+      "linearHDRStorageScale": 0.25,
+      "latestCapture": {
+        "width": 3840,
+        "height": 2560,
+        "samples": 8,
+        "bytes": 21199091,
+        "sourceTriangles": 5029800,
+        "upscaled": false,
+        "method": "Fresh 4K WebGL render with linear-HDR supersampling"
+      },
+      "history": "Stationary-camera sample averaging; reset on pose, projection or material changes; no reprojection"
+    },
+    "error": 0,
+    "inert": false
+  },
+  "film": {
+    "fps": 12,
+    "size": [
+      720,
+      480
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "eye": [
+          -0.42,
+          -4.88,
+          1.62
+        ],
+        "sha256": "86806f3d4fb04bf598262884849368f9b7657b3e071b391aeb73cb6de4925485",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 1,
+        "eye": [
+          -0.3965052854003907,
+          -4.883593158222999,
+          1.6290586665785884
+        ],
+        "sha256": "c8c34a6069e209cab06ac312cee3268ebaf7da09ea38d0bb44e170511a5b47e2",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 2,
+        "eye": [
+          -0.37341257188154625,
+          -4.894311152958591,
+          1.6375000000000002
+        ],
+        "sha256": "c61536bda07602f5388f86d6b4e67e1d269e181b1b43e05036dee43ab90d07e4",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 3,
+        "eye": [
+          -0.35111698217428383,
+          -4.91197059634526,
+          1.6447487373415293
+        ],
+        "sha256": "4adbfa924922337623e25e88cbd7ccb0fcefdd6e5c3012f3d3e430f5c4fb8b1e",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 4,
+        "eye": [
+          -0.33,
+          -4.936269330410536,
+          1.6503108891324554
+        ],
+        "sha256": "3a0b440efab4395879ce26cfdfc223de638fbd24c12a115876b11845c0933ba3",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 5,
+        "eye": [
+          -0.3104229427784303,
+          -4.966791597077681,
+          1.6538074039201176
+        ],
+        "sha256": "52ffec8a3ee1d268d4a85e04c11b218764e1e00892178d7040db7720fba5d518",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 6,
+        "eye": [
+          -0.29272077938642144,
+          -5.00301515190165,
+          1.655
+        ],
+        "sha256": "f403851ae8856dd87997960a90744a522c88dfcb24602e866bc64d069789ed6f",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 7,
+        "eye": [
+          -0.2771963987475776,
+          -5.044320199816337,
+          1.6538074039201176
+        ],
+        "sha256": "beaaa27ea38d29af4f007fc57e9ecea7cf28ab9d0f528f4baa5cce595e99026c",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 8,
+        "eye": [
+          -0.26411542731880105,
+          -5.09,
+          1.6503108891324554
+        ],
+        "sha256": "bf989bd37c1642e8cd8dfb4bc6ebb764f7dacb5f57ea02047257587227f8c128",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 9,
+        "eye": [
+          -0.25370168414796834,
+          -5.1392729584066625,
+          1.6447487373415293
+        ],
+        "sha256": "6f0d2948a34f10a195f76039721eca97fbf58c79a0b05e8cb45f3d98cfec4823",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 10,
+        "eye": [
+          -0.2461333512679677,
+          -5.191296001056941,
+          1.6375000000000002
+        ],
+        "sha256": "473f76d3a9578a2db02400ce110141f25445f6089264a9cdcf97599db844a31d",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 11,
+        "eye": [
+          -0.24153992495271412,
+          -5.245178999267578,
+          1.6290586665785884
+        ],
+        "sha256": "4879f8c9fc878b2a52bbc36642a3b31ae50bd76699f9e43a352b673d84db62c7",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 12,
+        "eye": [
+          -0.24,
+          -5.3,
+          1.62
+        ],
+        "sha256": "bbec5c24e838f57c1952d2bc60d37014498332e98685e0bc84cc40767283784d",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 13,
+        "eye": [
+          -0.2415399249527141,
+          -5.3548210007324215,
+          1.610941333421412
+        ],
+        "sha256": "9c2a6cafe6030cc6da1076440ad31fb32daa74f7b42ada59edfaf2a0f8a3005d",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 14,
+        "eye": [
+          -0.2461333512679677,
+          -5.408703998943059,
+          1.6025
+        ],
+        "sha256": "033be4cb3892ad5ae6a61bd3022cbebc485cdb2f31aa155c0c94c66e1b3d3967",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 15,
+        "eye": [
+          -0.25370168414796834,
+          -5.460727041593337,
+          1.595251262658471
+        ],
+        "sha256": "9e130e6e0479ebbb1dc2efab5dcc76393f23b08c609cc2ca83a93449041f627a",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 16,
+        "eye": [
+          -0.264115427318801,
+          -5.51,
+          1.5896891108675448
+        ],
+        "sha256": "087ec4cc460bc1fba0d4c74445a540d6ef42d629ae95a1c81916546c27533525",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 17,
+        "eye": [
+          -0.2771963987475776,
+          -5.555679800183663,
+          1.5861925960798826
+        ],
+        "sha256": "1eec8c053549dd11844e6fef529e5fd93ed9100f1c74f8b4997c2a6131c06612",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 18,
+        "eye": [
+          -0.29272077938642144,
+          -5.59698484809835,
+          1.5850000000000002
+        ],
+        "sha256": "a1eed75f87ba2c9f976a90ef47b33227a51355508511a4db8e6b966dee58dc35",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 19,
+        "eye": [
+          -0.31042294277843024,
+          -5.633208402922318,
+          1.5861925960798826
+        ],
+        "sha256": "88a046280d471a31f1158c23485f34113e1a3753739002664c5cb872a43965ad",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 20,
+        "eye": [
+          -0.33,
+          -5.663730669589464,
+          1.5896891108675448
+        ],
+        "sha256": "95e733e01dbbcb47d3c8783bf7aeb7008ee0a8deb4926e9e1d8335ab4b16432b",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 21,
+        "eye": [
+          -0.3511169821742838,
+          -5.68802940365474,
+          1.595251262658471
+        ],
+        "sha256": "1ae796b169d0f0ed54e9888c96ef005532eb7bbccb4aa64b548ea14268c08540",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 22,
+        "eye": [
+          -0.3734125718815462,
+          -5.705688847041408,
+          1.6025
+        ],
+        "sha256": "eee6974b6665a1cfe1ef8c02532dd16a87b0154b1638a5c4ebcf4f2d16327df6",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 23,
+        "eye": [
+          -0.3965052854003907,
+          -5.716406841777,
+          1.610941333421412
+        ],
+        "sha256": "abd97b3be8fe7be72d16a1b0a57578118c75c30661e44c1d789870f795bc88b5",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 24,
+        "eye": [
+          -0.42,
+          -5.72,
+          1.62
+        ],
+        "sha256": "c6c51a1a16434b08d1fc44c5bd425ebf0f57f44695bef107d8c7c7dffaf13278",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 25,
+        "eye": [
+          -0.4434947145996093,
+          -5.716406841777,
+          1.6290586665785884
+        ],
+        "sha256": "e2f3ed177175511e89aee4dfd0929eea4e3d495560b5f794d795dcabed9dd402",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 26,
+        "eye": [
+          -0.46658742811845366,
+          -5.705688847041409,
+          1.6375000000000002
+        ],
+        "sha256": "8c4f5a6c6ca8f972d3458f5f6e4f4b801ddacb81112adb61cfeb75e5ccc1048c",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 27,
+        "eye": [
+          -0.48888301782571614,
+          -5.68802940365474,
+          1.6447487373415293
+        ],
+        "sha256": "73a72d4471ee324d0ef3242838cba9844f1afe5dbc4ab737e5d2fc2d2a8a7c46",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 28,
+        "eye": [
+          -0.51,
+          -5.663730669589464,
+          1.6503108891324554
+        ],
+        "sha256": "1c8c6e86826c8db097646fc6160c6642b0183ae02259d2e30c622cfb80b5cf40",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 29,
+        "eye": [
+          -0.5295770572215697,
+          -5.633208402922318,
+          1.6538074039201174
+        ],
+        "sha256": "9c3abf9e2a3999719fe48f421d82d55e6e6e42f9ab312b6790faa5bb57652231",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 30,
+        "eye": [
+          -0.5472792206135786,
+          -5.59698484809835,
+          1.655
+        ],
+        "sha256": "3df9680a620f36dd6dd976a186c419996a0dc2a68cc39734788e364dcd266451",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 31,
+        "eye": [
+          -0.5628036012524222,
+          -5.555679800183663,
+          1.6538074039201176
+        ],
+        "sha256": "41c776f0b9c19c76fe5b215b3bf748de3dec2597bb4ac5241befcffccbf56b93",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 32,
+        "eye": [
+          -0.5758845726811989,
+          -5.51,
+          1.6503108891324554
+        ],
+        "sha256": "92e4ecb50762053ec51ebd44bed931d59ff5ca1ce4004ba859fa314f94726a32",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 33,
+        "eye": [
+          -0.5862983158520315,
+          -5.460727041593338,
+          1.6447487373415293
+        ],
+        "sha256": "7e2f9ebb8c4376d1bd5b3982e78aca18dd8a0c41ae6b6042d95a0e9347f936d1",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 34,
+        "eye": [
+          -0.5938666487320323,
+          -5.408703998943058,
+          1.6375000000000002
+        ],
+        "sha256": "0fcbfa5409bd5db87ce8efcd4e489dff6cff0a4a73f7a1c30f5b9c7866a9e6b4",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 35,
+        "eye": [
+          -0.5984600750472858,
+          -5.3548210007324215,
+          1.6290586665785884
+        ],
+        "sha256": "dbf8103ede08d05e845c6eb6c088f3ce9b9a86f9a5d0f112f5a6c35509f1e308",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 36,
+        "eye": [
+          -0.6,
+          -5.3,
+          1.62
+        ],
+        "sha256": "49c0f97b56cbb95a19004f9683ddb5e435322a835ff77b4ad7e1dc8faafd9bd8",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 37,
+        "eye": [
+          -0.5984600750472859,
+          -5.245178999267578,
+          1.610941333421412
+        ],
+        "sha256": "b32495b85578f74ae7dcf1e94d5230c69da9dd695e1757b545c440a0b09815e4",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 38,
+        "eye": [
+          -0.5938666487320323,
+          -5.1912960010569416,
+          1.6025
+        ],
+        "sha256": "07e5af310217e029ee40028ef686970e96a993dd19863e78a6be8aa0e492755d",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 39,
+        "eye": [
+          -0.5862983158520316,
+          -5.139272958406662,
+          1.595251262658471
+        ],
+        "sha256": "58a57ee9bf875395b0a62bc77e4ddd52bee7cf4b926209fa17b8e3b38d6a1c28",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 40,
+        "eye": [
+          -0.575884572681199,
+          -5.09,
+          1.5896891108675448
+        ],
+        "sha256": "778e519db78c0b9c4309f2c682cd82790a232d51c91db48fdef6a8499a84594e",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 41,
+        "eye": [
+          -0.5628036012524223,
+          -5.044320199816338,
+          1.5861925960798826
+        ],
+        "sha256": "b2bfc0eb96c1d0251e17069bcd6e55c454265ecb8a9c86843b41184bbd6169ae",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 42,
+        "eye": [
+          -0.5472792206135786,
+          -5.00301515190165,
+          1.5850000000000002
+        ],
+        "sha256": "3c84303d0c1b823b82bbeb729fd5e35d90550c75fae2267cc441dee80dd47d9c",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 43,
+        "eye": [
+          -0.5295770572215698,
+          -4.966791597077681,
+          1.5861925960798826
+        ],
+        "sha256": "4873395f2275d4ea193175d1533c716dbe3e3acf48950a501b4beb87ec3308f2",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 44,
+        "eye": [
+          -0.51,
+          -4.936269330410536,
+          1.5896891108675448
+        ],
+        "sha256": "a5b450fe0cc08a337e23f70aacbb931843d154189068d329499a7b47fb3b381e",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 45,
+        "eye": [
+          -0.48888301782571625,
+          -4.91197059634526,
+          1.595251262658471
+        ],
+        "sha256": "62978f6167249c4b8ee20d189013485a19f65209a5146cf47a8e6d6313571c1d",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 46,
+        "eye": [
+          -0.4665874281184537,
+          -4.894311152958591,
+          1.6025
+        ],
+        "sha256": "34b5e70a0fa8fb4f42b0a29590bc6a0c0903428d3b114b96b033de58d8370fe3",
+        "actual_source_draw": 5029800
+      },
+      {
+        "frame": 47,
+        "eye": [
+          -0.44349471459960926,
+          -4.883593158222999,
+          1.6109413334214118
+        ],
+        "sha256": "9808b3fec2c036e02a2ce37cc0b1d984598639af317dc6f9a02985f3cc0167e6",
+        "actual_source_draw": 5029800
+      }
+    ],
+    "interpolation": false,
+    "per_frame_aa_samples": 2
+  },
+  "actual_fragment_sha256": "b496f4df5699889455eadbde456a145a93847809b825c102ad2ebbdac6c97ddb",
+  "draw_calls_observed": 193,
+  "seconds": 504.157357361
+}

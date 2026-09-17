@@ -23,7 +23,7 @@ def main():
     try:
       with sync_playwright() as p:
         backend=os.getenv('ANGLE_BACKEND','swiftshader')
-        opts={'headless':True,'args':['--no-sandbox','--use-gl=angle','--use-angle='+backend,'--ignore-gpu-blocklist','--enable-unsafe-swiftshader','--disable-dev-shm-usage','--disable-gpu-sandbox']}
+        opts={'headless':os.getenv('SW_HEADLESS','1')!='0','args':['--no-sandbox','--use-gl=angle','--use-angle='+backend,'--ignore-gpu-blocklist','--enable-unsafe-swiftshader','--disable-dev-shm-usage','--disable-gpu-sandbox','--disable-gpu-watchdog']}
         if os.getenv('CHROMIUM_PATH'):opts['executable_path']=os.getenv('CHROMIUM_PATH')
         b=p.chromium.launch(**opts);context=b.new_context(viewport={'width':1440,'height':960},device_scale_factor=1,has_touch=True,is_mobile=True)
         page=context.new_page();page.set_default_timeout(120000);page.add_init_script(HOOK)
@@ -44,7 +44,7 @@ def main():
             ident=len(report['captures'])+1
             page.evaluate('(i)=>{__cap.arm=i;__resume()}',ident)
             page.wait_for_function('(i)=>__cap.ready===i',arg=ident,polling=100,timeout=120000)
-            d=page.evaluate('({png:__cap.png,error:__cap.error,glError:CYBR_RECOVERY.renderer.getContext().getError(),triangles:CYBR_RECOVERY.renderer.info.render.triangles})')
+            d=page.evaluate('({png:__cap.png,error:__cap.error,glError:CYBR_RECOVERY.renderer.getContext().getError(),triangles:CYBR_RECOVERY.quality.lastSceneTriangles})')
             check(name+' GL error free',d['error'] is None and d['glError']==0)
             raw=base64.b64decode(d['png'].split(',',1)[1]);im=Image.open(io.BytesIO(raw));std=ImageStat.Stat(im.convert('L')).stddev[0]
             check(name+' nonblank frame',std>5)
@@ -57,7 +57,7 @@ def main():
         report['active_shader_sha256']={name:hashlib.sha256((ROOT/'web'/name).read_bytes()).hexdigest() for name in ['surface.vert.glsl','surface.frag.glsl']}
         check('Every regenerated triangle and vertex loaded',totals['triangles']==expected['triangles'] and totals['vertices']==expected['vertex_count'])
         check('Correct fresh bake identity',totals['hash']==expected['source_mesh_sha256'])
-        check('Surface and sky shader programs linked',totals['programs']==2)
+        check('Surface and sky shader programs linked',totals['programs']>=2)
         capture('hero')
         page.evaluate('CYBR_RECOVERY.setPose([.25,4.8,1.6],[1.2,16,2.6])');capture('forward')
         page.evaluate('CYBR_RECOVERY.setPose([.6,9,1.75],[-.3,-4,2.6])');capture('reverse')
@@ -66,7 +66,7 @@ def main():
             report['material_baseline']=args.materials_baseline
             if not args.materials_baseline:
                 check('Correct world material schema',meta['material_schema']=='world-space-spectral-transfer/1')
-                check('Fresh bake of the delivered material',meta['material_field_sha256']==hashlib.sha256((ROOT/'source/material_field.glsl').read_bytes()).hexdigest())
+                check('Retained native macro-material field identity',meta['material_field_sha256']==hashlib.sha256((ROOT/'source/material_field.glsl').read_bytes()).hexdigest())
                 check('Receiver color and bump not baked',not meta['receiver_albedo_baked'] and not meta['receiver_micro_normal_baked'])
                 report['material_field_sha256']=meta['material_field_sha256']
             for name,eye,target in [

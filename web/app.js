@@ -29,7 +29,8 @@
   if(B.meta.material_schema!=='world-space-spectral-transfer/1')throw new Error('Missing per-pixel material transport data.');
   uniforms.uRGBToAnchors={value:new THREE.Matrix3().set(...B.meta.rgb_to_anchors.flat())};
   uniforms.uSolarResponse={value:new THREE.Matrix3().fromArray(B.meta.solar_anchor_response.flat())};
-  const material=new THREE.RawShaderMaterial({glslVersion:THREE.GLSL3,vertexShader:SURFACE_VERTEX,fragmentShader:SURFACE_FRAGMENT,uniforms,side:THREE.DoubleSide,toneMapped:false});
+  const detail=await SandstoneDetail.create(renderer,{fragment:SURFACE_FRAGMENT,uniforms,status});
+  const material=new THREE.RawShaderMaterial({glslVersion:THREE.GLSL3,vertexShader:SURFACE_VERTEX,fragmentShader:detail.fragmentShader,uniforms,side:THREE.DoubleSide,toneMapped:false});
   function base64(s){const raw=atob(s),bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);return bytes;}
   async function inflate(asset){
    if(typeof asset==='string')return await new Response(new Blob([base64(asset)]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer();
@@ -75,36 +76,47 @@
    const d=B.meshes[i];status.textContent=`Loading ${i+1}/${B.meshes.length}: ${d.name}`;
    await new Promise(resolve=>setTimeout(resolve,0));
    const g=new THREE.BufferGeometry();
-   g.setAttribute('position',await attr(d.position,'f32',3,d.vertices));
-   g.setAttribute('bakeNormal',await attr(d.normal,'i16',3,d.vertices));
-   for(const key of ['giR','giG','giB'])g.setAttribute(key,await attr(d[key],'f16',3,d.vertices));
-   g.setAttribute('surface',await attr(d.surface,'u16',2,d.vertices));
-   const indices=d.kind==='grid'?exactGridIndex(d.rows,d.cols,d.flip):new Uint32Array(await inflate(d.index));
+   g.setAttribute('position',await attr(d.position,'f32',3,d.vertices));d.position=null;
+   g.setAttribute('bakeNormal',await attr(d.normal,'i16',3,d.vertices));d.normal=null;
+   for(const key of ['giR','giG','giB']){g.setAttribute(key,await attr(d[key],'f16',3,d.vertices));d[key]=null;}
+   g.setAttribute('surface',await attr(d.surface,'u16',2,d.vertices));d.surface=null;
+   const indices=d.kind==='grid'?exactGridIndex(d.rows,d.cols,d.flip):new Uint32Array(await inflate(d.index));d.index=null;
    if(indices.length!==d.triangles*3)throw new Error('Source topology count mismatch: '+d.name);
    g.setIndex(new THREE.BufferAttribute(indices,1));g.computeBoundingSphere();
    const mesh=new THREE.Mesh(g,material);mesh.name=d.name;scene.add(mesh);geometry.push(g);triangles+=d.triangles;vertices+=d.vertices;
   }
   if(triangles!==5029800||vertices!==2526592)throw new Error('Geometry integrity totals do not match the regenerated closed canyon.');
-  const skyData=new Uint16Array(await inflate(B.sky.data));
+  const skyData=new Uint16Array(await inflate(B.sky.data));B.sky.data=null;
   if(skyData.length!==B.sky.width*B.sky.height*4)throw new Error('Invalid native sky data.');
   const skyTexture=new THREE.DataTexture(skyData,B.sky.width,B.sky.height,THREE.RGBAFormat,THREE.HalfFloatType);
   skyTexture.colorSpace=THREE.NoColorSpace;skyTexture.minFilter=THREE.LinearFilter;skyTexture.magFilter=THREE.LinearFilter;skyTexture.wrapS=THREE.RepeatWrapping;skyTexture.wrapT=THREE.ClampToEdgeWrapping;skyTexture.generateMipmaps=false;skyTexture.needsUpdate=true;
   const skyUniforms={uInvVP:{value:new THREE.Matrix4()},uEye:uniforms.uEye,uSun:uniforms.uSun,uSolar:uniforms.uSolar,uWhite:uniforms.uWhite,uExposure:uniforms.uExposure,uSky:{value:skyTexture}};
-  const skyMat=new THREE.RawShaderMaterial({glslVersion:THREE.GLSL3,vertexShader:SKY_VERTEX,fragmentShader:SKY_FRAGMENT,uniforms:skyUniforms,depthTest:false,depthWrite:false,toneMapped:false});
+  const hdrSkyFragment=SKY_FRAGMENT.replace('uniform float uExposure;', 'uniform float uExposure; uniform int uLinearOutput; uniform int uMode;').replace('outColor=vec4(encodeNative(c),1.0);','outColor=vec4(uLinearOutput==1?(uMode>=3?encodeNative(c):c*.25):encodeNative(c),1.0);');
+  const skyMat=new THREE.RawShaderMaterial({glslVersion:THREE.GLSL3,vertexShader:SKY_VERTEX,fragmentShader:hdrSkyFragment,uniforms:skyUniforms,depthTest:false,depthWrite:false,toneMapped:false});
   const skyGeom=new THREE.BufferGeometry();skyGeom.setAttribute('position',new THREE.Float32BufferAttribute([-1,-1,0,3,-1,0,-1,3,0],3));
   const skyScene=new THREE.Scene(),skyMesh=new THREE.Mesh(skyGeom,skyMat);skyMesh.frustumCulled=false;skyScene.add(skyMesh);
-  let renderScale=1,controls=null;
+  let controls=null;
+  const bounds=new THREE.Box3().setFromObject(scene);
+  const quality=new SandstoneQuality({renderer,scene,skyScene,camera,uniforms,skyUniforms,detail,bounds});
   function resize(){
+   if(quality.exporting)return;
    const w=Math.max(1,innerWidth),h=Math.max(1,innerHeight);
-   renderer.setPixelRatio(renderScale);renderer.setSize(w,h,false);camera.aspect=w/h;
+   quality.resize(w,h);camera.aspect=w/h;
    const nativeFov=2*Math.atan(Math.tan(B.meta.horizontalFov*Math.PI/360)/camera.aspect)*180/Math.PI;
    camera.fov=controls?.mode==='orbit'?55:Math.min(75,nativeFov);camera.updateProjectionMatrix();
   }
-  const bounds=new THREE.Box3().setFromObject(scene);
   controls=new SandstoneControls({camera,canvas,bounds,reference:B.meta,onModeChange:()=>resize()});
   $('mode').onchange=e=>{uniforms.uMode.value=Number(e.target.value);};
   $('exposure').oninput=e=>{uniforms.uExposure.value=Number(e.target.value);$('ev').textContent=uniforms.uExposure.value.toFixed(2);};
-  $('resolution').onchange=e=>{renderScale=Number(e.target.value);resize();};
+  $('resolution').onchange=e=>{quality.setResolution(e.target.value);resize();};
+  $('photo-detail').onchange=e=>{detail.setEnabled(e.target.checked);quality.invalidate();};
+  $('relief').onchange=e=>{detail.uniforms.uParallax.value=e.target.checked?1:0;detail.uniforms.uMicroShadows.value=e.target.checked?1:0;quality.invalidate();};
+  $('capture4k').onclick=async()=>{
+   controls.suspend();const button=$('capture4k');button.disabled=true;
+   try{await quality.capture4K({onProgress:(n,total)=>{button.textContent='Rendering '+n+'/'+total;}});}
+   catch(e){console.warn(e);button.title=e.message;}
+   finally{button.disabled=false;button.textContent='Capture 4K PNG';resize();}
+  };
   $('hide').textContent=controls.touch?'Settings':'Interface';
   $('hide').setAttribute('aria-expanded','false');
   $('hide').onclick=()=>{
@@ -121,14 +133,15 @@
   function frame(now){
    if(failure)return;
    const dt=Math.min(.05,(now-last)/1000);last=now;
+   if(quality.exporting){requestAnimationFrame(frame);return;}
    controls.update(dt);
    camera.updateMatrixWorld(true);uniforms.uVP.value.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);skyUniforms.uInvVP.value.copy(uniforms.uVP.value).invert();
-   renderer.clear();renderer.render(skyScene,camera);renderer.render(scene,camera);
-   frames++;if(now-mark>1000){$('stats').textContent=`${Math.round(frames*1000/(now-mark))} fps · ${triangles.toLocaleString()} source triangles`;frames=0;mark=now;}
+   quality.render();
+   frames++;if(now-mark>1000){$('stats').textContent=`${quality.width}×${quality.height} · ${detail.resolution}² maps · ${quality.samples}/${quality.limit} AA · ${quality.report().capped?'pixel budget cap':'native-quality'} · ${triangles.toLocaleString()} tris`;frames=0;mark=now;}
    requestAnimationFrame(frame);
   }
   // Read-only inspection hook plus explicit test controls; no screenshots supply lighting.
-  window.CYBR_RECOVERY={renderer,scene,camera,material,meta:B.meta,controls,setReference:()=>controls.setReference(),setMode:value=>{uniforms.uMode.value=Number(value);$('mode').value=String(value);},setPose:(eye,target)=>controls.setPose(eye,target),setNavigationMode:mode=>controls.setNavigationMode(mode),geometry};
+  window.CYBR_RECOVERY={renderer,scene,camera,material,detail,quality,meta:B.meta,controls,setReference:()=>controls.setReference(),setMode:value=>{uniforms.uMode.value=Number(value);$('mode').value=String(value);},setPose:(eye,target)=>controls.setPose(eye,target),setNavigationMode:mode=>controls.setNavigationMode(mode),geometry};
   requestAnimationFrame(frame);
  }catch(error){fail(error);}
 })();

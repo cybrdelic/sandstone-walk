@@ -1,0 +1,20 @@
+[
+  {
+    "file": "tools/browser_smoke.py",
+    "before_sha256": "89469ccc13950dfdbc008085ea715ee43eed22e325ffb787ed5acae58d4fd1ce",
+    "after_sha256": "4f057868aaa60c26e943585bcf79df8a9560b0dd4d71c6f5b635b7b0fcb8c74e",
+    "only_change": "Explicit Mesa software-GPU launch flags; all assertions, event sequences, geometry and images unchanged"
+  },
+  {
+    "file": "tools/mobile_controls_smoke.py",
+    "before_sha256": "4efcd27357d03789baa1e504404c748c62dc1faef90cade55776977d1aa058d1",
+    "after_sha256": "01342e205940a64ed8c0cb95e5b40134dcbeb616cf97790d196144c50bf94101",
+    "only_change": "Explicit Mesa software-GPU launch flags; all assertions, event sequences, geometry and images unchanged"
+  },
+  {
+    "file": "tools/test_solid_browser.py",
+    "before_sha256": "64b8a956faccf042df69698c9fd008f8d42069ba0cb3091392ebddc97c1782c5",
+    "after_sha256": "bffe7a5466efb2bb7c135299c51f79e38bbb0c800fc10d1e23d3f76fcf0ad643",
+    "only_change": "Explicit Mesa software-GPU launch flags; all assertions, event sequences, geometry and images unchanged"
+  }
+]

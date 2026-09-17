@@ -1,0 +1,10 @@
+{
+  "result": "FAIL",
+  "errors": [],
+  "entrypoint": "Actual standalone HTML via localhost",
+  "deliveries": [],
+  "physical_device_benchmark": false,
+  "exception": "",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/sandstone-walk/sandstone-walk/tools/test_detail_standalone.py\", line 35, in main\n    im=Image.open(io.BytesIO(raw)).convert('RGB');assert im.size==(960,640) and ImageStat.Stat(im.convert('L')).stddev[0]>8\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "seconds": 21.480008595
+}
