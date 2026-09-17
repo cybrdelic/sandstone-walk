@@ -1,0 +1,6 @@
+{
+  "tested_source_commit": "af712c919cc891e17119922644e8aa24d010b918",
+  "run_id": "35187591508",
+  "all_scene_and_lighting_assets_unchanged": true,
+  "verification": "Actual Chromium WebGL2 on a Linux software-GPU runner; touch device emulation, not a physical phone."
+}

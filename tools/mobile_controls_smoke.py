@@ -5,17 +5,17 @@ Default: run the actual Three.js application and capture its WebGL output.
 this explicit local fallback does NOT count as scene-rendering verification.
 """
 from __future__ import annotations
-import argparse,base64,functools,http.server,json,math,os,re,threading,time,traceback
+import argparse,base64,functools,http.server,json,math,os,re,signal,threading,time,traceback
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 HOOK=r'''(() => {
  const raf=requestAnimationFrame.bind(window);
  const s={paused:false,pending:null,armed:false,ready:false,png:null};window.__capture=s;
- window.requestAnimationFrame=cb=>raf(t=>{
+ window.requestAnimationFrame=cb=>{if(cb.name!=='frame')return raf(cb);return raf(t=>{
    if(s.paused){s.pending=cb;return;}cb(t);
    if(s.armed){s.png=document.querySelector('canvas').toDataURL('image/png');s.armed=false;s.ready=true;s.paused=true;}
- });
+ });};
  window.__resume=()=>{s.paused=false;if(s.pending){const cb=s.pending;s.pending=null;requestAnimationFrame(cb);}};
 })();'''
 
@@ -29,6 +29,8 @@ def main():
     handler=functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(ROOT))
     server=http.server.ThreadingHTTPServer(('127.0.0.1',0),handler);threading.Thread(target=server.serve_forever,daemon=True).start()
     started=time.monotonic()
+    def deadline(signum,frame):raise TimeoutError("Mobile regression exceeded ten minutes; no pass claimed")
+    signal.signal(signal.SIGALRM,deadline);signal.alarm(600)
     try:
       with sync_playwright() as p:
         options=dict(headless=True,args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--disable-dev-shm-usage'])
@@ -68,7 +70,7 @@ def main():
         def snap():return page.evaluate('CYBR_RECOVERY.controls.snapshot()')
         def check(name,condition,detail=None):
           if not condition:raise AssertionError(f'{name}: {detail}')
-          report['checks'].append(name)
+          report['checks'].append(name);print('PASS:',name,flush=True)
         def box(selector):
           b=page.locator(selector).bounding_box();assert b,selector
           return b
@@ -89,7 +91,8 @@ def main():
           data=page.evaluate('({png:__capture.png,error:CYBR_RECOVERY.renderer.getContext().getError(),triangles:CYBR_RECOVERY.renderer.info.render.triangles})')
           check(name+' real GL draw',data['error']==0 and data['triangles']>0,data)
           (args.out/(name+'_canvas.png')).write_bytes(base64.b64decode(data['png'].split(',',1)[1]))
-          page.screenshot(path=str(args.out/(name+'.png')),timeout=120000)
+          screen=cdp.send('Page.captureScreenshot',{'format':'png','fromSurface':True})
+          (args.out/(name+'.png')).write_bytes(base64.b64decode(screen['data']))
           report['captures'].append({'name':name,'gl_error':data['error'],'drawn_triangles':data['triangles'],'viewport':page.viewport_size})
           page.evaluate('__resume()')
         check('Touch UI visible',page.locator('#joystick').is_visible())
@@ -155,7 +158,7 @@ def main():
     except Exception as e:
       report['exception']=str(e);report['traceback']=traceback.format_exc()
     finally:
-      server.shutdown();report['seconds']=time.monotonic()-started
+      signal.alarm(0);server.shutdown();report['seconds']=time.monotonic()-started
       (args.out/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
     if report['result']!='PASS':raise SystemExit(1)
 if __name__=='__main__':main()

@@ -1,0 +1,75 @@
+{
+  "schema": "sandstone-walk-publication-validation/1",
+  "result": "PASS",
+  "triangles": 8108728,
+  "vertices": 4072674,
+  "parts": [
+    {
+      "name": "Alluvial_sand_and_rockfall_support",
+      "vertices": 877500,
+      "triangles": 1751002,
+      "position_sha256": "507ced0e2d44cf0a90874051a74a021f6383e0a835c0623319139294ae047657",
+      "topology_sha256": "a99251b8870a0ab734b0ea34b20947c454cab5492283c57f7c9699ae616d5aa5",
+      "attributes_finite": true
+    },
+    {
+      "name": "West_bedded_sandstone",
+      "vertices": 1241000,
+      "triangles": 2477142,
+      "position_sha256": "9a8cd2e89f13740f5648a43489cfbb85af45eecc5c932af90e085e1774f2aac4",
+      "topology_sha256": "ddcad8f2e17724200c81119b8b619dbf4e9dc9b10a8b1ef7e465abaf671de48b",
+      "attributes_finite": true
+    },
+    {
+      "name": "East_bedded_sandstone",
+      "vertices": 1241000,
+      "triangles": 2477142,
+      "position_sha256": "651f1fc5e42c5e8e1bd474270250e1cd27a214a26106142181fb31f4aad2849f",
+      "topology_sha256": "12bebe1bf035fd9f1a4d7b1c1153c916ac24d66e8d231192dd458fc20d79a071",
+      "attributes_finite": true
+    },
+    {
+      "name": "Rockfall_fans",
+      "vertices": 230160,
+      "triangles": 450480,
+      "position_sha256": "4dc304f75e9738ea9332fd94a34950236ecd5e538aacc5d4639f81791af00f7a",
+      "topology_sha256": "a88f969fa80e336d50a804b2c1c4220c0e52e79d389fdbe5ff133150cfe9ed6a",
+      "attributes_finite": true
+    },
+    {
+      "name": "Wash_gravel",
+      "vertices": 111804,
+      "triangles": 212960,
+      "position_sha256": "3ddec90c249b29c011b1efe59ecf23da83e57f8f56c11b1736c4dd1554117500",
+      "topology_sha256": "6e30b2ce773001a6d0abda21dc681f389e34e2f6bca82f91175bd30133f6644e",
+      "attributes_finite": true
+    },
+    {
+      "name": "Fallen_jointed_slabs",
+      "vertices": 12810,
+      "triangles": 25600,
+      "position_sha256": "b342719a895d36ccc47f07048fcd4d65ae8575ac0b8cdf62d1ae7e391a13939a",
+      "topology_sha256": "d5ed76ff05d8c32fb05f1ea385453a383f7c6747b66a58b240def6d6603fe59b",
+      "attributes_finite": true
+    },
+    {
+      "name": "Far_bend_continuous_wall",
+      "vertices": 358400,
+      "triangles": 714402,
+      "position_sha256": "410d0c263922cd8355696bdaabdf79ec84d8754dd1659ee92de98bf7acfcdfe6",
+      "topology_sha256": "59d18e1ecf995610ea16a6ed53f31eff6ec3339c8a936d46c9c62bdc7d903a1b",
+      "attributes_finite": true
+    }
+  ],
+  "original_geometry_hashes_match": true,
+  "all_assets_sha256_valid": true,
+  "all_attributes_finite": true,
+  "unchanged_shader_sha256": {
+    "sky.frag.glsl": "28131dded7929c2bea7698e6d5ede4beee5ea1642993710ede78fd9a45674fa1",
+    "sky.vert.glsl": "5d847398752d945684c42f69f23b4f115649ffa87217e66ad818fe152ab5c720",
+    "surface.vert.glsl": "053c5c537c896cdd26053f2a3c7bf60eb1cd15fe90a74fd6b90711a9bca179d0",
+    "surface.frag.glsl": "20efde8fb9c3820261b4d2a92e9034d705aa61483e0123d813511b72d354ffe0"
+  },
+  "no_reference_projection": true,
+  "no_hand_authored_light_probes": true
+}
