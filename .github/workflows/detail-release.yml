@@ -94,7 +94,7 @@ jobs:
           for p in (root/'detail/media').iterdir():shutil.copyfile(p,Path('media')/p.name)
           media=json.loads((out/'media.json').read_text());assert media['result']=='PASS' and media['gif_distinct_frames']==48
           for name,h in media['files'].items():assert sha(Path(name))==h,name
-          reg=root/'regressions/build'
+          reg=root/'regressions'
           for folder in ['browser','mobile','solid_browser','material-field']:
               report=json.loads((reg/folder/'report.json').read_text());assert report['result']=='PASS' and not report.get('errors'),folder
               if folder=='mobile':assert report['scene_rendering_verified'] and not report['controls_only']
